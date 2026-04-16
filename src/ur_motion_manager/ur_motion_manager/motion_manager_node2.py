@@ -1,5 +1,6 @@
 # Ajouté le 16/04 à 10h15 , Modifié à 11h50
 # SCRIPT PROPRE
+# UYEN EST ICI
 
 import rclpy
 from rclpy.node import Node
