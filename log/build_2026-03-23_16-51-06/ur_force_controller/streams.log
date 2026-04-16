@@ -1,0 +1,21 @@
+[1.212s] Invoking command in '/home/stlab24-04/ira2_ws/src/ur_force_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_force_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_force_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_force_controller build --build-base /home/stlab24-04/ira2_ws/build/ur_force_controller/build install --record /home/stlab24-04/ira2_ws/build/ur_force_controller/install.log --single-version-externally-managed install_data
+[1.433s] running egg_info
+[1.450s] writing ../../build/ur_force_controller/ur_force_controller.egg-info/PKG-INFO
+[1.450s] writing dependency_links to ../../build/ur_force_controller/ur_force_controller.egg-info/dependency_links.txt
+[1.450s] writing entry points to ../../build/ur_force_controller/ur_force_controller.egg-info/entry_points.txt
+[1.450s] writing requirements to ../../build/ur_force_controller/ur_force_controller.egg-info/requires.txt
+[1.450s] writing top-level names to ../../build/ur_force_controller/ur_force_controller.egg-info/top_level.txt
+[1.484s] reading manifest file '../../build/ur_force_controller/ur_force_controller.egg-info/SOURCES.txt'
+[1.485s] writing manifest file '../../build/ur_force_controller/ur_force_controller.egg-info/SOURCES.txt'
+[1.485s] running build
+[1.485s] running build_py
+[1.485s] running install
+[1.490s] running install_lib
+[1.507s] running install_data
+[1.507s] running install_egg_info
+[1.525s] removing '/home/stlab24-04/ira2_ws/install/ur_force_controller/lib/python3.12/site-packages/ur_force_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[1.525s] Copying ../../build/ur_force_controller/ur_force_controller.egg-info to /home/stlab24-04/ira2_ws/install/ur_force_controller/lib/python3.12/site-packages/ur_force_controller-0.0.0-py3.12.egg-info
+[1.526s] running install_scripts
+[1.637s] Installing force_controller_node script to /home/stlab24-04/ira2_ws/install/ur_force_controller/lib/ur_force_controller
+[1.637s] writing list of installed files to '/home/stlab24-04/ira2_ws/build/ur_force_controller/install.log'
+[1.667s] Invoked command in '/home/stlab24-04/ira2_ws/src/ur_force_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_force_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_force_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_force_controller build --build-base /home/stlab24-04/ira2_ws/build/ur_force_controller/build install --record /home/stlab24-04/ira2_ws/build/ur_force_controller/install.log --single-version-externally-managed install_data

@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from haptic_teleop/srv/PositionService.srv
+// generated code does not contain a copyright notice
+
+#include "haptic_teleop/msg/PosRot.idl"
+
+module haptic_teleop {
+  module srv {
+    struct PositionService_Request {
+      haptic_teleop::msg::PosRot input;
+    };
+    struct PositionService_Response {
+      haptic_teleop::msg::PosRot output;
+    };
+  };
+};

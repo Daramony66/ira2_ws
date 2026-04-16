@@ -1,0 +1,362 @@
+[0.076s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.076s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7089e0500bf0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7089e0620dd0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7089e0620dd0>>, mixin_verb=('build',))
+[0.100s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.100s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.100s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.100s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.100s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.100s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.100s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/stlab24-04/ira2_ws'
+[0.100s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.101s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['ignore', 'ignore_ament_install']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ignore'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ignore_ament_install'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['colcon_pkg']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'colcon_pkg'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['colcon_meta']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'colcon_meta'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['ros']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ros'
+[0.120s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ROS-TCP-Endpoint' with type 'ros.ament_python' and name 'ros_tcp_endpoint'
+[0.120s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.120s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extension 'ignore'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extension 'ignore_ament_install'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extensions ['colcon_pkg']
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extension 'colcon_pkg'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extensions ['colcon_meta']
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extension 'colcon_meta'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extensions ['ros']
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/haptic_teleop) by extension 'ros'
+[0.121s] DEBUG:colcon.colcon_core.package_identification:Package 'src/haptic_teleop' with type 'ros.ament_cmake' and name 'haptic_teleop'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extension 'ignore'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extension 'ignore_ament_install'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extensions ['colcon_pkg']
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extension 'colcon_pkg'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extensions ['colcon_meta']
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extension 'colcon_meta'
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extensions ['ros']
+[0.121s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_force_controller) by extension 'ros'
+[0.122s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur_force_controller' with type 'ros.ament_python' and name 'ur_force_controller'
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extensions ['ignore', 'ignore_ament_install']
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extension 'ignore'
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extension 'ignore_ament_install'
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extensions ['colcon_pkg']
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extension 'colcon_pkg'
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extensions ['colcon_meta']
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extension 'colcon_meta'
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extensions ['ros']
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_motion_manager) by extension 'ros'
+[0.122s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur_motion_manager' with type 'ros.ament_python' and name 'ur_motion_manager'
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extensions ['ignore', 'ignore_ament_install']
+[0.122s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extension 'ignore'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extension 'ignore_ament_install'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extensions ['colcon_pkg']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extension 'colcon_pkg'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extensions ['colcon_meta']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extension 'colcon_meta'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extensions ['ros']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_safety_monitor) by extension 'ros'
+[0.123s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur_safety_monitor' with type 'ros.ament_python' and name 'ur_safety_monitor'
+[0.123s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.123s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.123s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.123s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.123s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.135s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.138s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 6 installed packages in /home/stlab24-04/ira2_ws/install
+[0.139s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/stlab24-04/ur3e_ws/install
+[0.139s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/stlab24-04/ros2_ws/install
+[0.139s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/stlab24-04/camera_ws/install
+[0.140s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 77 installed packages in /home/stlab24-04/ws_moveit/install
+[0.141s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/stlab24-04/workspace/ros_ur_driver/install
+[0.142s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 456 installed packages in /opt/ros/jazzy
+[0.143s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'cmake_target' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'cmake_clean_cache' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'cmake_clean_first' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'cmake_force_configure' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'ament_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'catkin_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'haptic_teleop' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.189s] DEBUG:colcon.colcon_core.verb:Building package 'haptic_teleop' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/stlab24-04/ira2_ws/build/haptic_teleop', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/stlab24-04/ira2_ws/install/haptic_teleop', 'merge_install': False, 'path': '/home/stlab24-04/ira2_ws/src/haptic_teleop', 'symlink_install': False, 'test_result_base': None}
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_cache' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_first' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_force_configure' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'ament_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.189s] DEBUG:colcon.colcon_core.verb:Building package 'ros_tcp_endpoint' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/stlab24-04/ira2_ws/build/ros_tcp_endpoint', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint', 'merge_install': False, 'path': '/home/stlab24-04/ira2_ws/src/ROS-TCP-Endpoint', 'symlink_install': False, 'test_result_base': None}
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'cmake_target' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_force_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.189s] DEBUG:colcon.colcon_core.verb:Building package 'ur_force_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/stlab24-04/ira2_ws/build/ur_force_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/stlab24-04/ira2_ws/install/ur_force_controller', 'merge_install': False, 'path': '/home/stlab24-04/ira2_ws/src/ur_force_controller', 'symlink_install': False, 'test_result_base': None}
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'cmake_target' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'cmake_clean_cache' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'cmake_clean_first' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'cmake_force_configure' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'ament_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'catkin_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_motion_manager' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.189s] DEBUG:colcon.colcon_core.verb:Building package 'ur_motion_manager' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/stlab24-04/ira2_ws/build/ur_motion_manager', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/stlab24-04/ira2_ws/install/ur_motion_manager', 'merge_install': False, 'path': '/home/stlab24-04/ira2_ws/src/ur_motion_manager', 'symlink_install': False, 'test_result_base': None}
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'cmake_target' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'cmake_clean_first' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'cmake_force_configure' from command line to 'False'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'ament_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.189s] Level 5:colcon.colcon_core.verb:set package 'ur_safety_monitor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.189s] DEBUG:colcon.colcon_core.verb:Building package 'ur_safety_monitor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/stlab24-04/ira2_ws/build/ur_safety_monitor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/stlab24-04/ira2_ws/install/ur_safety_monitor', 'merge_install': False, 'path': '/home/stlab24-04/ira2_ws/src/ur_safety_monitor', 'symlink_install': False, 'test_result_base': None}
+[0.190s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.190s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.190s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/stlab24-04/ira2_ws/src/haptic_teleop' with build type 'ament_cmake'
+[0.190s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/stlab24-04/ira2_ws/src/haptic_teleop'
+[0.192s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.192s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.192s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.198s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/stlab24-04/ira2_ws/src/ROS-TCP-Endpoint' with build type 'ament_python'
+[0.199s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'ament_prefix_path')
+[0.199s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.ps1'
+[0.199s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.dsv'
+[0.199s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.sh'
+[0.200s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.200s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.205s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/stlab24-04/ira2_ws/src/ur_force_controller' with build type 'ament_python'
+[0.205s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_force_controller', 'ament_prefix_path')
+[0.205s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/hook/ament_prefix_path.ps1'
+[0.205s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/hook/ament_prefix_path.dsv'
+[0.206s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/hook/ament_prefix_path.sh'
+[0.206s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.206s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.211s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/stlab24-04/ira2_ws/src/ur_motion_manager' with build type 'ament_python'
+[0.211s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_motion_manager', 'ament_prefix_path')
+[0.211s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/hook/ament_prefix_path.ps1'
+[0.212s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/hook/ament_prefix_path.dsv'
+[0.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/hook/ament_prefix_path.sh'
+[0.212s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.212s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.218s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/stlab24-04/ira2_ws/src/ur_safety_monitor' with build type 'ament_python'
+[0.218s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_safety_monitor', 'ament_prefix_path')
+[0.218s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/hook/ament_prefix_path.ps1'
+[0.218s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/hook/ament_prefix_path.dsv'
+[0.218s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/hook/ament_prefix_path.sh'
+[0.218s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.219s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.227s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/stlab24-04/ira2_ws/build/haptic_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20
+[0.404s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/stlab24-04/ira2_ws/src/ROS-TCP-Endpoint'
+[0.404s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.404s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.583s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/stlab24-04/ira2_ws/src/ur_force_controller'
+[0.583s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.583s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.761s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/stlab24-04/ira2_ws/src/ur_motion_manager'
+[0.762s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.762s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.939s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/stlab24-04/ira2_ws/src/ur_safety_monitor'
+[0.939s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.939s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.422s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/stlab24-04/ira2_ws/src/ur_force_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_force_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_force_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_force_controller build --build-base /home/stlab24-04/ira2_ws/build/ur_force_controller/build install --record /home/stlab24-04/ira2_ws/build/ur_force_controller/install.log --single-version-externally-managed install_data
+[1.425s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/stlab24-04/ira2_ws/src/ur_safety_monitor': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_safety_monitor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_safety_monitor/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_safety_monitor build --build-base /home/stlab24-04/ira2_ws/build/ur_safety_monitor/build install --record /home/stlab24-04/ira2_ws/build/ur_safety_monitor/install.log --single-version-externally-managed install_data
+[1.448s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/stlab24-04/ira2_ws/src/ur_motion_manager': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_motion_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_motion_manager/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_motion_manager build --build-base /home/stlab24-04/ira2_ws/build/ur_motion_manager/build install --record /home/stlab24-04/ira2_ws/build/ur_motion_manager/install.log --single-version-externally-managed install_data
+[1.450s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/stlab24-04/ira2_ws/src/ROS-TCP-Endpoint': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/build install --record /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed install_data
+[1.871s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/stlab24-04/ira2_ws/src/ur_force_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_force_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_force_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_force_controller build --build-base /home/stlab24-04/ira2_ws/build/ur_force_controller/build install --record /home/stlab24-04/ira2_ws/build/ur_force_controller/install.log --single-version-externally-managed install_data
+[1.873s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_force_controller' for CMake module files
+[1.874s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_force_controller' for CMake config files
+[1.875s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_force_controller/lib'
+[1.875s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_force_controller/bin'
+[1.875s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_force_controller/lib/pkgconfig/ur_force_controller.pc'
+[1.875s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_force_controller/lib/python3.12/site-packages'
+[1.875s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_force_controller', 'pythonpath')
+[1.875s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/hook/pythonpath.ps1'
+[1.876s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/hook/pythonpath.dsv'
+[1.876s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/hook/pythonpath.sh'
+[1.877s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_force_controller/bin'
+[1.877s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_force_controller)
+[1.877s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/package.ps1'
+[1.877s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/package.dsv'
+[1.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/package.sh'
+[1.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/package.bash'
+[1.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_force_controller/share/ur_force_controller/package.zsh'
+[1.879s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/stlab24-04/ira2_ws/install/ur_force_controller/share/colcon-core/packages/ur_force_controller)
+[1.881s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_safety_monitor' for CMake module files
+[1.881s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/stlab24-04/ira2_ws/src/ur_safety_monitor' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_safety_monitor/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_safety_monitor/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_safety_monitor build --build-base /home/stlab24-04/ira2_ws/build/ur_safety_monitor/build install --record /home/stlab24-04/ira2_ws/build/ur_safety_monitor/install.log --single-version-externally-managed install_data
+[1.882s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_safety_monitor' for CMake config files
+[1.882s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/lib'
+[1.882s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/bin'
+[1.882s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/lib/pkgconfig/ur_safety_monitor.pc'
+[1.882s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/lib/python3.12/site-packages'
+[1.883s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_safety_monitor', 'pythonpath')
+[1.883s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/hook/pythonpath.ps1'
+[1.883s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/hook/pythonpath.dsv'
+[1.883s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/hook/pythonpath.sh'
+[1.884s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/bin'
+[1.884s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_safety_monitor)
+[1.884s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/package.ps1'
+[1.884s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/package.dsv'
+[1.884s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/package.sh'
+[1.885s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/package.bash'
+[1.885s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/ur_safety_monitor/package.zsh'
+[1.885s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/stlab24-04/ira2_ws/install/ur_safety_monitor/share/colcon-core/packages/ur_safety_monitor)
+[1.905s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_motion_manager' for CMake module files
+[1.905s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/stlab24-04/ira2_ws/src/ur_motion_manager' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ur_motion_manager/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ur_motion_manager/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ur_motion_manager build --build-base /home/stlab24-04/ira2_ws/build/ur_motion_manager/build install --record /home/stlab24-04/ira2_ws/build/ur_motion_manager/install.log --single-version-externally-managed install_data
+[1.906s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_motion_manager' for CMake config files
+[1.906s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_motion_manager/lib'
+[1.906s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_motion_manager/bin'
+[1.906s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_motion_manager/lib/pkgconfig/ur_motion_manager.pc'
+[1.907s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_motion_manager/lib/python3.12/site-packages'
+[1.907s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_motion_manager', 'pythonpath')
+[1.907s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/hook/pythonpath.ps1'
+[1.907s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/hook/pythonpath.dsv'
+[1.908s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/hook/pythonpath.sh'
+[1.908s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ur_motion_manager/bin'
+[1.908s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_motion_manager)
+[1.909s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/package.ps1'
+[1.909s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/package.dsv'
+[1.909s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/package.sh'
+[1.909s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/package.bash'
+[1.910s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/ur_motion_manager/package.zsh'
+[1.910s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/stlab24-04/ira2_ws/install/ur_motion_manager/share/colcon-core/packages/ur_motion_manager)
+[1.911s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint' for CMake module files
+[1.911s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/stlab24-04/ira2_ws/src/ROS-TCP-Endpoint' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/build install --record /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed install_data
+[1.912s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint' for CMake config files
+[1.912s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib'
+[1.912s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/bin'
+[1.912s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/pkgconfig/ros_tcp_endpoint.pc'
+[1.912s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages'
+[1.913s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'pythonpath')
+[1.913s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.ps1'
+[1.913s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.dsv'
+[1.913s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.sh'
+[1.913s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/bin'
+[1.914s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_tcp_endpoint)
+[1.914s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.ps1'
+[1.914s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.dsv'
+[1.914s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.sh'
+[1.914s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.bash'
+[1.915s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.zsh'
+[1.915s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/share/colcon-core/packages/ros_tcp_endpoint)
+[9.798s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/stlab24-04/ira2_ws/build/haptic_teleop' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20
+[9.810s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/stlab24-04/ira2_ws/build/haptic_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/stlab24-04/ira2_ws/build/haptic_teleop
+[9.873s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(haptic_teleop)
+[9.873s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop' for CMake module files
+[9.873s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/stlab24-04/ira2_ws/build/haptic_teleop' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/stlab24-04/ira2_ws/build/haptic_teleop
+[9.874s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop' for CMake config files
+[9.874s] Level 1:colcon.colcon_core.shell:create_environment_hook('haptic_teleop', 'cmake_prefix_path')
+[9.874s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/cmake_prefix_path.ps1'
+[9.874s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/cmake_prefix_path.dsv'
+[9.874s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/cmake_prefix_path.sh'
+[9.875s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib'
+[9.875s] Level 1:colcon.colcon_core.shell:create_environment_hook('haptic_teleop', 'ld_library_path_lib')
+[9.875s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/ld_library_path_lib.ps1'
+[9.875s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/ld_library_path_lib.dsv'
+[9.875s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/ld_library_path_lib.sh'
+[9.876s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/bin'
+[9.876s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/pkgconfig/haptic_teleop.pc'
+[9.876s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages'
+[9.876s] Level 1:colcon.colcon_core.shell:create_environment_hook('haptic_teleop', 'pythonpath')
+[9.876s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/pythonpath.ps1'
+[9.876s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/pythonpath.dsv'
+[9.876s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/pythonpath.sh'
+[9.877s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/bin'
+[9.877s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.ps1'
+[9.877s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.dsv'
+[9.877s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.sh'
+[9.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.bash'
+[9.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.zsh'
+[9.878s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/stlab24-04/ira2_ws/install/haptic_teleop/share/colcon-core/packages/haptic_teleop)
+[9.878s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(haptic_teleop)
+[9.878s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop' for CMake module files
+[9.879s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop' for CMake config files
+[9.879s] Level 1:colcon.colcon_core.shell:create_environment_hook('haptic_teleop', 'cmake_prefix_path')
+[9.879s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/cmake_prefix_path.ps1'
+[9.879s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/cmake_prefix_path.dsv'
+[9.879s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/cmake_prefix_path.sh'
+[9.880s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib'
+[9.880s] Level 1:colcon.colcon_core.shell:create_environment_hook('haptic_teleop', 'ld_library_path_lib')
+[9.880s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/ld_library_path_lib.ps1'
+[9.880s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/ld_library_path_lib.dsv'
+[9.880s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/ld_library_path_lib.sh'
+[9.880s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/bin'
+[9.881s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/pkgconfig/haptic_teleop.pc'
+[9.881s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages'
+[9.881s] Level 1:colcon.colcon_core.shell:create_environment_hook('haptic_teleop', 'pythonpath')
+[9.881s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/pythonpath.ps1'
+[9.881s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/pythonpath.dsv'
+[9.881s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/hook/pythonpath.sh'
+[9.882s] Level 1:colcon.colcon_core.environment:checking '/home/stlab24-04/ira2_ws/install/haptic_teleop/bin'
+[9.882s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.ps1'
+[9.882s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.dsv'
+[9.882s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.sh'
+[9.883s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.bash'
+[9.883s] INFO:colcon.colcon_core.shell:Creating package script '/home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.zsh'
+[9.883s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/stlab24-04/ira2_ws/install/haptic_teleop/share/colcon-core/packages/haptic_teleop)
+[9.883s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.884s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.884s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.884s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.889s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.889s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.889s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[9.900s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[9.900s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/stlab24-04/ira2_ws/install/local_setup.ps1'
+[9.901s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/stlab24-04/ira2_ws/install/_local_setup_util_ps1.py'
+[9.902s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/stlab24-04/ira2_ws/install/setup.ps1'
+[9.904s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/stlab24-04/ira2_ws/install/local_setup.sh'
+[9.904s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/stlab24-04/ira2_ws/install/_local_setup_util_sh.py'
+[9.904s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/stlab24-04/ira2_ws/install/setup.sh'
+[9.906s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/stlab24-04/ira2_ws/install/local_setup.bash'
+[9.907s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/stlab24-04/ira2_ws/install/setup.bash'
+[9.908s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/stlab24-04/ira2_ws/install/local_setup.zsh'
+[9.909s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/stlab24-04/ira2_ws/install/setup.zsh'

@@ -1,0 +1,2 @@
+[console_scripts]
+force_controller_node = ur_force_controller.force_controller_node:main

@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "unity_robotics_ira2__py",
+		"source" : "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2/unity_robotics_ira2__py"
+	}
+}

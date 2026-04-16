@@ -1,0 +1,323 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-761ff519a181cb2ef8bf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27
+					]
+				},
+				{
+					"build" : "unity_robotics_ira2__py",
+					"jsonFile" : "directory-unity_robotics_ira2__py-11ac78bf3da35e7f3609.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2/unity_robotics_ira2__py",
+					"targetIndexes" : 
+					[
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "unity_robotics_ira2",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_unity_robotics_ira2_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_unity_robotics_ira2_egg-f26d4a2d944fd4bcb533.json",
+					"name" : "ament_cmake_python_build_unity_robotics_ira2_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_unity_robotics_ira2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_unity_robotics_ira2-d9da9c145809a10660a5.json",
+					"name" : "ament_cmake_python_copy_unity_robotics_ira2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "color_publisher::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-color_publisher-92d8588a48af0a64eda7.json",
+					"name" : "color_publisher",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "get_force::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-get_force-67686a5f7e9b14c1e0a0.json",
+					"name" : "get_force",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "haptic_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-haptic_control-a4dae356c0df26db7c99.json",
+					"name" : "haptic_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "haptic_control2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-haptic_control2-e31b2f9373e8c8a99a7c.json",
+					"name" : "haptic_control2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "joints_sub::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joints_sub-0a095a966f579df8272d.json",
+					"name" : "joints_sub",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "position_service::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-position_service-db7ec4431fb52c69e49d.json",
+					"name" : "position_service",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "robot_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-robot_control-34ad704d1be9c789a017.json",
+					"name" : "robot_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-327f9cfb8728fab9b936.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_control-bfe0db1ce9868cf3db3d.json",
+					"name" : "unity_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_control_v2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_control_v2-61fb9404ea4698797c13.json",
+					"name" : "unity_control_v2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2-eda71ed5dface6f00924.json",
+					"name" : "unity_robotics_ira2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__cpp-c56d220fcb840cd6ced7.json",
+					"name" : "unity_robotics_ira2__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "unity_robotics_ira2__py::@7e1302dd236367c346f8",
+					"jsonFile" : "target-unity_robotics_ira2__py-cd3a6028f74ee3132ff8.json",
+					"name" : "unity_robotics_ira2__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_generator_c-6d958513318079b87ef5.json",
+					"name" : "unity_robotics_ira2__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_generator_py-8fac2a85853606fe4539.json",
+					"name" : "unity_robotics_ira2__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_generator_type_description-a4b4dfbe3a02821a2d3b.json",
+					"name" : "unity_robotics_ira2__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_typesupport_c-835c903ff81b7297ff71.json",
+					"name" : "unity_robotics_ira2__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_typesupport_cpp-8832edd27bd803d63e49.json",
+					"name" : "unity_robotics_ira2__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_typesupport_fastrtps_c-54b49bb1148c0acac0a6.json",
+					"name" : "unity_robotics_ira2__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_typesupport_fastrtps_cpp-ad73148d88bbc8a7f35f.json",
+					"name" : "unity_robotics_ira2__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_typesupport_introspection_c-e8c97e0a12cb8861e146.json",
+					"name" : "unity_robotics_ira2__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2__rosidl_typesupport_introspection_cpp-9d4b7863fccd3c00e53c.json",
+					"name" : "unity_robotics_ira2__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2_s__rosidl_typesupport_c-442c5b08af815aa78251.json",
+					"name" : "unity_robotics_ira2_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2_s__rosidl_typesupport_fastrtps_c-76b1572c2fa5d6f2a940.json",
+					"name" : "unity_robotics_ira2_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2_s__rosidl_typesupport_introspection_c-7780f8343cf5e837f836.json",
+					"name" : "unity_robotics_ira2_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "unity_robotics_ira2_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-unity_robotics_ira2_uninstall-9985968d8277f061fb5d.json",
+					"name" : "unity_robotics_ira2_uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2",
+		"source" : "/home/stlab24-04/ira2_ws/src/unity_robotics_ira2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

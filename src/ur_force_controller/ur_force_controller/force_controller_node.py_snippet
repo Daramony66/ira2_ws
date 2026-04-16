@@ -1,0 +1,9 @@
+
+    def cb_parameters(self, params):
+        for p in params:
+            if p.name == 'force_target':
+                if p.type_ == rclpy.parameter.Parameter.Type.DOUBLE:
+                    self.f_target = p.value
+                    self.get_logger().info(f"Updated force_target to {self.f_target} N")
+        
+        return rclpy.qos.SetParametersResult(successful=True)

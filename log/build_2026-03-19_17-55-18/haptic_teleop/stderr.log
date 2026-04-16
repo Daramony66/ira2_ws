@@ -1,0 +1,103 @@
+[0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+  Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+  rosidl_target_interfaces().  i.e:
+
+    rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+    target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+
+Call Stack (most recent call first):
+  CMakeLists.txt:168 (rosidl_target_interfaces)
+
+[0m
+[0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+  Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+  rosidl_target_interfaces().  i.e:
+
+    rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+    target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+
+Call Stack (most recent call first):
+  CMakeLists.txt:173 (rosidl_target_interfaces)
+
+[0m
+[0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+  Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+  rosidl_target_interfaces().  i.e:
+
+    rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+    target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+
+Call Stack (most recent call first):
+  CMakeLists.txt:178 (rosidl_target_interfaces)
+
+[0m
+[0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+  Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+  rosidl_target_interfaces().  i.e:
+
+    rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+    target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+
+Call Stack (most recent call first):
+  CMakeLists.txt:183 (rosidl_target_interfaces)
+
+[0m
+[0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+  Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+  rosidl_target_interfaces().  i.e:
+
+    rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+    target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+
+Call Stack (most recent call first):
+  CMakeLists.txt:188 (rosidl_target_interfaces)
+
+[0m
+[0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+  Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+  rosidl_target_interfaces().  i.e:
+
+    rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+    target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+
+Call Stack (most recent call first):
+  CMakeLists.txt:191 (rosidl_target_interfaces)
+
+[0m
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:460:54:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::gain[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  460 |   double velocity, acceleration, dt, lookahead_time, [01;35m[Kgain[m[K;
+      |                                                      [01;35m[K^~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:448:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::button_pressed_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  448 |   int [01;35m[Kbutton_pressed_[m[K;
+      |       [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:35:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   35 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:453:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::reference_position_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  453 |   std::vector<double> [01;35m[Kreference_position_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:450:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::prev_btn_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  450 |   int [01;35m[Kprev_btn_[m[K;
+      |       [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:35:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   35 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:458:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_ori_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  458 |   std::vector<double> [01;35m[Kref_ori_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:457:23:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<double, std::allocator<double> > HapticControl::ref_pos_robot_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  457 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:35:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   35 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:457:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_pos_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  457 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:449:8:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kbool HapticControl::gripper_closed[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  449 |   bool [01;35m[Kgripper_closed[m[K;
+      |        [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:35:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   35 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K

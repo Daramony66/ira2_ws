@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "haptic_teleop__py",
+		"source" : "/home/stlab24-04/ira2_ws/build/haptic_teleop/haptic_teleop__py"
+	}
+}

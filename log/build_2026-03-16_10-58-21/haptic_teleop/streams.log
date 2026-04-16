@@ -1,0 +1,285 @@
+[0.036s] Invoking command in '/home/stlab24-04/ira2_ws/build/haptic_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/stlab24-04/ira2_ws/src/haptic_teleop -DCMAKE_INSTALL_PREFIX=/home/stlab24-04/ira2_ws/install/haptic_teleop
+[0.565s] -- The C compiler identification is GNU 13.3.0
+[0.565s] -- The CXX compiler identification is GNU 13.3.0
+[0.565s] -- Detecting C compiler ABI info
+[0.565s] -- Detecting C compiler ABI info - done
+[0.565s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.565s] -- Detecting C compile features
+[0.565s] -- Detecting C compile features - done
+[0.565s] -- Detecting CXX compiler ABI info
+[0.565s] -- Detecting CXX compiler ABI info - done
+[0.565s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.566s] -- Detecting CXX compile features
+[0.566s] -- Detecting CXX compile features - done
+[0.566s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.566s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.649s] -- Found rclcpp: 28.1.9 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.714s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.735s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.761s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.789s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.885s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.893s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.992s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.013s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.039s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.122s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[1.137s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[1.170s] -- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.176s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.193s] -- Found tf2: 0.36.10 (/opt/ros/jazzy/share/tf2/cmake)
+[1.202s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.239s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system 
+[1.350s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system thread 
+[1.887s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[2.666s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.945s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.952s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[3.089s] -- Found PythonExtra: /usr/bin/python3  
+[3.446s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[3.569s] [0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+[3.569s]   Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+[3.569s]   rosidl_target_interfaces().  i.e:
+[3.569s] 
+[3.569s]     rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+[3.569s]     target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+[3.570s] 
+[3.570s] Call Stack (most recent call first):
+[3.570s]   CMakeLists.txt:135 (rosidl_target_interfaces)
+[3.570s] 
+[3.570s] [0m
+[3.570s] [0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+[3.570s]   Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+[3.570s]   rosidl_target_interfaces().  i.e:
+[3.570s] 
+[3.570s]     rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+[3.570s]     target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+[3.570s] 
+[3.570s] Call Stack (most recent call first):
+[3.570s]   CMakeLists.txt:140 (rosidl_target_interfaces)
+[3.570s] 
+[3.570s] [0m
+[3.571s] [0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+[3.571s]   Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+[3.571s]   rosidl_target_interfaces().  i.e:
+[3.571s] 
+[3.571s]     rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+[3.571s]     target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+[3.571s] 
+[3.571s] Call Stack (most recent call first):
+[3.571s]   CMakeLists.txt:144 (rosidl_target_interfaces)
+[3.571s] 
+[3.571s] [0m
+[3.571s] [0mCMake Deprecation Warning at /opt/ros/jazzy/share/rosidl_cmake/cmake/rosidl_target_interfaces.cmake:32 (message):
+[3.571s]   Use rosidl_get_typesupport_target() and target_link_libraries() instead of
+[3.571s]   rosidl_target_interfaces().  i.e:
+[3.571s] 
+[3.571s]     rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
+[3.572s]     target_link_libraries(${PROJECT_NAME}_node "${cpp_typesupport_target}")
+[3.572s] 
+[3.572s] Call Stack (most recent call first):
+[3.572s]   CMakeLists.txt:147 (rosidl_target_interfaces)
+[3.572s] 
+[3.572s] [0m
+[3.574s] -- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[3.614s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.615s] -- Configured cppcheck include dirs: 
+[3.615s] -- Configured cppcheck exclude dirs and/or files: 
+[3.616s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.616s] -- Configured 'flake8' exclude dirs and/or files: 
+[3.617s] -- Added test 'lint_cmake' to check CMake code style
+[3.619s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.620s] -- Added test 'uncrustify' to check C / C++ code style
+[3.620s] -- Configured uncrustify additional arguments: 
+[3.621s] -- Added test 'xmllint' to check XML markup files
+[3.625s] -- Configuring done (3.6s)
+[3.675s] -- Generating done (0.0s)
+[3.691s] -- Build files have been written to: /home/stlab24-04/ira2_ws/build/haptic_teleop
+[3.702s] Invoked command in '/home/stlab24-04/ira2_ws/build/haptic_teleop' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/stlab24-04/ira2_ws/src/haptic_teleop -DCMAKE_INSTALL_PREFIX=/home/stlab24-04/ira2_ws/install/haptic_teleop
+[3.702s] Invoking command in '/home/stlab24-04/ira2_ws/build/haptic_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20
+[3.758s] [  3%] [32mBuilding CXX object CMakeFiles/get_force.dir/src/get_force.cpp.o[0m
+[3.758s] [  3%] [32mBuilding CXX object CMakeFiles/joints_sub.dir/src/joints_sub.cpp.o[0m
+[3.758s] [  3%] [32mBuilding CXX object CMakeFiles/robot_control.dir/src/robot_control.cpp.o[0m
+[3.759s] [  4%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[3.759s] [  6%] [32mBuilding CXX object CMakeFiles/unity_control.dir/src/unity_control.cpp.o[0m
+[3.760s] [  7%] [32mBuilding CXX object CMakeFiles/unity_control_v2.dir/src/unity_control_v2.cpp.o[0m
+[3.769s] [  7%] Built target ament_cmake_python_copy_haptic_teleop
+[3.926s] [  7%] Built target haptic_teleop__rosidl_generator_type_description
+[3.938s] [  8%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.953s] [  9%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.956s] running egg_info
+[3.957s] creating haptic_teleop.egg-info
+[3.975s] writing haptic_teleop.egg-info/PKG-INFO
+[3.976s] writing dependency_links to haptic_teleop.egg-info/dependency_links.txt
+[3.976s] writing top-level names to haptic_teleop.egg-info/top_level.txt
+[3.976s] writing manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[4.030s] reading manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[4.031s] writing manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[4.059s] [  9%] Built target ament_cmake_python_build_haptic_teleop_egg
+[4.276s] [  9%] Built target haptic_teleop__cpp
+[4.305s] [ 12%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/srv/detail/position_service__type_support.c.o[0m
+[4.305s] [ 12%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/srv/detail/object_pose_service__functions.c.o[0m
+[4.306s] [ 14%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/msg/detail/unity_color__description.c.o[0m
+[4.306s] [ 14%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/msg/detail/unity_color__type_support.c.o[0m
+[4.306s] [ 19%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/msg/detail/pos_rot__functions.c.o[0m
+[4.306s] [ 19%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/msg/detail/pos_rot__type_support.c.o[0m
+[4.306s] [ 19%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/msg/detail/pos_rot__description.c.o[0m
+[4.306s] [ 19%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/srv/detail/position_service__functions.c.o[0m
+[4.307s] [ 20%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/msg/detail/unity_color__functions.c.o[0m
+[4.307s] [ 21%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/srv/detail/position_service__description.c.o[0m
+[4.307s] [ 23%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/srv/detail/object_pose_service__type_support.c.o[0m
+[4.307s] [ 24%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_generator_c.dir/rosidl_generator_c/haptic_teleop/srv/detail/object_pose_service__description.c.o[0m
+[4.379s] [ 25%] [32m[1mLinking C shared library libhaptic_teleop__rosidl_generator_c.so[0m
+[4.419s] [ 25%] Built target haptic_teleop__rosidl_generator_c
+[4.431s] [ 28%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[4.431s] [ 28%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[4.432s] [ 29%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[4.432s] [ 30%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[4.433s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[4.433s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[4.659s] [ 34%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/haptic_teleop/msg/pos_rot__type_support.cpp.o[0m
+[4.664s] [ 37%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/haptic_teleop/srv/object_pose_service__type_support.cpp.o[0m
+[4.664s] [ 37%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/haptic_teleop/srv/position_service__type_support.cpp.o[0m
+[4.664s] [ 37%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/haptic_teleop/msg/unity_color__type_support.cpp.o[0m
+[4.711s] [ 39%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/haptic_teleop/msg/detail/pos_rot__type_support.c.o[0m
+[4.711s] [ 42%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/haptic_teleop/srv/detail/position_service__type_support.c.o[0m
+[4.711s] [ 42%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/haptic_teleop/srv/detail/object_pose_service__type_support.c.o[0m
+[4.711s] [ 42%] [32mBuilding C object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/haptic_teleop/msg/detail/unity_color__type_support.c.o[0m
+[4.763s] [ 43%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_c.dir/rosidl_typesupport_c/haptic_teleop/msg/unity_color__type_support.cpp.o[0m
+[4.765s] [ 47%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_c.dir/rosidl_typesupport_c/haptic_teleop/msg/pos_rot__type_support.cpp.o[0m
+[4.765s] [ 47%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_c.dir/rosidl_typesupport_c/haptic_teleop/srv/object_pose_service__type_support.cpp.o[0m
+[4.766s] [ 47%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_c.dir/rosidl_typesupport_c/haptic_teleop/srv/position_service__type_support.cpp.o[0m
+[4.775s] [ 48%] [32m[1mLinking C shared library libhaptic_teleop__rosidl_typesupport_introspection_c.so[0m
+[4.827s] [ 48%] Built target haptic_teleop__rosidl_typesupport_introspection_c
+[4.827s] [ 50%] [32m[1mLinking CXX shared library libhaptic_teleop__rosidl_typesupport_c.so[0m
+[4.848s] [ 54%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/haptic_teleop/srv/detail/position_service__type_support.cpp.o[0m
+[4.848s] [ 54%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/haptic_teleop/msg/detail/dds_fastrtps/unity_color__type_support.cpp.o[0m
+[4.848s] [ 54%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/haptic_teleop/msg/detail/pos_rot__type_support.cpp.o[0m
+[4.848s] [ 54%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/haptic_teleop/srv/detail/dds_fastrtps/object_pose_service__type_support.cpp.o[0m
+[4.849s] [ 56%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/haptic_teleop/msg/detail/unity_color__type_support.cpp.o[0m
+[4.849s] [ 57%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/haptic_teleop/srv/detail/dds_fastrtps/position_service__type_support.cpp.o[0m
+[4.851s] [ 58%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/haptic_teleop/msg/detail/dds_fastrtps/pos_rot__type_support.cpp.o[0m
+[4.851s] [ 59%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/haptic_teleop/srv/detail/object_pose_service__type_support.cpp.o[0m
+[4.880s] [ 59%] Built target haptic_teleop__rosidl_typesupport_c
+[5.003s] [ 60%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/haptic_teleop/msg/detail/pos_rot__type_support_c.cpp.o[0m
+[5.004s] [ 63%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/haptic_teleop/msg/detail/unity_color__type_support_c.cpp.o[0m
+[5.004s] [ 63%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/haptic_teleop/srv/detail/object_pose_service__type_support_c.cpp.o[0m
+[5.008s] [ 64%] [32mBuilding CXX object CMakeFiles/haptic_teleop__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/haptic_teleop/srv/detail/position_service__type_support_c.cpp.o[0m
+[5.130s] [ 65%] [32m[1mLinking CXX shared library libhaptic_teleop__rosidl_typesupport_cpp.so[0m
+[5.315s] [ 65%] Built target haptic_teleop__rosidl_typesupport_cpp
+[5.358s] [ 67%] [32m[1mLinking CXX shared library libhaptic_teleop__rosidl_typesupport_introspection_cpp.so[0m
+[5.428s] [ 67%] Built target haptic_teleop__rosidl_typesupport_introspection_cpp
+[5.511s] [ 69%] [32m[1mLinking CXX shared library libhaptic_teleop__rosidl_typesupport_fastrtps_cpp.so[0m
+[5.511s] [ 69%] [32m[1mLinking CXX shared library libhaptic_teleop__rosidl_typesupport_fastrtps_c.so[0m
+[5.580s] [ 69%] Built target haptic_teleop__rosidl_typesupport_fastrtps_c
+[5.583s] [ 69%] Built target haptic_teleop__rosidl_typesupport_fastrtps_cpp
+[5.611s] [ 69%] Built target haptic_teleop
+[5.634s] [ 71%] [32mBuilding CXX object CMakeFiles/haptic_control2.dir/src/haptic_control2.cpp.o[0m
+[5.634s] [ 71%] [32mBuilding CXX object CMakeFiles/haptic_control.dir/src/haptic_control.cpp.o[0m
+[5.636s] [ 73%] [32mBuilding CXX object CMakeFiles/color_publisher.dir/src/color_publisher.cpp.o[0m
+[5.637s] [ 75%] [34m[1mGenerating Python code for ROS interfaces[0m
+[5.637s] [ 75%] [32mBuilding CXX object CMakeFiles/position_service.dir/src/position_service.cpp.o[0m
+[5.730s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/position_service.cpp:2:10:[m[K [01;31m[Kfatal error: [m[Kunity_robotics_ira2/srv/position_service.hpp: No such file or directory
+[5.730s]     2 | #include [01;31m[K"unity_robotics_ira2/srv/position_service.hpp"[m[K
+[5.730s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.730s] compilation terminated.
+[5.731s] gmake[2]: *** [CMakeFiles/position_service.dir/build.make:76: CMakeFiles/position_service.dir/src/position_service.cpp.o] Error 1
+[5.731s] gmake[1]: *** [CMakeFiles/Makefile2:859: CMakeFiles/position_service.dir/all] Error 2
+[5.731s] gmake[1]: *** Waiting for unfinished jobs....
+[5.784s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/color_publisher.cpp:6:10:[m[K [01;31m[Kfatal error: [m[Kunity_robotics_ira2/msg/unity_color.hpp: No such file or directory
+[5.784s]     6 | #include [01;31m[K"unity_robotics_ira2/msg/unity_color.hpp"[m[K
+[5.784s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.784s] compilation terminated.
+[5.785s] gmake[2]: *** [CMakeFiles/color_publisher.dir/build.make:76: CMakeFiles/color_publisher.dir/src/color_publisher.cpp.o] Error 1
+[5.785s] gmake[1]: *** [CMakeFiles/Makefile2:830: CMakeFiles/color_publisher.dir/all] Error 2
+[6.054s] [ 75%] Built target haptic_teleop__py
+[7.081s] [ 76%] [32m[1mLinking CXX executable robot_control[0m
+[7.217s] [ 76%] Built target robot_control
+[8.193s] [ 78%] [32m[1mLinking CXX executable get_force[0m
+[8.395s] [ 78%] Built target get_force
+[8.544s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[8.544s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:240:54:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::gain[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.544s]   240 |   double velocity, acceleration, dt, lookahead_time, [01;35m[Kgain[m[K;
+[8.544s]       |                                                      [01;35m[K^~~~[m[K
+[8.544s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:228:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::button_pressed_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.545s]   228 |   int [01;35m[Kbutton_pressed_[m[K;
+[8.545s]       |       [01;35m[K^~~~~~~~~~~~~~~[m[K
+[8.545s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:18:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.545s]    18 |   [01;35m[KHapticControl[m[K()
+[8.545s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[8.545s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:233:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::reference_position_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.545s]   233 |   std::vector<double> [01;35m[Kreference_position_[m[K;
+[8.545s]       |                       [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[8.545s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:230:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::prev_btn_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.545s]   230 |   int [01;35m[Kprev_btn_[m[K;
+[8.545s]       |       [01;35m[K^~~~~~~~~[m[K
+[8.545s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:18:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.545s]    18 |   [01;35m[KHapticControl[m[K()
+[8.545s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[8.546s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:238:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_ori_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.546s]   238 |   std::vector<double> [01;35m[Kref_ori_robot_[m[K;
+[8.546s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.546s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:237:23:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<double, std::allocator<double> > HapticControl::ref_pos_robot_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.546s]   237 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+[8.546s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.546s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:18:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.546s]    18 |   [01;35m[KHapticControl[m[K()
+[8.546s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[8.546s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:237:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_pos_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.546s]   237 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+[8.546s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.546s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:229:8:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kbool HapticControl::gripper_closed[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.546s]   229 |   bool [01;35m[Kgripper_closed[m[K;
+[8.546s]       |        [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.547s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control.cpp:18:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.547s]    18 |   [01;35m[KHapticControl[m[K()
+[8.547s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[8.609s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[8.609s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:339:54:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::gain[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.609s]   339 |   double velocity, acceleration, dt, lookahead_time, [01;35m[Kgain[m[K;
+[8.609s]       |                                                      [01;35m[K^~~~[m[K
+[8.609s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:327:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::button_pressed_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.609s]   327 |   int [01;35m[Kbutton_pressed_[m[K;
+[8.609s]       |       [01;35m[K^~~~~~~~~~~~~~~[m[K
+[8.609s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.609s]    23 |   [01;35m[KHapticControl[m[K()
+[8.609s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[8.609s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:332:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::reference_position_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.610s]   332 |   std::vector<double> [01;35m[Kreference_position_[m[K;
+[8.610s]       |                       [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[8.610s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:329:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::prev_btn_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.610s]   329 |   int [01;35m[Kprev_btn_[m[K;
+[8.610s]       |       [01;35m[K^~~~~~~~~[m[K
+[8.610s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.610s]    23 |   [01;35m[KHapticControl[m[K()
+[8.610s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[8.610s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:337:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_ori_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.610s]   337 |   std::vector<double> [01;35m[Kref_ori_robot_[m[K;
+[8.610s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.610s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:336:23:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<double, std::allocator<double> > HapticControl::ref_pos_robot_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.610s]   336 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+[8.610s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.611s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.611s]    23 |   [01;35m[KHapticControl[m[K()
+[8.611s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[8.611s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:336:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_pos_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.611s]   336 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+[8.611s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.611s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:328:8:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kbool HapticControl::gripper_closed[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.611s]   328 |   bool [01;35m[Kgripper_closed[m[K;
+[8.611s]       |        [01;35m[K^~~~~~~~~~~~~~[m[K
+[8.611s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[8.611s]    23 |   [01;35m[KHapticControl[m[K()
+[8.611s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[10.559s] [ 79%] [32m[1mLinking CXX executable joints_sub[0m
+[10.825s] [ 79%] Built target joints_sub
+[10.935s] [ 80%] [32m[1mLinking CXX executable unity_control_v2[0m
+[11.149s] [ 81%] [32m[1mLinking CXX executable unity_control[0m
+[11.208s] [ 81%] Built target unity_control_v2
+[11.411s] [ 81%] Built target unity_control
+[13.744s] [ 82%] [32m[1mLinking CXX executable haptic_control[0m
+[14.033s] [ 82%] Built target haptic_control
+[15.383s] [ 84%] [32m[1mLinking CXX executable haptic_control2[0m
+[15.734s] [ 84%] Built target haptic_control2
+[15.735s] gmake: *** [Makefile:146: all] Error 2
+[15.736s] Invoked command in '/home/stlab24-04/ira2_ws/build/haptic_teleop' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20

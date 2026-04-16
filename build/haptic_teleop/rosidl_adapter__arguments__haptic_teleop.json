@@ -1,0 +1,9 @@
+{
+  "package_name": "haptic_teleop",
+  "non_idl_tuples": [
+    "/home/stlab24-04/ira2_ws/src/haptic_teleop:msg/PosRot.msg",
+    "/home/stlab24-04/ira2_ws/src/haptic_teleop:msg/UnityColor.msg",
+    "/home/stlab24-04/ira2_ws/src/haptic_teleop:srv/PositionService.srv",
+    "/home/stlab24-04/ira2_ws/src/haptic_teleop:srv/ObjectPoseService.srv"
+  ]
+}

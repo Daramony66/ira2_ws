@@ -1,0 +1,286 @@
+[  1%] Built target haptic_teleop__rosidl_generator_type_description
+[  3%] Built target robot_control
+[  6%] Built target unity_control
+[  6%] Built target ament_cmake_python_copy_haptic_teleop
+[  8%] Built target unity_control_v2
+[ 10%] Built target joints_sub
+[ 13%] Built target get_force
+[ 14%] Built target haptic_teleop__cpp
+[ 31%] Built target haptic_teleop__rosidl_generator_c
+[ 39%] Built target haptic_teleop__rosidl_typesupport_introspection_c
+[ 46%] Built target haptic_teleop__rosidl_typesupport_c
+[ 53%] Built target haptic_teleop__rosidl_typesupport_introspection_cpp
+[ 60%] Built target haptic_teleop__rosidl_typesupport_fastrtps_c
+[ 68%] Built target haptic_teleop__rosidl_typesupport_cpp
+[ 75%] Built target haptic_teleop__rosidl_typesupport_fastrtps_cpp
+[ 75%] Built target haptic_teleop
+[ 76%] Built target haptic_teleop__py
+[ 79%] Built target color_publisher
+[ 81%] Built target position_service
+[ 82%] [32mBuilding CXX object CMakeFiles/haptic_control2.dir/src/haptic_control2.cpp.o[0m
+[ 85%] Built target haptic_control
+[ 91%] Built target haptic_teleop__rosidl_generator_py
+[ 93%] Built target haptic_teleop_s__rosidl_typesupport_fastrtps_c
+[ 98%] Built target haptic_teleop_s__rosidl_typesupport_introspection_c
+[ 98%] Built target haptic_teleop_s__rosidl_typesupport_c
+running egg_info
+writing haptic_teleop.egg-info/PKG-INFO
+writing dependency_links to haptic_teleop.egg-info/dependency_links.txt
+writing top-level names to haptic_teleop.egg-info/top_level.txt
+reading manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+writing manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[ 98%] Built target ament_cmake_python_build_haptic_teleop_egg
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:369:54:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::gain[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  369 |   double velocity, acceleration, dt, lookahead_time, [01;35m[Kgain[m[K;
+      |                                                      [01;35m[K^~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:357:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::button_pressed_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  357 |   int [01;35m[Kbutton_pressed_[m[K;
+      |       [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:27:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   27 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:362:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::reference_position_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  362 |   std::vector<double> [01;35m[Kreference_position_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:359:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::prev_btn_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  359 |   int [01;35m[Kprev_btn_[m[K;
+      |       [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:27:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   27 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:367:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_ori_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  367 |   std::vector<double> [01;35m[Kref_ori_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:366:23:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<double, std::allocator<double> > HapticControl::ref_pos_robot_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  366 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:27:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   27 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:366:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_pos_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  366 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:358:8:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kbool HapticControl::gripper_closed[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  358 |   bool [01;35m[Kgripper_closed[m[K;
+      |        [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:27:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   27 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[100%] [32m[1mLinking CXX executable haptic_control2[0m
+[100%] Built target haptic_control2
+-- Install configuration: ""
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/ament_index/resource_index/rosidl_interfaces/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/msg/PosRot.json
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/msg/UnityColor.json
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/srv/PositionService.json
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/srv/ObjectPoseService.json
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/position_service.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__struct.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__struct.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__functions.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__type_support.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__functions.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__description.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__description.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__functions.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__type_support.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__functions.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/object_pose_service.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/unity_color.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__type_support.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__functions.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__functions.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__functions.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__description.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__type_support.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__struct.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__struct.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__functions.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__description.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/pos_rot.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/rosidl_generator_c__visibility_control.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/library_path.sh
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/library_path.dsv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_generator_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/object_pose_service.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__struct.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__builder.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__traits.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__builder.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__traits.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__type_support.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__type_support.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__struct.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/position_service.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/pos_rot.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__struct.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__type_support.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__type_support.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__builder.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__traits.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__builder.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__struct.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__traits.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/unity_color.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/dds_fastrtps
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/dds_fastrtps
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_typesupport_fastrtps_cpp.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__type_support.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_typesupport_introspection_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_typesupport_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__type_support.cpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/position_service__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__type_support.cpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/srv/detail/object_pose_service__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__type_support.cpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/pos_rot__type_support.cpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/include/haptic_teleop/haptic_teleop/msg/detail/unity_color__rosidl_typesupport_introspection_cpp.hpp
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_typesupport_introspection_cpp.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_typesupport_cpp.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/pythonpath.sh
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/pythonpath.dsv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop-0.0.0-py3.12.egg-info
+-- Installing: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop-0.0.0-py3.12.egg-info/PKG-INFO
+-- Installing: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Installing: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop-0.0.0-py3.12.egg-info/top_level.txt
+-- Installing: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/_haptic_teleop_s.ep.rosidl_typesupport_c.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/srv/_object_pose_service_s.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/srv/_position_service_s.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/srv/_position_service.py
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/srv/__init__.py
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/srv/_object_pose_service.py
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/msg/_unity_color.py
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/msg/_pos_rot_s.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/msg/_pos_rot.py
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/msg/__init__.py
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/msg/_unity_color_s.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/_haptic_teleop_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/haptic_teleop_s__rosidl_typesupport_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/__init__.py
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/haptic_teleop_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/_haptic_teleop_s.ep.rosidl_typesupport_introspection_c.c
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/haptic_teleop_s__rosidl_typesupport_introspection_c.so
+Listing '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop'...
+Listing '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/msg'...
+Listing '/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/srv'...
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/haptic_teleop_s__rosidl_typesupport_fastrtps_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/haptic_teleop_s__rosidl_typesupport_introspection_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/python3.12/site-packages/haptic_teleop/haptic_teleop_s__rosidl_typesupport_c.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/libhaptic_teleop__rosidl_generator_py.so
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/msg/PosRot.idl
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/msg/UnityColor.idl
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/srv/PositionService.idl
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/srv/ObjectPoseService.idl
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/msg/PosRot.msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/msg/UnityColor.msg
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/srv/PositionService.srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/srv/ObjectPoseService.srv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/unity_control
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/unity_control_v2
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/robot_control
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/joints_sub
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/haptic_control
+-- Installing: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/haptic_control2
+-- Set non-toolchain portion of runtime path of "/home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/haptic_control2" to ""
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/get_force
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/color_publisher
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/lib/haptic_teleop/position_service
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/ament_index/resource_index/package_run_dependencies/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/ament_index/resource_index/parent_prefix_path/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/ament_prefix_path.sh
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/path.sh
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/environment/path.dsv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/local_setup.bash
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/local_setup.sh
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/local_setup.zsh
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/local_setup.dsv
+-- Installing: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.dsv
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/ament_index/resource_index/packages/haptic_teleop
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_generator_cExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_generator_cExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_typesupport_fastrtps_cExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_generator_cppExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_introspection_cExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_cExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_cExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_introspection_cppExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_cppExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleop__rosidl_typesupport_cppExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_generator_pyExport.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/export_haptic_teleop__rosidl_generator_pyExport-noconfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/rosidl_cmake-extras.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/ament_cmake_export_targets-extras.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleopConfig.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/cmake/haptic_teleopConfig-version.cmake
+-- Up-to-date: /home/stlab24-04/ira2_ws/install/haptic_teleop/share/haptic_teleop/package.xml

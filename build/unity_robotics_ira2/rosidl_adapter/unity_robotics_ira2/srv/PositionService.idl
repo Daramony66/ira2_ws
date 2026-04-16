@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from unity_robotics_ira2/srv/PositionService.srv
+// generated code does not contain a copyright notice
+
+#include "unity_robotics_ira2/msg/PosRot.idl"
+
+module unity_robotics_ira2 {
+  module srv {
+    struct PositionService_Request {
+      unity_robotics_ira2::msg::PosRot input;
+    };
+    struct PositionService_Response {
+      unity_robotics_ira2::msg::PosRot output;
+    };
+  };
+};

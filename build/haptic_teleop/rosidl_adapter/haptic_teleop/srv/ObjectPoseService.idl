@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from haptic_teleop/srv/ObjectPoseService.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module haptic_teleop {
+  module srv {
+    struct ObjectPoseService_Request {
+      string object_name;
+    };
+    struct ObjectPoseService_Response {
+      geometry_msgs::msg::Pose object_pose;
+    };
+  };
+};

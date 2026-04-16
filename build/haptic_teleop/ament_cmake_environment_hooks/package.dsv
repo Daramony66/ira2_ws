@@ -1,0 +1,4 @@
+source;share/haptic_teleop/local_setup.bash
+source;share/haptic_teleop/local_setup.dsv
+source;share/haptic_teleop/local_setup.sh
+source;share/haptic_teleop/local_setup.zsh

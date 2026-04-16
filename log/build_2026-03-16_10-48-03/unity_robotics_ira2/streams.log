@@ -1,0 +1,250 @@
+[0.206s] Invoking command in '/home/stlab24-04/ira2_ws/build/unity_robotics_ira2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/unity_robotics_ira2 -- -j20 -l20
+[0.559s] [  1%] Built target unity_robotics_ira2__rosidl_generator_type_description
+[0.559s] [  3%] Built target robot_control
+[0.559s] [  6%] Built target unity_control
+[0.559s] [  8%] Built target get_force
+[0.559s] [  8%] Built target ament_cmake_python_copy_unity_robotics_ira2
+[0.559s] [ 13%] Built target unity_control_v2
+[0.559s] [ 13%] Built target joints_sub
+[0.559s] [ 14%] Built target unity_robotics_ira2__cpp
+[0.559s] [ 31%] Built target unity_robotics_ira2__rosidl_generator_c
+[0.559s] [ 50%] Built target unity_robotics_ira2__rosidl_typesupport_introspection_c
+[0.559s] [ 50%] Built target unity_robotics_ira2__rosidl_typesupport_c
+[0.559s] [ 53%] Built target unity_robotics_ira2__rosidl_typesupport_cpp
+[0.559s] [ 60%] Built target unity_robotics_ira2__rosidl_typesupport_introspection_cpp
+[0.560s] [ 68%] Built target unity_robotics_ira2__rosidl_typesupport_fastrtps_cpp
+[0.560s] [ 75%] Built target unity_robotics_ira2__rosidl_typesupport_fastrtps_c
+[0.560s] [ 75%] Built target unity_robotics_ira2
+[0.560s] [ 76%] Built target unity_robotics_ira2__py
+[0.560s] [ 81%] Built target position_service
+[0.560s] [ 81%] Built target color_publisher
+[0.560s] [ 84%] Built target haptic_control
+[0.560s] [ 86%] Built target haptic_control2
+[0.560s] [ 92%] Built target unity_robotics_ira2__rosidl_generator_py
+[0.560s] [ 97%] Built target unity_robotics_ira2_s__rosidl_typesupport_fastrtps_c
+[0.560s] [ 97%] Built target unity_robotics_ira2_s__rosidl_typesupport_introspection_c
+[0.560s] [100%] Built target unity_robotics_ira2_s__rosidl_typesupport_c
+[0.560s] running egg_info
+[0.560s] writing unity_robotics_ira2.egg-info/PKG-INFO
+[0.560s] writing dependency_links to unity_robotics_ira2.egg-info/dependency_links.txt
+[0.560s] writing top-level names to unity_robotics_ira2.egg-info/top_level.txt
+[0.560s] reading manifest file 'unity_robotics_ira2.egg-info/SOURCES.txt'
+[0.560s] writing manifest file 'unity_robotics_ira2.egg-info/SOURCES.txt'
+[0.560s] [100%] Built target ament_cmake_python_build_unity_robotics_ira2_egg
+[0.740s] Invoked command in '/home/stlab24-04/ira2_ws/build/unity_robotics_ira2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/unity_robotics_ira2 -- -j20 -l20
+[0.750s] Invoking command in '/home/stlab24-04/ira2_ws/build/unity_robotics_ira2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/stlab24-04/ira2_ws/build/unity_robotics_ira2
+[0.758s] -- Install configuration: ""
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/ament_index/resource_index/rosidl_interfaces/unity_robotics_ira2
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/msg/PosRot.json
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/msg/UnityColor.json
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/srv/PositionService.json
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/srv/ObjectPoseService.json
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv
+[0.758s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/position_service.h
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__struct.h
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__struct.h
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__functions.h
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__type_support.h
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__functions.c
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__type_support.c
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__description.c
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__type_support.c
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__description.c
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__functions.c
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__type_support.h
+[0.759s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__functions.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/object_pose_service.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/unity_color.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__type_support.c
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__type_support.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__functions.c
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__functions.c
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__functions.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__description.c
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__type_support.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__struct.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__struct.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__functions.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__description.c
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__type_support.c
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/pos_rot.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/rosidl_generator_c__visibility_control.h
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/library_path.sh
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/library_path.dsv
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_generator_c.so
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv
+[0.760s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__rosidl_typesupport_fastrtps_c.h
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__rosidl_typesupport_fastrtps_c.h
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__rosidl_typesupport_fastrtps_c.h
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__rosidl_typesupport_fastrtps_c.h
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_typesupport_fastrtps_c.so
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/object_pose_service.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__struct.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__builder.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__traits.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__builder.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__traits.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__type_support.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__type_support.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__struct.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/position_service.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/pos_rot.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__struct.hpp
+[0.761s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__type_support.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__type_support.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__builder.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__traits.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__builder.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__struct.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__traits.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/unity_color.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__rosidl_typesupport_fastrtps_cpp.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/dds_fastrtps
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__rosidl_typesupport_fastrtps_cpp.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/dds_fastrtps
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__rosidl_typesupport_fastrtps_cpp.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__rosidl_typesupport_fastrtps_cpp.hpp
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_typesupport_fastrtps_cpp.so
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__rosidl_typesupport_introspection_c.h
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__type_support.c
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__rosidl_typesupport_introspection_c.h
+[0.762s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__type_support.c
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__type_support.c
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__rosidl_typesupport_introspection_c.h
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__rosidl_typesupport_introspection_c.h
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__type_support.c
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_typesupport_introspection_c.so
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_typesupport_c.so
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__type_support.cpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/position_service__rosidl_typesupport_introspection_cpp.hpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__type_support.cpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/srv/detail/object_pose_service__rosidl_typesupport_introspection_cpp.hpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__rosidl_typesupport_introspection_cpp.hpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__type_support.cpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/pos_rot__type_support.cpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/include/unity_robotics_ira2/unity_robotics_ira2/msg/detail/unity_color__rosidl_typesupport_introspection_cpp.hpp
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_typesupport_introspection_cpp.so
+[0.763s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_typesupport_cpp.so
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/pythonpath.sh
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/pythonpath.dsv
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2-0.0.0-py3.12.egg-info
+[0.764s] -- Installing: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2-0.0.0-py3.12.egg-info/PKG-INFO
+[0.764s] -- Installing: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2-0.0.0-py3.12.egg-info/SOURCES.txt
+[0.764s] -- Installing: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2-0.0.0-py3.12.egg-info/top_level.txt
+[0.764s] -- Installing: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2-0.0.0-py3.12.egg-info/dependency_links.txt
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/srv
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/srv/_object_pose_service_s.c
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/srv/_position_service_s.c
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/srv/_position_service.py
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/srv/__init__.py
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/srv/_object_pose_service.py
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/unity_robotics_ira2_s__rosidl_typesupport_fastrtps_c.so
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/msg
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/msg/_unity_color.py
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/msg/_pos_rot_s.c
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/msg/_pos_rot.py
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/msg/__init__.py
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/msg/_unity_color_s.c
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/_unity_robotics_ira2_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/__init__.py
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/_unity_robotics_ira2_s.ep.rosidl_typesupport_introspection_c.c
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/unity_robotics_ira2_s__rosidl_typesupport_c.so
+[0.764s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/_unity_robotics_ira2_s.ep.rosidl_typesupport_c.c
+[0.765s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/unity_robotics_ira2_s__rosidl_typesupport_introspection_c.so
+[0.792s] Listing '/home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2'...
+[0.792s] Listing '/home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/msg'...
+[0.792s] Listing '/home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/srv'...
+[0.796s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/unity_robotics_ira2_s__rosidl_typesupport_fastrtps_c.so
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/unity_robotics_ira2_s__rosidl_typesupport_introspection_c.so
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/python3.12/site-packages/unity_robotics_ira2/unity_robotics_ira2_s__rosidl_typesupport_c.so
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/libunity_robotics_ira2__rosidl_generator_py.so
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/msg/PosRot.idl
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/msg/UnityColor.idl
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/srv/PositionService.idl
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/srv/ObjectPoseService.idl
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/msg/PosRot.msg
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/msg/UnityColor.msg
+[0.797s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/srv/PositionService.srv
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/srv/ObjectPoseService.srv
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/unity_control
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/unity_control_v2
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/robot_control
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/joints_sub
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/haptic_control
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/haptic_control2
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/get_force
+[0.798s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/color_publisher
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/lib/unity_robotics_ira2/position_service
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/ament_index/resource_index/package_run_dependencies/unity_robotics_ira2
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/ament_index/resource_index/parent_prefix_path/unity_robotics_ira2
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/ament_prefix_path.sh
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/ament_prefix_path.dsv
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/path.sh
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/environment/path.dsv
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/local_setup.bash
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/local_setup.sh
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/local_setup.zsh
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/local_setup.dsv
+[0.799s] -- Installing: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/package.dsv
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/ament_index/resource_index/packages/unity_robotics_ira2
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_generator_cExport.cmake
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_generator_cExport-noconfig.cmake
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_typesupport_fastrtps_cExport.cmake
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_generator_cppExport.cmake
+[0.799s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_introspection_cExport.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_cExport.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_cExport-noconfig.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_introspection_cppExport.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_cppExport.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2__rosidl_typesupport_cppExport-noconfig.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_generator_pyExport.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/export_unity_robotics_ira2__rosidl_generator_pyExport-noconfig.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/rosidl_cmake-extras.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/ament_cmake_export_libraries-extras.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/ament_cmake_export_targets-extras.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2Config.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/cmake/unity_robotics_ira2Config-version.cmake
+[0.800s] -- Up-to-date: /home/stlab24-04/ira2_ws/install/unity_robotics_ira2/share/unity_robotics_ira2/package.xml
+[0.802s] Invoked command in '/home/stlab24-04/ira2_ws/build/unity_robotics_ira2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/stlab24-04/ira2_ws/build/unity_robotics_ira2

@@ -1,0 +1,404 @@
+[0.040s] Invoking command in '/home/stlab24-04/ira2_ws/build/haptic_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20
+[0.597s] [  1%] Built target haptic_teleop__rosidl_generator_type_description
+[0.597s] [  3%] Built target robot_control
+[0.597s] [  5%] Built target unity_control
+[0.597s] [  8%] Built target unity_control_v2
+[0.597s] [  8%] Built target ament_cmake_python_copy_haptic_teleop
+[0.597s] [ 12%] Built target joints_sub
+[0.597s] [ 12%] Built target get_force
+[0.597s] [ 13%] Built target haptic_teleop__cpp
+[0.597s] [ 30%] Built target haptic_teleop__rosidl_generator_c
+[0.597s] [ 65%] Built target haptic_teleop__rosidl_typesupport_c
+[0.597s] [ 65%] Built target haptic_teleop__rosidl_typesupport_fastrtps_cpp
+[0.597s] [ 65%] Built target haptic_teleop__rosidl_typesupport_cpp
+[0.598s] [ 65%] Built target haptic_teleop__rosidl_typesupport_fastrtps_c
+[0.598s] [ 65%] Built target haptic_teleop__rosidl_typesupport_introspection_c
+[0.598s] [ 72%] Built target haptic_teleop__rosidl_typesupport_introspection_cpp
+[0.598s] [ 72%] Built target haptic_teleop
+[0.598s] [ 74%] Built target color_publisher
+[0.598s] [ 76%] Built target position_service
+[0.598s] [ 77%] Built target haptic_teleop__py
+[0.598s] [ 80%] Built target haptic_control2
+[0.598s] [ 82%] Built target haptic_control
+[0.598s] [ 83%] [32mBuilding CXX object CMakeFiles/haptic_control3.dir/src/haptic_control3.cpp.o[0m
+[0.598s] [ 86%] Built target haptic_control4
+[0.598s] [ 91%] Built target haptic_teleop__rosidl_generator_py
+[0.598s] [ 94%] Built target haptic_teleop_s__rosidl_typesupport_introspection_c
+[0.598s] [ 96%] Built target haptic_teleop_s__rosidl_typesupport_c
+[0.598s] [ 98%] Built target haptic_teleop_s__rosidl_typesupport_fastrtps_c
+[0.598s] running egg_info
+[0.598s] writing haptic_teleop.egg-info/PKG-INFO
+[0.598s] writing dependency_links to haptic_teleop.egg-info/dependency_links.txt
+[0.598s] writing top-level names to haptic_teleop.egg-info/top_level.txt
+[0.598s] reading manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[0.598s] writing manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[0.598s] [ 98%] Built target ament_cmake_python_build_haptic_teleop_egg
+[2.852s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:184:4:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ after class definition
+[2.852s]   184 |   }
+[2.852s]       |    [01;31m[K^[m[K
+[2.852s]       |    [32m[K;[m[K
+[2.852s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[2.852s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:32:29:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Krtde_control[m[K’
+[2.852s]    32 |   : Node("haptic_control"), [01;31m[Krtde_control[m[K("192.168.1.101"), rtde_receive("192.168.1.101"), //gripper("192.168.1.101", 63352, true), //Modifié "true" le 04/03 à 12h13 // Commenté le 20/03 à 12h30
+[2.852s]       |                             [01;31m[K^~~~~~~~~~~~[m[K
+[2.852s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:32:60:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Krtde_receive[m[K’
+[2.852s]    32 |   : Node("haptic_control"), rtde_control("192.168.1.101"), [01;31m[Krtde_receive[m[K("192.168.1.101"), //gripper("192.168.1.101", 63352, true), //Modifié "true" le 04/03 à 12h13 // Commenté le 20/03 à 12h30
+[2.853s]       |                                                            [01;31m[K^~~~~~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:33:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kvelocity[m[K’
+[2.853s]    33 |     [01;31m[Kvelocity[m[K(0.1), acceleration(0.1), dt(1.0/125), lookahead_time(0.07), gain(500), //Modifié lookahead_time(0.07) le 17/03 à 15h43
+[2.853s]       |     [01;31m[K^~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:33:20:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kacceleration[m[K’
+[2.853s]    33 |     velocity(0.1), [01;31m[Kacceleration[m[K(0.1), dt(1.0/125), lookahead_time(0.07), gain(500), //Modifié lookahead_time(0.07) le 17/03 à 15h43
+[2.853s]       |                    [01;31m[K^~~~~~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:33:39:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kdt[m[K’
+[2.853s]    33 |     velocity(0.1), acceleration(0.1), [01;31m[Kdt[m[K(1.0/125), lookahead_time(0.07), gain(500), //Modifié lookahead_time(0.07) le 17/03 à 15h43
+[2.853s]       |                                       [01;31m[K^~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:33:52:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Klookahead_time[m[K’
+[2.853s]    33 |     velocity(0.1), acceleration(0.1), dt(1.0/125), [01;31m[Klookahead_time[m[K(0.07), gain(500), //Modifié lookahead_time(0.07) le 17/03 à 15h43
+[2.853s]       |                                                    [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:33:74:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kgain[m[K’
+[2.853s]    33 |     velocity(0.1), acceleration(0.1), dt(1.0/125), lookahead_time(0.07), [01;31m[Kgain[m[K(500), //Modifié lookahead_time(0.07) le 17/03 à 15h43
+[2.853s]       |                                                                          [01;31m[K^~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:34:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kbutton_pressed_[m[K’
+[2.853s]    34 |     [01;31m[Kbutton_pressed_[m[K(0), reference_position_({0.0, 0.0, 0.0}), prev_btn_(0), first_position(true),
+[2.853s]       |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:34:25:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kreference_position_[m[K’
+[2.853s]    34 |     button_pressed_(0), [01;31m[Kreference_position_[m[K({0.0, 0.0, 0.0}), prev_btn_(0), first_position(true),
+[2.853s]       |                         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:34:63:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kprev_btn_[m[K’
+[2.853s]    34 |     button_pressed_(0), reference_position_({0.0, 0.0, 0.0}), [01;31m[Kprev_btn_[m[K(0), first_position(true),
+[2.853s]       |                                                               [01;31m[K^~~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:34:77:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kfirst_position[m[K’
+[2.853s]    34 |     button_pressed_(0), reference_position_({0.0, 0.0, 0.0}), prev_btn_(0), [01;31m[Kfirst_position[m[K(true),
+[2.853s]       |                                                                             [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.853s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:35:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kreference_orientation_[m[K’
+[2.853s]    35 |     [01;31m[Kreference_orientation_[m[K({0.0, 0.0, 0.0}), current_position_({0.0, 0.0, 0.0}), current_orientation_({0.0, 0.0, 0.0}),
+[2.853s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.854s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:35:46:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kcurrent_position_[m[K’
+[2.854s]    35 |     reference_orientation_({0.0, 0.0, 0.0}), [01;31m[Kcurrent_position_[m[K({0.0, 0.0, 0.0}), current_orientation_({0.0, 0.0, 0.0}),
+[2.854s]       |                                              [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[2.854s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:35:82:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kcurrent_orientation_[m[K’
+[2.854s]    35 |     reference_orientation_({0.0, 0.0, 0.0}), current_position_({0.0, 0.0, 0.0}), [01;31m[Kcurrent_orientation_[m[K({0.0, 0.0, 0.0}),
+[2.854s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[2.854s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:36:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kref_ori_robot_[m[K’
+[2.854s]    36 |     [01;31m[Kref_ori_robot_[m[K({0.0, 0.0, 0.0}), ref_pos_robot_({0.0, 0.0, 0.0}), //gripper_closed(false), //Commenté le 20/03 à 12h36
+[2.854s]       |     [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.854s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:36:38:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kref_pos_robot_[m[K’
+[2.854s]    36 |     ref_ori_robot_({0.0, 0.0, 0.0}), [01;31m[Kref_pos_robot_[m[K({0.0, 0.0, 0.0}), //gripper_closed(false), //Commenté le 20/03 à 12h36
+[2.854s]       |                                      [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.854s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:38:5:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kfiltered_position_[m[K’
+[2.854s]    38 |     [01;31m[Kfiltered_position_[m[K({0.0, 0.0, 0.0}), filter_initialized_(false)
+[2.854s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.854s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:38:42:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kfilter_initialized_[m[K’
+[2.854s]    38 |     filtered_position_({0.0, 0.0, 0.0}), [01;31m[Kfilter_initialized_[m[K(false)
+[2.854s]       |                                          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[2.868s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:44:5:[m[K [01;31m[Kerror: [m[K‘[01m[Khaptic_sub_[m[K’ was not declared in this scope
+[2.868s]    44 |     [01;31m[Khaptic_sub_[m[K = this->create_subscription<geometry_msgs::msg::PoseStamped>(
+[2.868s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[2.868s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:46:33:[m[K [01;31m[Kerror: [m[K‘[01m[Khaptic_callback[m[K’ is not a member of ‘[01m[KHapticControl[m[K’
+[2.868s]    46 |       std::bind(&HapticControl::[01;31m[Khaptic_callback[m[K, this, std::placeholders::_1));
+[2.868s]       |                                 [01;31m[K^~~~~~~~~~~~~~~[m[K
+[2.873s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:48:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kstylus_state_[m[K’ was not declared in this scope; did you mean ‘[01m[Kstylus_state[m[K’?
+[2.874s]    48 |     [01;31m[Kstylus_state_[m[K = this->create_subscription<std_msgs::msg::Int32>(
+[2.874s]       |     [01;31m[K^~~~~~~~~~~~~[m[K
+[2.874s]       |     [32m[Kstylus_state[m[K
+[2.901s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:53:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kforce_sub_[m[K’ was not declared in this scope
+[2.901s]    53 |     [01;31m[Kforce_sub_[m[K = this->create_subscription<geometry_msgs::msg::WrenchStamped>(
+[2.901s]       |     [01;31m[K^~~~~~~~~~[m[K
+[2.901s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:55:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kforce_callback[m[K’ is not a member of ‘[01m[KHapticControl[m[K’
+[2.901s]    55 |       std::bind(&HapticControl::[01;31m[Kforce_callback[m[K, this, std::placeholders::_1));
+[2.901s]       |                                 [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.915s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:58:5:[m[K [01;31m[Kerror: [m[K‘[01m[Khaptic_force_pub_[m[K’ was not declared in this scope
+[2.915s]    58 |     [01;31m[Khaptic_force_pub_[m[K = this->create_publisher<geometry_msgs::msg::WrenchStamped>("/haptic_force", 10);
+[2.915s]       |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[2.964s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:74:5:[m[K [01;31m[Kerror: [m[K‘[01m[Krtde_control[m[K’ was not declared in this scope
+[2.964s]    74 |     [01;31m[Krtde_control[m[K.moveJ(init_pose, velocity, acceleration);
+[2.964s]       |     [01;31m[K^~~~~~~~~~~~[m[K
+[2.970s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:74:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kvelocity[m[K’ was not declared in this scope
+[2.970s]    74 |     rtde_control.moveJ(init_pose, [01;31m[Kvelocity[m[K, acceleration);
+[2.970s]       |                                   [01;31m[K^~~~~~~~[m[K
+[2.980s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:74:45:[m[K [01;31m[Kerror: [m[K‘[01m[Kacceleration[m[K’ was not declared in this scope
+[2.980s]    74 |     rtde_control.moveJ(init_pose, velocity, [01;31m[Kacceleration[m[K);
+[2.980s]       |                                             [01;31m[K^~~~~~~~~~~~[m[K
+[2.990s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K In destructor ‘[01m[Kvirtual HapticControl::[01;32m[K~HapticControl[m[K()[m[K’:
+[2.990s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:108:5:[m[K [01;31m[Kerror: [m[K‘[01m[Krtde_control[m[K’ was not declared in this scope
+[2.990s]   108 |     [01;31m[Krtde_control[m[K.servoStop();
+[2.990s]       |     [01;31m[K^~~~~~~~~~~~[m[K
+[3.004s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K In member function ‘[01m[Kvoid HapticControl::[01;32m[Kstylus_state[m[K(std_msgs::msg::Int32_<std::allocator<void> >::SharedPtr)[m[K’:
+[3.004s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:153:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kbutton_pressed_[m[K’ was not declared in this scope
+[3.004s]   153 |       [01;31m[Kbutton_pressed_[m[K = msg->data;
+[3.004s]       |       [01;31m[K^~~~~~~~~~~~~~~[m[K
+[3.015s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:156:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kfirst_position[m[K’ was not declared in this scope
+[3.015s]   156 |           [01;31m[Kfirst_position[m[K = true;
+[3.015s]       |           [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.031s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:157:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kfilter_initialized_[m[K’ was not declared in this scope
+[3.031s]   157 |           [01;31m[Kfilter_initialized_[m[K = false;
+[3.031s]       |           [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.041s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:160:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kfirst_position[m[K’ was not declared in this scope
+[3.041s]   160 |           [01;31m[Kfirst_position[m[K = true;        // ← ajoute ça
+[3.041s]       |           [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.057s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:161:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kfilter_initialized_[m[K’ was not declared in this scope
+[3.057s]   161 |           [01;31m[Kfilter_initialized_[m[K = false;  // ← et ça
+[3.057s]       |           [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.058s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K In function ‘[01m[Kvoid[01;32m[K haptic_callback[m[K(geometry_msgs::msg::PoseStamped_<std::allocator<void> >::SharedPtr)[m[K’:
+[3.058s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:188:29:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.058s]   188 |     rclcpp::Time msg_time = [01;31m[Kthis[m[K->now();
+[3.058s]       |                             [01;31m[K^~~~[m[K
+[3.071s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:204:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kfilter_initialized_[m[K’ was not declared in this scope
+[3.071s]   204 |     if (![01;31m[Kfilter_initialized_[m[K) {
+[3.071s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.082s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:205:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kfiltered_position_[m[K’ was not declared in this scope
+[3.082s]   205 |       [01;31m[Kfiltered_position_[m[K = {raw_x, raw_y, raw_z};
+[3.082s]       |       [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.093s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:208:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kfiltered_position_[m[K’ was not declared in this scope
+[3.093s]   208 |       [01;31m[Kfiltered_position_[m[K[0] = alpha * filtered_position_[0] + (1.0 - alpha) * raw_x;
+[3.093s]       |       [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.103s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:214:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_position_[m[K’ was not declared in this scope
+[3.103s]   214 |     [01;31m[Kcurrent_position_[m[K = {filtered_position_[0], filtered_position_[1], filtered_position_[2]};
+[3.103s]       |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[3.115s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:214:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kfiltered_position_[m[K’ was not declared in this scope
+[3.115s]   214 |     current_position_ = {[01;31m[Kfiltered_position_[m[K[0], filtered_position_[1], filtered_position_[2]};
+[3.115s]       |                          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.128s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:222:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_orientation_[m[K’ was not declared in this scope
+[3.128s]   222 |     [01;31m[Kcurrent_orientation_[m[K = {roll, pitch, yaw};
+[3.128s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.135s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:225:38:[m[K [01;31m[Kerror: [m[K‘[01m[Krtde_receive[m[K’ was not declared in this scope
+[3.135s]   225 |       std::vector<double> tcp_pose = [01;31m[Krtde_receive[m[K.getActualTCPPose(); //Récupéper pose TCP dans le repère BASE
+[3.135s]       |                                      [01;31m[K^~~~~~~~~~~~[m[K
+[3.135s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27[m[K,
+[3.135s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171[m[K,
+[3.135s]                  from [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:1[m[K:
+[3.135s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:228:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.135s]   228 |         RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Erreur de récupération de la pose TCP.");
+[3.135s]       |                      [01;31m[K^~~~[m[K
+[3.135s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:228:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.135s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:228:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.135s]   228 |         [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Erreur de récupération de la pose TCP.");
+[3.135s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.135s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:228:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.135s]   228 |         [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Erreur de récupération de la pose TCP.");
+[3.135s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.135s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:228:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.135s]   228 |         [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Erreur de récupération de la pose TCP.");
+[3.135s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.135s] In file included from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:24[m[K:
+[3.135s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:228:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.135s]   228 |         RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Erreur de récupération de la pose TCP.");
+[3.136s]       |                      [01;31m[K^~~~[m[K
+[3.136s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:228:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.136s]   228 |         RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Erreur de récupération de la pose TCP.");
+[3.136s]       |                      [01;31m[K^~~~[m[K
+[3.144s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:239:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kbutton_pressed_[m[K’ was not declared in this scope
+[3.144s]   239 |       btn = [01;31m[Kbutton_pressed_[m[K;
+[3.144s]       |             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[3.144s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:240:83:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kstd::array<double, 3>[m[K’ and ‘[01m[K<brace-enclosed initializer list>[m[K’)
+[3.144s]   240 |       curr_pos = {current_position_[0], current_position_[1], current_position_[2][01;31m[K}[m[K;
+[3.144s]       |                                                                                   [01;31m[K^[m[K
+[3.145s] In file included from [01m[K/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__struct.hpp:12[m[K,
+[3.145s]                  from [01m[K/opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/srv/list_parameters.hpp:7[m[K,
+[3.145s]                  from [01m[K/opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:21[m[K:
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(const std::array<double, 3>&)[m[K’
+[3.145s]    94 |     struct [01;36m[Karray[m[K
+[3.145s]       |            [01;36m[K^~~~~[m[K
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kconst std::array<double, 3>&[m[K’
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(std::array<double, 3>&&)[m[K’
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kstd::array<double, 3>&&[m[K’
+[3.145s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:241:92:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kstd::array<double, 3>[m[K’ and ‘[01m[K<brace-enclosed initializer list>[m[K’)
+[3.145s]   241 |       curr_ori = {current_orientation_[0], current_orientation_[1], current_orientation_[2][01;31m[K}[m[K;
+[3.145s]       |                                                                                            [01;31m[K^[m[K
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(const std::array<double, 3>&)[m[K’
+[3.145s]    94 |     struct [01;36m[Karray[m[K
+[3.145s]       |            [01;36m[K^~~~~[m[K
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kconst std::array<double, 3>&[m[K’
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(std::array<double, 3>&&)[m[K’
+[3.145s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kstd::array<double, 3>&&[m[K’
+[3.152s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:243:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kfirst_position[m[K’ was not declared in this scope
+[3.152s]   243 |       if ([01;31m[Kfirst_position[m[K == true && btn == 1) {
+[3.152s]       |           [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.164s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:245:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kreference_position_[m[K’ was not declared in this scope
+[3.164s]   245 |           [01;31m[Kreference_position_[m[K = {curr_pos[0], curr_pos[1], curr_pos[2]};
+[3.164s]       |           [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.179s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:246:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kreference_orientation_[m[K’ was not declared in this scope
+[3.179s]   246 |           [01;31m[Kreference_orientation_[m[K = {curr_ori[0], curr_ori[1], curr_ori[2]};
+[3.179s]       |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.187s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:247:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kref_pos_robot_[m[K’ was not declared in this scope
+[3.187s]   247 |           [01;31m[Kref_pos_robot_[m[K = {tcp_pose[0], tcp_pose[1], tcp_pose[2]};
+[3.187s]       |           [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.195s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:248:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kref_ori_robot_[m[K’ was not declared in this scope
+[3.195s]   248 |           [01;31m[Kref_ori_robot_[m[K = {tcp_pose[3], tcp_pose[4], tcp_pose[5]};
+[3.195s]       |           [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.200s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:255:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kprev_btn_[m[K’ was not declared in this scope
+[3.200s]   255 |       if (btn == 0 && [01;31m[Kprev_btn_[m[K != 0) {
+[3.200s]       |                       [01;31m[K^~~~~~~~~[m[K
+[3.212s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:256:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kreference_position_[m[K’ was not declared in this scope
+[3.212s]   256 |         [01;31m[Kreference_position_[m[K = {0.0, 0.0, 0.0};
+[3.212s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.227s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:257:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kreference_orientation_[m[K’ was not declared in this scope
+[3.227s]   257 |         [01;31m[Kreference_orientation_[m[K = {0.0, 0.0, 0.0};
+[3.227s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.232s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:260:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kprev_btn_[m[K’ was not declared in this scope
+[3.232s]   260 |       if (btn == 1 && [01;31m[Kprev_btn_[m[K == 1) {
+[3.232s]       |                       [01;31m[K^~~~~~~~~[m[K
+[3.237s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:264:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kprev_btn_[m[K’ was not declared in this scope
+[3.237s]   264 |       [01;31m[Kprev_btn_[m[K = btn;
+[3.237s]       |       [01;31m[K^~~~~~~~~[m[K
+[3.248s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:267:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kreference_position_[m[K’ was not declared in this scope
+[3.248s]   267 |       ref_pos = {[01;31m[Kreference_position_[m[K[0], reference_position_[1], reference_position_[2]};
+[3.248s]       |                  [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.248s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:267:88:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kstd::array<double, 3>[m[K’ and ‘[01m[K<brace-enclosed initializer list>[m[K’)
+[3.248s]   267 |       ref_pos = {reference_position_[0], reference_position_[1], reference_position_[2][01;31m[K}[m[K;
+[3.248s]       |                                                                                        [01;31m[K^[m[K
+[3.248s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(const std::array<double, 3>&)[m[K’
+[3.249s]    94 |     struct [01;36m[Karray[m[K
+[3.249s]       |            [01;36m[K^~~~~[m[K
+[3.249s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kconst std::array<double, 3>&[m[K’
+[3.249s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(std::array<double, 3>&&)[m[K’
+[3.249s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kstd::array<double, 3>&&[m[K’
+[3.262s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:268:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kreference_orientation_[m[K’ was not declared in this scope
+[3.262s]   268 |       ref_ori = {[01;31m[Kreference_orientation_[m[K[0], reference_orientation_[1], reference_orientation_[2]};
+[3.263s]       |                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.263s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:268:97:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kstd::array<double, 3>[m[K’ and ‘[01m[K<brace-enclosed initializer list>[m[K’)
+[3.263s]   268 |       ref_ori = {reference_orientation_[0], reference_orientation_[1], reference_orientation_[2][01;31m[K}[m[K;
+[3.263s]       |                                                                                                 [01;31m[K^[m[K
+[3.263s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(const std::array<double, 3>&)[m[K’
+[3.263s]    94 |     struct [01;36m[Karray[m[K
+[3.263s]       |            [01;36m[K^~~~~[m[K
+[3.263s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kconst std::array<double, 3>&[m[K’
+[3.263s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 3>& std::array<double, 3>::[01;32m[Koperator=[m[K(std::array<double, 3>&&)[m[K’
+[3.263s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kstd::array<double, 3>&&[m[K’
+[3.263s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:282:19:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.263s]   282 |       RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Delta x:%.3f y:%.3f z:%.3f | Robot x:%.3f y:%.3f z:%.3f",
+[3.263s]       |                   [01;31m[K^~~~[m[K
+[3.264s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:282:19:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.264s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:282:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.264s]   282 |       [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Delta x:%.3f y:%.3f z:%.3f | Robot x:%.3f y:%.3f z:%.3f",
+[3.264s]       |       [01;31m[K^~~~~~~~~~~[m[K
+[3.264s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:282:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.264s]   282 |       [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Delta x:%.3f y:%.3f z:%.3f | Robot x:%.3f y:%.3f z:%.3f",
+[3.264s]       |       [01;31m[K^~~~~~~~~~~[m[K
+[3.264s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:282:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.264s]   282 |       [01;31m[KRCLCPP_INFO[m[K(this->get_logger(), "Delta x:%.3f y:%.3f z:%.3f | Robot x:%.3f y:%.3f z:%.3f",
+[3.264s]       |       [01;31m[K^~~~~~~~~~~[m[K
+[3.264s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:282:19:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.264s]   282 |       RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Delta x:%.3f y:%.3f z:%.3f | Robot x:%.3f y:%.3f z:%.3f",
+[3.264s]       |                   [01;31m[K^~~~[m[K
+[3.264s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:282:19:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.264s]   282 |       RCLCPP_INFO([01;31m[Kthis[m[K->get_logger(), "Delta x:%.3f y:%.3f z:%.3f | Robot x:%.3f y:%.3f z:%.3f",
+[3.265s]       |                   [01;31m[K^~~~[m[K
+[3.271s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:300:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kref_pos_robot_[m[K’ was not declared in this scope
+[3.271s]   300 |         target = {delta_position[0] * scaling_factor + [01;31m[Kref_pos_robot_[m[K[0],
+[3.271s]       |                                                        [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.278s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:303:52:[m[K [01;31m[Kerror: [m[K‘[01m[Kref_ori_robot_[m[K’ was not declared in this scope
+[3.278s]   303 |                   /*delta_orientation[0]*0.04 + */ [01;31m[Kref_ori_robot_[m[K[0],  //Commenté le 20/03 à 13h23
+[3.279s]       |                                                    [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.279s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:305:68:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kstd::array<double, 6>[m[K’ and ‘[01m[K<brace-enclosed initializer list>[m[K’)
+[3.279s]   305 |                   /*delta_orientation[2]*0.04 +*/ ref_ori_robot_[2][01;31m[K}[m[K;
+[3.279s]       |                                                                    [01;31m[K^[m[K
+[3.279s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 6>& std::array<double, 6>::[01;32m[Koperator=[m[K(const std::array<double, 6>&)[m[K’
+[3.279s]    94 |     struct [01;36m[Karray[m[K
+[3.279s]       |            [01;36m[K^~~~~[m[K
+[3.279s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kconst std::array<double, 6>&[m[K’
+[3.279s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr std::array<double, 6>& std::array<double, 6>::[01;32m[Koperator=[m[K(std::array<double, 6>&&)[m[K’
+[3.279s] [01m[K/usr/include/c++/13/array:94:12:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kstd::array<double, 6>&&[m[K’
+[3.285s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:313:12:[m[K [01;31m[Kerror: [m[K‘[01m[Kin_workspace[m[K’ was not declared in this scope
+[3.285s]   313 |       if (![01;31m[Kin_workspace[m[K(target)) {
+[3.285s]       |            [01;31m[K^~~~~~~~~~~~[m[K
+[3.285s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:314:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.285s]   314 |         RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Consigne hors de l'espace de travail. Arrêt du mouvement.");
+[3.285s]       |                     [01;31m[K^~~~[m[K
+[3.285s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:314:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.285s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:314:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.285s]   314 |         [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Consigne hors de l'espace de travail. Arrêt du mouvement.");
+[3.285s]       |         [01;31m[K^~~~~~~~~~~[m[K
+[3.285s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:314:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.285s]   314 |         [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Consigne hors de l'espace de travail. Arrêt du mouvement.");
+[3.285s]       |         [01;31m[K^~~~~~~~~~~[m[K
+[3.285s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:314:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.286s]   314 |         [01;31m[KRCLCPP_WARN[m[K(this->get_logger(), "Consigne hors de l'espace de travail. Arrêt du mouvement.");
+[3.286s]       |         [01;31m[K^~~~~~~~~~~[m[K
+[3.286s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:314:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.286s]   314 |         RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Consigne hors de l'espace de travail. Arrêt du mouvement.");
+[3.286s]       |                     [01;31m[K^~~~[m[K
+[3.286s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:314:21:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.286s]   314 |         RCLCPP_WARN([01;31m[Kthis[m[K->get_logger(), "Consigne hors de l'espace de travail. Arrêt du mouvement.");
+[3.286s]       |                     [01;31m[K^~~~[m[K
+[3.291s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:316:9:[m[K [01;31m[Kerror: [m[K‘[01m[Krtde_control[m[K’ was not declared in this scope
+[3.291s]   316 |         [01;31m[Krtde_control[m[K.servoStop(); //Ajouté le 17/03 à 15h09
+[3.291s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:320:29:[m[K [01;31m[Kerror: [m[K‘[01m[Krtde_control[m[K’ was not declared in this scope
+[3.298s]   320 |       bool kinematics_inv = [01;31m[Krtde_control[m[K.getInverseKinematicsHasSolution({target[0], target[1], target[2], target[3], target[4], target[5]});
+[3.298s]       |                             [01;31m[K^~~~~~~~~~~~[m[K
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:323:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.298s]   323 |         RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Erreur de cinématique inverse. Arrêt du mouvement.");
+[3.298s]       |                      [01;31m[K^~~~[m[K
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:323:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:323:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.298s]   323 |         [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Erreur de cinématique inverse. Arrêt du mouvement.");
+[3.298s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:323:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.298s]   323 |         [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Erreur de cinématique inverse. Arrêt du mouvement.");
+[3.298s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:323:9:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.298s]   323 |         [01;31m[KRCLCPP_ERROR[m[K(this->get_logger(), "Erreur de cinématique inverse. Arrêt du mouvement.");
+[3.298s]       |         [01;31m[K^~~~~~~~~~~~[m[K
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:323:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.298s]   323 |         RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Erreur de cinématique inverse. Arrêt du mouvement.");
+[3.298s]       |                      [01;31m[K^~~~[m[K
+[3.298s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:323:22:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.298s]   323 |         RCLCPP_ERROR([01;31m[Kthis[m[K->get_logger(), "Erreur de cinématique inverse. Arrêt du mouvement.");
+[3.298s]       |                      [01;31m[K^~~~[m[K
+[3.302s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:334:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kvelocity[m[K’ was not declared in this scope
+[3.302s]   334 |                           [01;31m[Kvelocity[m[K, acceleration, dt, lookahead_time, gain);
+[3.302s]       |                           [01;31m[K^~~~~~~~[m[K
+[3.308s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:334:37:[m[K [01;31m[Kerror: [m[K‘[01m[Kacceleration[m[K’ was not declared in this scope
+[3.308s]   334 |                           velocity, [01;31m[Kacceleration[m[K, dt, lookahead_time, gain);
+[3.308s]       |                                     [01;31m[K^~~~~~~~~~~~[m[K
+[3.311s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:334:51:[m[K [01;31m[Kerror: [m[K‘[01m[Kdt[m[K’ was not declared in this scope
+[3.311s]   334 |                           velocity, acceleration, [01;31m[Kdt[m[K, lookahead_time, gain);
+[3.311s]       |                                                   [01;31m[K^~[m[K
+[3.319s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:334:55:[m[K [01;31m[Kerror: [m[K‘[01m[Klookahead_time[m[K’ was not declared in this scope
+[3.319s]   334 |                           velocity, acceleration, dt, [01;31m[Klookahead_time[m[K, gain);
+[3.319s]       |                                                       [01;31m[K^~~~~~~~~~~~~~[m[K
+[3.322s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:334:71:[m[K [01;31m[Kerror: [m[K‘[01m[Kgain[m[K’ was not declared in this scope
+[3.322s]   334 |                           velocity, acceleration, dt, lookahead_time, [01;31m[Kgain[m[K);
+[3.322s]       |                                                                       [01;31m[K^~~~[m[K
+[3.322s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:274:28:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdelta_orientation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[3.322s]   274 |       std::array<double,3> [01;35m[Kdelta_orientation[m[K = {curr_ori[0] - ref_ori[0],
+[3.323s]       |                            [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[3.331s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K In function ‘[01m[Kvoid[01;32m[K force_callback[m[K(geometry_msgs::msg::WrenchStamped_<std::allocator<void> >::SharedPtr)[m[K’:
+[3.331s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:343:36:[m[K [01;31m[Kerror: [m[K‘[01m[Krtde_receive[m[K’ was not declared in this scope
+[3.331s]   343 |     std::vector<double> tcp_pose = [01;31m[Krtde_receive[m[K.getActualTCPPose();
+[3.331s]       |                                    [01;31m[K^~~~~~~~~~~~[m[K
+[3.331s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:381:28:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+[3.331s]   381 |     out_msg.header.stamp = [01;31m[Kthis[m[K->now();
+[3.331s]       |                            [01;31m[K^~~~[m[K
+[3.347s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:388:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_force_magnitude_[m[K’ was not declared in this scope
+[3.347s]   388 |     [01;31m[Kcurrent_force_magnitude_[m[K = std::sqrt(
+[3.347s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.358s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:395:5:[m[K [01;31m[Kerror: [m[K‘[01m[Khaptic_force_pub_[m[K’ was not declared in this scope
+[3.358s]   395 |     [01;31m[Khaptic_force_pub_[m[K->publish(out_msg);
+[3.358s]       |     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[3.358s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K At global scope:
+[3.358s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:399:24:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kur_rtde::RTDEControlInterface::RTDEControlInterface()[m[K’
+[3.358s]   399 |   RTDEControlInterface [01;31m[Krtde_control[m[K;
+[3.358s]       |                        [01;31m[K^~~~~~~~~~~~[m[K
+[3.358s] In file included from [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:4[m[K:
+[3.358s] [01m[K/usr/local/include/ur_rtde/rtde_control_interface.h:262:24:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kur_rtde::RTDEControlInterface::[01;32m[KRTDEControlInterface[m[K(std::string, double, uint16_t, int, int)[m[K’
+[3.358s]   262 |   RTDE_EXPORT explicit [01;36m[KRTDEControlInterface[m[K(std::string hostname, double frequency = -1.0,
+[3.358s]       |                        [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.358s] [01m[K/usr/local/include/ur_rtde/rtde_control_interface.h:262:24:[m[K [01;36m[Knote: [m[K  candidate expects 5 arguments, 0 provided
+[3.358s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:400:24:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kur_rtde::RTDEReceiveInterface::RTDEReceiveInterface()[m[K’
+[3.358s]   400 |   RTDEReceiveInterface [01;31m[Krtde_receive[m[K;
+[3.358s]       |                        [01;31m[K^~~~~~~~~~~~[m[K
+[3.358s] In file included from [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:5[m[K:
+[3.358s] [01m[K/usr/local/include/ur_rtde/rtde_receive_interface.h:64:24:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kur_rtde::RTDEReceiveInterface::[01;32m[KRTDEReceiveInterface[m[K(std::string, double, std::vector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char> > >, bool, bool, int)[m[K’
+[3.358s]    64 |   RTDE_EXPORT explicit [01;36m[KRTDEReceiveInterface[m[K(std::string hostname, double frequency = -1.0,
+[3.358s]       |                        [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.358s] [01m[K/usr/local/include/ur_rtde/rtde_receive_interface.h:64:24:[m[K [01;36m[Knote: [m[K  candidate expects 6 arguments, 0 provided
+[3.389s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:438:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+[3.389s]   438 | [01;31m[K}[m[K;
+[3.389s]       | [01;31m[K^[m[K
+[4.590s] gmake[2]: *** [CMakeFiles/haptic_control3.dir/build.make:76: CMakeFiles/haptic_control3.dir/src/haptic_control3.cpp.o] Error 1
+[4.591s] gmake[1]: *** [CMakeFiles/Makefile2:808: CMakeFiles/haptic_control3.dir/all] Error 2
+[4.591s] gmake: *** [Makefile:146: all] Error 2
+[4.592s] Invoked command in '/home/stlab24-04/ira2_ws/build/haptic_teleop' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20

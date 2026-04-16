@@ -1,0 +1,113 @@
+[0.037s] Invoking command in '/home/stlab24-04/ira2_ws/build/haptic_teleop': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20
+[0.612s] [  1%] Built target haptic_teleop__rosidl_generator_type_description
+[0.612s] [  3%] Built target robot_control
+[0.612s] [  5%] Built target unity_control
+[0.612s] [  8%] Built target get_force
+[0.612s] [ 10%] Built target joints_sub
+[0.612s] [ 12%] Built target unity_control_v2
+[0.612s] [ 12%] Built target ament_cmake_python_copy_haptic_teleop
+[0.612s] [ 13%] Built target haptic_teleop__cpp
+[0.612s] [ 30%] Built target haptic_teleop__rosidl_generator_c
+[0.612s] [ 43%] Built target haptic_teleop__rosidl_typesupport_introspection_c
+[0.612s] [ 44%] Built target haptic_teleop__rosidl_typesupport_c
+[0.613s] [ 51%] Built target haptic_teleop__rosidl_typesupport_cpp
+[0.613s] [ 58%] Built target haptic_teleop__rosidl_typesupport_introspection_cpp
+[0.613s] [ 65%] Built target haptic_teleop__rosidl_typesupport_fastrtps_c
+[0.613s] [ 72%] Built target haptic_teleop__rosidl_typesupport_fastrtps_cpp
+[0.613s] [ 72%] Built target haptic_teleop
+[0.613s] [ 73%] Built target haptic_teleop__py
+[0.613s] [ 77%] Built target position_service
+[0.613s] [ 77%] Built target color_publisher
+[0.613s] [ 80%] Built target haptic_control
+[0.613s] [ 81%] [32mBuilding CXX object CMakeFiles/haptic_control4.dir/src/haptic_control4.cpp.o[0m
+[0.613s] [ 83%] Built target haptic_control2
+[0.613s] [ 84%] [32mBuilding CXX object CMakeFiles/haptic_control3.dir/src/haptic_control3.cpp.o[0m
+[0.613s] [ 90%] Built target haptic_teleop__rosidl_generator_py
+[0.613s] [ 97%] Built target haptic_teleop_s__rosidl_typesupport_fastrtps_c
+[0.613s] [ 97%] Built target haptic_teleop_s__rosidl_typesupport_introspection_c
+[0.613s] [ 97%] Built target haptic_teleop_s__rosidl_typesupport_c
+[0.613s] running egg_info
+[0.613s] writing haptic_teleop.egg-info/PKG-INFO
+[0.613s] writing dependency_links to haptic_teleop.egg-info/dependency_links.txt
+[0.613s] writing top-level names to haptic_teleop.egg-info/top_level.txt
+[0.613s] reading manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[0.613s] writing manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[0.613s] [ 97%] Built target ament_cmake_python_build_haptic_teleop_egg
+[2.875s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[2.875s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:398:54:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::gain[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.875s]   398 |   double velocity, acceleration, dt, lookahead_time, [01;35m[Kgain[m[K;
+[2.876s]       |                                                      [01;35m[K^~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:386:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::button_pressed_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]   386 |   int [01;35m[Kbutton_pressed_[m[K;
+[2.876s]       |       [01;35m[K^~~~~~~~~~~~~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:31:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]    31 |   [01;35m[KHapticControl[m[K()
+[2.876s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:391:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::reference_position_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]   391 |   std::vector<double> [01;35m[Kreference_position_[m[K;
+[2.876s]       |                       [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:388:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::prev_btn_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]   388 |   int [01;35m[Kprev_btn_[m[K;
+[2.876s]       |       [01;35m[K^~~~~~~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:31:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]    31 |   [01;35m[KHapticControl[m[K()
+[2.876s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:396:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_ori_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]   396 |   std::vector<double> [01;35m[Kref_ori_robot_[m[K;
+[2.876s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:395:23:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<double, std::allocator<double> > HapticControl::ref_pos_robot_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]   395 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+[2.876s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[2.876s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:31:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.876s]    31 |   [01;35m[KHapticControl[m[K()
+[2.876s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[2.878s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[2.878s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:40:71:[m[K [01;31m[Kerror: [m[Kclass ‘[01m[KHapticControl[m[K’ does not have any field named ‘[01m[Kgripper_closed[m[K’
+[2.878s]    40 |     ref_ori_robot_({0.0, 0.0, 0.0}), ref_pos_robot_({0.0, 0.0, 0.0}), [01;31m[Kgripper_closed[m[K(false),
+[2.878s]       |                                                                       [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.878s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:464:54:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::gain[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.878s]   464 |   double velocity, acceleration, dt, lookahead_time, [01;35m[Kgain[m[K;
+[2.878s]       |                                                      [01;35m[K^~~~[m[K
+[2.878s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:452:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::button_pressed_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]   452 |   int [01;35m[Kbutton_pressed_[m[K;
+[2.879s]       |       [01;35m[K^~~~~~~~~~~~~~~[m[K
+[2.879s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:35:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]    35 |   [01;35m[KHapticControl[m[K()
+[2.879s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[2.879s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:457:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::reference_position_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]   457 |   std::vector<double> [01;35m[Kreference_position_[m[K;
+[2.879s]       |                       [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[2.879s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:454:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::prev_btn_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]   454 |   int [01;35m[Kprev_btn_[m[K;
+[2.879s]       |       [01;35m[K^~~~~~~~~[m[K
+[2.879s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:35:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]    35 |   [01;35m[KHapticControl[m[K()
+[2.879s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[2.879s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:462:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_ori_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]   462 |   std::vector<double> [01;35m[Kref_ori_robot_[m[K;
+[2.879s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[2.879s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:461:23:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<double, std::allocator<double> > HapticControl::ref_pos_robot_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]   461 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+[2.879s]       |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[2.879s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:35:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.879s]    35 |   [01;35m[KHapticControl[m[K()
+[2.879s]       |   [01;35m[K^~~~~~~~~~~~~[m[K
+[2.889s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:[m[K In member function ‘[01m[Kvoid HapticControl::[01;32m[Khaptic_callback[m[K(geometry_msgs::msg::PoseStamped_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.889s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control3.cpp:258:28:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdelta_orientation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.889s]   258 |       std::array<double,3> [01;35m[Kdelta_orientation[m[K = {curr_ori[0] - ref_ori[0],
+[2.889s]       |                            [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[2.894s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:[m[K In destructor ‘[01m[Kvirtual HapticControl::[01;32m[K~HapticControl[m[K()[m[K’:
+[2.894s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:113:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kgripper[m[K’ was not declared in this scope
+[2.894s]   113 |     [01;31m[Kgripper[m[K.disconnect();
+[2.894s]       |     [01;31m[K^~~~~~~[m[K
+[2.899s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:[m[K In member function ‘[01m[Kvoid HapticControl::[01;32m[Khaptic_callback[m[K(geometry_msgs::msg::PoseStamped_<std::allocator<void> >::SharedPtr)[m[K’:
+[2.899s] [01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control4.cpp:263:28:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdelta_orientation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.899s]   263 |       std::array<double,3> [01;35m[Kdelta_orientation[m[K = {curr_ori[0] - ref_ori[0],
+[2.899s]       |                            [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[5.514s] gmake[2]: *** [CMakeFiles/haptic_control4.dir/build.make:76: CMakeFiles/haptic_control4.dir/src/haptic_control4.cpp.o] Error 1
+[5.514s] gmake[1]: *** [CMakeFiles/Makefile2:837: CMakeFiles/haptic_control4.dir/all] Error 2
+[5.514s] gmake[1]: *** Waiting for unfinished jobs....
+[9.329s] [ 98%] [32m[1mLinking CXX executable haptic_control3[0m
+[9.663s] [ 98%] Built target haptic_control3
+[9.664s] gmake: *** [Makefile:146: all] Error 2
+[9.665s] Invoked command in '/home/stlab24-04/ira2_ws/build/haptic_teleop' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/stlab24-04/ira2_ws/install/ur_safety_monitor:/home/stlab24-04/ira2_ws/install/ur_motion_manager:/home/stlab24-04/ira2_ws/install/ur_force_controller:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/ros_tcp_endpoint:/home/stlab24-04/ros2_ws/install/my_robot_controller:/home/stlab24-04/ur3e_ws/install/ur_safety_monitor:/home/stlab24-04/ur3e_ws/install/ur_motion_manager:/home/stlab24-04/ur3e_ws/install/ur_force_controller:/home/stlab24-04/camera_ws/install/camera_test:/home/stlab24-04/ws_moveit/install/robotiq_driver:/home/stlab24-04/ws_moveit/install/kortex_description:/home/stlab24-04/ws_moveit/install/moveit_configs_utils:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/haptic_teleop -- -j20 -l20

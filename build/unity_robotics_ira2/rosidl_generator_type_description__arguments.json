@@ -1,0 +1,16 @@
+{
+  "package_name": "unity_robotics_ira2",
+  "output_dir": "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2/rosidl_generator_type_description/unity_robotics_ira2",
+  "idl_tuples": [
+    "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2/rosidl_adapter/unity_robotics_ira2:msg/PosRot.idl",
+    "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2/rosidl_adapter/unity_robotics_ira2:msg/UnityColor.idl",
+    "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2/rosidl_adapter/unity_robotics_ira2:srv/PositionService.idl",
+    "/home/stlab24-04/ira2_ws/build/unity_robotics_ira2/rosidl_adapter/unity_robotics_ira2:srv/ObjectPoseService.idl"
+  ],
+  "include_paths": [
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces",
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "geometry_msgs:/opt/ros/jazzy/share/geometry_msgs",
+    "service_msgs:/opt/ros/jazzy/share/service_msgs"
+  ]
+}

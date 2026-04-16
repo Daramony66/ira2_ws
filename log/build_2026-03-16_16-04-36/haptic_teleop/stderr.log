@@ -1,0 +1,37 @@
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:[m[K In constructor ‘[01m[KHapticControl::[01;32m[KHapticControl[m[K()[m[K’:
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:354:54:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::gain[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  354 |   double velocity, acceleration, dt, lookahead_time, [01;35m[Kgain[m[K;
+      |                                                      [01;35m[K^~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:342:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::button_pressed_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  342 |   int [01;35m[Kbutton_pressed_[m[K;
+      |       [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   23 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:347:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::reference_position_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  347 |   std::vector<double> [01;35m[Kreference_position_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:344:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint HapticControl::prev_btn_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  344 |   int [01;35m[Kprev_btn_[m[K;
+      |       [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   23 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:352:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_ori_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  352 |   std::vector<double> [01;35m[Kref_ori_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:351:23:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kstd::vector<double, std::allocator<double> > HapticControl::ref_pos_robot_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  351 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   23 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:351:23:[m[K [01;35m[Kwarning: [m[K‘[01m[KHapticControl::ref_pos_robot_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  351 |   std::vector<double> [01;35m[Kref_pos_robot_[m[K;
+      |                       [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:343:8:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kbool HapticControl::gripper_closed[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  343 |   bool [01;35m[Kgripper_closed[m[K;
+      |        [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/stlab24-04/ira2_ws/src/haptic_teleop/src/haptic_control2.cpp:23:3:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   23 |   [01;35m[KHapticControl[m[K()
+      |   [01;35m[K^~~~~~~~~~~~~[m[K

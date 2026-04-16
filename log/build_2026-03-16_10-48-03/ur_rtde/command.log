@@ -1,0 +1,6 @@
+Invoking command in '/home/stlab24-04/ira2_ws/build/ur_rtde': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/stlab24-04/ira2_ws/ur_rtde -DCMAKE_INSTALL_PREFIX=/home/stlab24-04/ira2_ws/install/ur_rtde
+Invoked command in '/home/stlab24-04/ira2_ws/build/ur_rtde' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/stlab24-04/ira2_ws/ur_rtde -DCMAKE_INSTALL_PREFIX=/home/stlab24-04/ira2_ws/install/ur_rtde
+Invoking command in '/home/stlab24-04/ira2_ws/build/ur_rtde': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/ur_rtde -- -j20 -l20
+Invoked command in '/home/stlab24-04/ira2_ws/build/ur_rtde' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/stlab24-04/ira2_ws/build/ur_rtde -- -j20 -l20
+Invoking command in '/home/stlab24-04/ira2_ws/build/ur_rtde': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/stlab24-04/ira2_ws/build/ur_rtde
+Invoked command in '/home/stlab24-04/ira2_ws/build/ur_rtde' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/stlab24-04/ira2_ws/build/ur_rtde

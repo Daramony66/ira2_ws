@@ -1,0 +1,37 @@
+[1.251s] Invoking command in '/home/stlab24-04/ira2_ws/src/ROS-TCP-Endpoint': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/build install --record /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed install_data
+[1.355s] /usr/lib/python3/dist-packages/setuptools/dist.py:744: SetuptoolsDeprecationWarning: Invalid dash-separated options
+[1.355s] !!
+[1.355s] 
+[1.355s]         ********************************************************************************
+[1.355s]         Usage of dash-separated 'script-dir' will not be supported in future
+[1.355s]         versions. Please use the underscore name 'script_dir' instead.
+[1.355s] 
+[1.355s]         This deprecation is overdue, please update your project and remove deprecated
+[1.356s]         calls to avoid build errors in the future.
+[1.356s] 
+[1.356s]         See https://setuptools.pypa.io/en/latest/userguide/declarative_config.html for details.
+[1.356s]         ********************************************************************************
+[1.356s] 
+[1.356s] !!
+[1.356s]   opt = self.warn_dash_deprecation(opt, section)
+[1.474s] running egg_info
+[1.490s] writing ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/PKG-INFO
+[1.490s] writing dependency_links to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/dependency_links.txt
+[1.491s] writing entry points to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/entry_points.txt
+[1.491s] writing requirements to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/requires.txt
+[1.491s] writing top-level names to ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/top_level.txt
+[1.526s] reading manifest file '../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
+[1.526s] adding license file 'LICENSE'
+[1.526s] writing manifest file '../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info/SOURCES.txt'
+[1.526s] running build
+[1.526s] running build_py
+[1.527s] running install
+[1.531s] running install_lib
+[1.549s] running install_data
+[1.549s] running install_egg_info
+[1.568s] removing '/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages/ros_tcp_endpoint-0.0.1-py3.12.egg-info' (and everything under it)
+[1.568s] Copying ../../build/ros_tcp_endpoint/ros_tcp_endpoint.egg-info to /home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages/ros_tcp_endpoint-0.0.1-py3.12.egg-info
+[1.568s] running install_scripts
+[1.680s] Installing default_server_endpoint script to /home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/ros_tcp_endpoint
+[1.680s] writing list of installed files to '/home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/install.log'
+[1.703s] Invoked command in '/home/stlab24-04/ira2_ws/src/ROS-TCP-Endpoint' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/stlab24-04/ira2_ws/install/ros_tcp_endpoint/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/ros_tcp_endpoint build --build-base /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/build install --record /home/stlab24-04/ira2_ws/build/ros_tcp_endpoint/install.log --install-scripts $base/lib/ros_tcp_endpoint --single-version-externally-managed install_data

@@ -1,0 +1,36 @@
+[  1%] Built target haptic_teleop__rosidl_generator_type_description
+[  3%] Built target robot_control
+[  5%] Built target unity_control
+[  8%] Built target get_force
+[ 10%] Built target joints_sub
+[ 12%] Built target unity_control_v2
+[ 12%] Built target ament_cmake_python_copy_haptic_teleop
+[ 13%] Built target haptic_teleop__cpp
+[ 30%] Built target haptic_teleop__rosidl_generator_c
+[ 43%] Built target haptic_teleop__rosidl_typesupport_introspection_c
+[ 44%] Built target haptic_teleop__rosidl_typesupport_c
+[ 51%] Built target haptic_teleop__rosidl_typesupport_cpp
+[ 58%] Built target haptic_teleop__rosidl_typesupport_introspection_cpp
+[ 65%] Built target haptic_teleop__rosidl_typesupport_fastrtps_c
+[ 72%] Built target haptic_teleop__rosidl_typesupport_fastrtps_cpp
+[ 72%] Built target haptic_teleop
+[ 73%] Built target haptic_teleop__py
+[ 77%] Built target position_service
+[ 77%] Built target color_publisher
+[ 80%] Built target haptic_control
+[ 81%] [32mBuilding CXX object CMakeFiles/haptic_control4.dir/src/haptic_control4.cpp.o[0m
+[ 83%] Built target haptic_control2
+[ 84%] [32mBuilding CXX object CMakeFiles/haptic_control3.dir/src/haptic_control3.cpp.o[0m
+[ 90%] Built target haptic_teleop__rosidl_generator_py
+[ 97%] Built target haptic_teleop_s__rosidl_typesupport_fastrtps_c
+[ 97%] Built target haptic_teleop_s__rosidl_typesupport_introspection_c
+[ 97%] Built target haptic_teleop_s__rosidl_typesupport_c
+running egg_info
+writing haptic_teleop.egg-info/PKG-INFO
+writing dependency_links to haptic_teleop.egg-info/dependency_links.txt
+writing top-level names to haptic_teleop.egg-info/top_level.txt
+reading manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+writing manifest file 'haptic_teleop.egg-info/SOURCES.txt'
+[ 97%] Built target ament_cmake_python_build_haptic_teleop_egg
+[ 98%] [32m[1mLinking CXX executable haptic_control3[0m
+[ 98%] Built target haptic_control3

@@ -1,0 +1,578 @@
+[
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/robot_state.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "output": "CMakeFiles/rtde.dir/src/robot_state.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/rtde.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "output": "CMakeFiles/rtde.dir/src/rtde.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/dashboard_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "output": "CMakeFiles/rtde.dir/src/dashboard_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/dashboard_enums.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "output": "CMakeFiles/rtde.dir/src/dashboard_enums.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/script_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "output": "CMakeFiles/rtde.dir/src/script_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/rtde_control_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "output": "CMakeFiles/rtde.dir/src/rtde_control_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/rtde_receive_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "output": "CMakeFiles/rtde.dir/src/rtde_receive_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/rtde_io_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "output": "CMakeFiles/rtde.dir/src/rtde_io_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/robotiq_gripper.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "output": "CMakeFiles/rtde.dir/src/robotiq_gripper.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/urcl/script_sender.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "output": "CMakeFiles/rtde.dir/src/urcl/script_sender.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/urcl/tcp_server.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "output": "CMakeFiles/rtde.dir/src/urcl/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/urcl/log.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "output": "CMakeFiles/rtde.dir/src/urcl/log.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -fPIC -o CMakeFiles/rtde.dir/src/urcl/default_log_handler.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "output": "CMakeFiles/rtde.dir/src/urcl/default_log_handler.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/robot_state.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/robot_state.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/rtde.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/rtde.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/dashboard_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/dashboard_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/dashboard_enums.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/dashboard_enums.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/script_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/script_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/rtde_control_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/rtde_control_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/rtde_receive_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/rtde_receive_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/rtde_io_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/rtde_io_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/robotiq_gripper.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/robotiq_gripper.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/urcl/script_sender.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/urcl/script_sender.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/urcl/tcp_server.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/urcl/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/urcl/log.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/urcl/log.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/urcl/default_log_handler.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/urcl/default_log_handler.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_control_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_control.dir/src/rtde_python_bindings.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "output": "CMakeFiles/rtde_control.dir/src/rtde_python_bindings.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/robot_state.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/robot_state.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/rtde.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/rtde.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/dashboard_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/dashboard_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/dashboard_enums.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/dashboard_enums.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/script_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/script_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/rtde_control_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/rtde_control_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/rtde_receive_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/rtde_receive_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/rtde_io_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/rtde_io_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/robotiq_gripper.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/robotiq_gripper.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/urcl/script_sender.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/urcl/script_sender.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/urcl/tcp_server.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/urcl/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/urcl/log.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/urcl/log.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/urcl/default_log_handler.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/urcl/default_log_handler.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_receive_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_receive.dir/src/rtde_python_bindings.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "output": "CMakeFiles/rtde_receive.dir/src/rtde_python_bindings.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/robot_state.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/robot_state.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/rtde.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/rtde.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/dashboard_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/dashboard_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/dashboard_enums.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/dashboard_enums.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/script_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/script_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/rtde_control_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/rtde_control_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/rtde_receive_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/rtde_receive_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/rtde_io_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/rtde_io_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/robotiq_gripper.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/robotiq_gripper.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/urcl/script_sender.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/urcl/script_sender.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/urcl/tcp_server.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/urcl/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/urcl/log.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/urcl/log.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/urcl/default_log_handler.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/urcl/default_log_handler.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Drtde_io_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/rtde_io.dir/src/rtde_python_bindings.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "output": "CMakeFiles/rtde_io.dir/src/rtde_python_bindings.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/robot_state.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "output": "CMakeFiles/script_client.dir/src/robot_state.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/rtde.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "output": "CMakeFiles/script_client.dir/src/rtde.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/dashboard_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "output": "CMakeFiles/script_client.dir/src/dashboard_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/dashboard_enums.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "output": "CMakeFiles/script_client.dir/src/dashboard_enums.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/script_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "output": "CMakeFiles/script_client.dir/src/script_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/rtde_control_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "output": "CMakeFiles/script_client.dir/src/rtde_control_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/rtde_receive_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "output": "CMakeFiles/script_client.dir/src/rtde_receive_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/rtde_io_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "output": "CMakeFiles/script_client.dir/src/rtde_io_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/robotiq_gripper.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "output": "CMakeFiles/script_client.dir/src/robotiq_gripper.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/urcl/script_sender.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "output": "CMakeFiles/script_client.dir/src/urcl/script_sender.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/urcl/tcp_server.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "output": "CMakeFiles/script_client.dir/src/urcl/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/urcl/log.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "output": "CMakeFiles/script_client.dir/src/urcl/log.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/urcl/default_log_handler.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "output": "CMakeFiles/script_client.dir/src/urcl/default_log_handler.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Drtde_EXPORTS -Dscript_client_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/script_client.dir/src/rtde_python_bindings.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "output": "CMakeFiles/script_client.dir/src/rtde_python_bindings.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/robot_state.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robot_state.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/robot_state.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/rtde.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/rtde.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/dashboard_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_client.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/dashboard_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/dashboard_enums.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/dashboard_enums.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/dashboard_enums.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/script_client.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/script_client.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/script_client.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/rtde_control_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_control_interface.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/rtde_control_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/rtde_receive_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_receive_interface.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/rtde_receive_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/rtde_io_interface.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_io_interface.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/rtde_io_interface.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/robotiq_gripper.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/robotiq_gripper.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/robotiq_gripper.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/urcl/script_sender.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/script_sender.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/urcl/script_sender.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/urcl/tcp_server.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/tcp_server.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/urcl/tcp_server.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/urcl/log.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/log.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/urcl/log.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/urcl/default_log_handler.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/urcl/default_log_handler.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/urcl/default_log_handler.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -Ddashboard_client_EXPORTS -Drtde_EXPORTS -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -isystem /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/include -isystem /usr/include/python3.12 -std=c++11 -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -o CMakeFiles/dashboard_client.dir/src/rtde_python_bindings.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/src/rtde_python_bindings.cpp",
+  "output": "CMakeFiles/dashboard_client.dir/src/rtde_python_bindings.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/servoj_example.dir/examples/cpp/servoj_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/servoj_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/servoj_example.cpp",
+  "output": "CMakeFiles/servoj_example.dir/examples/cpp/servoj_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/forcemode_example.dir/examples/cpp/forcemode_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/forcemode_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/forcemode_example.cpp",
+  "output": "CMakeFiles/forcemode_example.dir/examples/cpp/forcemode_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/speedj_example.dir/examples/cpp/speedj_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/speedj_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/speedj_example.cpp",
+  "output": "CMakeFiles/speedj_example.dir/examples/cpp/speedj_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/movej_path_with_blend_example.dir/examples/cpp/movej_path_with_blend_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/movej_path_with_blend_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/movej_path_with_blend_example.cpp",
+  "output": "CMakeFiles/movej_path_with_blend_example.dir/examples/cpp/movej_path_with_blend_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/io_example.dir/examples/cpp/io_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/io_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/io_example.cpp",
+  "output": "CMakeFiles/io_example.dir/examples/cpp/io_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/move_async_example.dir/examples/cpp/move_async_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/move_async_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/move_async_example.cpp",
+  "output": "CMakeFiles/move_async_example.dir/examples/cpp/move_async_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/move_path_async_example.dir/examples/cpp/move_path_async_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/move_path_async_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/move_path_async_example.cpp",
+  "output": "CMakeFiles/move_path_async_example.dir/examples/cpp/move_path_async_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/robotiq_gripper_example.dir/examples/cpp/robotiq_gripper_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/robotiq_gripper_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/robotiq_gripper_example.cpp",
+  "output": "CMakeFiles/robotiq_gripper_example.dir/examples/cpp/robotiq_gripper_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/move_until_contact_example.dir/examples/cpp/move_until_contact.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/move_until_contact.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/move_until_contact.cpp",
+  "output": "CMakeFiles/move_until_contact_example.dir/examples/cpp/move_until_contact.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/record_data_example.dir/examples/cpp/record_data_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/record_data_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/record_data_example.cpp",
+  "output": "CMakeFiles/record_data_example.dir/examples/cpp/record_data_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/realtime_control_example.dir/examples/cpp/realtime_control_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/realtime_control_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/realtime_control_example.cpp",
+  "output": "CMakeFiles/realtime_control_example.dir/examples/cpp/realtime_control_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/contact_detection_example.dir/examples/cpp/contact_detection_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/contact_detection_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/contact_detection_example.cpp",
+  "output": "CMakeFiles/contact_detection_example.dir/examples/cpp/contact_detection_example.cpp.o"
+},
+{
+  "directory": "/home/stlab24-04/ira2_ws/build/ur_rtde",
+  "command": "/usr/bin/c++ -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -DBOOST_THREAD_DYN_LINK -DBOOST_THREAD_NO_LIB -I/home/stlab24-04/ira2_ws/ur_rtde/include -I/home/stlab24-04/ira2_ws/build/ur_rtde -std=c++11 -o CMakeFiles/jog_example.dir/examples/cpp/jog_example.cpp.o -c /home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/jog_example.cpp",
+  "file": "/home/stlab24-04/ira2_ws/ur_rtde/examples/cpp/jog_example.cpp",
+  "output": "CMakeFiles/jog_example.dir/examples/cpp/jog_example.cpp.o"
+}
+]

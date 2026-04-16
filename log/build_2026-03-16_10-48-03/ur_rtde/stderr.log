@@ -1,0 +1,26 @@
+[0mCMake Deprecation Warning at /home/stlab24-04/ira2_ws/build/ur_rtde/_deps/pybind11-src-src/CMakeLists.txt:8 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+[0m
+[01m[Klto-wrapper:[m[K [01;35m[Kwarning: [m[Kusing serial compilation of 4 LTRANS jobs
+[01m[Klto-wrapper:[m[K [01;36m[Knote: [m[Ksee the ]8;;https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-flto‘[01m[K-flto[m[K’ option documentation]8;; for more information
+[01m[Klto-wrapper:[m[K [01;35m[Kwarning: [m[Kusing serial compilation of 4 LTRANS jobs
+[01m[Klto-wrapper:[m[K [01;36m[Knote: [m[Ksee the ]8;;https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-flto‘[01m[K-flto[m[K’ option documentation]8;; for more information
+[01m[Klto-wrapper:[m[K [01;35m[Kwarning: [m[Kusing serial compilation of 4 LTRANS jobs
+[01m[Klto-wrapper:[m[K [01;36m[Knote: [m[Ksee the ]8;;https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-flto‘[01m[K-flto[m[K’ option documentation]8;; for more information
+[01m[Klto-wrapper:[m[K [01;35m[Kwarning: [m[Kusing serial compilation of 4 LTRANS jobs
+[01m[Klto-wrapper:[m[K [01;36m[Knote: [m[Ksee the ]8;;https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-flto‘[01m[K-flto[m[K’ option documentation]8;; for more information
+[01m[Klto-wrapper:[m[K [01;35m[Kwarning: [m[Kusing serial compilation of 4 LTRANS jobs
+[01m[Klto-wrapper:[m[K [01;36m[Knote: [m[Ksee the ]8;;https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-flto‘[01m[K-flto[m[K’ option documentation]8;; for more information
+[31mCMake Error at cmake_install.cmake:93 (file):
+  file INSTALL cannot copy file
+  "/home/stlab24-04/ira2_ws/build/ur_rtde/rtde_control.cpython-312-x86_64-linux-gnu.so"
+  to
+  "/usr/lib/python3/dist-packages/rtde_control.cpython-312-x86_64-linux-gnu.so":
+  Permission denied.
+
+[0m
