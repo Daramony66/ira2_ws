@@ -1,9 +1,0 @@
-{
-  "package_name": "unity_robotics_ira2",
-  "non_idl_tuples": [
-    "/home/stlab24-04/ira2_ws/src/unity_robotics_ira2:msg/PosRot.msg",
-    "/home/stlab24-04/ira2_ws/src/unity_robotics_ira2:msg/UnityColor.msg",
-    "/home/stlab24-04/ira2_ws/src/unity_robotics_ira2:srv/PositionService.srv",
-    "/home/stlab24-04/ira2_ws/src/unity_robotics_ira2:srv/ObjectPoseService.srv"
-  ]
-}

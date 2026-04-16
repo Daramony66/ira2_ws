@@ -1,8 +1,0 @@
-msg/PosRot.idl
-msg/PosRot.msg
-msg/UnityColor.idl
-msg/UnityColor.msg
-srv/ObjectPoseService.idl
-srv/ObjectPoseService.srv
-srv/PositionService.idl
-srv/PositionService.srv

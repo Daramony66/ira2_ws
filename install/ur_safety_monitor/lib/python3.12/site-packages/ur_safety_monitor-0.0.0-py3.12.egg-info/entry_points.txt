@@ -1,2 +1,0 @@
-[console_scripts]
-safety_monitor_node = ur_safety_monitor.safety_monitor_node:main
