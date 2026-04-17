@@ -1,6 +1,5 @@
 # Ajouté le 16/04 à 10h15 , Modifié à 11h50
 # SCRIPT PROPRE
-# UYEN EST ICI
 
 import rclpy
 from rclpy.node import Node
@@ -13,6 +12,8 @@ from scipy.spatial.transform import Rotation as R
 import math
 import threading
 import time # Déplacé le 15/04
+
+from rcl_interfaces.msg import SetParametersResult # Ajouté le 16/04 à 17h00 -- pour les paramètres dynamiques
 
 class TestUnityP1(Node):
     def __init__(self):
@@ -51,12 +52,33 @@ class TestUnityP1(Node):
         #Ajouté le 16/04 à 12h35
         self.abort_active = False
 
-        self.settle_time = 0.2
-        self.bias_samples = 50
-        self.bias_std_th = 0.5
+        #Ajouté je 16/04 à 16h45
+        self.declare_parameter('force_target', 20.0)
+        self.declare_parameter('force_wrench', 50.0)
+        self.declare_parameter('force_max', 70.0)
+        self.declare_parameter('scenario_mode', 0)
+        self.declare_parameter('timeout', 30.0)
+        self.declare_parameter('offset', 0.1)
+        self.declare_parameter('xy_norm_min', 0.230)
+        self.declare_parameter('settle_time', 0.2)
+        self.declare_parameter('bias_samples', 50)
+        self.declare_parameter('bias_std_threshold', 0.5)
+
+        self.force_target = self.get_parameter('force_target').value
+        self.force_wrench = self.get_parameter('force_wrench').value
+        self.force_max = self.get_parameter('force_max').value
+        self.scenario_mode = int(self.get_parameter('scenario_mode').value)
+        self.timeout = self.get_parameter('timeout').value
+        self.offset = self.get_parameter('offset').value
+        self.xy_norm_min = self.get_parameter('xy_norm_min').value
+        self.settle_time = self.get_parameter('settle_time').value
+        self.bias_samples = int(self.get_parameter('bias_samples').value)
+        self.bias_std_th = self.get_parameter('bias_std_threshold').value
+
+        self.add_on_set_parameters_callback(self.cb_parameters) # Ajouté le 16/04 à 17h00
 
 
-        self.create_subscription(String, '/safety_abort', self.cb_abort, 10)
+        self.create_subscription(String, '/safety_abort', self.cb_abort, 10) #Ajouté le 16/04 à 12h35
         #######################
 
         self.get_logger().info(f"Position initiale TCP : x:{tcp[0]*1000:.2f}mm  y:{tcp[1]*1000:.2f}mm  z:{tcp[2]*1000:.2f}mm")  # Afficher pose TCP dans repère base
@@ -109,7 +131,7 @@ class TestUnityP1(Node):
         # =====================================================
 
         # # ETAPE pre_P1 : reculer de 10cm en Z TCP avant P1
-        offset = 0.1
+        offset = self.offset
         pre_P1 = [
             P1[0] - self.z_axis_in_base[0] * offset,
             P1[1] - self.z_axis_in_base[1] * offset,
@@ -127,7 +149,7 @@ class TestUnityP1(Node):
         #     return
         
         # valeur repoussé à 230 pour plus de sûreté
-        if xy_norm < 0.230:
+        if xy_norm < self.xy_norm_min:
             self.get_logger().warn(f"pre_P1 trop proche de la base (norme XY = {xy_norm*1000:.1f}mm < 230mm) — renvoyer un autre point.")
             return
 
@@ -172,11 +194,11 @@ class TestUnityP1(Node):
         tcp_current = self.rr.getActualTCPPose()
         task_frame = list(tcp_current) # repère de poussée
         selection_vector = [0, 0, 1, 0, 0, 0] # quel axe ?
-        wrench = [0, 0, 100, 0, 0, 0] # force de poussée
+        wrench = [0, 0, self.force_wrench, 0, 0, 0] # force de poussée
         limits = [2, 2, 1.5, 1, 1, 1] # ??
         t_start_loop = time.time()
-        TIMEOUT = 30.0 # temps avant mort
-        FORCE_TARGET = 20.0 # force cible
+        TIMEOUT = self.timeout # temps avant mort
+        FORCE_TARGET = self.force_target # force cible
         i = 0
         
         while True:
@@ -199,8 +221,14 @@ class TestUnityP1(Node):
             force = self.rr.getActualTCPForce()
             force_mag = (force[0]**2 + force[1]**2 + force[2]**2)**0.5
 
-
             force_dev = force_mag - bias_mean # Ajouté le 16/04 à 12h35
+
+            # Ajouté le 16/04 à 16h45
+            if force_dev > self.force_max:
+                self.rc.forceModeStop()
+                self.get_logger().error(f"Force max dépassée ({force_dev:.2f}N > {self.force_max}N) — arrêt immédiat.")
+                return
+
             if i % 50 == 0:
                 t = self.rr.getActualTCPPose()
                 print(f"x:{t[0]*1000:.1f}mm  y:{t[1]*1000:.1f}mm  force:{force_dev:.2f}N") # Ajouté le 16/04 à 12h35
@@ -234,6 +262,32 @@ class TestUnityP1(Node):
         #########################################
 
         self.get_logger().info("En attente de P1 depuis Unity...")
+
+
+    # Ajouté le 16/04 à 17h00 -- callback pour mise à jour dynamique des paramètres depuis ROS2
+    def cb_parameters(self, params):
+        for p in params:
+            if p.name == 'force_target':
+                self.force_target = p.value
+            elif p.name == 'force_wrench':
+                self.force_wrench = p.value
+            elif p.name == 'force_max':
+                self.force_max = p.value
+            elif p.name == 'scenario_mode':
+                self.scenario_mode = int(p.value)
+            elif p.name == 'timeout':
+                self.timeout = p.value
+            elif p.name == 'offset':
+                self.offset = p.value
+            elif p.name == 'xy_norm_min':
+                self.xy_norm_min = p.value
+            elif p.name == 'settle_time':
+                self.settle_time = p.value
+            elif p.name == 'bias_samples':
+                self.bias_samples = int(p.value)
+            elif p.name == 'bias_std_threshold':
+                self.bias_std_th = p.value
+        return SetParametersResult(successful=True)
 
 
 # def main():
