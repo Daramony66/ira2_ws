@@ -13,7 +13,17 @@ import math
 import threading
 import time # Déplacé le 15/04
 
+import subprocess # Ajouté le 17/04 à 17h00
+
 from rcl_interfaces.msg import SetParametersResult # Ajouté le 16/04 à 17h00 -- pour les paramètres dynamiques
+
+# Ajouté le 17/04 à 16h30
+def publish_status(status: str):
+    cmd = f'ros2 topic pub --once /masters/status std_msgs/msg/String "{{data: \\"{status}\\"}}"'
+    threading.Thread(
+        target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+        daemon=True
+    ).start()
 
 class TestUnityP1(Node):
     def __init__(self):
@@ -24,8 +34,8 @@ class TestUnityP1(Node):
 
         # Position initiale
         self.init_pose = [
-            math.radians(-45),
-            #math.radians(-135),
+            # math.radians(-45),
+            math.radians(-135),
             math.radians(-90),
             math.radians(90),
             math.radians(-180),
@@ -84,6 +94,9 @@ class TestUnityP1(Node):
 
         self.status_pub = self.create_publisher(String, '/masters/status', 10) # Ajouté le 17/04 à 13h10
 
+        self.start_move_event = threading.Event()
+        self.create_subscription(String, '/start_move', self.cb_start_move, 10)
+
         self.get_logger().info(f"Position initiale TCP : x:{tcp[0]*1000:.2f}mm  y:{tcp[1]*1000:.2f}mm  z:{tcp[2]*1000:.2f}mm")  # Afficher pose TCP dans repère base
 
         self.get_logger().info(f"Z axis in base : x:{self.z_axis_in_base[0]:.4f}  y:{self.z_axis_in_base[1]:.4f}  z:{self.z_axis_in_base[2]:.4f}") # Afficher coords vecteur Z_TCP dans repère base
@@ -101,6 +114,10 @@ class TestUnityP1(Node):
     def cb_abort(self, msg):
         self.abort_active = True
         self.get_logger().error(f"SAFETY ABORT reçu : {msg.data}")
+
+    def cb_start_move(self, msg):
+        self.get_logger().info("Signal /start_move reçu — lancement poussée.")
+        self.start_move_event.set()
 
     #Ajouté le 15/04
     def destroy_node(self):
@@ -205,6 +222,34 @@ class TestUnityP1(Node):
         print(f"En pre_P1 !")
         ###############################################
 
+        self.start_move_event.clear()
+        self.get_logger().info("En pre_P1 — en attente du signal /start_move...")
+
+        # Publier "waiting" pour informer l'IHM
+        msg = String()
+        msg.data = "waiting"
+        self.status_pub.publish(msg)
+
+        # self.start_move_event.wait()  # bloque jusqu'à réception de /start_move
+            
+        while not self.start_move_event.wait(timeout=0.1):
+            if self.abort_active:
+                msg = String()
+                msg.data = "aborted"
+                self.status_pub.publish(msg)
+                return
+            if self.error_event.is_set():
+                msg = String()
+                msg.data = "error"
+                self.status_pub.publish(msg)
+                return
+
+        if self.abort_active:
+            msg = String()
+            msg.data = "aborted"
+            self.status_pub.publish(msg)
+            return
+
         # ETAPE force mode : pousser en Z TCP vers P1
         
         time.sleep(0.02)
@@ -253,7 +298,14 @@ class TestUnityP1(Node):
 
             # Ajouté le 15/04 - détection Protective Stop
             runtime_state = self.rr.getRuntimeState()
+            # if runtime_state != 2:
+            #     self.error_event.set()
+            #     return
+            
             if runtime_state != 2:
+                msg = String()
+                msg.data = "error"
+                self.status_pub.publish(msg)
                 self.error_event.set()
                 return
             
@@ -422,6 +474,7 @@ def main():
             break
         except Exception as e:
             print(f"[ERREUR] {e}") # Modifié le 16/04 -- Afficher l'erreur exacte
+            publish_status("error")
             try:
                 node.rc.disconnect()
             except:
@@ -439,7 +492,9 @@ def main():
                     rr_test.disconnect()
                     if robot_mode == 7 and safety_mode == 1:
                         print("Robot prêt, relance dans 2s...")
+                        publish_status("restarting")
                         time.sleep(2)
+                        # publish_status("ready")  # ← ajouter ici
                         break
                     else:
                         print(f"Robot pas encore prêt (safety_mode={safety_mode}), attente...")
