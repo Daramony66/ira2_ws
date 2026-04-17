@@ -24,8 +24,8 @@ class TestUnityP1(Node):
 
         # Position initiale
         self.init_pose = [
-            #math.radians(-45),
-            math.radians(-135),
+            math.radians(-45),
+            #math.radians(-135),
             math.radians(-90),
             math.radians(90),
             math.radians(-180),
@@ -63,6 +63,7 @@ class TestUnityP1(Node):
         self.declare_parameter('settle_time', 0.2)
         self.declare_parameter('bias_samples', 50)
         self.declare_parameter('bias_std_threshold', 0.5)
+        self.declare_parameter('hold_time', 0.5) # Ajouté le 17/04 à 11h40
 
         self.force_target = self.get_parameter('force_target').value
         self.force_wrench = self.get_parameter('force_wrench').value
@@ -74,9 +75,9 @@ class TestUnityP1(Node):
         self.settle_time = self.get_parameter('settle_time').value
         self.bias_samples = int(self.get_parameter('bias_samples').value)
         self.bias_std_th = self.get_parameter('bias_std_threshold').value
+        self.hold_time = self.get_parameter('hold_time').value # Ajouté le 17/04 à 11h40
 
         self.add_on_set_parameters_callback(self.cb_parameters) # Ajouté le 16/04 à 17h00
-
 
         self.create_subscription(String, '/safety_abort', self.cb_abort, 10) #Ajouté le 16/04 à 12h35
         #######################
@@ -131,7 +132,23 @@ class TestUnityP1(Node):
         # =====================================================
 
         # # ETAPE pre_P1 : reculer de 10cm en Z TCP avant P1
-        offset = self.offset
+        # offset = self.offset
+        # pre_P1 = [
+
+        # Ajouté le 17/04 à 11h25
+        if self.scenario_mode == 0:  # Push
+            offset = self.offset
+            wrench = [0, 0, self.force_wrench, 0, 0, 0]
+        elif self.scenario_mode == 1:  # Punch
+            offset = self.offset
+            wrench = [0, 0, min(self.force_wrench * 2, 150), 0, 0, 0]
+        elif self.scenario_mode == 2:  # Touch
+            offset = 0.05
+            wrench = [0, 0, 10.0, 0, 0, 0]
+        else:
+            offset = self.offset
+            wrench = [0, 0, self.force_wrench, 0, 0, 0]
+
         pre_P1 = [
             P1[0] - self.z_axis_in_base[0] * offset,
             P1[1] - self.z_axis_in_base[1] * offset,
@@ -194,11 +211,20 @@ class TestUnityP1(Node):
         tcp_current = self.rr.getActualTCPPose()
         task_frame = list(tcp_current) # repère de poussée
         selection_vector = [0, 0, 1, 0, 0, 0] # quel axe ?
-        wrench = [0, 0, self.force_wrench, 0, 0, 0] # force de poussée
+        # wrench = [0, 0, self.force_wrench, 0, 0, 0] # force de poussée
+
+
         limits = [2, 2, 1.5, 1, 1, 1] # ??
         t_start_loop = time.time()
         TIMEOUT = self.timeout # temps avant mort
-        FORCE_TARGET = self.force_target # force cible
+        #FORCE_TARGET = self.force_target # force cible
+
+        # Ajouté le 17/04 à 11h15
+        if self.scenario_mode == 2:  # Touch
+            FORCE_TARGET = 1.0
+        else:
+            FORCE_TARGET = self.force_target
+
         i = 0
         
         while True:
@@ -232,15 +258,47 @@ class TestUnityP1(Node):
             if i % 50 == 0:
                 t = self.rr.getActualTCPPose()
                 print(f"x:{t[0]*1000:.1f}mm  y:{t[1]*1000:.1f}mm  force:{force_dev:.2f}N") # Ajouté le 16/04 à 12h35
-            if force_dev > FORCE_TARGET: # Ajouté le 16/04 à 12h35
-                print(f"Force cible atteinte : {force_mag:.2f}N !")
+
+
+            # if force_dev > FORCE_TARGET: # Ajouté le 16/04 à 12h35
+            #     print(f"Force cible atteinte : {force_mag:.2f}N !")
+            #     break
+
+            # if time.time() - t_start_loop > TIMEOUT:
+            #     print("Timeout !")
+            #     break
+
+            # Ajouté le 17/04 à 11h00
+            if force_dev >= FORCE_TARGET:
+                # self.rc.forceModeStop()
+                print(f"Force cible atteinte : {force_dev:.2f}N !")
+                if self.scenario_mode == 0:  # Push
+                    self.get_logger().info("Mode Push — maintien 2s...")
+                    # time.sleep(2.0)
+                    time.sleep(self.hold_time)
+                    self.rc.forceModeStop()
+                    retract_speed, retract_accel = 0.2, 0.5
+                elif self.scenario_mode == 1:  # Punch
+                    self.rc.forceModeStop()
+                    self.get_logger().info("Mode Punch — rétraction rapide !")
+                    retract_speed, retract_accel = 1.0, 2.0
+                elif self.scenario_mode == 2:  # Touch
+                    self.rc.forceModeStop()
+                    self.get_logger().info("Mode Touch — rétraction immédiate.")
+                    retract_speed, retract_accel = 0.5, 1.0
                 break
+
             if time.time() - t_start_loop > TIMEOUT:
                 print("Timeout !")
+                self.rc.forceModeStop()
+                print("Force mode OFF")
+                retract_speed, retract_accel = 0.2, 0.5
                 break
             i += 1
-        self.rc.forceModeStop()
-        print("Force mode OFF")
+        
+        # Commenté le 17/04 à 11h00
+        # self.rc.forceModeStop()
+        # print("Force mode OFF")
 
         # ETAPE retraction : retour position initiale
         # self.rc.moveJ(self.init_pose, 0.1, 0.1)
@@ -251,7 +309,10 @@ class TestUnityP1(Node):
         # print(f"Rétracté en pre_P1 !")
 
         # Ajouté le 16/04 à 15h15 ###############
-        self.rc.moveL(pre_P1, 0.2, 0.5, asynchronous=True)
+        # self.rc.moveL(pre_P1, 0.2, 0.5, asynchronous=True) # Commenté le 17/04
+        self.rc.moveL(pre_P1, retract_speed, retract_accel, asynchronous=True)
+
+
         while self.rc.getAsyncOperationProgress() >= 0:
             if self.abort_active:
                 self.rc.stopL(0.5)
@@ -287,8 +348,9 @@ class TestUnityP1(Node):
                 self.bias_samples = int(p.value)
             elif p.name == 'bias_std_threshold':
                 self.bias_std_th = p.value
+            elif p.name == 'hold_time': # Ajouté le 17/04 à 11h40
+                self.hold_time = p.value # Ajouté le 17/04 à 11h40
         return SetParametersResult(successful=True)
-
 
 # def main():
 #     rclpy.init()
