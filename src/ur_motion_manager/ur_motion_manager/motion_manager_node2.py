@@ -82,6 +82,8 @@ class TestUnityP1(Node):
         self.create_subscription(String, '/safety_abort', self.cb_abort, 10) #Ajouté le 16/04 à 12h35
         #######################
 
+        self.status_pub = self.create_publisher(String, '/masters/status', 10) # Ajouté le 17/04 à 13h10
+
         self.get_logger().info(f"Position initiale TCP : x:{tcp[0]*1000:.2f}mm  y:{tcp[1]*1000:.2f}mm  z:{tcp[2]*1000:.2f}mm")  # Afficher pose TCP dans repère base
 
         self.get_logger().info(f"Z axis in base : x:{self.z_axis_in_base[0]:.4f}  y:{self.z_axis_in_base[1]:.4f}  z:{self.z_axis_in_base[2]:.4f}") # Afficher coords vecteur Z_TCP dans repère base
@@ -123,6 +125,13 @@ class TestUnityP1(Node):
 
         # Ajouté le 16/04 à 12h35
         if self.abort_active:
+
+            ############################
+            msg = String()
+            msg.data = "aborted"
+            self.status_pub.publish(msg)
+            ############################
+
             self.get_logger().warn("Abort actif — mouvement annulé.")
             return
 
@@ -167,6 +176,11 @@ class TestUnityP1(Node):
         
         # valeur repoussé à 230 pour plus de sûreté
         if xy_norm < self.xy_norm_min:
+            ############################
+            msg = String()
+            msg.data = "aborted"
+            self.status_pub.publish(msg)
+            ############################
             self.get_logger().warn(f"pre_P1 trop proche de la base (norme XY = {xy_norm*1000:.1f}mm < 230mm) — renvoyer un autre point.")
             return
 
@@ -180,6 +194,11 @@ class TestUnityP1(Node):
         while self.rc.getAsyncOperationProgress() >= 0:
             if self.abort_active:
                 self.rc.stopL(0.5)
+                ############################
+                msg = String()
+                msg.data = "aborted"
+                self.status_pub.publish(msg)
+                ############################
                 self.get_logger().error("Abort reçu pendant moveL — arrêt immédiat.")
                 return
             time.sleep(0.02)
@@ -241,6 +260,11 @@ class TestUnityP1(Node):
             # Ajouté le 16/04 à 15h15 
             if self.abort_active:
                 self.rc.forceModeStop()
+                ############################
+                msg = String()
+                msg.data = "aborted"
+                self.status_pub.publish(msg)
+                ############################                
                 self.get_logger().error("Abort reçu pendant force mode — arrêt immédiat.")
                 return
 
@@ -252,6 +276,11 @@ class TestUnityP1(Node):
             # Ajouté le 16/04 à 16h45
             if force_dev > self.force_max:
                 self.rc.forceModeStop()
+                ############################
+                msg = String()
+                msg.data = "aborted"
+                self.status_pub.publish(msg)
+                ############################                   
                 self.get_logger().error(f"Force max dépassée ({force_dev:.2f}N > {self.force_max}N) — arrêt immédiat.")
                 return
 
@@ -316,13 +345,24 @@ class TestUnityP1(Node):
         while self.rc.getAsyncOperationProgress() >= 0:
             if self.abort_active:
                 self.rc.stopL(0.5)
+                ############################
+                msg = String()
+                msg.data = "aborted"
+                self.status_pub.publish(msg)
+                ############################                   
                 self.get_logger().error("Abort reçu pendant rétraction — arrêt immédiat.")
                 return
             time.sleep(0.02)
         print(f"Rétracté en pre_P1 !")
         #########################################
 
-        self.get_logger().info("En attente de P1 depuis Unity...")
+        # Ajouté 17/04 à 13h10
+        msg = String()
+        msg.data = "ready"
+        self.status_pub.publish(msg)
+        self.get_logger().info("Statut : ready — en attente du prochain PLAY.")
+
+        # self.get_logger().info("En attente de P1 depuis Unity...")
 
 
     # Ajouté le 16/04 à 17h00 -- callback pour mise à jour dynamique des paramètres depuis ROS2
