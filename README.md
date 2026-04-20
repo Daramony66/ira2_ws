@@ -13,3 +13,4 @@
 | cp_position  | service | ROS → Unity                 | Request contact point position from Unity (returns geometry_msgs/Point) |
 | system_state | service | ROS → Unity                 | Change experiment state (PreCalibration, Calibration, Punch, Push)      |
 | app_control  | service | ROS → Unity                 | Control Unity app state (Play, Stop, Reset)                             |
+| start_move   | topic   | Unity → ROS                 |                                                                         |
