@@ -1,4 +1,5 @@
-| Name        |  Type   | Note                                                           |                                    |
-| :---------- | :-----: | :------------------------------------------------------------- | :--------------------------------- |
-| cp_position | service | position of contact point                                      | ROS2 --> Quest <br> Quest --> ROS2 |
-| scene_mode  |  service  | change scene's mode (PreCalibration, Calibration, Punch, Push) | ROS2 --> Quest                     |
+| Name              |   Type   | Direction (Client → Server) | Note                                                                 |
+| :---------------- | :------: | :-------------------------- | :------------------------------------------------------------------- |
+| cp_position       | service  | ROS → Unity                 | Request contact point position from Unity (returns geometry_msgs/Point) |
+| system_state      | service  | ROS → Unity                 | Change experiment state (PreCalibration, Calibration, Punch, Push) |
+| app_control       | service  | ROS → Unity                 | Control Unity app state (Play, Stop, Reset)                         |

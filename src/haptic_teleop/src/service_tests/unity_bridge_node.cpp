@@ -13,9 +13,9 @@ public :
 
     UnityBridgeNode() : Node("unity_bridge")
     {
-        app_control_client = this->create_client<haptic_teleop::srv::AppControlService>("app_control_srv");
-        contact_point_client = this->create_client<haptic_teleop::srv::ContactPointService>("contact_point_srv");
-        state_client = this->create_client<haptic_teleop::srv::SystemStateService>("system_state_srv");
+        app_control_client = this->create_client<haptic_teleop::srv::AppControlService>("app_control");
+        contact_point_client = this->create_client<haptic_teleop::srv::ContactPointService>("cp_position");
+        state_client = this->create_client<haptic_teleop::srv::SystemStateService>("system_state");
 
         // Attendre que tous les services soient disponibles
         while (!app_control_client->wait_for_service(1s) || 

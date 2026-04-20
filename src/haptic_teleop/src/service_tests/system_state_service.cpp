@@ -8,7 +8,7 @@ class SystemStateServiceNode : public rclcpp::Node
 public :
     SystemStateServiceNode() : Node("system_state")
     {
-        state_client = this->create_client<haptic_teleop::srv::SystemStateService>("system_state_srv");
+        state_client = this->create_client<haptic_teleop::srv::SystemStateService>("system_state");
 
         while (!state_client->wait_for_service(1s))
         {

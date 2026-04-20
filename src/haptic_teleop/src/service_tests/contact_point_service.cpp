@@ -11,7 +11,7 @@ public :
 
     ContactPointServiceNode() : Node("contact_point")
     {
-        contact_point_client = this->create_client<haptic_teleop::srv::ContactPointService>("contact_point_srv");
+        contact_point_client = this->create_client<haptic_teleop::srv::ContactPointService>("cp_position");
 
         while (!contact_point_client->wait_for_service(1s))
         {

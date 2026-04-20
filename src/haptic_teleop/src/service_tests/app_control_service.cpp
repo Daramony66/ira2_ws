@@ -8,7 +8,7 @@ class AppControlServiceNode : public rclcpp::Node
 public :
     AppControlServiceNode() : Node("app_control")
     {
-        app_control_client = this->create_client<haptic_teleop::srv::AppControlService>("app_control_srv");
+        app_control_client = this->create_client<haptic_teleop::srv::AppControlService>("app_control");
 
         while (!app_control_client->wait_for_service(1s))
         {
