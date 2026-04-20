@@ -104,6 +104,11 @@ class TestUnityP1(Node):
         self.create_subscription(Point, 'cube_position', self.cb_p1, 10) # S'abonner au topic pour recevoir la pose du cube (point de toucher)
         self.get_logger().info("En attente de P1 depuis Unity...")
 
+        msg = String()
+        msg.data = "restarted"
+        self.status_pub.publish(msg)
+        self.get_logger().info("Nœud prêt — statut ready publié.")
+
     def cb_p1(self, msg):
         P1 = [msg.x, msg.y, msg.z]
         self.get_logger().info(f"P1 reçu : x={P1[0]:.4f}  y={P1[1]:.4f}  z={P1[2]:.4f}")
@@ -139,6 +144,7 @@ class TestUnityP1(Node):
         # tcp = self.rr.getActualTCPPose()
         # self.get_logger().info(f"En P1 ! TCP réel : x:{tcp[0]*1000:.2f}mm  y:{tcp[1]*1000:.2f}mm  z:{tcp[2]*1000:.2f}mm")
 
+        self.start_move_event.clear()  # Ajouté le 20/04 — évite les signaux résiduels
 
         # Ajouté le 16/04 à 12h35
         if self.abort_active:
@@ -167,7 +173,8 @@ class TestUnityP1(Node):
             wrench = [0, 0, self.force_wrench, 0, 0, 0]
         elif self.scenario_mode == 1:  # Punch
             offset = self.offset
-            wrench = [0, 0, min(self.force_wrench * 2, 150), 0, 0, 0]
+            # wrench = [0, 0, min(self.force_wrench * 2, 150), 0, 0, 0]
+            wrench = [0, 0, self.force_wrench, 0, 0, 0]
         elif self.scenario_mode == 2:  # Touch
             offset = 0.05
             wrench = [0, 0, 10.0, 0, 0, 0]
@@ -195,7 +202,7 @@ class TestUnityP1(Node):
         if xy_norm < self.xy_norm_min:
             ############################
             msg = String()
-            msg.data = "aborted"
+            msg.data = "aborted_norm" # Mise à jour le 20/40 à 12h00
             self.status_pub.publish(msg)
             ############################
             self.get_logger().warn(f"pre_P1 trop proche de la base (norme XY = {xy_norm*1000:.1f}mm < 230mm) — renvoyer un autre point.")
@@ -474,7 +481,7 @@ def main():
             break
         except Exception as e:
             print(f"[ERREUR] {e}") # Modifié le 16/04 -- Afficher l'erreur exacte
-            publish_status("error")
+            # publish_status("error")
             try:
                 node.rc.disconnect()
             except:
