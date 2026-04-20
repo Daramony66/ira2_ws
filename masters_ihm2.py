@@ -294,11 +294,18 @@ class MastersIHM(tk.Tk):
         self._ros2_publish(TOPIC_COMMAND, "calibration")
         self.after(1500, lambda: self._cal_status.config(
             text="✅ Calibration lancée.\nVérifier l'alignement dans le casque.", fg=GREEN))
-
+    
     def _select_scenario(self, name):
         self.scenario_var.set(name)
         for n, btn in self._scen_btns.items():
             btn.config(bg=SCENARIO_COLORS[n] if n == name else GREY)
+        # Envoyer immédiatement le scenario_mode au nœud
+        scen_map = {"Push": 0, "Punch": 1, "Touch": 2}
+        scen = scen_map[name]
+        cmd = f"ros2 param set /test_unity_p1 scenario_mode {scen}"
+        threading.Thread(
+            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+            daemon=True).start()
 
     def _do_confirm(self):
         scen_map = {"Push": 0, "Punch": 1, "Touch": 2}
@@ -384,7 +391,8 @@ class MastersIHM(tk.Tk):
         def kill():
             for label, proc in self.processes.items():
                 try:
-                    os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+                    # s.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+                    os.killpg(os.getpgid(proc.pid), signal.SIGINT)  # était SIGTERM
                 except:
                     pass
             time.sleep(1.0)  # laisser le temps au SIGTERM
@@ -431,18 +439,42 @@ class MastersIHM(tk.Tk):
             elif data == "aborted":
                 self.session_active = False
                 self.after(0, self._on_status_aborted)
+            elif data == "waiting":
+                self.after(0, self._on_status_waiting)
+            elif data == "error":
+                self.after(0, self._on_status_error)
+            elif data == "restarting":
+                self.after(0, self._on_status_restarting)
 
     def _on_status_ready(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "pending")
         self._ctrl_status.config(
             text="✅ Poussée terminée.\nPrêt pour le prochain PLAY.", fg=GREEN)
+        self._select_scenario(self.scenario_var.get())  # ← ajouter ici
 
     def _on_status_aborted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
         self._ctrl_status.config(
             text="⚠️ Séquence interrompue.\nCorrigez puis appuyez PLAY.", fg=YELLOW)
+
+    def _on_status_waiting(self):
+        self._set_indicator("session", "pending")
+        self._ctrl_status.config(
+            text="⏳ Robot en pre_P1.\nEn attente du signal /start_move...", fg=YELLOW)
+        
+    def _on_status_error(self):
+        self._set_indicator("session", "off")
+        self._set_indicator("robot", "off")
+        self._ctrl_status.config(
+            text="🔴 Protective Stop détecté !\nReconnecter le robot...", fg=ACCENT)
+
+    def _on_status_restarting(self):
+        self._set_indicator("robot", "pending")
+        self._btn_play.config(state="normal", bg=BTN_BLUE)  # ← ajouter
+        self._ctrl_status.config(
+            text="⏳ Robot en cours de reconnexion...", fg=YELLOW)
 
     # ══════════════════════════════════════════
     #  HELPERS
@@ -472,13 +504,32 @@ class MastersIHM(tk.Tk):
         hdr = tk.Frame(cell, bg=BG2)
         hdr.pack(fill="x")
         tk.Label(hdr, text=label, font=("Helvetica", self.sf(10)),
-                 bg=BG2, fg=WHITE).pack(side="left")
-        val_lbl = tk.Label(hdr, text=f"{var.get():.2f}",
-                           font=("Helvetica", self.sf(10), "bold"),
-                           bg=BG2, fg=ACCENT)
-        val_lbl.pack(side="right")
+                bg=BG2, fg=WHITE).pack(side="left")
+
+        entry_var = tk.StringVar(value=f"{var.get():.2f}")
+        entry = tk.Entry(hdr, textvariable=entry_var,
+                        font=("Helvetica", self.sf(10), "bold"),
+                        bg=BG3, fg=ACCENT, insertbackground=WHITE,
+                        relief="flat", width=6)
+        entry.pack(side="right")
+
+        # Slider → Entry
+        def on_slide(v):
+            entry_var.set(f"{float(v):.2f}")
+
+        # Entry → Slider (au moment de Confirmer)
+        def sync_to_var(*args):
+            try:
+                val = float(entry_var.get().replace(',', '.'))
+                val = max(mn, min(mx, val))
+                var.set(val)
+            except ValueError:
+                entry_var.set(f"{var.get():.2f}")
+
+        entry_var.trace_add('write', sync_to_var)
+
         ttk.Scale(cell, from_=mn, to=mx, variable=var, orient="horizontal",
-                  command=lambda v: val_lbl.config(text=f"{float(v):.2f}")).pack(fill="x")
+                command=on_slide).pack(fill="x")
 
     def _set_indicator(self, key, state):
         colors = {"off": GREY, "pending": YELLOW, "on": GREEN}
