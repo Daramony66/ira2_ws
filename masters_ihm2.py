@@ -101,6 +101,8 @@ class MastersIHM(tk.Tk):
         # Ajouté le 20/04 à 16h30 — références aux widgets sliders/entries pour blocage Touch
         self._slider_widgets = {}  # label → (scale, entry, entry_var)
 
+        self._pre_touch_values = {}  # Ajouté le 21/04
+
         # ── Build ──
         self._build_header()
         self._build_body()
@@ -367,6 +369,22 @@ class MastersIHM(tk.Tk):
 
         # Ajouté le 20/04 à 16h30 — bloquer/débloquer sliders selon le scénario
         if name == "Touch":
+            print(f"[DEBUG] Passage en Touch — _pre_touch_values AVANT sauvegarde : {self._pre_touch_values}")
+            print(f"[DEBUG] Valeurs actuelles — force_target:{self.force_target.get()}, force_wrench:{self.force_wrench.get()}, offset:{self.offset_var.get()}")
+
+            # Ajouté le 21/04 — sauvegarder avant blocage
+            # self._pre_touch_values = {
+            #     'Force cible (N)':    self.force_target.get(),
+            #     'Force wrench (N)':   self.force_wrench.get(),
+            #     'Offset pré-P1 (m)':  self.offset_var.get(),
+            # }
+            # Ajouté le 21/04 — sauvegarder avant blocage (seulement si pas déjà en Touch)
+            if self.force_target.get() != 1.0 or self.force_wrench.get() != 10.0 or self.offset_var.get() != 0.05:
+                self._pre_touch_values = {
+                    'Force cible (N)':    self.force_target.get(),
+                    'Force wrench (N)':   self.force_wrench.get(),
+                    'Offset pré-P1 (m)':  self.offset_var.get(),
+                }
             for lbl, locked_val in TOUCH_LOCKED.items():
                 if lbl in self._slider_widgets:
                     scale, entry, entry_var, var = self._slider_widgets[lbl]
@@ -374,12 +392,47 @@ class MastersIHM(tk.Tk):
                     entry_var.set(f"{locked_val:.2f}")
                     scale.config(state="disabled")
                     entry.config(state="disabled", disabledforeground=GREY)
+            # Ajouté le 21/04 — envoyer les valeurs hardcodées Touch au nœud
+            cmds_touch = [
+                f"ros2 param set /test_unity_p1 force_target 1.0",
+                f"ros2 param set /test_unity_p1 force_wrench 10.0",
+                f"ros2 param set /test_unity_p1 offset 0.050",
+            ]
+            threading.Thread(
+                target=lambda: [subprocess.run(c, shell=True, capture_output=True) for c in cmds_touch],
+                daemon=True).start()
+            self._confirmed_params['force_target'] = 1.0
+            self._confirmed_params['force_wrench'] = 10.0
+            self._confirmed_params['offset'] = 0.05
         else:
+            print(f"[DEBUG] Passage en Push/Punch — _pre_touch_values à restaurer : {self._pre_touch_values}")
             for lbl in TOUCH_LOCKED:
                 if lbl in self._slider_widgets:
                     scale, entry, entry_var, var = self._slider_widgets[lbl]
                     scale.config(state="normal")
                     entry.config(state="normal")
+                    # Ajouté le 21/04 — restaurer les valeurs d'avant Touch
+                    if lbl in self._pre_touch_values:
+                        var.set(self._pre_touch_values[lbl])
+                        entry_var.set(f"{self._pre_touch_values[lbl]:.2f}")
+            # Ajouté le 21/04 — envoyer automatiquement les valeurs restaurées
+            # if hasattr(self, '_confirm_status'):
+            #     self._do_confirm()
+
+            # Ajouté le 21/04 — envoyer automatiquement les valeurs restaurées en parallèle
+            if hasattr(self, '_confirm_status') and self._pre_touch_values:
+                vals = {
+                    'force_target': self._pre_touch_values.get('Force cible (N)', self._confirmed_params['force_target']),
+                    'force_wrench': self._pre_touch_values.get('Force wrench (N)', self._confirmed_params['force_wrench']),
+                    'offset':       self._pre_touch_values.get('Offset pré-P1 (m)', self._confirmed_params['offset']),
+                }
+                cmds_restore = [f"ros2 param set /test_unity_p1 {k} {v:.3f}" for k, v in vals.items()]
+                threading.Thread(
+                    target=lambda: [subprocess.run(c, shell=True, capture_output=True) for c in cmds_restore],
+                    daemon=True).start()
+                self._confirmed_params['force_target'] = vals['force_target']
+                self._confirmed_params['force_wrench'] = vals['force_wrench']
+                self._confirmed_params['offset']       = vals['offset']
 
     def _do_confirm(self):
         # Commenté le 20/04
@@ -558,7 +611,11 @@ class MastersIHM(tk.Tk):
         self._set_indicator("session", "pending")
         self._ctrl_status.config(
             text="✅ Poussée terminée.\nPrêt pour le prochain PLAY.", fg=GREEN)
-        self._select_scenario(self.scenario_var.get())
+        
+        #self._select_scenario(self.scenario_var.get())
+        # Ajouté le 21/04 — ne pas écraser _pre_touch_values si scénario Touch
+        if self.scenario_var.get() != "Touch":
+            self._select_scenario(self.scenario_var.get())
 
     def _on_status_aborted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
