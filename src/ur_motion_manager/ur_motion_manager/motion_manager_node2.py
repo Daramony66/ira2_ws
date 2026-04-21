@@ -113,7 +113,7 @@ class TestUnityP1(Node):
         self.get_logger().info("En attente de P1 depuis Unity...")
 
         # Ajouté le 21/04 — test : appuyer Entrée pour démarrer la session
-        threading.Thread(target=self._wait_input, daemon=True).start()
+        # threading.Thread(target=self._wait_input, daemon=True).start()
 
         msg = String()
         msg.data = "restarted"
@@ -161,6 +161,8 @@ class TestUnityP1(Node):
             self.move_to_p1(P1)
         finally:
             self._moving.release()
+            if not self.error_event.is_set():
+                self.node_ready_event.set()
 
     # Ajouté le 21/04 — démarre une session : récupère P1 puis lance Unity
     def start_session(self):
@@ -175,10 +177,13 @@ class TestUnityP1(Node):
         future.add_done_callback(self.cb_contact_point)
 
     # Ajouté le 21/04 — attend Entrée puis démarre la session
-    def _wait_input(self):
-        while True:
-            input("Appuyez sur Entrée pour démarrer la session...")
-            self.start_session()
+    # def _wait_input(self):
+    #     while True:
+    #         input("Appuyez sur Entrée pour démarrer la session...")
+    #         try:
+    #             self.start_session()
+    #         except Exception as e:
+    #             print(f"[_wait_input] Erreur : {e}")
 
     #Ajouté le 16/04 à 12h35
     def cb_abort(self, msg):
@@ -486,6 +491,7 @@ class TestUnityP1(Node):
         msg.data = "ready"
         self.status_pub.publish(msg)
         self.get_logger().info("Statut : ready — en attente du prochain PLAY.")
+        # self.node_ready_event.set()  # ← AJOUTER
 
         # self.get_logger().info("En attente de P1 depuis Unity...")
 
@@ -523,12 +529,33 @@ class TestUnityP1(Node):
 #     rclpy.spin(node)
 
 # Ajouté le 15/04 à 11h06
+
 def main():
     rclpy.init()
     node = None
+    node_ref = [None]
+    node_ready_event = threading.Event()  # ← AJOUT
+
+    def wait_input_global():
+        while True:
+            node_ready_event.wait()        # ← attend le signal
+            node_ready_event.clear()       # ← reset pour prochain cycle
+            time.sleep(0.1)
+            input("Appuyez sur Entrée pour démarrer la session...")
+            try:
+                node_ref[0].start_session()
+            except Exception as e:
+                print(f"[input] Erreur : {e}")
+            time.sleep(0.5)               # ← évite double affichage
+
+    threading.Thread(target=wait_input_global, daemon=True).start()
+
     while True:
         try:
             node = TestUnityP1()
+            node_ref[0] = node
+            node.node_ready_event = node_ready_event  # ← AJOUTER
+            node_ready_event.set()         # ← AJOUT : signal au thread
             executor = rclpy.executors.SingleThreadedExecutor()
             executor.add_node(node)
             while rclpy.ok():
@@ -546,8 +573,7 @@ def main():
                     pass
             break
         except Exception as e:
-            print(f"[ERREUR] {e}") # Modifié le 16/04 -- Afficher l'erreur exacte
-            # publish_status("error")
+            print(f"[ERREUR] {e}")
             try:
                 node.rc.disconnect()
             except:
@@ -567,7 +593,6 @@ def main():
                         print("Robot prêt, relance dans 2s...")
                         publish_status("restarting")
                         time.sleep(2)
-                        # publish_status("ready")  # ← ajouter ici
                         break
                     else:
                         print(f"Robot pas encore prêt (safety_mode={safety_mode}), attente...")
