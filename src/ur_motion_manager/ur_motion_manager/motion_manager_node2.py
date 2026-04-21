@@ -3,7 +3,9 @@
 
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Point
+from masters_msgs.srv import AppControlService, ContactPointService, SystemStateService # Ajouté le 16/04 à 10h30
+from masters_msgs.msg import StartMove # Ajouté le 21/04 à 16h00
+
 from std_msgs.msg import String # Ajouté le 16/04 à 12h35
 
 import rtde_control
@@ -97,14 +99,21 @@ class TestUnityP1(Node):
         self.start_move_event = threading.Event()
         self._moving = threading.Lock()  # Ajouté le 21/04 — verrou anti-doublons
 
-        self.create_subscription(String, '/start_move', self.cb_start_move, 10)
+        self.create_subscription(StartMove, 'start_move', self.cb_start_move, 10) # Modifé le 21/04 à 16h00 — changement de type de message
 
         self.get_logger().info(f"Position initiale TCP : x:{tcp[0]*1000:.2f}mm  y:{tcp[1]*1000:.2f}mm  z:{tcp[2]*1000:.2f}mm")  # Afficher pose TCP dans repère base
 
         self.get_logger().info(f"Z axis in base : x:{self.z_axis_in_base[0]:.4f}  y:{self.z_axis_in_base[1]:.4f}  z:{self.z_axis_in_base[2]:.4f}") # Afficher coords vecteur Z_TCP dans repère base
-
-        self.create_subscription(Point, 'cube_position', self.cb_p1, 10) # S'abonner au topic pour recevoir la pose du cube (point de toucher)
+        
+        # Ajouté le 21/04 — clients de service Unity
+        self.app_control_client = self.create_client(AppControlService, 'app_control')
+        self.contact_point_client = self.create_client(ContactPointService, 'cp_position')
+        self.state_client = self.create_client(SystemStateService, 'system_state')
+        
         self.get_logger().info("En attente de P1 depuis Unity...")
+
+        # Ajouté le 21/04 — test : appuyer Entrée pour démarrer la session
+        threading.Thread(target=self._wait_input, daemon=True).start()
 
         msg = String()
         msg.data = "restarted"
@@ -117,22 +126,59 @@ class TestUnityP1(Node):
     #     t = threading.Thread(target=self.move_to_p1, args=(P1,))
     #     t.start()
 
-    def cb_p1(self, msg):
-        # Ajouté le 21/04 — verrou anti-doublons
+    # Ajouté le 21/04 — demande la position à Unity via service
+    def request_contact_point(self):
+        if not self.contact_point_client.service_is_ready():
+            self.get_logger().warn("Service cp_position pas disponible — Unity connecté ?")
+            return
+        req = ContactPointService.Request()
+        req.command = 0
+        future = self.contact_point_client.call_async(req)
+        future.add_done_callback(self.cb_contact_point)
+
+    def cb_contact_point(self, future):
+        response = future.result()
+        if not response.success:
+            self.get_logger().error("cp_position a retourné success=False")
+            return
+        P1 = [response.position.x, response.position.y, response.position.z]
+        self.get_logger().info(f"P1 reçu : x={P1[0]:.4f}  y={P1[1]:.4f}  z={P1[2]:.4f}")
+        
+        # Ajouté le 21/04 — lancer Unity après avoir reçu P1
+        if self.app_control_client.service_is_ready():
+            req = AppControlService.Request()
+            req.command = 0  # play
+            self.app_control_client.call_async(req)
+        
         if not self._moving.acquire(blocking=False):
             self.get_logger().warn("Mouvement déjà en cours — P1 ignoré.")
             return
-        P1 = [msg.x, msg.y, msg.z]
-        self.get_logger().info(f"P1 reçu : x={P1[0]:.4f}  y={P1[1]:.4f}  z={P1[2]:.4f}")
         t = threading.Thread(target=self._move_wrapper, args=(P1,))
         t.start()
 
-    # Ajouté le 21/04
     def _move_wrapper(self, P1):
         try:
             self.move_to_p1(P1)
         finally:
             self._moving.release()
+
+    # Ajouté le 21/04 — démarre une session : récupère P1 puis lance Unity
+    def start_session(self):
+        self.abort_active = False  # reset abort
+        self.error_event.clear()   # reset error
+        if not self.contact_point_client.service_is_ready():
+            self.get_logger().warn("Service cp_position pas disponible — Unity connecté ?")
+            return
+        req = ContactPointService.Request()
+        req.command = 0
+        future = self.contact_point_client.call_async(req)
+        future.add_done_callback(self.cb_contact_point)
+
+    # Ajouté le 21/04 — attend Entrée puis démarre la session
+    def _wait_input(self):
+        while True:
+            input("Appuyez sur Entrée pour démarrer la session...")
+            self.start_session()
 
     #Ajouté le 16/04 à 12h35
     def cb_abort(self, msg):
@@ -140,8 +186,9 @@ class TestUnityP1(Node):
         self.get_logger().error(f"SAFETY ABORT reçu : {msg.data}")
 
     def cb_start_move(self, msg):
-        self.get_logger().info("Signal /start_move reçu — lancement poussée.")
-        self.start_move_event.set()
+        if msg.start:
+            self.get_logger().info("Signal /start_move reçu — lancement poussée.")
+            self.start_move_event.set()
 
     #Ajouté le 15/04
     def destroy_node(self):

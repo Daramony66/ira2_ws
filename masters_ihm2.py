@@ -525,7 +525,13 @@ class MastersIHM(tk.Tk):
         # self._ros2_publish(TOPIC_COMMAND, f"play:{scen}")
 
         # Ajouté le 21/04 — publication répétée pour fiabilité
-        cmd = f'ros2 topic pub -r 10 --times 5 {TOPIC_COMMAND} std_msgs/msg/String "{{data: \\"play:{scen}\\"}}"'
+        # cmd = f'ros2 topic pub -r 10 --times 5 {TOPIC_COMMAND} std_msgs/msg/String "{{data: \\"play:{scen}\\"}}"'
+        # threading.Thread(
+        #     target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+        #     daemon=True).start()
+        
+        # Ajouté le 21/04 — appel service app_control au lieu de topic
+        cmd = f'ros2 service call /app_control masters_msgs/srv/AppControlService "{{command: 0}}"'
         threading.Thread(
             target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
             daemon=True).start()
