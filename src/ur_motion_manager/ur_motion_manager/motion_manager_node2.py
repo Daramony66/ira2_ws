@@ -95,6 +95,8 @@ class TestUnityP1(Node):
         self.status_pub = self.create_publisher(String, '/masters/status', 10) # Ajouté le 17/04 à 13h10
 
         self.start_move_event = threading.Event()
+        self._moving = threading.Lock()  # Ajouté le 21/04 — verrou anti-doublons
+
         self.create_subscription(String, '/start_move', self.cb_start_move, 10)
 
         self.get_logger().info(f"Position initiale TCP : x:{tcp[0]*1000:.2f}mm  y:{tcp[1]*1000:.2f}mm  z:{tcp[2]*1000:.2f}mm")  # Afficher pose TCP dans repère base
@@ -109,11 +111,28 @@ class TestUnityP1(Node):
         self.status_pub.publish(msg)
         self.get_logger().info("Nœud prêt — statut ready publié.")
 
+    # def cb_p1(self, msg):
+    #     P1 = [msg.x, msg.y, msg.z]
+    #     self.get_logger().info(f"P1 reçu : x={P1[0]:.4f}  y={P1[1]:.4f}  z={P1[2]:.4f}")
+    #     t = threading.Thread(target=self.move_to_p1, args=(P1,))
+    #     t.start()
+
     def cb_p1(self, msg):
+        # Ajouté le 21/04 — verrou anti-doublons
+        if not self._moving.acquire(blocking=False):
+            self.get_logger().warn("Mouvement déjà en cours — P1 ignoré.")
+            return
         P1 = [msg.x, msg.y, msg.z]
         self.get_logger().info(f"P1 reçu : x={P1[0]:.4f}  y={P1[1]:.4f}  z={P1[2]:.4f}")
-        t = threading.Thread(target=self.move_to_p1, args=(P1,))
+        t = threading.Thread(target=self._move_wrapper, args=(P1,))
         t.start()
+
+    # Ajouté le 21/04
+    def _move_wrapper(self, P1):
+        try:
+            self.move_to_p1(P1)
+        finally:
+            self._moving.release()
 
     #Ajouté le 16/04 à 12h35
     def cb_abort(self, msg):
