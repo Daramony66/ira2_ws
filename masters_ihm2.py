@@ -469,7 +469,14 @@ class MastersIHM(tk.Tk):
     def _do_play(self):
         scen_map = {"Push": 0, "Punch": 1, "Touch": 2}
         scen = scen_map[self.scenario_var.get()]
-        self._ros2_publish(TOPIC_COMMAND, f"play:{scen}")
+        # self._ros2_publish(TOPIC_COMMAND, f"play:{scen}")
+
+        # Ajouté le 21/04 — publication répétée pour fiabilité
+        cmd = f'ros2 topic pub -r 10 --times 5 {TOPIC_COMMAND} std_msgs/msg/String "{{data: \\"play:{scen}\\"}}"'
+        threading.Thread(
+            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+            daemon=True).start()
+
         self.session_active = True
         self._btn_play.config(state="disabled", bg=GREY)
         self._set_indicator("unity",   "on")
@@ -589,6 +596,7 @@ class MastersIHM(tk.Tk):
         self._ctrl_status.config(
             text="✅ Robot reconnecté.\nPrêt pour le prochain PLAY.", fg=GREEN)
         self._do_confirm_forced()
+        self._select_scenario(self.scenario_var.get())  # Ajouté le 21/04
 
     # ══════════════════════════════════════════
     #  HELPERS
