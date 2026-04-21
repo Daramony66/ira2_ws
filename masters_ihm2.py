@@ -33,6 +33,13 @@ SCENARIO_COLORS = {
     "Touch": "#27ae60",
 }
 
+# Ajouté le 20/04 à 16h30 — valeurs hardcodées pour le mode Touch
+TOUCH_LOCKED = {
+    'Force cible (N)':   1.0,
+    'Force wrench (N)':  10.0,
+    'Offset pré-P1 (m)': 0.05,
+}
+
 CMDS = [
     "ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.1.101 use_fake_hardware:=false launch_rviz:=false",
     "ros2 run ros_tcp_endpoint default_server_endpoint --ros-args -p ROS_IP:=0.0.0.0",
@@ -74,9 +81,25 @@ class MastersIHM(tk.Tk):
         self.ros_running    = False
         self.session_active = False
 
+        # Ajouté le 20/04 — valeurs de référence pour envoi différentiel
+        self._confirmed_params = {
+            'force_target': 20.0,
+            'force_wrench': 50.0,
+            'force_max':    70.0,
+            'offset':        0.1,
+            'timeout':      30.0,
+            'hold_time':     0.5,
+        }
+
         # ── Status listener ──
         self._status_thread = None
         self._status_stop   = threading.Event()
+
+        # Ajouté le 20/04 à 12h25 — dictionnaire des zones de log par nœud
+        self._log_boxes = {}
+
+        # Ajouté le 20/04 à 16h30 — références aux widgets sliders/entries pour blocage Touch
+        self._slider_widgets = {}  # label → (scale, entry, entry_var)
 
         # ── Build ──
         self._build_header()
@@ -235,7 +258,7 @@ class MastersIHM(tk.Tk):
                      bg=BG2, fg=GREY).pack(anchor="w", padx=self.s(20),
                                            pady=(self.sv(10) if i == 0 else 0, 0))
 
-        tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(16))
+        tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(8))
 
         self._btn_start = self._card_button(col, "▶  DÉMARRER",
                                             BTN_GREEN, self.sf(16), self._do_start)
@@ -245,13 +268,13 @@ class MastersIHM(tk.Tk):
                                      bg=BG2, fg=GREY, justify="left")
         self._node_status.pack(anchor="w", padx=self.s(20), pady=self.sv(4))
 
-        tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(16))
+        tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(8))
 
         self._btn_play = self._card_button(col, "🎮  PLAY",
                                            GREY, self.sf(16), self._do_play)
         self._btn_play.config(state="disabled")
 
-        tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(16))
+        tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(8))
 
         self._btn_stop = self._card_button(col, "⛔  STOP",
                                            BTN_RED, self.sf(16), self._do_stop)
@@ -260,7 +283,43 @@ class MastersIHM(tk.Tk):
                                      font=("Helvetica", self.sf(10)),
                                      bg=BG2, fg=YELLOW,
                                      wraplength=self.s(280), justify="left")
-        self._ctrl_status.pack(padx=self.s(20), pady=self.sv(16))
+        self._ctrl_status.pack(padx=self.s(20), pady=self.sv(8))
+
+        # Ajouté le 20/04 à 12h25 — Zone de logs avec onglets
+        tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(4))
+
+        log_header = tk.Frame(col, bg=BG2)
+        log_header.pack(fill="x", padx=self.s(20))
+        tk.Label(log_header, text="Logs :",
+                 font=("Helvetica", self.sf(9), "bold"),
+                 bg=BG2, fg=GREY).pack(side="left")
+        tk.Button(log_header, text="🗑 Effacer",
+                  font=("Helvetica", self.sf(8)),
+                  bg=BTN_GREY, fg=WHITE, relief="flat",
+                  activebackground=BTN_GREY, cursor="hand2",
+                  command=self._clear_logs).pack(side="right")
+
+        style = ttk.Style()
+        style.theme_use('default')
+        style.configure("TNotebook", background=BG2, borderwidth=0)
+        style.configure("TNotebook.Tab", background=BG3, foreground=WHITE,
+                        font=("Helvetica", self.sf(8)), padding=[self.s(6), self.sv(3)])
+        style.map("TNotebook.Tab", background=[("selected", BG)])
+
+        self._notebook = ttk.Notebook(col)
+        self._notebook.pack(fill="both", expand=True, padx=self.s(20), pady=self.sv(4))
+
+        for label in CMD_LABELS:
+            frame = tk.Frame(self._notebook, bg=BG)
+            self._notebook.add(frame, text=label)
+            box = tk.Text(frame,
+                          font=("Courier", self.sf(8)),
+                          bg=BG, fg=GREEN,
+                          relief="flat",
+                          state="disabled",
+                          wrap="word")
+            box.pack(fill="both", expand=True)
+            self._log_boxes[label] = box
 
     # ══════════════════════════════════════════
     #  FOOTER
@@ -294,12 +353,11 @@ class MastersIHM(tk.Tk):
         self._ros2_publish(TOPIC_COMMAND, "calibration")
         self.after(1500, lambda: self._cal_status.config(
             text="✅ Calibration lancée.\nVérifier l'alignement dans le casque.", fg=GREEN))
-    
+
     def _select_scenario(self, name):
         self.scenario_var.set(name)
         for n, btn in self._scen_btns.items():
             btn.config(bg=SCENARIO_COLORS[n] if n == name else GREY)
-        # Envoyer immédiatement le scenario_mode au nœud
         scen_map = {"Push": 0, "Punch": 1, "Touch": 2}
         scen = scen_map[name]
         cmd = f"ros2 param set /test_unity_p1 scenario_mode {scen}"
@@ -307,42 +365,90 @@ class MastersIHM(tk.Tk):
             target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
             daemon=True).start()
 
+        # Ajouté le 20/04 à 16h30 — bloquer/débloquer sliders selon le scénario
+        if name == "Touch":
+            for lbl, locked_val in TOUCH_LOCKED.items():
+                if lbl in self._slider_widgets:
+                    scale, entry, entry_var, var = self._slider_widgets[lbl]
+                    var.set(locked_val)
+                    entry_var.set(f"{locked_val:.2f}")
+                    scale.config(state="disabled")
+                    entry.config(state="disabled", disabledforeground=GREY)
+        else:
+            for lbl in TOUCH_LOCKED:
+                if lbl in self._slider_widgets:
+                    scale, entry, entry_var, var = self._slider_widgets[lbl]
+                    scale.config(state="normal")
+                    entry.config(state="normal")
+
     def _do_confirm(self):
-        scen_map = {"Push": 0, "Punch": 1, "Touch": 2}
-        scen = scen_map[self.scenario_var.get()]
-        cmds = [
-            f"ros2 param set /test_unity_p1 scenario_mode {scen}",
-            f"ros2 param set /test_unity_p1 force_target {self.force_target.get():.1f}",
-            f"ros2 param set /test_unity_p1 force_wrench {self.force_wrench.get():.1f}",
-            f"ros2 param set /test_unity_p1 force_max {self.force_max.get():.1f}",
-            f"ros2 param set /test_unity_p1 offset {self.offset_var.get():.3f}",
-            f"ros2 param set /test_unity_p1 timeout {self.timeout_var.get():.1f}",
-            f"ros2 param set /test_unity_p1 hold_time {self.hold_time_var.get():.2f}",
-        ]
+        # Commenté le 20/04
+        # cmds = [...]
+
+        # Ajouté le 20/04 — envoi différentiel des paramètres modifiés uniquement
+        candidates = {
+            'force_target': self.force_target.get(),
+            'force_wrench': self.force_wrench.get(),
+            'force_max':    self.force_max.get(),
+            'offset':       self.offset_var.get(),
+            'timeout':      self.timeout_var.get(),
+            'hold_time':    self.hold_time_var.get(),
+        }
+        cmds = []
+        for key, val in candidates.items():
+            if abs(val - self._confirmed_params[key]) > 0.001:
+                cmds.append(f"ros2 param set /test_unity_p1 {key} {val:.3f}")
+                self._confirmed_params[key] = val
+
         def run():
             for cmd in cmds:
                 subprocess.run(cmd, shell=True, capture_output=True)
             self.after(0, lambda: self._confirm_status.config(
-                text=f"✅ Paramètres envoyés — Scénario : {self.scenario_var.get()}", fg=GREEN))
+                text="✅ Paramètres envoyés", fg=GREEN))
         self._confirm_status.config(text="⏳ Envoi des paramètres...", fg=YELLOW)
+        threading.Thread(target=run, daemon=True).start()
+
+    # Ajouté le 20/04 — renvoie les derniers paramètres confirmés après Protective Stop
+    def _do_confirm_forced(self):
+        defaults = {
+            'force_target': 20.0,
+            'force_wrench': 50.0,
+            'force_max':    70.0,
+            'offset':        0.1,
+            'timeout':      30.0,
+            'hold_time':     0.5,
+        }
+        cmds = []
+        for key, val in self._confirmed_params.items():
+            if abs(val - defaults[key]) > 0.001:
+                cmds.append(f"ros2 param set /test_unity_p1 {key} {val:.3f}")
+        def run():
+            for cmd in cmds:
+                subprocess.run(cmd, shell=True, capture_output=True)
         threading.Thread(target=run, daemon=True).start()
 
     def _do_start(self):
         if self.ros_running:
             self._ctrl_status.config(text="⚠️  Nœuds déjà lancés.", fg=YELLOW)
             return
+        self._status_stop.clear()
         self._ctrl_status.config(text="⏳ Lancement des nœuds ROS2...", fg=YELLOW)
         self._set_indicator("ros", "pending")
 
+        # Ajouté le 20/04 à 12h25 — stream stdout de chaque nœud vers son onglet
         def run():
             for label, cmd in zip(CMD_LABELS, CMDS):
                 self.after(0, lambda l=label: self._node_status.config(
                     text=f"⏳ Lancement : {l}...", fg=YELLOW))
                 proc = subprocess.Popen(cmd, shell=True,
-                                        stdout=subprocess.DEVNULL,
-                                        stderr=subprocess.DEVNULL,
-                                        start_new_session=True)
+                                        stdout=subprocess.PIPE,
+                                        stderr=subprocess.STDOUT,
+                                        start_new_session=True,
+                                        text=True)
                 self.processes[label] = proc
+                threading.Thread(
+                    target=self._stream_logs,
+                    args=(proc, label), daemon=True).start()
                 time.sleep(1.5)
             self.ros_running = True
             self.after(0, self._on_ros_started)
@@ -378,27 +484,16 @@ class MastersIHM(tk.Tk):
         self._set_indicator("session", "off")
         self._ctrl_status.config(text="⛔ Arrêt en cours...", fg=ACCENT)
 
-        # def kill():
-        #     for label, proc in self.processes.items():
-        #         try:
-        #             os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
-        #         except:
-        #             pass
-        #     self.processes.clear()
-        #     self.ros_running = False
-        #     self.after(0, self._on_ros_stopped)
-
         def kill():
             for label, proc in self.processes.items():
                 try:
-                    # s.killpg(os.getpgid(proc.pid), signal.SIGTERM)
-                    os.killpg(os.getpgid(proc.pid), signal.SIGINT)  # était SIGTERM
+                    os.killpg(os.getpgid(proc.pid), signal.SIGINT)
                 except:
                     pass
-            time.sleep(1.0)  # laisser le temps au SIGTERM
+            time.sleep(1.0)
             for label, proc in self.processes.items():
                 try:
-                    os.killpg(os.getpgid(proc.pid), signal.SIGKILL)  # forcer si encore vivant
+                    os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
                 except:
                     pass
             self.processes.clear()
@@ -445,13 +540,18 @@ class MastersIHM(tk.Tk):
                 self.after(0, self._on_status_error)
             elif data == "restarting":
                 self.after(0, self._on_status_restarting)
+            elif data == "aborted_norm":
+                self.session_active = False
+                self.after(0, self._on_status_aborted_norm)
+            elif data == "restarted":
+                self.after(0, self._on_status_restarted)
 
     def _on_status_ready(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "pending")
         self._ctrl_status.config(
             text="✅ Poussée terminée.\nPrêt pour le prochain PLAY.", fg=GREEN)
-        self._select_scenario(self.scenario_var.get())  # ← ajouter ici
+        self._select_scenario(self.scenario_var.get())
 
     def _on_status_aborted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
@@ -463,7 +563,7 @@ class MastersIHM(tk.Tk):
         self._set_indicator("session", "pending")
         self._ctrl_status.config(
             text="⏳ Robot en pre_P1.\nEn attente du signal /start_move...", fg=YELLOW)
-        
+
     def _on_status_error(self):
         self._set_indicator("session", "off")
         self._set_indicator("robot", "off")
@@ -472,13 +572,55 @@ class MastersIHM(tk.Tk):
 
     def _on_status_restarting(self):
         self._set_indicator("robot", "pending")
-        self._btn_play.config(state="normal", bg=BTN_BLUE)  # ← ajouter
+        # self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._ctrl_status.config(
             text="⏳ Robot en cours de reconnexion...", fg=YELLOW)
+
+    def _on_status_aborted_norm(self):
+        self._btn_play.config(state="normal", bg=BTN_BLUE)
+        self._set_indicator("session", "off")
+        self._ctrl_status.config(
+            text="⚠️ Point trop proche de la base.\nChoisissez une autre cible.", fg=YELLOW)
+
+    def _on_status_restarted(self):
+        self._btn_play.config(state="normal", bg=BTN_BLUE)
+        self._set_indicator("robot", "on")
+        self._set_indicator("session", "off")
+        self._ctrl_status.config(
+            text="✅ Robot reconnecté.\nPrêt pour le prochain PLAY.", fg=GREEN)
+        self._do_confirm_forced()
 
     # ══════════════════════════════════════════
     #  HELPERS
     # ══════════════════════════════════════════
+
+    # Ajouté le 20/04 à 12h25
+    def _log(self, label: str, message: str):
+        box = self._log_boxes.get(label)
+        if not box:
+            return
+        timestamp = time.strftime("%H:%M:%S")
+        box.config(state="normal")
+        box.insert("end", f"[{timestamp}] {message}\n")
+        box.see("end")
+        box.config(state="disabled")
+
+    # Ajouté le 20/04 à 12h25
+    def _stream_logs(self, proc, label: str):
+        for line in proc.stdout:
+            if self._status_stop.is_set():
+                break
+            line = line.strip()
+            if line:
+                self.after(0, lambda l=line, lb=label: self._log(lb, l))
+
+    # Ajouté le 20/04 à 12h25
+    def _clear_logs(self):
+        for box in self._log_boxes.values():
+            box.config(state="normal")
+            box.delete("1.0", "end")
+            box.config(state="disabled")
+
     def _col_title(self, parent, text):
         frm = tk.Frame(parent, bg=BG3)
         frm.pack(fill="x")
@@ -513,23 +655,28 @@ class MastersIHM(tk.Tk):
                         relief="flat", width=6)
         entry.pack(side="right")
 
-        # Slider → Entry
         def on_slide(v):
             entry_var.set(f"{float(v):.2f}")
 
-        # Entry → Slider (au moment de Confirmer)
         def sync_to_var(*args):
+            raw = entry_var.get().replace(',', '.')
+            if raw == '' or raw == '-':
+                return
             try:
-                val = float(entry_var.get().replace(',', '.'))
+                val = float(raw)
                 val = max(mn, min(mx, val))
                 var.set(val)
             except ValueError:
-                entry_var.set(f"{var.get():.2f}")
+                pass
 
         entry_var.trace_add('write', sync_to_var)
 
-        ttk.Scale(cell, from_=mn, to=mx, variable=var, orient="horizontal",
-                command=on_slide).pack(fill="x")
+        scale = ttk.Scale(cell, from_=mn, to=mx, variable=var, orient="horizontal",
+                          command=on_slide)
+        scale.pack(fill="x")
+
+        # Ajouté le 20/04 à 16h30 — stocker références pour blocage Touch
+        self._slider_widgets[label] = (scale, entry, entry_var, var)
 
     def _set_indicator(self, key, state):
         colors = {"off": GREY, "pending": YELLOW, "on": GREEN}
@@ -543,7 +690,7 @@ class MastersIHM(tk.Tk):
 
     def _on_close(self):
         self._do_stop()
-        time.sleep(2.0)  # laisser le temps au kill
+        time.sleep(2.0)
         self.destroy()
 
 
