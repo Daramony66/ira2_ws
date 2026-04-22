@@ -21,6 +21,8 @@ from rcl_interfaces.msg import SetParametersResult # Ajouté le 16/04 à 17h00 -
 
 from std_srvs.srv import Trigger  # service simple sans paramètre # Ajouté le 21/04
 
+import rclpy.parameter
+
 # Ajouté le 17/04 à 16h30
 def publish_status(status: str):
     cmd = f'ros2 topic pub --once /masters/status std_msgs/msg/String "{{data: \\"{status}\\"}}"'
@@ -113,6 +115,8 @@ class TestUnityP1(Node):
         self.state_client = self.create_client(SystemStateService, 'system_state')
 
         self.create_service(Trigger, 'start_session', self.cb_start_session) # Ajouté le 21/04 — service pour démarrer la session depuis IHM
+
+        self.create_service(SystemStateService, 'set_scenario', self.cb_set_scenario) # Ajouté le 22/04 à 10h00 — service pour changer de scénario depuis IHM
         
         self.get_logger().info("En attente de P1 depuis Unity...")
 
@@ -191,6 +195,13 @@ class TestUnityP1(Node):
         self.start_session()
         response.success = True
         response.message = "Session démarrée"
+        return response
+    
+    def cb_set_scenario(self, request, response):
+        self.scenario_mode = request.command
+        self.set_parameters([rclpy.parameter.Parameter('scenario_mode', rclpy.Parameter.Type.INTEGER, request.command)])
+        self.change_state(request.command)
+        response.success = True
         return response
 
     def change_state(self, state_id):

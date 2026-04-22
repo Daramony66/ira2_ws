@@ -346,13 +346,19 @@ class MastersIHM(tk.Tk):
     # ══════════════════════════════════════════
     def _do_precalibration(self):
         self._cal_status.config(text="⏳ Pré-calibration envoyée à Unity...", fg=YELLOW)
-        self._ros2_publish(TOPIC_COMMAND, "pre_calibration")
+        cmd = 'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{command: 0}"'
+        threading.Thread(
+            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+            daemon=True).start()
         self.after(1500, lambda: self._cal_status.config(
             text="✅ Pré-calibration lancée.\nAttendre confirmation dans le casque.", fg=GREEN))
 
     def _do_calibration(self):
         self._cal_status.config(text="⏳ Calibration envoyée à Unity...", fg=YELLOW)
-        self._ros2_publish(TOPIC_COMMAND, "calibration")
+        cmd = 'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{command: 1}"'
+        threading.Thread(
+            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+            daemon=True).start()
         self.after(1500, lambda: self._cal_status.config(
             text="✅ Calibration lancée.\nVérifier l'alignement dans le casque.", fg=GREEN))
 
@@ -362,7 +368,7 @@ class MastersIHM(tk.Tk):
             btn.config(bg=SCENARIO_COLORS[n] if n == name else GREY)
         scen_map = {"Push": 3, "Punch": 2, "Touch": 4}
         scen = scen_map[name]
-        cmd = f"ros2 param set /test_unity_p1 scenario_mode {scen}"
+        cmd = f'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{{command: {scen}}}"'
         threading.Thread(
             target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
             daemon=True).start()
