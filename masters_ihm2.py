@@ -58,11 +58,12 @@ class MastersIHM(tk.Tk):
         self.title("MASTERS — Interface de contrôle")
         self.configure(bg=BG)
 
-        # ── Plein écran ──
-        self.attributes('-fullscreen', True)
+        # ── Fenêtré ──
+        self.geometry("1600x900")
+        self.resizable(True, True)
         self.update_idletasks()
-        self.W = self.winfo_screenwidth()
-        self.H = self.winfo_screenheight()
+        self.W = 1920
+        self.H = 1080
 
         # ── Échelles relatives (référence 1920×1080) ──
         self.sx = self.W / 1920
@@ -99,7 +100,7 @@ class MastersIHM(tk.Tk):
         self._log_boxes = {}
 
         # Ajouté le 20/04 à 16h30 — références aux widgets sliders/entries pour blocage Touch
-        self._slider_widgets = {}  # label → (scale, entry, entry_var)
+        self._slider_widgets = {}
 
         self._pre_touch_values = {}  # Ajouté le 21/04
 
@@ -115,8 +116,6 @@ class MastersIHM(tk.Tk):
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
 
-        # Echap pour quitter aussi
-        self.bind('<Escape>', lambda e: self._on_close())
         self.protocol("WM_DELETE_WINDOW", self._on_close)
 
     def s(self, n):  return int(n * self.sx)
@@ -354,18 +353,24 @@ class MastersIHM(tk.Tk):
     def _do_precalibration(self):
         self._cal_status.config(text="⏳ Pré-calibration envoyée à Unity...", fg=YELLOW)
         cmd = 'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{command: 0}"'
-        threading.Thread(
-            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-            daemon=True).start()
+        def run():
+            try:
+                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+        threading.Thread(target=run, daemon=True).start()
         self.after(1500, lambda: self._cal_status.config(
             text="✅ Pré-calibration lancée.\nAttendre confirmation dans le casque.", fg=GREEN))
 
     def _do_calibration(self):
         self._cal_status.config(text="⏳ Calibration envoyée à Unity...", fg=YELLOW)
         cmd = 'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{command: 1}"'
-        threading.Thread(
-            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-            daemon=True).start()
+        def run():
+            try:
+                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+        threading.Thread(target=run, daemon=True).start()
         self.after(1500, lambda: self._cal_status.config(
             text="✅ Calibration lancée.\nVérifier l'alignement dans le casque.", fg=GREEN))
 
@@ -376,22 +381,18 @@ class MastersIHM(tk.Tk):
         scen_map = {"Push": 3, "Punch": 2, "Touch": 4}
         scen = scen_map[name]
         cmd = f'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{{command: {scen}}}"'
-        threading.Thread(
-            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-            daemon=True).start()
+        def run():
+            try:
+                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+        threading.Thread(target=run, daemon=True).start()
 
         # Ajouté le 20/04 à 16h30 — bloquer/débloquer sliders selon le scénario
         if name == "Touch":
             print(f"[DEBUG] Passage en Touch — _pre_touch_values AVANT sauvegarde : {self._pre_touch_values}")
             print(f"[DEBUG] Valeurs actuelles — force_target:{self.force_target.get()}, force_wrench:{self.force_wrench.get()}, offset:{self.offset_var.get()}")
 
-            # Ajouté le 21/04 — sauvegarder avant blocage
-            # self._pre_touch_values = {
-            #     'Force cible (N)':    self.force_target.get(),
-            #     'Force wrench (N)':   self.force_wrench.get(),
-            #     'Offset pré-P1 (m)':  self.offset_var.get(),
-            # }
-            # Ajouté le 21/04 — sauvegarder avant blocage (seulement si pas déjà en Touch)
             if self.force_target.get() != 1.0 or self.force_wrench.get() != 10.0 or self.offset_var.get() != 0.05:
                 self._pre_touch_values = {
                     'Force cible (N)':    self.force_target.get(),
@@ -405,15 +406,18 @@ class MastersIHM(tk.Tk):
                     entry_var.set(f"{locked_val:.2f}")
                     scale.config(state="disabled")
                     entry.config(state="disabled", disabledforeground=GREY)
-            # Ajouté le 21/04 — envoyer les valeurs hardcodées Touch au nœud
             cmds_touch = [
                 f"ros2 param set /test_unity_p1 force_target 1.0",
                 f"ros2 param set /test_unity_p1 force_wrench 10.0",
                 f"ros2 param set /test_unity_p1 offset 0.050",
             ]
-            threading.Thread(
-                target=lambda: [subprocess.run(c, shell=True, capture_output=True) for c in cmds_touch],
-                daemon=True).start()
+            def run_touch():
+                for c in cmds_touch:
+                    try:
+                        subprocess.run(c, shell=True, capture_output=True, timeout=5)
+                    except subprocess.TimeoutExpired:
+                        pass
+            threading.Thread(target=run_touch, daemon=True).start()
             self._confirmed_params['force_target'] = 1.0
             self._confirmed_params['force_wrench'] = 10.0
             self._confirmed_params['offset'] = 0.05
@@ -424,15 +428,9 @@ class MastersIHM(tk.Tk):
                     scale, entry, entry_var, var = self._slider_widgets[lbl]
                     scale.config(state="normal")
                     entry.config(state="normal")
-                    # Ajouté le 21/04 — restaurer les valeurs d'avant Touch
                     if lbl in self._pre_touch_values:
                         var.set(self._pre_touch_values[lbl])
                         entry_var.set(f"{self._pre_touch_values[lbl]:.2f}")
-            # Ajouté le 21/04 — envoyer automatiquement les valeurs restaurées
-            # if hasattr(self, '_confirm_status'):
-            #     self._do_confirm()
-
-            # Ajouté le 21/04 — envoyer automatiquement les valeurs restaurées en parallèle
             if hasattr(self, '_confirm_status') and self._pre_touch_values:
                 vals = {
                     'force_target': self._pre_touch_values.get('Force cible (N)', self._confirmed_params['force_target']),
@@ -440,18 +438,18 @@ class MastersIHM(tk.Tk):
                     'offset':       self._pre_touch_values.get('Offset pré-P1 (m)', self._confirmed_params['offset']),
                 }
                 cmds_restore = [f"ros2 param set /test_unity_p1 {k} {v:.3f}" for k, v in vals.items()]
-                threading.Thread(
-                    target=lambda: [subprocess.run(c, shell=True, capture_output=True) for c in cmds_restore],
-                    daemon=True).start()
+                def run_restore():
+                    for c in cmds_restore:
+                        try:
+                            subprocess.run(c, shell=True, capture_output=True, timeout=5)
+                        except subprocess.TimeoutExpired:
+                            pass
+                threading.Thread(target=run_restore, daemon=True).start()
                 self._confirmed_params['force_target'] = vals['force_target']
                 self._confirmed_params['force_wrench'] = vals['force_wrench']
                 self._confirmed_params['offset']       = vals['offset']
 
     def _do_confirm(self):
-        # Commenté le 20/04
-        # cmds = [...]
-
-        # Ajouté le 20/04 — envoi différentiel des paramètres modifiés uniquement
         candidates = {
             'force_target': self.force_target.get(),
             'force_wrench': self.force_wrench.get(),
@@ -468,7 +466,10 @@ class MastersIHM(tk.Tk):
 
         def run():
             for cmd in cmds:
-                subprocess.run(cmd, shell=True, capture_output=True)
+                try:
+                    subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+                except subprocess.TimeoutExpired:
+                    pass
             self.after(0, lambda: self._confirm_status.config(
                 text="✅ Paramètres envoyés", fg=GREEN))
         self._confirm_status.config(text="⏳ Envoi des paramètres...", fg=YELLOW)
@@ -490,7 +491,10 @@ class MastersIHM(tk.Tk):
                 cmds.append(f"ros2 param set /test_unity_p1 {key} {val:.3f}")
         def run():
             for cmd in cmds:
-                subprocess.run(cmd, shell=True, capture_output=True)
+                try:
+                    subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+                except subprocess.TimeoutExpired:
+                    pass
         threading.Thread(target=run, daemon=True).start()
 
     def _do_start(self):
@@ -501,7 +505,6 @@ class MastersIHM(tk.Tk):
         self._ctrl_status.config(text="⏳ Lancement des nœuds ROS2...", fg=YELLOW)
         self._set_indicator("ros", "pending")
 
-        # Ajouté le 20/04 à 12h25 — stream stdout de chaque nœud vers son onglet
         def run():
             for label, cmd in zip(CMD_LABELS, CMDS):
                 self.after(0, lambda l=label: self._node_status.config(
@@ -526,48 +529,26 @@ class MastersIHM(tk.Tk):
         self._set_indicator("robot", "on")
         self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREEN)
         self._btn_play.config(state="normal", bg=BTN_BLUE)
-
         self._btn_precal.config(state="normal")
         self._btn_cal.config(state="normal")
         for btn in self._scen_btns.values():
             btn.config(state="normal")
         self._btn_confirm.config(state="normal")
-
-        self._btn_start.config(state="disabled") # Ajouté le 22/04 à 15h00 — désactiver le bouton Démarrer après lancement
-
+        self._btn_start.config(state="disabled")
         self._ctrl_status.config(
             text="✅ ROS2 prêt.\nMettez le casque puis appuyez PLAY.", fg=GREEN)
         self._status_stop.clear()
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
         self._status_thread.start()
 
-    # def _do_play(self):
-    #     scen_map = {"Push": 3, "Punch": 2, "Touch": 4}
-    #     scen = scen_map[self.scenario_var.get()]
-    #     # self._ros2_publish(TOPIC_COMMAND, f"play:{scen}")
-
-    #     # Ajouté le 21/04 — publication répétée pour fiabilité
-    #     # cmd = f'ros2 topic pub -r 10 --times 5 {TOPIC_COMMAND} std_msgs/msg/String "{{data: \\"play:{scen}\\"}}"'
-    #     # threading.Thread(
-    #     #     target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-    #     #     daemon=True).start()
-        
-    #     # Ajouté le 21/04 — appel service app_control au lieu de topic
-    #     cmd = f'ros2 service call /app_control masters_msgs/srv/AppControlService "{{command: 0}}"'
-    #     threading.Thread(
-    #         target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-    #         daemon=True).start()
-
-    #     self.session_active = True
-    #     self._btn_play.config(state="disabled", bg=GREY)
-    #     self._set_indicator("unity",   "on")
-    #     self._set_indicator("session", "on")
-    #     self._ctrl_status.config(
-    #         text=f"🎮 Poussée en cours...\nScénario : {self.scenario_var.get()}", fg=GREEN)
-        
     def _do_play(self):
         cmd = 'ros2 service call /start_session std_srvs/srv/Trigger'
-        threading.Thread(target=lambda: subprocess.run(cmd, shell=True, capture_output=True),daemon=True).start()
+        def run():
+            try:
+                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+        threading.Thread(target=run, daemon=True).start()
         self.session_active = True
         self._btn_play.config(state="disabled", bg=GREY)
         self._set_indicator("unity", "on")
@@ -606,15 +587,12 @@ class MastersIHM(tk.Tk):
         self._set_indicator("unity", "off")
         self._node_status.config(text="")
         self._btn_play.config(state="disabled", bg=GREY)
-
         self._btn_precal.config(state="disabled")
         self._btn_cal.config(state="disabled")
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
-
         self._btn_start.config(state="normal")
-
         self._ctrl_status.config(text="🔴 Nœuds arrêtés.", fg=ACCENT)
 
     # ══════════════════════════════════════════
@@ -658,9 +636,6 @@ class MastersIHM(tk.Tk):
         self._set_indicator("session", "pending")
         self._ctrl_status.config(
             text="✅ Poussée terminée.\nPrêt pour le prochain PLAY.", fg=GREEN)
-        
-        #self._select_scenario(self.scenario_var.get())
-        # Ajouté le 21/04 — ne pas écraser _pre_touch_values si scénario Touch
         if self.scenario_var.get() != "Touch":
             self._select_scenario(self.scenario_var.get())
 
@@ -683,7 +658,6 @@ class MastersIHM(tk.Tk):
 
     def _on_status_restarting(self):
         self._set_indicator("robot", "pending")
-        # self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._ctrl_status.config(
             text="⏳ Robot en cours de reconnexion...", fg=YELLOW)
 
@@ -700,13 +674,12 @@ class MastersIHM(tk.Tk):
         self._ctrl_status.config(
             text="✅ Robot reconnecté.\nPrêt pour le prochain PLAY.", fg=GREEN)
         self._do_confirm_forced()
-        self._select_scenario(self.scenario_var.get())  # Ajouté le 21/04
+        self._select_scenario(self.scenario_var.get())
 
     # ══════════════════════════════════════════
     #  HELPERS
     # ══════════════════════════════════════════
 
-    # Ajouté le 20/04 à 12h25
     def _log(self, label: str, message: str):
         box = self._log_boxes.get(label)
         if not box:
@@ -717,7 +690,6 @@ class MastersIHM(tk.Tk):
         box.see("end")
         box.config(state="disabled")
 
-    # Ajouté le 20/04 à 12h25
     def _stream_logs(self, proc, label: str):
         for line in proc.stdout:
             if self._status_stop.is_set():
@@ -726,7 +698,6 @@ class MastersIHM(tk.Tk):
             if line:
                 self.after(0, lambda l=line, lb=label: self._log(lb, l))
 
-    # Ajouté le 20/04 à 12h25
     def _clear_logs(self):
         for box in self._log_boxes.values():
             box.config(state="normal")
@@ -787,7 +758,6 @@ class MastersIHM(tk.Tk):
                           command=on_slide)
         scale.pack(fill="x")
 
-        # Ajouté le 20/04 à 16h30 — stocker références pour blocage Touch
         self._slider_widgets[label] = (scale, entry, entry_var, var)
 
     def _set_indicator(self, key, state):
@@ -796,13 +766,15 @@ class MastersIHM(tk.Tk):
 
     def _ros2_publish(self, topic, message):
         cmd = f'ros2 topic pub --once {topic} std_msgs/msg/String "{{data: \\"{message}\\"}}"'
-        threading.Thread(
-            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-            daemon=True).start()
+        def run():
+            try:
+                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+        threading.Thread(target=run, daemon=True).start()
 
     def _on_close(self):
         self._do_stop()
-        time.sleep(2.0)
         self.destroy()
 
 
