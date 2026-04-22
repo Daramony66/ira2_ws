@@ -68,7 +68,7 @@ class TestUnityP1(Node):
         self.declare_parameter('force_target', 20.0)
         self.declare_parameter('force_wrench', 50.0)
         self.declare_parameter('force_max', 70.0)
-        self.declare_parameter('scenario_mode', 0)
+        self.declare_parameter('scenario_mode', 3)  # Push par défaut
         self.declare_parameter('timeout', 30.0)
         self.declare_parameter('offset', 0.1)
         self.declare_parameter('xy_norm_min', 0.230)
@@ -168,6 +168,12 @@ class TestUnityP1(Node):
     def start_session(self):
         self.abort_active = False  # reset abort
         self.error_event.clear()   # reset error
+        # Ajouté le 22/04 à 10h00 — mode de scénario dynamique selon paramètre ############
+        if self.scenario_mode == 2:
+            self.change_state(2)  # Punch
+        elif self.scenario_mode == 3:
+            self.change_state(3)  # Push
+        ###################################################################################
         if not self.contact_point_client.service_is_ready():
             self.get_logger().warn("Service cp_position pas disponible — Unity connecté ?")
             return
@@ -175,6 +181,14 @@ class TestUnityP1(Node):
         req.command = 0
         future = self.contact_point_client.call_async(req)
         future.add_done_callback(self.cb_contact_point)
+
+    def change_state(self, state_id):
+        if not self.state_client.service_is_ready():
+            self.get_logger().warn("Service system_state pas disponible.")
+            return
+        req = SystemStateService.Request()
+        req.command = state_id
+        self.state_client.call_async(req)
 
     # Ajouté le 21/04 — attend Entrée puis démarre la session
     # def _wait_input(self):
@@ -238,15 +252,14 @@ class TestUnityP1(Node):
         # offset = self.offset
         # pre_P1 = [
 
-        # Ajouté le 17/04 à 11h25
-        if self.scenario_mode == 0:  # Push
+        # Ajouté le 22/04 à 10h00
+        if self.scenario_mode == 2:    # Punch
             offset = self.offset
             wrench = [0, 0, self.force_wrench, 0, 0, 0]
-        elif self.scenario_mode == 1:  # Punch
+        elif self.scenario_mode == 3:  # Push
             offset = self.offset
-            # wrench = [0, 0, min(self.force_wrench * 2, 150), 0, 0, 0]
             wrench = [0, 0, self.force_wrench, 0, 0, 0]
-        elif self.scenario_mode == 2:  # Touch
+        elif self.scenario_mode == 4:  # Touch
             offset = 0.05
             wrench = [0, 0, 10.0, 0, 0, 0]
         else:
@@ -361,8 +374,8 @@ class TestUnityP1(Node):
         TIMEOUT = self.timeout # temps avant mort
         #FORCE_TARGET = self.force_target # force cible
 
-        # Ajouté le 17/04 à 11h15
-        if self.scenario_mode == 2:  # Touch
+        # Ajouté le 22/04 à 10h00
+        if self.scenario_mode == 4:  # Touch
             FORCE_TARGET = 1.0
         else:
             FORCE_TARGET = self.force_target
@@ -431,17 +444,16 @@ class TestUnityP1(Node):
             if force_dev >= FORCE_TARGET:
                 # self.rc.forceModeStop()
                 print(f"Force cible atteinte : {force_dev:.2f}N !")
-                if self.scenario_mode == 0:  # Push
-                    self.get_logger().info("Mode Push — maintien 2s...")
-                    # time.sleep(2.0)
-                    time.sleep(self.hold_time)
-                    self.rc.forceModeStop()
-                    retract_speed, retract_accel = 0.2, 0.5
-                elif self.scenario_mode == 1:  # Punch
+                if self.scenario_mode == 2:    # Punch
                     self.rc.forceModeStop()
                     self.get_logger().info("Mode Punch — rétraction rapide !")
                     retract_speed, retract_accel = 1.0, 2.0
-                elif self.scenario_mode == 2:  # Touch
+                elif self.scenario_mode == 3:  # Push
+                    self.get_logger().info("Mode Push — maintien...")
+                    time.sleep(self.hold_time)
+                    self.rc.forceModeStop()
+                    retract_speed, retract_accel = 0.2, 0.5
+                elif self.scenario_mode == 4:  # Touch
                     self.rc.forceModeStop()
                     self.get_logger().info("Mode Touch — rétraction immédiate.")
                     retract_speed, retract_accel = 0.5, 1.0
