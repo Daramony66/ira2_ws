@@ -533,6 +533,8 @@ class MastersIHM(tk.Tk):
             btn.config(state="normal")
         self._btn_confirm.config(state="normal")
 
+        self._btn_start.config(state="disabled") # Ajouté le 22/04 à 15h00 — désactiver le bouton Démarrer après lancement
+
         self._ctrl_status.config(
             text="✅ ROS2 prêt.\nMettez le casque puis appuyez PLAY.", fg=GREEN)
         self._status_stop.clear()
@@ -610,6 +612,8 @@ class MastersIHM(tk.Tk):
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
+
+        self._btn_start.config(state="normal")
 
         self._ctrl_status.config(text="🔴 Nœuds arrêtés.", fg=ACCENT)
 
