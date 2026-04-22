@@ -360,7 +360,7 @@ class MastersIHM(tk.Tk):
         self.scenario_var.set(name)
         for n, btn in self._scen_btns.items():
             btn.config(bg=SCENARIO_COLORS[n] if n == name else GREY)
-        scen_map = {"Push": 0, "Punch": 1, "Touch": 2}
+        scen_map = {"Push": 3, "Punch": 2, "Touch": 4}
         scen = scen_map[name]
         cmd = f"ros2 param set /test_unity_p1 scenario_mode {scen}"
         threading.Thread(
@@ -520,7 +520,7 @@ class MastersIHM(tk.Tk):
         self._status_thread.start()
 
     def _do_play(self):
-        scen_map = {"Push": 0, "Punch": 1, "Touch": 2}
+        scen_map = {"Push": 3, "Punch": 2, "Touch": 4}
         scen = scen_map[self.scenario_var.get()]
         # self._ros2_publish(TOPIC_COMMAND, f"play:{scen}")
 
