@@ -519,26 +519,36 @@ class MastersIHM(tk.Tk):
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
         self._status_thread.start()
 
-    def _do_play(self):
-        scen_map = {"Push": 3, "Punch": 2, "Touch": 4}
-        scen = scen_map[self.scenario_var.get()]
-        # self._ros2_publish(TOPIC_COMMAND, f"play:{scen}")
+    # def _do_play(self):
+    #     scen_map = {"Push": 3, "Punch": 2, "Touch": 4}
+    #     scen = scen_map[self.scenario_var.get()]
+    #     # self._ros2_publish(TOPIC_COMMAND, f"play:{scen}")
 
-        # Ajouté le 21/04 — publication répétée pour fiabilité
-        # cmd = f'ros2 topic pub -r 10 --times 5 {TOPIC_COMMAND} std_msgs/msg/String "{{data: \\"play:{scen}\\"}}"'
-        # threading.Thread(
-        #     target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-        #     daemon=True).start()
+    #     # Ajouté le 21/04 — publication répétée pour fiabilité
+    #     # cmd = f'ros2 topic pub -r 10 --times 5 {TOPIC_COMMAND} std_msgs/msg/String "{{data: \\"play:{scen}\\"}}"'
+    #     # threading.Thread(
+    #     #     target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+    #     #     daemon=True).start()
         
-        # Ajouté le 21/04 — appel service app_control au lieu de topic
-        cmd = f'ros2 service call /app_control masters_msgs/srv/AppControlService "{{command: 0}}"'
-        threading.Thread(
-            target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
-            daemon=True).start()
+    #     # Ajouté le 21/04 — appel service app_control au lieu de topic
+    #     cmd = f'ros2 service call /app_control masters_msgs/srv/AppControlService "{{command: 0}}"'
+    #     threading.Thread(
+    #         target=lambda: subprocess.run(cmd, shell=True, capture_output=True),
+    #         daemon=True).start()
 
+    #     self.session_active = True
+    #     self._btn_play.config(state="disabled", bg=GREY)
+    #     self._set_indicator("unity",   "on")
+    #     self._set_indicator("session", "on")
+    #     self._ctrl_status.config(
+    #         text=f"🎮 Poussée en cours...\nScénario : {self.scenario_var.get()}", fg=GREEN)
+        
+    def _do_play(self):
+        cmd = 'ros2 service call /start_session std_srvs/srv/Trigger'
+        threading.Thread(target=lambda: subprocess.run(cmd, shell=True, capture_output=True),daemon=True).start()
         self.session_active = True
         self._btn_play.config(state="disabled", bg=GREY)
-        self._set_indicator("unity",   "on")
+        self._set_indicator("unity", "on")
         self._set_indicator("session", "on")
         self._ctrl_status.config(
             text=f"🎮 Poussée en cours...\nScénario : {self.scenario_var.get()}", fg=GREEN)

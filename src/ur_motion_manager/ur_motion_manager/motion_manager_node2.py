@@ -19,6 +19,8 @@ import subprocess # Ajouté le 17/04 à 17h00
 
 from rcl_interfaces.msg import SetParametersResult # Ajouté le 16/04 à 17h00 -- pour les paramètres dynamiques
 
+from std_srvs.srv import Trigger  # service simple sans paramètre # Ajouté le 21/04
+
 # Ajouté le 17/04 à 16h30
 def publish_status(status: str):
     cmd = f'ros2 topic pub --once /masters/status std_msgs/msg/String "{{data: \\"{status}\\"}}"'
@@ -109,6 +111,8 @@ class TestUnityP1(Node):
         self.app_control_client = self.create_client(AppControlService, 'app_control')
         self.contact_point_client = self.create_client(ContactPointService, 'cp_position')
         self.state_client = self.create_client(SystemStateService, 'system_state')
+
+        self.create_service(Trigger, 'start_session', self.cb_start_session) # Ajouté le 21/04 — service pour démarrer la session depuis IHM
         
         self.get_logger().info("En attente de P1 depuis Unity...")
 
@@ -161,8 +165,8 @@ class TestUnityP1(Node):
             self.move_to_p1(P1)
         finally:
             self._moving.release()
-            if not self.error_event.is_set():
-                self.node_ready_event.set()
+            # if not self.error_event.is_set():
+            #     self.node_ready_event.set()
 
     # Ajouté le 21/04 — démarre une session : récupère P1 puis lance Unity
     def start_session(self):
@@ -181,6 +185,13 @@ class TestUnityP1(Node):
         req.command = 0
         future = self.contact_point_client.call_async(req)
         future.add_done_callback(self.cb_contact_point)
+
+    # Ajouté le 21/04 — callback pour service de démarrage depuis IHM
+    def cb_start_session(self, request, response):
+        self.start_session()
+        response.success = True
+        response.message = "Session démarrée"
+        return response
 
     def change_state(self, state_id):
         if not self.state_client.service_is_ready():
@@ -545,29 +556,29 @@ class TestUnityP1(Node):
 def main():
     rclpy.init()
     node = None
-    node_ref = [None]
-    node_ready_event = threading.Event()  # ← AJOUT
+    # node_ref = [None]
+    # node_ready_event = threading.Event()  # ← AJOUT
 
-    def wait_input_global():
-        while True:
-            node_ready_event.wait()        # ← attend le signal
-            node_ready_event.clear()       # ← reset pour prochain cycle
-            time.sleep(0.1)
-            input("Appuyez sur Entrée pour démarrer la session...")
-            try:
-                node_ref[0].start_session()
-            except Exception as e:
-                print(f"[input] Erreur : {e}")
-            time.sleep(0.5)               # ← évite double affichage
+    # def wait_input_global():
+    #     while True:
+    #         node_ready_event.wait()        # ← attend le signal
+    #         node_ready_event.clear()       # ← reset pour prochain cycle
+    #         time.sleep(0.1)
+    #         input("Appuyez sur Entrée pour démarrer la session...")
+    #         try:
+    #             node_ref[0].start_session()
+    #         except Exception as e:
+    #             print(f"[input] Erreur : {e}")
+    #         time.sleep(0.5)               # ← évite double affichage
 
-    threading.Thread(target=wait_input_global, daemon=True).start()
+    # threading.Thread(target=wait_input_global, daemon=True).start()
 
     while True:
         try:
             node = TestUnityP1()
-            node_ref[0] = node
-            node.node_ready_event = node_ready_event  # ← AJOUTER
-            node_ready_event.set()         # ← AJOUT : signal au thread
+            # node_ref[0] = node
+            # node.node_ready_event = node_ready_event  # ← AJOUTER
+            # node_ready_event.set()         # ← AJOUT : signal au thread
             executor = rclpy.executors.SingleThreadedExecutor()
             executor.add_node(node)
             while rclpy.ok():
