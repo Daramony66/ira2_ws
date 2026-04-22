@@ -108,6 +108,13 @@ class MastersIHM(tk.Tk):
         self._build_body()
         self._build_footer()
 
+        # Ajouté le 22/04 — griser les boutons au démarrage
+        self._btn_precal.config(state="disabled")
+        self._btn_cal.config(state="disabled")
+        for btn in self._scen_btns.values():
+            btn.config(state="disabled")
+        self._btn_confirm.config(state="disabled")
+
         # Echap pour quitter aussi
         self.bind('<Escape>', lambda e: self._on_close())
         self.protocol("WM_DELETE_WINDOW", self._on_close)
@@ -519,6 +526,13 @@ class MastersIHM(tk.Tk):
         self._set_indicator("robot", "on")
         self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREEN)
         self._btn_play.config(state="normal", bg=BTN_BLUE)
+
+        self._btn_precal.config(state="normal")
+        self._btn_cal.config(state="normal")
+        for btn in self._scen_btns.values():
+            btn.config(state="normal")
+        self._btn_confirm.config(state="normal")
+
         self._ctrl_status.config(
             text="✅ ROS2 prêt.\nMettez le casque puis appuyez PLAY.", fg=GREEN)
         self._status_stop.clear()
@@ -590,6 +604,13 @@ class MastersIHM(tk.Tk):
         self._set_indicator("unity", "off")
         self._node_status.config(text="")
         self._btn_play.config(state="disabled", bg=GREY)
+
+        self._btn_precal.config(state="disabled")
+        self._btn_cal.config(state="disabled")
+        for btn in self._scen_btns.values():
+            btn.config(state="disabled")
+        self._btn_confirm.config(state="disabled")
+
         self._ctrl_status.config(text="🔴 Nœuds arrêtés.", fg=ACCENT)
 
     # ══════════════════════════════════════════
