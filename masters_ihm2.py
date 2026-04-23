@@ -59,7 +59,9 @@ class MastersIHM(tk.Tk):
         self.configure(bg=BG)
 
         # ── Fenêtré ──
-        self.geometry("1600x900")
+        # self.geometry("1600x900")
+        # self.state('zoomed')
+        self.geometry(f"{self.winfo_screenwidth()}x{self.winfo_screenheight()}+0+0")
         self.resizable(True, True)
         self.update_idletasks()
         self.W = 1920
@@ -108,7 +110,7 @@ class MastersIHM(tk.Tk):
         self._build_header()
         self._build_body()
         self._build_status_bar()
-        self._build_footer()
+        # self._build_footer()
 
         # Ajouté le 22/04 — griser les boutons au démarrage
         self._btn_precal.config(state="disabled")
@@ -171,7 +173,7 @@ class MastersIHM(tk.Tk):
         col = tk.Frame(parent, bg=BG2)
         col.grid(row=0, column=0, sticky="nsew", padx=self.s(8), pady=self.sv(8))
 
-        self._col_title(col, "1 — Calibration")
+        self._col_title(col, "Calibration")
 
         tk.Label(col,
             text="Pré-calibration :\nSi le robot a été déplacé\ndepuis la dernière session.",
@@ -200,7 +202,7 @@ class MastersIHM(tk.Tk):
         col = tk.Frame(parent, bg=BG2)
         col.grid(row=0, column=1, sticky="nsew", padx=self.s(8), pady=self.sv(8))
 
-        self._col_title(col, "2 — Paramétrage")
+        self._col_title(col, "Paramétrage")
 
         tk.Label(col, text="Choisir le scénario :",
                  font=("Helvetica", self.sf(12), "bold"),
@@ -256,7 +258,7 @@ class MastersIHM(tk.Tk):
         col = tk.Frame(parent, bg=BG2)
         col.grid(row=0, column=2, sticky="nsew", padx=self.s(8), pady=self.sv(8))
 
-        self._col_title(col, "3 — Contrôle")
+        self._col_title(col, "Contrôle")
 
         for i, txt in enumerate([
             "① Lancer les nœuds ROS2.",
@@ -349,13 +351,13 @@ class MastersIHM(tk.Tk):
     # ══════════════════════════════════════════
     #  FOOTER
     # ══════════════════════════════════════════
-    def _build_footer(self):
-        frm = tk.Frame(self, bg=BG3, height=self.sv(46))
-        frm.pack(fill="x", side="bottom")
-        frm.pack_propagate(False)
+    # def _build_footer(self):
+    #     frm = tk.Frame(self, bg=BG3, height=self.sv(46))
+    #     frm.pack(fill="x", side="bottom")
+    #     frm.pack_propagate(False)
 
-        tk.Label(frm, text="IBISC — IRA2 — Université d'Évry Paris-Saclay",
-                 font=("Helvetica", self.sf(9)), bg=BG3, fg=GREY).pack(side="left", padx=self.s(20))
+    #     tk.Label(frm, text="IBISC — IRA2 — Université d'Évry Paris-Saclay",
+    #              font=("Helvetica", self.sf(9)), bg=BG3, fg=GREY).pack(side="left", padx=self.s(20))
 
     # ══════════════════════════════════════════
     #  ACTIONS
