@@ -618,6 +618,11 @@ class MastersIHM(tk.Tk):
                     os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
                 except:
                     pass
+            subprocess.run("pkill -9 -f motion_manager_node2", shell=True)
+            subprocess.run("pkill -9 -f ur_safety_monitor", shell=True)
+            subprocess.run("pkill -9 -f ros2_control_node", shell=True)
+            subprocess.run("pkill -9 -f ros_tcp_endpoint", shell=True)
+            # subprocess.run("ros2 daemon stop && ros2 daemon start", shell=True)
             self.processes.clear()
             self.ros_running = False
             self.after(0, self._on_ros_stopped)
