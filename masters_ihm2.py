@@ -340,13 +340,6 @@ class MastersIHM(tk.Tk):
         tk.Label(frm, text="IRA2 — IBISC Lab — Université d'Évry Paris-Saclay",
                  font=("Helvetica", self.sf(9)), bg=BG3, fg=GREY).pack(side="left", padx=self.s(20))
 
-        tk.Button(frm, text="✕  Quitter",
-                  font=("Helvetica", self.sf(9), "bold"),
-                  bg=BTN_RED, fg=WHITE, relief="flat",
-                  activebackground=BTN_RED, cursor="hand2",
-                  command=self._on_close).pack(side="right", padx=self.s(20),
-                                               pady=self.sv(8), ipadx=self.s(10))
-
     # ══════════════════════════════════════════
     #  ACTIONS
     # ══════════════════════════════════════════
