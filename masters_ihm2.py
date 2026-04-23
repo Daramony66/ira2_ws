@@ -255,9 +255,9 @@ class MastersIHM(tk.Tk):
         self._col_title(col, "3 — Contrôle")
 
         for i, txt in enumerate([
-            "① Lancez les nœuds ROS2.",
-            "② Mettez le casque VR.",
-            "③ Lancez la simulation.",
+            "① Lancer les nœuds ROS2.",
+            "② Metter le casque VR.",
+            "③ Lancer la simulation.",
         ]):
             tk.Label(col, text=txt, font=("Helvetica", self.sf(11)),
                      bg=BG2, fg=GREY).pack(anchor="w", padx=self.s(20),
@@ -540,9 +540,11 @@ class MastersIHM(tk.Tk):
             btn.config(state="normal")
         self._btn_confirm.config(state="normal")
         self._btn_start.config(state="disabled")
-        self._set_status("✅ ROS2 prêt — Mettez le casque puis appuyez PLAY.", GREEN)
+        self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
         self._status_stop.clear()
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
+        self._abort_thread = threading.Thread(target=self._listen_abort, daemon=True)
+        self._abort_thread.start()  # ← AJOUTER
         self._status_thread.start()
 
     def _do_play(self):
@@ -634,6 +636,24 @@ class MastersIHM(tk.Tk):
             elif data == "restarted":
                 self.after(0, self._on_status_restarted)
 
+    def _listen_abort(self):
+        proc = subprocess.Popen(
+            "ros2 topic echo /safety_abort std_msgs/msg/String",
+            shell=True, stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL, text=True,
+            start_new_session=True
+        )
+        self.processes["abort_listener"] = proc
+        for line in proc.stdout:
+            if self._status_stop.is_set():
+                break
+            line = line.strip()
+            if "data:" not in line:
+                continue
+            if "FORCE LIMIT" in line:
+                self.after(0, lambda: self._set_status(
+                    "⚠️ Force limite dépassée — Vérifier le robot puis relancer PLAY.", YELLOW))
+
     def _on_status_ready(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "pending")
@@ -644,7 +664,7 @@ class MastersIHM(tk.Tk):
     def _on_status_aborted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Séquence interrompue — Corrigez puis appuyez PLAY.", YELLOW)
+        self._set_status("⚠️ Séquence interrompue — Corriger puis relancer PLAY.", YELLOW)
 
     def _on_status_waiting(self):
         self._set_indicator("session", "pending")
@@ -662,7 +682,7 @@ class MastersIHM(tk.Tk):
     def _on_status_aborted_norm(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Point trop proche de la base — Choisissez une autre cible.", YELLOW)
+        self._set_status("⚠️ Point trop proche de la base — Reculer.", YELLOW)
 
     def _on_status_restarted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
