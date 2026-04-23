@@ -13,24 +13,25 @@ import signal
 # ─────────────────────────────────────────────
 #  Couleurs
 # ─────────────────────────────────────────────
-BG          = "#1a1a2e"
-BG2         = "#16213e"
-BG3         = "#0f3460"
-ACCENT      = "#e94560"
-GREEN       = "#00d4aa"
-YELLOW      = "#f5a623"
-WHITE       = "#f0f0f0"
-GREY        = "#555577"
-BTN_RED     = "#c0392b"
-BTN_GREEN   = "#27ae60"
-BTN_BLUE    = "#2980b9"
-BTN_ORANGE  = "#e67e22"
-BTN_GREY    = "#34495e"
+BG          = "#eef2f7"   # fond bleu-gris très clair
+BG2         = "#ffffff"   # colonnes blanc
+BG3         = "#2e4057"   # header/footer bleu ardoise foncé
+ACCENT      = "#ffffff"   # titre des colonnes
+GREEN       = "#06d6a0"   # vert menthe pour statuts positifs
+YELLOW      = "#ffd166"   # jaune doux pour avertissements
+WHITE       = "#ffffff"   # blanc pour texte sur fonds foncés
+# GREY        = "#6b7280"   # gris pour texte secondaire sur fond clair
+GREY = "#546e7a"  # gris bleuté plus foncé, lisible mais neutre
+BTN_RED     = "#ef476f"   # rose-rouge pour danger
+BTN_GREEN   = "#06d6a0"   # vert menthe pour démarrer
+BTN_BLUE    = "#118ab2"   # bleu pour PLAY
+BTN_ORANGE  = "#fd9e02"   # orange pour confirmer
+BTN_GREY    = "#6b7280"   # gris pour boutons neutres
 
 SCENARIO_COLORS = {
-    "Push":  "#2980b9",
-    "Punch": "#c0392b",
-    "Touch": "#27ae60",
+    "Push":  "#118ab2",
+    "Punch": "#ef476f",
+    "Touch": "#06d6a0",
 }
 
 # Ajouté le 20/04 à 16h30 — valeurs hardcodées pour le mode Touch
@@ -134,9 +135,9 @@ class MastersIHM(tk.Tk):
                  font=("Helvetica", self.sf(28), "bold"),
                  bg=BG3, fg=WHITE).pack(side="left", padx=self.s(30), pady=self.sv(15))
 
-        tk.Label(frm, text="Système de contrôle robot  —  IRA2 Lab",
-                 font=("Helvetica", self.sf(13)),
-                 bg=BG3, fg=GREY).pack(side="left")
+        # tk.Label(frm, text="Système de contrôle robot  —  IRA2 Lab",
+        #          font=("Helvetica", self.sf(13)),
+        #          bg=BG3, fg=GREY).pack(side="left")
 
         ind_frm = tk.Frame(frm, bg=BG3)
         ind_frm.pack(side="right", padx=self.s(30))
@@ -177,7 +178,7 @@ class MastersIHM(tk.Tk):
             font=("Helvetica", self.sf(11)), bg=BG2, fg=GREY,
             justify="left").pack(anchor="w", padx=self.s(20), pady=self.sv(14))
 
-        self._btn_precal = self._card_button(col, "🔧  Pré-calibration",
+        self._btn_precal = self._card_button(col, "Pré-calibration",
                                              BTN_GREY, self.sf(14), self._do_precalibration)
 
         tk.Label(col,
@@ -185,7 +186,7 @@ class MastersIHM(tk.Tk):
             font=("Helvetica", self.sf(11)), bg=BG2, fg=GREY,
             justify="left").pack(anchor="w", padx=self.s(20), pady=self.sv(20))
 
-        self._btn_cal = self._card_button(col, "📐  Calibration",
+        self._btn_cal = self._card_button(col, "Calibration",
                                           BTN_BLUE, self.sf(14), self._do_calibration)
 
         self._cal_status = tk.Label(col, text="",
@@ -203,7 +204,7 @@ class MastersIHM(tk.Tk):
 
         tk.Label(col, text="Choisir le scénario :",
                  font=("Helvetica", self.sf(12), "bold"),
-                 bg=BG2, fg=WHITE).pack(anchor="w", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
+                 bg=BG2, fg="#2e4057").pack(anchor="w", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
 
         scen_row = tk.Frame(col, bg=BG2)
         scen_row.pack(fill="x", padx=self.s(20), pady=(0, self.sv(16)))
@@ -223,7 +224,7 @@ class MastersIHM(tk.Tk):
 
         tk.Label(col, text="Paramètres :",
                  font=("Helvetica", self.sf(12), "bold"),
-                 bg=BG2, fg=WHITE).pack(anchor="w", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
+                 bg=BG2, fg="#2e4057").pack(anchor="w", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
 
         sliders_frm = tk.Frame(col, bg=BG2)
         sliders_frm.pack(fill="x", padx=self.s(20))
@@ -312,7 +313,9 @@ class MastersIHM(tk.Tk):
         style.configure("TNotebook", background=BG2, borderwidth=0)
         style.configure("TNotebook.Tab", background=BG3, foreground=WHITE,
                         font=("Helvetica", self.sf(8)), padding=[self.s(6), self.sv(3)])
-        style.map("TNotebook.Tab", background=[("selected", BG)])
+        style.map("TNotebook.Tab", 
+                  background=[("selected", BG)],
+                  foreground=[("selected", "#2e4057")])  # ← texte foncé quand sélectionné
 
         self._notebook = ttk.Notebook(col)
         self._notebook.pack(fill="both", expand=True, padx=self.s(20), pady=self.sv(4))
@@ -322,7 +325,8 @@ class MastersIHM(tk.Tk):
             self._notebook.add(frame, text=label)
             box = tk.Text(frame,
                           font=("Courier", self.sf(8)),
-                          bg=BG, fg=GREEN,
+                          bg="black",      # ← fond noir
+                          fg="#00ff00",    # ← texte vert terminal
                           relief="flat",
                           state="disabled",
                           wrap="word")
@@ -337,7 +341,7 @@ class MastersIHM(tk.Tk):
         frm.pack(fill="x", side="bottom")
         frm.pack_propagate(False)
 
-        tk.Label(frm, text="IRA2 — IBISC Lab — Université d'Évry Paris-Saclay",
+        tk.Label(frm, text="IBISC — IRA2 — Université d'Évry Paris-Saclay",
                  font=("Helvetica", self.sf(9)), bg=BG3, fg=GREY).pack(side="left", padx=self.s(20))
 
     # ══════════════════════════════════════════
@@ -555,7 +559,7 @@ class MastersIHM(tk.Tk):
         self._ros2_publish(TOPIC_ABORT, "ABORT depuis IHM")
         self.session_active = False
         self._set_indicator("session", "off")
-        self._ctrl_status.config(text="⛔ Arrêt en cours...", fg=ACCENT)
+        self._ctrl_status.config(text="⛔ Arrêt en cours...", fg=BTN_RED)
 
         def kill():
             for label, proc in self.processes.items():
@@ -587,7 +591,7 @@ class MastersIHM(tk.Tk):
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
         self._btn_start.config(state="normal")
-        self._ctrl_status.config(text="🔴 Nœuds arrêtés.", fg=ACCENT)
+        self._ctrl_status.config(text="🔴 Nœuds arrêtés.", fg=BTN_RED)
 
     # ══════════════════════════════════════════
     #  ÉCOUTE /masters/status
@@ -647,8 +651,7 @@ class MastersIHM(tk.Tk):
     def _on_status_error(self):
         self._set_indicator("session", "off")
         self._set_indicator("robot", "off")
-        self._ctrl_status.config(
-            text="🔴 Protective Stop détecté !\nReconnecter le robot...", fg=ACCENT)
+        self._ctrl_status.config(text="🔴 Protective Stop détecté !\nReconnecter le robot......", fg=BTN_RED)
 
     def _on_status_restarting(self):
         self._set_indicator("robot", "pending")
@@ -723,12 +726,12 @@ class MastersIHM(tk.Tk):
         hdr = tk.Frame(cell, bg=BG2)
         hdr.pack(fill="x")
         tk.Label(hdr, text=label, font=("Helvetica", self.sf(10)),
-                bg=BG2, fg=WHITE).pack(side="left")
+                bg=BG2, fg="#2e4057").pack(side="left")
 
         entry_var = tk.StringVar(value=f"{var.get():.2f}")
         entry = tk.Entry(hdr, textvariable=entry_var,
                         font=("Helvetica", self.sf(10), "bold"),
-                        bg=BG3, fg=ACCENT, insertbackground=WHITE,
+                        bg="white", fg="#2e4057", insertbackground=WHITE,
                         relief="flat", width=6)
         entry.pack(side="right")
 
