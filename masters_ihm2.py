@@ -274,10 +274,10 @@ class MastersIHM(tk.Tk):
         self._btn_start = self._card_button(col, "▶  DÉMARRER",
                                             BTN_GREEN, self.sf(16), self._do_start)
 
-        self._node_status = tk.Label(col, text="",
-                                     font=("Helvetica", self.sf(9)),
-                                     bg=BG2, fg=GREY, justify="left")
-        self._node_status.pack(anchor="w", padx=self.s(20), pady=self.sv(4))
+        # self._node_status = tk.Label(col, text="",
+        #                              font=("Helvetica", self.sf(9)),
+        #                              bg=BG2, fg=GREY, justify="left")
+        # self._node_status.pack(anchor="w", padx=self.s(20), pady=self.sv(4))
 
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(8))
 
@@ -518,8 +518,7 @@ class MastersIHM(tk.Tk):
 
         def run():
             for label, cmd in zip(CMD_LABELS, CMDS):
-                self.after(0, lambda l=label: self._node_status.config(
-                    text=f"⏳ Lancement : {l}...", fg=GREY))
+                self.after(0, lambda l=label: self._set_status(f"⏳ Lancement : {l}...", YELLOW))
                 proc = subprocess.Popen(cmd, shell=True,
                                         stdout=subprocess.PIPE,
                                         stderr=subprocess.STDOUT,
@@ -538,7 +537,7 @@ class MastersIHM(tk.Tk):
     def _on_ros_started(self):
         self._set_indicator("ros",   "on")
         self._set_indicator("robot", "on")
-        self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREY)
+        # self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREY)
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._btn_precal.config(state="normal")
         self._btn_cal.config(state="normal")
@@ -601,7 +600,7 @@ class MastersIHM(tk.Tk):
         self._set_indicator("ros",   "off")
         self._set_indicator("robot", "off")
         self._set_indicator("unity", "off")
-        self._node_status.config(text="")
+        # self._node_status.config(text="")
         self._btn_play.config(state="disabled", bg=GREY)
         self._btn_precal.config(state="disabled")
         self._btn_cal.config(state="disabled")
@@ -614,7 +613,8 @@ class MastersIHM(tk.Tk):
             entry.config(state="disabled")
 
         self._btn_start.config(state="normal")
-        self._set_status("🔴 Nœuds arrêtés.", BTN_RED)
+        # self._set_status("🔴 Nœuds arrêtés.", BTN_RED)
+        self._set_status("🔴 Nœuds arrêtés — Appuyez sur DÉMARRER pour relancer.", GREY)
 
     # ══════════════════════════════════════════
     #  ÉCOUTE /masters/status
