@@ -441,6 +441,7 @@ class MastersIHM(tk.Tk):
                 self._confirmed_params['force_target'] = vals['force_target']
                 self._confirmed_params['force_wrench'] = vals['force_wrench']
                 self._confirmed_params['offset']       = vals['offset']
+                self._pre_touch_values = {}  # Ajouté le 23/04 à 11h35
 
     def _do_confirm(self):
         candidates = {
