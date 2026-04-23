@@ -118,6 +118,7 @@ class MastersIHM(tk.Tk):
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
+        self._btn_stop.config(state="disabled") # Ajouté le 22/04 à 15h00
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             scale.config(state="disabled")
@@ -550,6 +551,7 @@ class MastersIHM(tk.Tk):
             entry.config(state="normal")
 
         self._btn_start.config(state="disabled")
+        self._btn_stop.config(state="normal") # Ajouté le 22/04 à 15h00
         self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
         self._status_stop.clear()
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
@@ -607,6 +609,7 @@ class MastersIHM(tk.Tk):
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
+        self._btn_stop.config(state="disabled")
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             scale.config(state="disabled")
