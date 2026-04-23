@@ -332,7 +332,7 @@ class MastersIHM(tk.Tk):
         self._status_bar.pack_propagate(False)
         self._status_label = tk.Label(
             self._status_bar,
-            text="⚪  En attente...",
+            text="▶  Appuyez sur DÉMARRER pour lancer les nœuds ROS2.",
             font=("Helvetica", self.sf(14), "bold"),
             bg=GREY, fg=WHITE
         )
