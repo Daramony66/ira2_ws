@@ -20,8 +20,7 @@ ACCENT      = "#ffffff"   # titre des colonnes
 GREEN       = "#06d6a0"   # vert menthe pour statuts positifs
 YELLOW      = "#ffd166"   # jaune doux pour avertissements
 WHITE       = "#ffffff"   # blanc pour texte sur fonds foncés
-# GREY        = "#6b7280"   # gris pour texte secondaire sur fond clair
-GREY = "#546e7a"  # gris bleuté plus foncé, lisible mais neutre
+GREY        = "#546e7a"   # gris bleuté plus foncé, lisible mais neutre
 BTN_RED     = "#ef476f"   # rose-rouge pour danger
 BTN_GREEN   = "#06d6a0"   # vert menthe pour démarrer
 BTN_BLUE    = "#118ab2"   # bleu pour PLAY
@@ -108,6 +107,7 @@ class MastersIHM(tk.Tk):
         # ── Build ──
         self._build_header()
         self._build_body()
+        self._build_status_bar()
         self._build_footer()
 
         # Ajouté le 22/04 — griser les boutons au démarrage
@@ -134,10 +134,6 @@ class MastersIHM(tk.Tk):
         tk.Label(frm, text="⚙  MASTERS",
                  font=("Helvetica", self.sf(28), "bold"),
                  bg=BG3, fg=WHITE).pack(side="left", padx=self.s(30), pady=self.sv(15))
-
-        # tk.Label(frm, text="Système de contrôle robot  —  IRA2 Lab",
-        #          font=("Helvetica", self.sf(13)),
-        #          bg=BG3, fg=GREY).pack(side="left")
 
         ind_frm = tk.Frame(frm, bg=BG3)
         ind_frm.pack(side="right", padx=self.s(30))
@@ -288,13 +284,7 @@ class MastersIHM(tk.Tk):
         self._btn_stop = self._card_button(col, "⛔  STOP",
                                            BTN_RED, self.sf(16), self._do_stop)
 
-        self._ctrl_status = tk.Label(col, text="",
-                                     font=("Helvetica", self.sf(10)),
-                                     bg=BG2, fg=YELLOW,
-                                     wraplength=self.s(280), justify="left")
-        self._ctrl_status.pack(padx=self.s(20), pady=self.sv(8))
-
-        # Ajouté le 20/04 à 12h25 — Zone de logs avec onglets
+        # Zone de logs avec onglets
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(4))
 
         log_header = tk.Frame(col, bg=BG2)
@@ -313,9 +303,9 @@ class MastersIHM(tk.Tk):
         style.configure("TNotebook", background=BG2, borderwidth=0)
         style.configure("TNotebook.Tab", background=BG3, foreground=WHITE,
                         font=("Helvetica", self.sf(8)), padding=[self.s(6), self.sv(3)])
-        style.map("TNotebook.Tab", 
+        style.map("TNotebook.Tab",
                   background=[("selected", BG)],
-                  foreground=[("selected", "#2e4057")])  # ← texte foncé quand sélectionné
+                  foreground=[("selected", "#2e4057")])
 
         self._notebook = ttk.Notebook(col)
         self._notebook.pack(fill="both", expand=True, padx=self.s(20), pady=self.sv(4))
@@ -325,13 +315,32 @@ class MastersIHM(tk.Tk):
             self._notebook.add(frame, text=label)
             box = tk.Text(frame,
                           font=("Courier", self.sf(8)),
-                          bg="black",      # ← fond noir
-                          fg="#00ff00",    # ← texte vert terminal
+                          bg="black",
+                          fg="#00ff00",
                           relief="flat",
                           state="disabled",
                           wrap="word")
             box.pack(fill="both", expand=True)
             self._log_boxes[label] = box
+
+    # ══════════════════════════════════════════
+    #  STATUS BAR
+    # ══════════════════════════════════════════
+    def _build_status_bar(self):
+        self._status_bar = tk.Frame(self, bg=GREY, height=self.sv(60))
+        self._status_bar.pack(fill="x")
+        self._status_bar.pack_propagate(False)
+        self._status_label = tk.Label(
+            self._status_bar,
+            text="⚪  En attente...",
+            font=("Helvetica", self.sf(14), "bold"),
+            bg=GREY, fg=WHITE
+        )
+        self._status_label.pack(expand=True)
+
+    def _set_status(self, text, color):
+        self._status_bar.config(bg=color)
+        self._status_label.config(text=text, bg=color)
 
     # ══════════════════════════════════════════
     #  FOOTER
@@ -385,7 +394,6 @@ class MastersIHM(tk.Tk):
                 pass
         threading.Thread(target=run, daemon=True).start()
 
-        # Ajouté le 20/04 à 16h30 — bloquer/débloquer sliders selon le scénario
         if name == "Touch":
             print(f"[DEBUG] Passage en Touch — _pre_touch_values AVANT sauvegarde : {self._pre_touch_values}")
             print(f"[DEBUG] Valeurs actuelles — force_target:{self.force_target.get()}, force_wrench:{self.force_wrench.get()}, offset:{self.offset_var.get()}")
@@ -445,7 +453,7 @@ class MastersIHM(tk.Tk):
                 self._confirmed_params['force_target'] = vals['force_target']
                 self._confirmed_params['force_wrench'] = vals['force_wrench']
                 self._confirmed_params['offset']       = vals['offset']
-                self._pre_touch_values = {}  # Ajouté le 23/04 à 11h35
+                self._pre_touch_values = {}
 
     def _do_confirm(self):
         candidates = {
@@ -473,7 +481,6 @@ class MastersIHM(tk.Tk):
         self._confirm_status.config(text="⏳ Envoi des paramètres...", fg=YELLOW)
         threading.Thread(target=run, daemon=True).start()
 
-    # Ajouté le 20/04 — renvoie les derniers paramètres confirmés après Protective Stop
     def _do_confirm_forced(self):
         defaults = {
             'force_target': 20.0,
@@ -497,16 +504,16 @@ class MastersIHM(tk.Tk):
 
     def _do_start(self):
         if self.ros_running:
-            self._ctrl_status.config(text="⚠️  Nœuds déjà lancés.", fg=YELLOW)
+            self._set_status("⚠️  Nœuds déjà lancés.", YELLOW)
             return
         self._status_stop.clear()
-        self._ctrl_status.config(text="⏳ Lancement des nœuds ROS2...", fg=YELLOW)
+        self._set_status("⏳ Lancement des nœuds ROS2...", YELLOW)
         self._set_indicator("ros", "pending")
 
         def run():
             for label, cmd in zip(CMD_LABELS, CMDS):
                 self.after(0, lambda l=label: self._node_status.config(
-                    text=f"⏳ Lancement : {l}...", fg=YELLOW))
+                    text=f"⏳ Lancement : {l}...", fg=GREY))
                 proc = subprocess.Popen(cmd, shell=True,
                                         stdout=subprocess.PIPE,
                                         stderr=subprocess.STDOUT,
@@ -525,7 +532,7 @@ class MastersIHM(tk.Tk):
     def _on_ros_started(self):
         self._set_indicator("ros",   "on")
         self._set_indicator("robot", "on")
-        self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREEN)
+        self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREY)
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._btn_precal.config(state="normal")
         self._btn_cal.config(state="normal")
@@ -533,8 +540,7 @@ class MastersIHM(tk.Tk):
             btn.config(state="normal")
         self._btn_confirm.config(state="normal")
         self._btn_start.config(state="disabled")
-        self._ctrl_status.config(
-            text="✅ ROS2 prêt.\nMettez le casque puis appuyez PLAY.", fg=GREEN)
+        self._set_status("✅ ROS2 prêt — Mettez le casque puis appuyez PLAY.", GREEN)
         self._status_stop.clear()
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
         self._status_thread.start()
@@ -551,15 +557,14 @@ class MastersIHM(tk.Tk):
         self._btn_play.config(state="disabled", bg=GREY)
         self._set_indicator("unity", "on")
         self._set_indicator("session", "on")
-        self._ctrl_status.config(
-            text=f"🎮 Poussée en cours...\nScénario : {self.scenario_var.get()}", fg=GREEN)
+        self._set_status(f"🎮 Poussée en cours — Scénario : {self.scenario_var.get()}", BTN_BLUE)
 
     def _do_stop(self):
         self._status_stop.set()
         self._ros2_publish(TOPIC_ABORT, "ABORT depuis IHM")
         self.session_active = False
         self._set_indicator("session", "off")
-        self._ctrl_status.config(text="⛔ Arrêt en cours...", fg=BTN_RED)
+        self._set_status("⛔ Arrêt en cours...", BTN_RED)
 
         def kill():
             for label, proc in self.processes.items():
@@ -591,7 +596,7 @@ class MastersIHM(tk.Tk):
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
         self._btn_start.config(state="normal")
-        self._ctrl_status.config(text="🔴 Nœuds arrêtés.", fg=BTN_RED)
+        self._set_status("🔴 Nœuds arrêtés.", BTN_RED)
 
     # ══════════════════════════════════════════
     #  ÉCOUTE /masters/status
@@ -632,44 +637,38 @@ class MastersIHM(tk.Tk):
     def _on_status_ready(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "pending")
-        self._ctrl_status.config(
-            text="✅ Poussée terminée.\nPrêt pour le prochain PLAY.", fg=GREEN)
+        self._set_status("✅ Poussée terminée — Prêt pour le prochain PLAY.", GREEN)
         if self.scenario_var.get() != "Touch":
             self._select_scenario(self.scenario_var.get())
 
     def _on_status_aborted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._ctrl_status.config(
-            text="⚠️ Séquence interrompue.\nCorrigez puis appuyez PLAY.", fg=YELLOW)
+        self._set_status("⚠️ Séquence interrompue — Corrigez puis appuyez PLAY.", YELLOW)
 
     def _on_status_waiting(self):
         self._set_indicator("session", "pending")
-        self._ctrl_status.config(
-            text="⏳ Robot en pre_P1.\nEn attente du signal /start_move...", fg=YELLOW)
+        self._set_status("⏳ Robot en pre_P1 — En attente du signal start_move...", YELLOW)
 
     def _on_status_error(self):
         self._set_indicator("session", "off")
         self._set_indicator("robot", "off")
-        self._ctrl_status.config(text="🔴 Protective Stop détecté !\nReconnecter le robot......", fg=BTN_RED)
+        self._set_status("🔴 Protective Stop détecté ! Reconnecter le robot...", BTN_RED)
 
     def _on_status_restarting(self):
         self._set_indicator("robot", "pending")
-        self._ctrl_status.config(
-            text="⏳ Robot en cours de reconnexion...", fg=YELLOW)
+        self._set_status("⏳ Robot en cours de reconnexion...", YELLOW)
 
     def _on_status_aborted_norm(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._ctrl_status.config(
-            text="⚠️ Point trop proche de la base.\nChoisissez une autre cible.", fg=YELLOW)
+        self._set_status("⚠️ Point trop proche de la base — Choisissez une autre cible.", YELLOW)
 
     def _on_status_restarted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("robot", "on")
         self._set_indicator("session", "off")
-        self._ctrl_status.config(
-            text="✅ Robot reconnecté.\nPrêt pour le prochain PLAY.", fg=GREEN)
+        self._set_status("✅ Robot reconnecté — Prêt pour le prochain PLAY.", GREEN)
         self._do_confirm_forced()
         self._select_scenario(self.scenario_var.get())
 
