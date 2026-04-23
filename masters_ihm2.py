@@ -119,6 +119,7 @@ class MastersIHM(tk.Tk):
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
         self._btn_stop.config(state="disabled") # Ajouté le 22/04 à 15h00
+        self._btn_reset.config(state="disabled") # Ajouté le 22/04 à 15h55
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             scale.config(state="disabled")
@@ -225,12 +226,25 @@ class MastersIHM(tk.Tk):
 
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(4))
 
-        tk.Label(col, text="Paramètres :",
-                 font=("Helvetica", self.sf(12), "bold"),
-                 bg=BG2, fg="#2e4057").pack(anchor="w", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
+        # tk.Label(col, text="Paramètres :",
+        #          font=("Helvetica", self.sf(12), "bold"),
+        #          bg=BG2, fg="#2e4057").pack(anchor="w", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
+        
+        params_row = tk.Frame(col, bg=BG2)
+        params_row.pack(fill="x", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
+        tk.Label(params_row, text="Paramètres :",
+                font=("Helvetica", self.sf(12), "bold"),
+                bg=BG2, fg="#2e4057").pack(side="left")
+        self._btn_reset = tk.Button(params_row, text="Réinitialiser",
+                font=("Helvetica", self.sf(9)),
+                bg=BTN_GREY, fg=WHITE, relief="flat",
+                cursor="hand2",
+                command=self._do_reset_params)
+        self._btn_reset.pack(side="right")
 
         sliders_frm = tk.Frame(col, bg=BG2)
-        sliders_frm.pack(fill="x", padx=self.s(20))
+        # sliders_frm.pack(fill="x", padx=self.s(20))
+        sliders_frm.pack(fill="x", padx=self.s(20), pady=(self.sv(8), 0))
         sliders_frm.columnconfigure(0, weight=1)
         sliders_frm.columnconfigure(1, weight=1)
 
@@ -552,6 +566,8 @@ class MastersIHM(tk.Tk):
 
         self._btn_start.config(state="disabled")
         self._btn_stop.config(state="normal") # Ajouté le 22/04 à 15h00
+        self._btn_reset.config(state="normal") # Ajouté le 22/04 à 15h55
+
         self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
         self._status_stop.clear()
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
@@ -609,7 +625,8 @@ class MastersIHM(tk.Tk):
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
-        self._btn_stop.config(state="disabled")
+        self._btn_stop.config(state="disabled") # Ajouté le 22/04 à 15h00
+        self._btn_reset.config(state="disabled") # Ajouté le 22/04 à 15h55
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             scale.config(state="disabled")
@@ -618,6 +635,24 @@ class MastersIHM(tk.Tk):
         self._btn_start.config(state="normal")
         # self._set_status("🔴 Nœuds arrêtés.", BTN_RED)
         self._set_status("🔴 Nœuds arrêtés — Appuyez sur DÉMARRER pour relancer.", GREY)
+
+    def _do_reset_params(self):
+        defaults = {
+            'Force cible (N)':   20.0,
+            'Force wrench (N)':  50.0,
+            'Force max (N)':     70.0,
+            'Offset pré-P1 (m)': 0.1,
+            'Timeout (s)':       30.0,
+            'Maintien (s)':      0.5,
+        }
+        touch_mode = self.scenario_var.get() == "Touch"
+        for lbl, val in defaults.items():
+            if touch_mode and lbl in TOUCH_LOCKED:
+                continue
+            if lbl in self._slider_widgets:
+                scale, entry, entry_var, var = self._slider_widgets[lbl]
+                var.set(val)
+                entry_var.set(f"{val:.2f}")
 
     # ══════════════════════════════════════════
     #  ÉCOUTE /masters/status
