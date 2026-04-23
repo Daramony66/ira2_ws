@@ -560,7 +560,13 @@ class MastersIHM(tk.Tk):
             btn.config(state="normal")
         self._btn_confirm.config(state="normal")
 
+        # for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
+        #     scale.config(state="normal")
+        #     entry.config(state="normal")
+
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
+            if self.scenario_var.get() == "Touch" and lbl in TOUCH_LOCKED:
+                continue
             scale.config(state="normal")
             entry.config(state="normal")
 
@@ -574,6 +580,10 @@ class MastersIHM(tk.Tk):
         self._abort_thread = threading.Thread(target=self._listen_abort, daemon=True)
         self._abort_thread.start()  # ← AJOUTER
         self._status_thread.start()
+
+        self._do_confirm_forced()
+        if self.scenario_var.get() == "Touch":
+            self._select_scenario("Touch")
 
     def _do_play(self):
         cmd = 'ros2 service call /start_session std_srvs/srv/Trigger'
