@@ -251,7 +251,7 @@ class MastersIHM(tk.Tk):
                                               BTN_ORANGE, self.sf(13), self._do_confirm)
         self._confirm_status = tk.Label(col, text="",
                                         font=("Helvetica", self.sf(10)),
-                                        bg=BG2, fg=YELLOW, wraplength=self.s(500))
+                                        bg=BG2, fg="#2e4057", wraplength=self.s(500))
         self._confirm_status.pack(pady=self.sv(6))
 
     # ── Colonne 3 : Contrôle ──
@@ -484,8 +484,8 @@ class MastersIHM(tk.Tk):
                 except subprocess.TimeoutExpired:
                     pass
             self.after(0, lambda: self._confirm_status.config(
-                text="✅ Paramètres envoyés", fg=GREEN))
-        self._confirm_status.config(text="⏳ Envoi des paramètres...", fg=YELLOW)
+                text="✅ Paramètres envoyés", fg="#1a7a3c")) # fg=GREEN))
+        self._confirm_status.config(text="⏳ Envoi des paramètres...", fg="#b87000") # fg=GREY)
         threading.Thread(target=run, daemon=True).start()
 
     def _do_confirm_forced(self):
