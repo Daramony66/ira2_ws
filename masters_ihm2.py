@@ -117,6 +117,10 @@ class MastersIHM(tk.Tk):
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
 
+        for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
+            scale.config(state="disabled")
+            entry.config(state="disabled")
+
         self.protocol("WM_DELETE_WINDOW", self._on_close)
 
     def s(self, n):  return int(n * self.sx)
@@ -539,6 +543,11 @@ class MastersIHM(tk.Tk):
         for btn in self._scen_btns.values():
             btn.config(state="normal")
         self._btn_confirm.config(state="normal")
+
+        for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
+            scale.config(state="normal")
+            entry.config(state="normal")
+
         self._btn_start.config(state="disabled")
         self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
         self._status_stop.clear()
@@ -597,6 +606,11 @@ class MastersIHM(tk.Tk):
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
+
+        for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
+            scale.config(state="disabled")
+            entry.config(state="disabled")
+
         self._btn_start.config(state="normal")
         self._set_status("🔴 Nœuds arrêtés.", BTN_RED)
 
