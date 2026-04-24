@@ -47,6 +47,15 @@ class TestUnityP1(Node):
             math.radians(-180),
             math.radians(-90),
             math.radians(180),
+
+            # POSITION TEST
+
+            # math.radians(-135),
+            # math.radians(-145),
+            # math.radians(90),
+            # math.radians(-90),
+            # math.radians(-90),
+            # math.radians(180),
         ]
 
         self.get_logger().info("Déplacement vers position initiale...") #Ajouté le 15/04
@@ -331,6 +340,12 @@ class TestUnityP1(Node):
                 ############################
                 self.get_logger().error("Abort reçu pendant moveL — arrêt immédiat.")
                 return
+            if self.rr.getRuntimeState() != 2:
+                msg = String()
+                msg.data = "error"
+                self.status_pub.publish(msg)
+                self.error_event.set()
+                return
             time.sleep(0.02)
         print(f"En pre_P1 !")
         ###############################################
@@ -515,6 +530,12 @@ class TestUnityP1(Node):
                 self.status_pub.publish(msg)
                 ############################                   
                 self.get_logger().error("Abort reçu pendant rétraction — arrêt immédiat.")
+                return
+            if self.rr.getRuntimeState() != 2:
+                msg = String()
+                msg.data = "error"
+                self.status_pub.publish(msg)
+                self.error_event.set()
                 return
             time.sleep(0.02)
         print(f"Rétracté en pre_P1 !")

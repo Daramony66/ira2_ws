@@ -622,6 +622,8 @@ class MastersIHM(tk.Tk):
             subprocess.run("pkill -9 -f ur_safety_monitor", shell=True)
             subprocess.run("pkill -9 -f ros2_control_node", shell=True)
             subprocess.run("pkill -9 -f ros_tcp_endpoint", shell=True)
+            subprocess.run("pkill -9 -f 'param set'", shell=True)
+            subprocess.run("pkill -9 -f 'service call'", shell=True)
             # subprocess.run("ros2 daemon stop && ros2 daemon start", shell=True)
             self.processes.clear()
             self.ros_running = False
