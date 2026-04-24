@@ -13,7 +13,7 @@
 #include <geometry_msgs/msg/wrench_stamped.hpp>
 // Commenté le 03/03 à 17h30 - plus besoin avec zeroFtSensor (remplace le bias learning)
 // #include <numeric>
-// #include <cmath>
+#include <cmath>
 
 using namespace ur_rtde;
 
@@ -68,7 +68,17 @@ public:
     //std::vector<double> init_pose = {-2.79, -1.27, -1.42, -2.01, 1.56, 6.22};
 
     //Ajouté le 16/03 à 14h26
-    std::vector<double> init_pose = {-3.14, -1.27, -1.42, -2.01, 1.56, 6.22};
+    //std::vector<double> init_pose = {-3.14, -1.27, -1.42, -2.01, 1.56, 6.22};
+
+    auto deg2rad = [](double d){ return d * M_PI / 180.0; };
+    std::vector<double> init_pose = {
+        deg2rad(-15.0),    // J1 Base
+        deg2rad(-113.1),   // J2 Shoulder
+        deg2rad(93.6),     // J3 Elbow
+        deg2rad(-70.5),    // J4 Wrist1
+        deg2rad(-90.0),    // J5 Wrist2
+        deg2rad(180.0)     // J6 Wrist3
+    };
 
     // moveJ est bloquant : robot garanti immobile avant le tare
     
