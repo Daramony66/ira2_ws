@@ -249,9 +249,9 @@ class MastersIHM(tk.Tk):
         sliders_frm.columnconfigure(1, weight=1)
 
         params = [
-            ("Force cible (N)",   self.force_target,  1.0, 100.0, 1.0),
+            ("Force cible (N)",   self.force_target,  1.0, 79.0, 1.0),
             ("Force wrench (N)",  self.force_wrench,  1.0, 150.0, 1.0),
-            ("Force max (N)",     self.force_max,     1.0, 150.0, 1.0),
+            ("Force max (N)",     self.force_max,     1.0, 79.0, 1.0),
             ("Offset pré-P1 (m)", self.offset_var,   0.01,  0.3, 0.01),
             ("Timeout (s)",       self.timeout_var,   5.0,  60.0, 1.0),
             ("Maintien (s)",      self.hold_time_var, 0.0,   5.0, 0.1),
@@ -834,8 +834,10 @@ class MastersIHM(tk.Tk):
                 return
             try:
                 val = float(raw)
-                val = max(mn, min(mx, val))
-                var.set(val)
+                clamped = max(mn, min(mx, val))
+                var.set(clamped)
+                if clamped != val:
+                    entry_var.set(f"{clamped:.2f}")  # ← AJOUTER
             except ValueError:
                 pass
 

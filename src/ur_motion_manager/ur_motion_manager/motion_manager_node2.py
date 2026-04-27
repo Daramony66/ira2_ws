@@ -40,8 +40,8 @@ class TestUnityP1(Node):
 
         # Position initiale
         self.init_pose = [
-            # math.radians(-45),
-            math.radians(-135),
+            math.radians(-45),
+            # math.radians(-135),
             math.radians(-90),
             math.radians(90),
             math.radians(-180),
