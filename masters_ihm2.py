@@ -252,7 +252,8 @@ class MastersIHM(tk.Tk):
             ("Force cible (N)",   self.force_target,  1.0, 79.0, 1.0),
             ("Force wrench (N)",  self.force_wrench,  1.0, 150.0, 1.0),
             ("Force max (N)",     self.force_max,     1.0, 79.0, 1.0),
-            ("Offset pré-P1 (m)", self.offset_var,   0.01,  0.3, 0.01),
+            # ("Offset pré-P1 (m)", self.offset_var,   0.01,  0.3, 0.01),
+            ("Offset pré-P1 (m)", self.offset_var,   0.001,  0.3, 0.001),
             ("Timeout (s)",       self.timeout_var,   5.0,  60.0, 1.0),
             ("Maintien (s)",      self.hold_time_var, 0.0,   5.0, 0.1),
         ]
@@ -429,7 +430,7 @@ class MastersIHM(tk.Tk):
                 if lbl in self._slider_widgets:
                     scale, entry, entry_var, var = self._slider_widgets[lbl]
                     var.set(locked_val)
-                    entry_var.set(f"{locked_val:.2f}")
+                    entry_var.set(f"{locked_val:.3f}")
                     scale.config(state="disabled")
                     entry.config(state="disabled", disabledforeground=GREY)
             cmds_touch = [
@@ -456,7 +457,7 @@ class MastersIHM(tk.Tk):
                     entry.config(state="normal")
                     if lbl in self._pre_touch_values:
                         var.set(self._pre_touch_values[lbl])
-                        entry_var.set(f"{self._pre_touch_values[lbl]:.2f}")
+                        entry_var.set(f"{self._pre_touch_values[lbl]:.3f}")
             if hasattr(self, '_confirm_status') and self._pre_touch_values:
                 vals = {
                     'force_target': self._pre_touch_values.get('Force cible (N)', self._confirmed_params['force_target']),
@@ -669,7 +670,7 @@ class MastersIHM(tk.Tk):
             if lbl in self._slider_widgets:
                 scale, entry, entry_var, var = self._slider_widgets[lbl]
                 var.set(val)
-                entry_var.set(f"{val:.2f}")
+                entry_var.set(f"{val:.3f}")
 
     # ══════════════════════════════════════════
     #  ÉCOUTE /masters/status
@@ -818,7 +819,7 @@ class MastersIHM(tk.Tk):
         tk.Label(hdr, text=label, font=("Helvetica", self.sf(10)),
                 bg=BG2, fg="#2e4057").pack(side="left")
 
-        entry_var = tk.StringVar(value=f"{var.get():.2f}")
+        entry_var = tk.StringVar(value=f"{var.get():.3f}")
         entry = tk.Entry(hdr, textvariable=entry_var,
                         font=("Helvetica", self.sf(10), "bold"),
                         bg="white", fg="#2e4057", insertbackground=WHITE,
@@ -826,7 +827,7 @@ class MastersIHM(tk.Tk):
         entry.pack(side="right")
 
         def on_slide(v):
-            entry_var.set(f"{float(v):.2f}")
+            entry_var.set(f"{float(v):.3f}")
 
         def sync_to_var(*args):
             raw = entry_var.get().replace(',', '.')
@@ -837,7 +838,7 @@ class MastersIHM(tk.Tk):
                 clamped = max(mn, min(mx, val))
                 var.set(clamped)
                 if clamped != val:
-                    entry_var.set(f"{clamped:.2f}")  # ← AJOUTER
+                    entry_var.set(f"{clamped:.3f}")  # ← AJOUTER
             except ValueError:
                 pass
 

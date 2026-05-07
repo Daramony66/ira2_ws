@@ -70,6 +70,7 @@ public:
     //Ajouté le 16/03 à 14h26
     //std::vector<double> init_pose = {-3.14, -1.27, -1.42, -2.01, 1.56, 6.22};
 
+    //Ajouté le 24/04 à 12h30 
     auto deg2rad = [](double d){ return d * M_PI / 180.0; };
     std::vector<double> init_pose = {
         deg2rad(-15.0),    // J1 Base
