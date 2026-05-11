@@ -15,6 +15,11 @@
 // #include <numeric>
 #include <cmath>
 
+// Ajouté le 11/05 à 14h45 
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
 using namespace ur_rtde;
 
 
@@ -38,7 +43,8 @@ public:
     reference_orientation_({0.0, 0.0, 0.0}), current_position_({0.0, 0.0, 0.0}), current_orientation_({0.0, 0.0, 0.0}),
     ref_ori_robot_({0.0, 0.0, 0.0}), ref_pos_robot_({0.0, 0.0, 0.0}), //gripper_closed(false), //Commenté le 20/03 à 12h36
     // Ajouté le 03/03 à 14h00 - initialisation filtre passe-bas position
-    filtered_position_({0.0, 0.0, 0.0}), filter_initialized_(false)
+    filtered_position_({0.0, 0.0, 0.0}), filter_initialized_(false),
+    contact_detected_(false)
     // Commenté le 03/03 à 17h30 - bias learning remplacé par zeroFtSensor
     // bias_ready_(false), bias_collecting_(true), force_bias_({0.0, 0.0, 0.0})
   {
@@ -107,6 +113,16 @@ public:
     rtde_control.zeroFtSensor();
     RCLCPP_INFO(this->get_logger(), "Tare capteur ATI effectuee - Retour de force actif.");
 
+
+    // Ajouté le 11/05 à 14h45
+    udp_sock_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    memset(&udp_addr_, 0, sizeof(udp_addr_));
+    udp_addr_.sin_family = AF_INET;
+    udp_addr_.sin_port = htons(5006);
+    inet_pton(AF_INET, "192.168.1.20", &udp_addr_.sin_addr);
+    //contact_detected_ = false;
+    RCLCPP_INFO(this->get_logger(), "UDP contact init -> 192.168.1.20:5006");
+
     //Ajouté le 31/03 à 11h10 
     tare_service_ = this->create_service<std_srvs::srv::Trigger>(
       "/tare_sensor",
@@ -129,8 +145,9 @@ public:
   ~HapticControl()
   {
     //gripper.disconnect(); //Commenté le 20/03 à 12h32
-    rtde_control.servoStop();
-    rtde_control.stopScript();
+    if (udp_sock_ >= 0) close(udp_sock_); //Ajouté le 11/05 à 14h45
+      rtde_control.servoStop();
+      rtde_control.stopScript();
   }
 
 private:
@@ -344,6 +361,16 @@ private:
     }
   }
 
+  // Ajouté le 11/05 à 14h45
+  void send_contact_udp(bool contact)
+  {
+      char buf[8];
+      snprintf(buf, sizeof(buf), "%d\n", contact ? 1 : 0);
+      sendto(udp_sock_, buf, strlen(buf), 0,
+            (struct sockaddr*)&udp_addr_, sizeof(udp_addr_));
+  }
+
+
   // Ajouté le 02/03 à 22h
   void force_callback(const geometry_msgs::msg::WrenchStamped::SharedPtr msg)
   {
@@ -401,6 +428,23 @@ private:
 
 
     haptic_force_pub_->publish(out_msg);
+
+
+    const double CONTACT_THRESHOLD = 3.0;
+    const double RELEASE_THRESHOLD = 1.5;
+    double fmag = current_force_magnitude_.load();
+
+    if (!contact_detected_ && fmag > CONTACT_THRESHOLD) {
+        contact_detected_ = true;
+        send_contact_udp(true);
+        RCLCPP_INFO(this->get_logger(), "Contact detecte (F=%.2fN)", fmag);
+    } else if (contact_detected_ && fmag < RELEASE_THRESHOLD) {
+        contact_detected_ = false;
+        send_contact_udp(false);
+        RCLCPP_INFO(this->get_logger(), "Contact relache (F=%.2fN)", fmag);
+    }
+
+
   }
 
   // Paramètres
@@ -435,6 +479,11 @@ private:
 
   //Ajouté le 19/03 à 12h36
   std::atomic<double> current_force_magnitude_{0.0};
+
+  // Ajouté le 11/05 à 14h45
+  int udp_sock_;
+  struct sockaddr_in udp_addr_;
+  bool contact_detected_;
 
   //Ajouté le 31/03 à 11h10
   rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr tare_service_;
