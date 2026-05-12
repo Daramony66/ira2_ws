@@ -381,7 +381,7 @@ class MastersIHM(tk.Tk):
     #  ACTIONS
     # ══════════════════════════════════════════
     def _do_precalibration(self):
-        self._cal_status.config(text="⏳ Pré-calibration envoyée à Unity...", fg=YELLOW)
+        self._cal_status.config(text="⏳ Calibration en cours...", fg=YELLOW)
         cmd = 'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{command: 0}"'
         def run():
             try:
@@ -390,7 +390,7 @@ class MastersIHM(tk.Tk):
                 pass
         threading.Thread(target=run, daemon=True).start()
         self.after(1500, lambda: self._cal_status.config(
-            text="✅ Pré-calibration lancée.\nAttendre confirmation dans le casque.", fg=GREEN))
+            text="", fg=GREEN))
 
     def _do_calibration(self):
         self._cal_status.config(text="⏳ Calibration envoyée à Unity...", fg=YELLOW)
@@ -402,7 +402,7 @@ class MastersIHM(tk.Tk):
                 pass
         threading.Thread(target=run, daemon=True).start()
         self.after(1500, lambda: self._cal_status.config(
-            text="✅ Calibration lancée.\nVérifier l'alignement dans le casque.", fg=GREEN))
+            text="", fg=GREEN))
 
     def _select_scenario(self, name):
         self.scenario_var.set(name)
