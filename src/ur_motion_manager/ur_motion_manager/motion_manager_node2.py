@@ -166,7 +166,9 @@ class TestUnityP1(Node):
             req = AppControlService.Request()
             req.command = 0  # play
             self.get_logger().info("Service app_control appelé.")
-            self.app_control_client.call_async(req)
+            future = self.app_control_client.call_async(req)
+            future.add_done_callback(lambda f: self.get_logger().info(
+                f"app_control réponse : success={f.result().success}"))
         
         if not self._moving.acquire(blocking=False):
             self.get_logger().warn("Mouvement déjà en cours — P1 ignoré.")
@@ -222,7 +224,9 @@ class TestUnityP1(Node):
             return
         req = SystemStateService.Request()
         req.command = state_id
-        self.state_client.call_async(req)
+        future = self.state_client.call_async(req)
+        future.add_done_callback(lambda f: self.get_logger().info(
+            f"system_state réponse : success={f.result().success}"))
 
     # Ajouté le 21/04 — attend Entrée puis démarre la session
     # def _wait_input(self):
