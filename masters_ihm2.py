@@ -178,19 +178,21 @@ class MastersIHM(tk.Tk):
         self._col_title(col, "Calibration")
 
         tk.Label(col,
-            text="Pré-calibration :\nSi le robot a été déplacé\ndepuis la dernière session.",
+            # text="Pré-calibration :\nSi le robot a été déplacé\ndepuis la dernière session.",
+            text ="Calibration :\nOuvre la scène de calibration Unity.\nÀ faire si le robot a été déplacé depuis la dernière session.",
             font=("Helvetica", self.sf(11)), bg=BG2, fg=GREY,
             justify="left").pack(anchor="w", padx=self.s(20), pady=self.sv(14))
 
-        self._btn_precal = self._card_button(col, "Pré-calibration",
+        self._btn_precal = self._card_button(col, "Calibration",
                                              BTN_GREY, self.sf(14), self._do_precalibration)
 
         tk.Label(col,
-            text="Calibration :\nAligne le robot virtuel\n(casque VR) avec le robot réel.",
+            # text="Calibration :\nAligne le robot virtuel\n(casque VR) avec le robot réel.",
+            text="Charger calibration :\nOuvre la scène avec la position de référence sauvegardée.\nÀ utiliser entre deux tests.",
             font=("Helvetica", self.sf(11)), bg=BG2, fg=GREY,
             justify="left").pack(anchor="w", padx=self.s(20), pady=self.sv(20))
 
-        self._btn_cal = self._card_button(col, "Calibration",
+        self._btn_cal = self._card_button(col, "Charger calibration",
                                           BTN_BLUE, self.sf(14), self._do_calibration)
 
         self._cal_status = tk.Label(col, text="",
