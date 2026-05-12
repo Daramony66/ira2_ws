@@ -165,6 +165,7 @@ class TestUnityP1(Node):
         if self.app_control_client.service_is_ready():
             req = AppControlService.Request()
             req.command = 0  # play
+            self.get_logger().info("Service app_control appelé.")
             self.app_control_client.call_async(req)
         
         if not self._moving.acquire(blocking=False):
@@ -196,13 +197,12 @@ class TestUnityP1(Node):
             return
         req = ContactPointService.Request()
         req.command = 0
-        self.get_logger().info("Demande P1 à Unity via cp_position...")
+        self.get_logger().info("Service cp_position appelé.")
         future = self.contact_point_client.call_async(req)
         future.add_done_callback(self.cb_contact_point)
 
     # Ajouté le 21/04 — callback pour service de démarrage depuis IHM
     def cb_start_session(self, request, response):
-        self.get_logger().info("cb_start_session appelé — PLAY reçu.")
         self.start_session()
         response.success = True
         response.message = "Session démarrée"
@@ -216,7 +216,7 @@ class TestUnityP1(Node):
         return response
 
     def change_state(self, state_id):
-        self.get_logger().info(f"change_state appelé — state_id={state_id}")
+        self.get_logger().info(f"Service system_state appelé — command={state_id}")
         if not self.state_client.service_is_ready():
             self.get_logger().warn("Service system_state pas disponible.")
             return
