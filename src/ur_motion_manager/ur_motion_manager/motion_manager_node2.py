@@ -41,12 +41,12 @@ class TestUnityP1(Node):
         # Position initiale
         self.init_pose = [
             # math.radians(-45),
-            math.radians(-135),
-            math.radians(-90),
-            math.radians(90),
-            math.radians(-180),
-            math.radians(-90),
-            math.radians(180),
+            # math.radians(-135),
+            # math.radians(-90),
+            # math.radians(90),
+            # math.radians(-180),
+            # math.radians(-90),
+            # math.radians(180),
 
             # POSITION TEST
 
@@ -56,6 +56,15 @@ class TestUnityP1(Node):
             # math.radians(-90),
             # math.radians(-90),
             # math.radians(180),
+
+            # POSITION INIT TEST 12/05
+
+            math.radians(-135),
+            math.radians(-135),
+            math.radians(105),
+            math.radians(-150),
+            math.radians(-90),
+            math.radians(180),
         ]
 
         self.get_logger().info("Déplacement vers position initiale...") #Ajouté le 15/04
@@ -547,6 +556,9 @@ class TestUnityP1(Node):
             time.sleep(0.02)
         print(f"Rétracté en pre_P1 !")
         #########################################
+
+        self.rc.moveJ(self.init_pose, 0.5, 0.5)
+        self.get_logger().info("Retour position initiale.")
 
         # Ajouté 17/04 à 13h10
         msg = String()
