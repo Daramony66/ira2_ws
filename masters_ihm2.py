@@ -113,7 +113,6 @@ class MastersIHM(tk.Tk):
         # self._build_footer()
 
         # Ajouté le 22/04 — griser les boutons au démarrage
-        self._btn_precal.config(state="disabled")
         self._btn_cal.config(state="disabled")
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
@@ -183,17 +182,8 @@ class MastersIHM(tk.Tk):
             font=("Helvetica", self.sf(11)), bg=BG2, fg=GREY,
             justify="left").pack(anchor="w", padx=self.s(20), pady=self.sv(14))
 
-        self._btn_precal = self._card_button(col, "Calibration",
-                                             BTN_GREY, self.sf(14), self._do_precalibration)
-
-        tk.Label(col,
-            # text="Calibration :\nAligne le robot virtuel\n(casque VR) avec le robot réel.",
-            text="Charger calibration :\nOuvre la scène avec la position de référence sauvegardée.\nÀ utiliser entre deux tests.",
-            font=("Helvetica", self.sf(11)), bg=BG2, fg=GREY,
-            justify="left").pack(anchor="w", padx=self.s(20), pady=self.sv(20))
-
-        self._btn_cal = self._card_button(col, "Charger calibration",
-                                          BTN_BLUE, self.sf(14), self._do_calibration)
+        self._btn_cal = self._card_button(col, "Calibration",
+                                             BTN_GREY, self.sf(14), self._do_calibration)
 
         self._cal_status = tk.Label(col, text="",
                                     font=("Helvetica", self.sf(10)),
@@ -382,21 +372,9 @@ class MastersIHM(tk.Tk):
     # ══════════════════════════════════════════
     #  ACTIONS
     # ══════════════════════════════════════════
-    def _do_precalibration(self):
+    def _do_calibration(self):
         self._cal_status.config(text="⏳ Calibration en cours...", fg=YELLOW)
         cmd = 'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{command: 0}"'
-        def run():
-            try:
-                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
-            except subprocess.TimeoutExpired:
-                pass
-        threading.Thread(target=run, daemon=True).start()
-        self.after(1500, lambda: self._cal_status.config(
-            text="", fg=GREEN))
-
-    def _do_calibration(self):
-        self._cal_status.config(text="⏳ Calibration envoyée à Unity...", fg=YELLOW)
-        cmd = 'ros2 service call /set_scenario masters_msgs/srv/SystemStateService "{command: 1}"'
         def run():
             try:
                 subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
@@ -559,7 +537,6 @@ class MastersIHM(tk.Tk):
         self._set_indicator("robot", "on")
         # self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREY)
         self._btn_play.config(state="normal", bg=BTN_BLUE)
-        self._btn_precal.config(state="normal")
         self._btn_cal.config(state="normal")
         for btn in self._scen_btns.values():
             btn.config(state="normal")
@@ -642,7 +619,6 @@ class MastersIHM(tk.Tk):
         self._set_indicator("unity", "off")
         # self._node_status.config(text="")
         self._btn_play.config(state="disabled", bg=GREY)
-        self._btn_precal.config(state="disabled")
         self._btn_cal.config(state="disabled")
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
