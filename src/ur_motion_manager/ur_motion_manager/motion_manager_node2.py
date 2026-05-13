@@ -170,15 +170,6 @@ class TestUnityP1(Node):
         P1 = [response.position.x, response.position.y, response.position.z]
         self.get_logger().info(f"P1 reçu : x={P1[0]:.4f}  y={P1[1]:.4f}  z={P1[2]:.4f}")
         
-        # Ajouté le 21/04 — lancer Unity après avoir reçu P1
-        if self.app_control_client.service_is_ready():
-            req = AppControlService.Request()
-            req.command = 0  # play
-            self.get_logger().info("Service app_control appelé.")
-            future = self.app_control_client.call_async(req)
-            future.add_done_callback(lambda f: self.get_logger().info(
-                f"app_control réponse : success={f.result().success}"))
-        
         if not self._moving.acquire(blocking=False):
             self.get_logger().warn("Mouvement déjà en cours — P1 ignoré.")
             return
@@ -343,6 +334,15 @@ class TestUnityP1(Node):
 
         # self.rc.moveL(pre_P1, 0.05, 0.05)
         # print(f"En pre_P1 !")
+
+        # Ajouté le 13/05 à 10h25
+        if self.app_control_client.service_is_ready():
+            req = AppControlService.Request()
+            req.command = 0  # play
+            self.get_logger().info("Service app_control appelé.")
+            future = self.app_control_client.call_async(req)
+            future.add_done_callback(lambda f: self.get_logger().info(
+                f"app_control réponse : success={f.result().success}"))
 
         #Ajouté le 16/04 à 15h15#######################
         self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
