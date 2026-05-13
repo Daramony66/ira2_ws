@@ -224,7 +224,9 @@ class MastersIHM(tk.Tk):
                             command=lambda n=name: self._select_scenario(n))
             btn.pack(side="left", padx=self.s(6), ipady=self.sv(10), ipadx=self.s(18))
             self._scen_btns[name] = btn
-        self._select_scenario("Push")
+        # self._select_scenario("Push")
+        for n, btn in self._scen_btns.items():
+            btn.config(bg=GREY)
 
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(4))
 
