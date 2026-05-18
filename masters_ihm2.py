@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # masters_ihm2.py — IHM MASTERS (plein écran adaptatif)
-# Codé le 17/04
+# Codé le 18/05
 
 import tkinter as tk
 from tkinter import ttk
@@ -119,6 +119,8 @@ class MastersIHM(tk.Tk):
         self._btn_confirm.config(state="disabled")
         self._btn_stop.config(state="disabled") # Ajouté le 22/04 à 15h00
         self._btn_reset.config(state="disabled") # Ajouté le 22/04 à 15h55
+        # Ajouté le 18/05
+        self._btn_reset_anim.config(state="disabled")
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             scale.config(state="disabled")
@@ -177,7 +179,6 @@ class MastersIHM(tk.Tk):
         self._col_title(col, "Calibration")
 
         tk.Label(col,
-            # text="Pré-calibration :\nSi le robot a été déplacé\ndepuis la dernière session.",
             text ="Calibration :\nOuvre la scène de calibration Unity.\nÀ faire si le robot a été déplacé depuis la dernière session.",
             font=("Helvetica", self.sf(11)), bg=BG2, fg=GREY,
             justify="left").pack(anchor="w", padx=self.s(20), pady=self.sv(14))
@@ -214,16 +215,11 @@ class MastersIHM(tk.Tk):
                             command=lambda n=name: self._select_scenario(n))
             btn.pack(side="left", padx=self.s(6), ipady=self.sv(10), ipadx=self.s(18))
             self._scen_btns[name] = btn
-        # self._select_scenario("Push")
         for n, btn in self._scen_btns.items():
             btn.config(bg=GREY)
 
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(4))
 
-        # tk.Label(col, text="Paramètres :",
-        #          font=("Helvetica", self.sf(12), "bold"),
-        #          bg=BG2, fg="#2e4057").pack(anchor="w", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
-        
         params_row = tk.Frame(col, bg=BG2)
         params_row.pack(fill="x", padx=self.s(20), pady=(self.sv(10), self.sv(4)))
         tk.Label(params_row, text="Paramètres :",
@@ -237,7 +233,6 @@ class MastersIHM(tk.Tk):
         self._btn_reset.pack(side="right")
 
         sliders_frm = tk.Frame(col, bg=BG2)
-        # sliders_frm.pack(fill="x", padx=self.s(20))
         sliders_frm.pack(fill="x", padx=self.s(20), pady=(self.sv(8), 0))
         sliders_frm.columnconfigure(0, weight=1)
         sliders_frm.columnconfigure(1, weight=1)
@@ -246,7 +241,6 @@ class MastersIHM(tk.Tk):
             ("Force cible (N)",   self.force_target,  1.0, 79.0, 1.0),
             ("Force wrench (N)",  self.force_wrench,  1.0, 150.0, 1.0),
             ("Force max (N)",     self.force_max,     1.0, 79.0, 1.0),
-            # ("Offset pré-P1 (m)", self.offset_var,   0.01,  0.3, 0.01),
             ("Offset pré-P1 (m)", self.offset_var,   0.001,  0.3, 0.001),
             ("Timeout (s)",       self.timeout_var,   5.0,  60.0, 1.0),
             ("Maintien (s)",      self.hold_time_var, 0.0,   5.0, 0.1),
@@ -284,16 +278,27 @@ class MastersIHM(tk.Tk):
         self._btn_start = self._card_button(col, "▶  DÉMARRER",
                                             BTN_GREEN, self.sf(16), self._do_start)
 
-        # self._node_status = tk.Label(col, text="",
-        #                              font=("Helvetica", self.sf(9)),
-        #                              bg=BG2, fg=GREY, justify="left")
-        # self._node_status.pack(anchor="w", padx=self.s(20), pady=self.sv(4))
-
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(8))
 
-        self._btn_play = self._card_button(col, "🎮  PLAY",
-                                           GREY, self.sf(16), self._do_play)
-        self._btn_play.config(state="disabled")
+        # Ajouté le 18/05
+        play_row = tk.Frame(col, bg=BG2)
+        play_row.pack(fill="x", padx=self.s(20), pady=self.sv(4))
+
+        # Ajouté le 18/05
+        self._btn_play = tk.Button(play_row, text="🎮  PLAY",
+                                   font=("Helvetica", self.sf(16), "bold"),
+                                   bg=GREY, fg=WHITE, relief="flat",
+                                   activebackground=BTN_BLUE, cursor="hand2",
+                                   command=self._do_play, state="disabled")
+        self._btn_play.pack(side="left", fill="x", expand=True, ipady=self.sv(14), padx=(0, self.s(4)))
+
+        # Ajouté le 18/05
+        self._btn_reset_anim = tk.Button(play_row, text="↺",
+                                         font=("Helvetica", self.sf(16), "bold"),
+                                         bg=GREY, fg=WHITE, relief="flat",
+                                         activebackground=BTN_BLUE, cursor="hand2",
+                                         command=self._do_reset_animation, state="disabled")
+        self._btn_reset_anim.pack(side="left", ipady=self.sv(14), ipadx=self.s(16))
 
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(8))
 
@@ -359,17 +364,6 @@ class MastersIHM(tk.Tk):
         self._status_label.config(text=text, bg=color)
 
     # ══════════════════════════════════════════
-    #  FOOTER
-    # ══════════════════════════════════════════
-    # def _build_footer(self):
-    #     frm = tk.Frame(self, bg=BG3, height=self.sv(46))
-    #     frm.pack(fill="x", side="bottom")
-    #     frm.pack_propagate(False)
-
-    #     tk.Label(frm, text="IBISC — IRA2 — Université d'Évry Paris-Saclay",
-    #              font=("Helvetica", self.sf(9)), bg=BG3, fg=GREY).pack(side="left", padx=self.s(20))
-
-    # ══════════════════════════════════════════
     #  ACTIONS
     # ══════════════════════════════════════════
     def _do_calibration(self):
@@ -397,6 +391,9 @@ class MastersIHM(tk.Tk):
             except subprocess.TimeoutExpired:
                 pass
         threading.Thread(target=run, daemon=True).start()
+
+        # Ajouté le 18/05
+        self._do_reset_animation()
 
         if name == "Touch":
             print(f"[DEBUG] Passage en Touch — _pre_touch_values AVANT sauvegarde : {self._pre_touch_values}")
@@ -481,8 +478,8 @@ class MastersIHM(tk.Tk):
                 except subprocess.TimeoutExpired:
                     pass
             self.after(0, lambda: self._confirm_status.config(
-                text="✅ Paramètres envoyés", fg="#1a7a3c")) # fg=GREEN))
-        self._confirm_status.config(text="⏳ Envoi des paramètres...", fg="#b87000") # fg=GREY)
+                text="✅ Paramètres envoyés", fg="#1a7a3c"))
+        self._confirm_status.config(text="⏳ Envoi des paramètres...", fg="#b87000")
         threading.Thread(target=run, daemon=True).start()
 
     def _do_confirm_forced(self):
@@ -535,16 +532,15 @@ class MastersIHM(tk.Tk):
     def _on_ros_started(self):
         self._set_indicator("ros",   "on")
         self._set_indicator("robot", "on")
-        # self._node_status.config(text="✅ 4 nœuds actifs.", fg=GREY)
         self._btn_play.config(state="normal", bg=BTN_BLUE)
+
+        # Ajouté le 18/05
+        self._btn_reset_anim.config(state="normal", bg=BTN_BLUE)
+
         self._btn_cal.config(state="normal")
         for btn in self._scen_btns.values():
             btn.config(state="normal")
         self._btn_confirm.config(state="normal")
-
-        # for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
-        #     scale.config(state="normal")
-        #     entry.config(state="normal")
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             if self.scenario_var.get() == "Touch" and lbl in TOUCH_LOCKED:
@@ -553,14 +549,14 @@ class MastersIHM(tk.Tk):
             entry.config(state="normal")
 
         self._btn_start.config(state="disabled")
-        self._btn_stop.config(state="normal") # Ajouté le 22/04 à 15h00
-        self._btn_reset.config(state="normal") # Ajouté le 22/04 à 15h55
+        self._btn_stop.config(state="normal")
+        self._btn_reset.config(state="normal")
 
         self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
         self._status_stop.clear()
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
         self._abort_thread = threading.Thread(target=self._listen_abort, daemon=True)
-        self._abort_thread.start()  # ← AJOUTER
+        self._abort_thread.start()
         self._status_thread.start()
 
         self._do_confirm_forced()
@@ -580,6 +576,16 @@ class MastersIHM(tk.Tk):
         self._set_indicator("unity", "on")
         self._set_indicator("session", "on")
         self._set_status(f"🎮 Poussée en cours — Scénario : {self.scenario_var.get()}", BTN_BLUE)
+
+    # Ajouté le 18/05
+    def _do_reset_animation(self):
+        cmd = 'ros2 service call /reset_animation std_srvs/srv/Trigger'
+        def run():
+            try:
+                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+        threading.Thread(target=run, daemon=True).start()
 
     def _do_stop(self):
         self._status_stop.set()
@@ -606,7 +612,6 @@ class MastersIHM(tk.Tk):
             subprocess.run("pkill -9 -f ros_tcp_endpoint", shell=True)
             subprocess.run("pkill -9 -f 'param set'", shell=True)
             subprocess.run("pkill -9 -f 'service call'", shell=True)
-            # subprocess.run("ros2 daemon stop && ros2 daemon start", shell=True)
             self.processes.clear()
             self.ros_running = False
             self.after(0, self._on_ros_stopped)
@@ -617,21 +622,21 @@ class MastersIHM(tk.Tk):
         self._set_indicator("ros",   "off")
         self._set_indicator("robot", "off")
         self._set_indicator("unity", "off")
-        # self._node_status.config(text="")
         self._btn_play.config(state="disabled", bg=GREY)
+        # Ajouté le 18/05
+        self._btn_reset_anim.config(state="disabled", bg=GREY)
         self._btn_cal.config(state="disabled")
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
         self._btn_confirm.config(state="disabled")
-        self._btn_stop.config(state="disabled") # Ajouté le 22/04 à 15h00
-        self._btn_reset.config(state="disabled") # Ajouté le 22/04 à 15h55
+        self._btn_stop.config(state="disabled")
+        self._btn_reset.config(state="disabled")
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             scale.config(state="disabled")
             entry.config(state="disabled")
 
         self._btn_start.config(state="normal")
-        # self._set_status("🔴 Nœuds arrêtés.", BTN_RED)
         self._set_status("🔴 Nœuds arrêtés — Appuyez sur DÉMARRER pour relancer.", GREY)
 
     def _do_reset_params(self):
@@ -818,7 +823,7 @@ class MastersIHM(tk.Tk):
                 clamped = max(mn, min(mx, val))
                 var.set(clamped)
                 if clamped != val:
-                    entry_var.set(f"{clamped:.3f}")  # ← AJOUTER
+                    entry_var.set(f"{clamped:.3f}")
             except ValueError:
                 pass
 

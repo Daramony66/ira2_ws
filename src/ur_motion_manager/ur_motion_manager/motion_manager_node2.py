@@ -141,6 +141,8 @@ class TestUnityP1(Node):
         self.state_client = self.create_client(SystemStateService, 'system_state')
 
         self.create_service(Trigger, 'start_session', self.cb_start_session) # Ajouté le 21/04 — service pour démarrer la session depuis IHM
+        
+        self.create_service(Trigger, 'reset_animation', self.cb_reset_animation) # Ajouté le 18/05
 
         self.create_service(SystemStateService, 'set_scenario', self.cb_set_scenario) # Ajouté le 22/04 à 10h00 — service pour changer de scénario depuis IHM
         
@@ -216,6 +218,20 @@ class TestUnityP1(Node):
         self.start_session()
         response.success = True
         response.message = "Session démarrée"
+        return response
+    
+    def cb_reset_animation(self, request, response):
+        if not self.app_control_client.service_is_ready():
+            response.success = False
+            response.message = "app_control non disponible"
+            return response
+        req = AppControlService.Request()
+        req.command = 1  # reset
+        future = self.app_control_client.call_async(req)
+        future.add_done_callback(lambda f: self.get_logger().info(
+            f"app_control reset : success={f.result().success}"))
+        response.success = True
+        response.message = "Reset envoyé"
         return response
     
     def cb_set_scenario(self, request, response):
