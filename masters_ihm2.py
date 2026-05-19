@@ -692,6 +692,9 @@ class MastersIHM(tk.Tk):
                 self.after(0, self._on_status_aborted_norm)
             elif data == "restarted":
                 self.after(0, self._on_status_restarted)
+            elif data == "aborted_singularity":
+                self.session_active = False
+                self.after(0, self._on_status_aborted_singularity)
 
     def _listen_abort(self):
         proc = subprocess.Popen(
@@ -748,6 +751,11 @@ class MastersIHM(tk.Tk):
         self._set_status("✅ Robot reconnecté — Prêt pour le prochain PLAY.", GREEN)
         self._do_confirm_forced()
         self._select_scenario(self.scenario_var.get())
+
+    def _on_status_aborted_singularity(self):
+        self._btn_play.config(state="normal", bg=BTN_BLUE)
+        self._set_indicator("session", "off")
+        self._set_status("⚠️ Position en singularité — Déplacer le point de contact.", YELLOW)
 
     # ══════════════════════════════════════════
     #  HELPERS

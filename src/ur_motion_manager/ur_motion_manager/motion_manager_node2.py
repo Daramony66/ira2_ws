@@ -17,6 +17,8 @@ import time # Déplacé le 15/04
 
 import subprocess # Ajouté le 17/04 à 17h00
 
+import socket, struct # Ajouté le 19/05
+
 from rcl_interfaces.msg import SetParametersResult # Ajouté le 16/04 à 17h00 -- pour les paramètres dynamiques
 
 from std_srvs.srv import Trigger  # service simple sans paramètre # Ajouté le 21/04
@@ -283,6 +285,54 @@ class TestUnityP1(Node):
             pass
         super().destroy_node()
 
+    # Ajouté le 19/05 — lecture robotDexterity via primary client port 30001
+    def _get_robot_dexterity(self):
+        for attempt in range(3):
+            try:
+                s = socket.socket()
+                s.settimeout(5.0)
+                s.connect(('192.168.1.101', 30001))
+                # time.sleep(0.5)
+                # data = s.recv(4096)
+                # self.get_logger().warn(f"[DEXTERITY] data reçue : {len(data)} bytes, premier pkg_type={struct.unpack_from('B', data, 4)[0] if len(data)>4 else 'vide'}")
+                # s.close()
+                data = b''
+                deadline = time.time() + 5.0
+                while len(data) < 4096 and time.time() < deadline:
+                    chunk = s.recv(4096)
+                    if not chunk:
+                        break
+                    data += chunk
+                # self.get_logger().warn(f"[DEXTERITY] data accumulée : {len(data)} bytes")
+                # types_vus = set()
+                # ii = 0
+                # while ii < len(data) - 5:
+                #     ps = struct.unpack_from('>I', data, ii)[0]
+                #     pt = struct.unpack_from('B', data, ii+4)[0]
+                #     types_vus.add(pt)
+                #     ii += ps if ps > 0 else 1
+                # self.get_logger().warn(f"[DEXTERITY] pkg_types vus : {types_vus}")
+                s.close()
+                i = 0
+                while i < len(data) - 5:
+                    pkg_size = struct.unpack_from('>I', data, i)[0]
+                    pkg_type = struct.unpack_from('B', data, i+4)[0]
+                    if pkg_type in (16, 20):
+                        j = i + 5
+                        while j < i + pkg_size:
+                            sub_size = struct.unpack_from('>I', data, j)[0]
+                            sub_type = struct.unpack_from('B', data, j+4)[0]
+                            if sub_type == 7:
+                                dexterity = struct.unpack_from('>d', data, j+5+48)[0]
+                                return dexterity
+                            j += sub_size if sub_size > 0 else 1
+                    i += pkg_size if pkg_size > 0 else 1
+            except Exception as e:
+                self.get_logger().warn(f"[DEXTERITY] Tentative {attempt+1}/3 échouée : {type(e).__name__} — {e}")
+                if attempt < 2:
+                    time.sleep(0.3)
+        return None
+
     def move_to_p1(self, P1):
         # Aller directement en P1 pour vérifier calibration Unity <-> robot réel #JUSTE POUR VERIFIER
         # self.rc.moveL([P1[0], P1[1], P1[2],
@@ -335,49 +385,38 @@ class TestUnityP1(Node):
             self.orientation[0], self.orientation[1], self.orientation[2],
         ]
 
-        ### Ajouté le 16/04 pour les limites avec la norme ###
-        xy_norm = math.sqrt(pre_P1[0]**2 + pre_P1[1]**2)
-        self.get_logger().info(f"Norme XY pre_P1 = {xy_norm*1000:.1f}mm") # Afficher la norme
+        # ### Ajouté le 16/04 pour les limites avec la norme ###
+        # xy_norm = math.sqrt(pre_P1[0]**2 + pre_P1[1]**2)
+        # self.get_logger().info(f"Norme XY pre_P1 = {xy_norm*1000:.1f}mm") # Afficher la norme
 
-        # testé empiriquement valeur trouvé
-        # if xy_norm < 0.2265:
-        #     self.get_logger().warn(f"pre_P1 trop proche de la base (norme XY = {xy_norm*1000:.1f}mm < 226.5mm) — renvoyer un autre point.")
-        #     return
+        # # testé empiriquement valeur trouvé
+        # # if xy_norm < 0.2265:
+        # #     self.get_logger().warn(f"pre_P1 trop proche de la base (norme XY = {xy_norm*1000:.1f}mm < 226.5mm) — renvoyer un autre point.")
+        # #     return
         
-        # valeur repoussé à 230 pour plus de sûreté
-        if xy_norm < self.xy_norm_min:
-            ############################
-            msg = String()
-            msg.data = "aborted_norm" # Mise à jour le 20/40 à 12h00
-            self.status_pub.publish(msg)
-            ############################
-            self.get_logger().warn(f"pre_P1 trop proche de la base (norme XY = {xy_norm*1000:.1f}mm < 230mm) — renvoyer un autre point.")
-            return
+        # # valeur repoussé à 230 pour plus de sûreté
+        # if xy_norm < self.xy_norm_min:
+        #     ############################
+        #     msg = String()
+        #     msg.data = "aborted_norm" # Mise à jour le 20/40 à 12h00
+        #     self.status_pub.publish(msg)
+        #     ############################
+        #     self.get_logger().warn(f"pre_P1 trop proche de la base (norme XY = {xy_norm*1000:.1f}mm < 230mm) — renvoyer un autre point.")
+        #     return
 
-        #################################
+        # #################################
 
         # self.rc.moveL(pre_P1, 0.05, 0.05)
         # print(f"En pre_P1 !")
-
-        # Ajouté le 13/05 à 10h25
-        if self.app_control_client.service_is_ready():
-            req = AppControlService.Request()
-            req.command = 0  # play
-            self.get_logger().info("Service app_control appelé.")
-            future = self.app_control_client.call_async(req)
-            future.add_done_callback(lambda f: self.get_logger().info(
-                f"app_control réponse : success={f.result().success}"))
 
         #Ajouté le 16/04 à 15h15#######################
         self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
         while self.rc.getAsyncOperationProgress() >= 0:
             if self.abort_active:
                 self.rc.stopL(0.5)
-                ############################
                 msg = String()
                 msg.data = "aborted"
                 self.status_pub.publish(msg)
-                ############################
                 self.get_logger().error("Abort reçu pendant moveL — arrêt immédiat.")
                 return
             if self.rr.getRuntimeState() != 2:
@@ -388,8 +427,30 @@ class TestUnityP1(Node):
                 return
             time.sleep(0.02)
         print(f"En pre_P1 !")
-        
         ###############################################
+
+        # Ajouté le 19/05 — vérification dextérité en pre_P1
+        dexterity = self._get_robot_dexterity()
+        if dexterity is not None:
+            self.get_logger().info(f"[DEXTERITY] {dexterity:.8f}")
+            if dexterity < 0.00002:
+                self.get_logger().warn(f"Singularité détectée (dextérité={dexterity:.8f}) — retour position initiale.")
+                self.rc.moveJ(self.init_pose, 0.5, 0.5)
+                msg = String()
+                msg.data = "aborted_singularity"
+                self.status_pub.publish(msg)
+                return
+        else:
+            self.get_logger().warn("[DEXTERITY] Valeur non disponible — on continue.")
+
+        # Ajouté le 19/05 — app_control play uniquement si dextérité ok
+        if self.app_control_client.service_is_ready():
+            req = AppControlService.Request()
+            req.command = 0  # play
+            self.get_logger().info("Service app_control appelé.")
+            future = self.app_control_client.call_async(req)
+            future.add_done_callback(lambda f: self.get_logger().info(
+                f"app_control réponse : success={f.result().success}"))
 
         self.start_move_event.clear()
         self.get_logger().info("En pre_P1 — en attente du signal /start_move...")
@@ -593,7 +654,6 @@ class TestUnityP1(Node):
         # self.node_ready_event.set()  # ← AJOUTER
 
         # self.get_logger().info("En attente de P1 depuis Unity...")
-
 
     # Ajouté le 16/04 à 17h00 -- callback pour mise à jour dynamique des paramètres depuis ROS2
     def cb_parameters(self, params):
