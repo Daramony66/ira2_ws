@@ -73,12 +73,12 @@ class MastersIHM(tk.Tk):
 
         # ── État ──
         self.scenario_var  = tk.StringVar(value="Push")
-        self.force_target  = tk.DoubleVar(value=20.0)
+        self.force_target  = tk.DoubleVar(value=10.0)
         self.force_wrench  = tk.DoubleVar(value=50.0)
         self.force_max     = tk.DoubleVar(value=200.0)
-        self.offset_var    = tk.DoubleVar(value=0.1)
+        self.offset_var    = tk.DoubleVar(value=0.001)
         self.timeout_var   = tk.DoubleVar(value=30.0)
-        self.hold_time_var = tk.DoubleVar(value=0.5)
+        self.hold_time_var = tk.DoubleVar(value=0.0)
 
         self.processes      = {}
         self.ros_running    = False
@@ -86,12 +86,12 @@ class MastersIHM(tk.Tk):
 
         # Ajouté le 20/04 — valeurs de référence pour envoi différentiel
         self._confirmed_params = {
-            'force_target': 20.0,
+            'force_target': 10.0,
             'force_wrench': 50.0,
             'force_max':    200.0,
-            'offset':        0.1,
+            'offset':        0.001,
             'timeout':      30.0,
-            'hold_time':     0.5,
+            'hold_time':     0.0,
         }
 
         # ── Status listener ──
@@ -484,12 +484,12 @@ class MastersIHM(tk.Tk):
 
     def _do_confirm_forced(self):
         defaults = {
-            'force_target': 20.0,
+            'force_target': 10.0,
             'force_wrench': 50.0,
             'force_max':    200.0,
-            'offset':        0.1,
+            'offset':        0.001,
             'timeout':      30.0,
-            'hold_time':     0.5,
+            'hold_time':     0.0,
         }
         cmds = []
         for key, val in self._confirmed_params.items():
@@ -641,12 +641,12 @@ class MastersIHM(tk.Tk):
 
     def _do_reset_params(self):
         defaults = {
-            'Force cible (N)':   20.0,
+            'Force cible (N)':   10.0,
             'Force wrench (N)':  50.0,
             'Force max (N)':     200.0,
-            'Offset pré-P1 (m)': 0.1,
+            'Offset pré-P1 (m)': 0.001,
             'Timeout (s)':       30.0,
-            'Maintien (s)':      0.5,
+            'Maintien (s)':      0.0,
         }
         touch_mode = self.scenario_var.get() == "Touch"
         for lbl, val in defaults.items():
@@ -807,7 +807,7 @@ class MastersIHM(tk.Tk):
         entry_var = tk.StringVar(value=f"{var.get():.3f}")
         entry = tk.Entry(hdr, textvariable=entry_var,
                         font=("Helvetica", self.sf(10), "bold"),
-                        bg="white", fg="#2e4057", insertbackground=WHITE,
+                        bg="white", fg="#2e4057", insertbackground="#2e4057",
                         relief="flat", width=6)
         entry.pack(side="right")
 
@@ -827,7 +827,8 @@ class MastersIHM(tk.Tk):
             except ValueError:
                 pass
 
-        entry_var.trace_add('write', sync_to_var)
+        entry.bind('<FocusOut>', lambda e: sync_to_var())
+        entry.bind('<Return>', lambda e: sync_to_var())
 
         scale = ttk.Scale(cell, from_=mn, to=mx, variable=var, orient="horizontal",
                           command=on_slide)
