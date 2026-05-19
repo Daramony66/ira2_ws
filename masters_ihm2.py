@@ -75,7 +75,7 @@ class MastersIHM(tk.Tk):
         self.scenario_var  = tk.StringVar(value="Push")
         self.force_target  = tk.DoubleVar(value=20.0)
         self.force_wrench  = tk.DoubleVar(value=50.0)
-        self.force_max     = tk.DoubleVar(value=70.0)
+        self.force_max     = tk.DoubleVar(value=200.0)
         self.offset_var    = tk.DoubleVar(value=0.1)
         self.timeout_var   = tk.DoubleVar(value=30.0)
         self.hold_time_var = tk.DoubleVar(value=0.5)
@@ -88,7 +88,7 @@ class MastersIHM(tk.Tk):
         self._confirmed_params = {
             'force_target': 20.0,
             'force_wrench': 50.0,
-            'force_max':    70.0,
+            'force_max':    200.0,
             'offset':        0.1,
             'timeout':      30.0,
             'hold_time':     0.5,
@@ -240,7 +240,7 @@ class MastersIHM(tk.Tk):
         params = [
             ("Force cible (N)",   self.force_target,  1.0, 79.0, 1.0),
             ("Force wrench (N)",  self.force_wrench,  1.0, 150.0, 1.0),
-            ("Force max (N)",     self.force_max,     1.0, 79.0, 1.0),
+            ("Force max (N)",     self.force_max,     1.0, 200.0, 1.0),
             ("Offset pré-P1 (m)", self.offset_var,   0.001,  0.3, 0.001),
             ("Timeout (s)",       self.timeout_var,   5.0,  60.0, 1.0),
             ("Maintien (s)",      self.hold_time_var, 0.0,   5.0, 0.1),
@@ -486,7 +486,7 @@ class MastersIHM(tk.Tk):
         defaults = {
             'force_target': 20.0,
             'force_wrench': 50.0,
-            'force_max':    70.0,
+            'force_max':    200.0,
             'offset':        0.1,
             'timeout':      30.0,
             'hold_time':     0.5,
@@ -643,7 +643,7 @@ class MastersIHM(tk.Tk):
         defaults = {
             'Force cible (N)':   20.0,
             'Force wrench (N)':  50.0,
-            'Force max (N)':     70.0,
+            'Force max (N)':     200.0,
             'Offset pré-P1 (m)': 0.1,
             'Timeout (s)':       30.0,
             'Maintien (s)':      0.5,
