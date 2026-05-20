@@ -409,6 +409,23 @@ class TestUnityP1(Node):
         # self.rc.moveL(pre_P1, 0.05, 0.05)
         # print(f"En pre_P1 !")
 
+        # Ajouté le 20/05 — rejet des points derrière l'outil
+        tcp_init = self.rr.getActualTCPPose()
+        vec_to_pre_p1 = [
+            pre_P1[0] - tcp_init[0],
+            pre_P1[1] - tcp_init[1],
+            pre_P1[2] - tcp_init[2],
+        ]
+        dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
+            vec_to_pre_p1[1] * self.z_axis_in_base[1] +
+            vec_to_pre_p1[2] * self.z_axis_in_base[2])
+        if dot < 0:
+            self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
+            msg = String()
+            msg.data = "aborted_norm"
+            self.status_pub.publish(msg)
+            return
+
         # Ajouté le 20/05 — vérification atteignabilité pre_P1
         if not self.rc.isPoseWithinSafetyLimits(pre_P1):
             self.get_logger().warn("pre_P1 hors limites de sécurité — point rejeté.")
