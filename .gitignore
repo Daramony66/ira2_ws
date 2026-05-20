@@ -6,3 +6,5 @@ __pycache__/
 vitesse_data.csv
 courbes_vitesse.png
 .vscode/
+courbes_vitesse_accel.png
+temps_contact.csv
