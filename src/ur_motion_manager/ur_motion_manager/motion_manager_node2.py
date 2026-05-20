@@ -63,20 +63,20 @@ class TestUnityP1(Node):
 
             # POSITION INIT TEST 12/05 (pose épaule droite)
 
-            math.radians(-135),
-            math.radians(-135),
-            math.radians(105),
-            math.radians(-150),
-            math.radians(-90),
-            math.radians(180),
+            # math.radians(-135),
+            # math.radians(-135),
+            # math.radians(105),
+            # math.radians(-150),
+            # math.radians(-90),
+            # math.radians(180),
 
             # POSITION TEST 20/05 POUR VITESSE
-            # math.radians(-315),
-            # math.radians(-90),
-            # math.radians(120),
-            # math.radians(-210),
-            # math.radians(270),
-            # math.radians(180),
+            math.radians(-315),
+            math.radians(-90),
+            math.radians(120),
+            math.radians(-210),
+            math.radians(-90),
+            math.radians(180),
 
             # POSITION INIT TEST 13/05 (pose épaule gauche)
             # math.radians(45),
