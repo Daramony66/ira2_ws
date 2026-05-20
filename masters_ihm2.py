@@ -266,7 +266,7 @@ class MastersIHM(tk.Tk):
 
         for i, txt in enumerate([
             "① Lancer les nœuds ROS2.",
-            "② Metter le casque VR.",
+            "② Mettre le casque VR.",
             "③ Lancer la simulation.",
         ]):
             tk.Label(col, text=txt, font=("Helvetica", self.sf(11)),
@@ -816,7 +816,7 @@ class MastersIHM(tk.Tk):
         entry = tk.Entry(hdr, textvariable=entry_var,
                         font=("Helvetica", self.sf(10), "bold"),
                         bg="white", fg="#2e4057", insertbackground="#2e4057",
-                        relief="flat", width=6)
+                        relief="flat", width=7)
         entry.pack(side="right")
 
         def on_slide(v):
