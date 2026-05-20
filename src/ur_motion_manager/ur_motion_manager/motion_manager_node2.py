@@ -63,20 +63,20 @@ class TestUnityP1(Node):
 
             # POSITION INIT TEST 12/05 (pose épaule droite)
 
-            # math.radians(-135),
-            # math.radians(-135),
-            # math.radians(105),
-            # math.radians(-150),
-            # math.radians(-90),
-            # math.radians(180),
+            math.radians(-135),
+            math.radians(-135),
+            math.radians(105),
+            math.radians(-150),
+            math.radians(-90),
+            math.radians(180),
 
             # POSITION TEST 20/05 POUR VITESSE
-            math.radians(-315),
-            math.radians(-90),
-            math.radians(120),
-            math.radians(-210),
-            math.radians(270),
-            math.radians(180),
+            # math.radians(-315),
+            # math.radians(-90),
+            # math.radians(120),
+            # math.radians(-210),
+            # math.radians(270),
+            # math.radians(180),
 
             # POSITION INIT TEST 13/05 (pose épaule gauche)
             # math.radians(45),
@@ -107,6 +107,10 @@ class TestUnityP1(Node):
         self.abort_active = False
 
         self._essai_count = 0
+
+        csv_path = os.path.expanduser('~/ira2_ws/vitesse_data.csv')
+        if os.path.exists(csv_path):
+            os.remove(csv_path)
 
         #Ajouté je 16/04 à 16h45
         self.declare_parameter('force_target', 10.0)
@@ -690,7 +694,7 @@ class TestUnityP1(Node):
         # Sauvegarde CSV vitesse
         csv_path = os.path.expanduser('~/ira2_ws/vitesse_data.csv')
         file_exists = os.path.exists(csv_path)
-        with open(csv_path, 'w', newline='') as f:
+        with open(csv_path, 'a', newline='') as f:
             w = csv.DictWriter(f, fieldnames=['essai', 'temps', 'vitesse_mm_s', 'wrench_N'])
             if not file_exists:
                 w.writeheader()
