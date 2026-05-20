@@ -35,9 +35,9 @@ SCENARIO_COLORS = {
 
 # Ajouté le 20/04 à 16h30 — valeurs hardcodées pour le mode Touch
 TOUCH_LOCKED = {
-    'Force cible (N)':   1.0,
-    'Force wrench (N)':  10.0,
-    'Offset pré-P1 (m)': 0.05,
+    'Force cible (N)':            1.0,
+    'Force de poussée (N)':       10.0,
+    'Distance avant contact (m)': 0.05,
 }
 
 CMDS = [
@@ -401,9 +401,9 @@ class MastersIHM(tk.Tk):
 
             if self.force_target.get() != 1.0 or self.force_wrench.get() != 10.0 or self.offset_var.get() != 0.05:
                 self._pre_touch_values = {
-                    'Force cible (N)':    self.force_target.get(),
-                    'Force wrench (N)':   self.force_wrench.get(),
-                    'Offset pré-P1 (m)':  self.offset_var.get(),
+                    'Force cible (N)':            self.force_target.get(),
+                    'Force de poussée (N)':       self.force_wrench.get(),
+                    'Distance avant contact (m)': self.offset_var.get(),
                 }
             for lbl, locked_val in TOUCH_LOCKED.items():
                 if lbl in self._slider_widgets:
@@ -440,8 +440,8 @@ class MastersIHM(tk.Tk):
             if hasattr(self, '_confirm_status') and self._pre_touch_values:
                 vals = {
                     'force_target': self._pre_touch_values.get('Force cible (N)', self._confirmed_params['force_target']),
-                    'force_wrench': self._pre_touch_values.get('Force wrench (N)', self._confirmed_params['force_wrench']),
-                    'offset':       self._pre_touch_values.get('Offset pré-P1 (m)', self._confirmed_params['offset']),
+                    'force_wrench': self._pre_touch_values.get('Force de poussée (N)', self._confirmed_params['force_wrench']),
+                    'offset':       self._pre_touch_values.get('Distance avant contact (m)', self._confirmed_params['offset']),
                 }
                 cmds_restore = [f"ros2 param set /test_unity_p1 {k} {v:.3f}" for k, v in vals.items()]
                 def run_restore():
@@ -641,12 +641,12 @@ class MastersIHM(tk.Tk):
 
     def _do_reset_params(self):
         defaults = {
-            'Force cible (N)':   10.0,
-            'Force wrench (N)':  50.0,
-            'Force max (N)':     200.0,
-            'Offset pré-P1 (m)': 0.001,
-            'Timeout (s)':       30.0,
-            'Maintien (s)':      0.0,
+            'Force cible (N)':          10.0,
+            'Force de poussée (N)':     50.0,
+            'Force limite (N)':         200.0,
+            'Distance avant contact (m)': 0.001,
+            'Timeout (s)':              30.0,
+            'Maintien (s)':             0.0,
         }
         touch_mode = self.scenario_var.get() == "Touch"
         for lbl, val in defaults.items():
@@ -742,7 +742,7 @@ class MastersIHM(tk.Tk):
     def _on_status_aborted_norm(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Point trop proche de la base — Reculer.", YELLOW)
+        self._set_status("⚠️ Point hors de portée du robot — Déplacer le point de contact.", YELLOW)
 
     def _on_status_restarted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
