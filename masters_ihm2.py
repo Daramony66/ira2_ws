@@ -239,9 +239,9 @@ class MastersIHM(tk.Tk):
 
         params = [
             ("Force cible (N)",   self.force_target,  1.0, 79.0, 1.0),
-            ("Force wrench (N)",  self.force_wrench,  1.0, 150.0, 1.0),
-            ("Force max (N)",     self.force_max,     1.0, 200.0, 1.0),
-            ("Offset pré-P1 (m)", self.offset_var,   0.001,  0.3, 0.001),
+            ("Force de poussée (N)",  self.force_wrench,  1.0, 150.0, 1.0),
+            ("Force limite (N)",     self.force_max,     1.0, 200.0, 1.0),
+            ("Distance avant contact (m)", self.offset_var,   0.001,  0.3, 0.001),
             ("Timeout (s)",       self.timeout_var,   5.0,  60.0, 1.0),
             ("Maintien (s)",      self.hold_time_var, 0.0,   5.0, 0.1),
         ]
