@@ -25,6 +25,8 @@ from std_srvs.srv import Trigger  # service simple sans paramètre # Ajouté le 
 
 import rclpy.parameter
 
+import csv, os
+
 # Ajouté le 17/04 à 16h30
 def publish_status(status: str):
     cmd = f'ros2 topic pub --once /masters/status std_msgs/msg/String "{{data: \\"{status}\\"}}"'
@@ -103,6 +105,8 @@ class TestUnityP1(Node):
 
         #Ajouté le 16/04 à 12h35
         self.abort_active = False
+
+        self._essai_count = 0
 
         #Ajouté je 16/04 à 16h45
         self.declare_parameter('force_target', 10.0)
@@ -542,6 +546,11 @@ class TestUnityP1(Node):
         self.get_logger().info(f"Bias appris : {bias_mean:.3f}N (std={bias_std:.3f}N)")
         ###############################################################################
 
+        # Ajouté le 20/05 — enregistrement CSV vitesse
+        t_start_move = time.time()
+        self._essai_count += 1
+        speed_log = []
+
 
         tcp_current = self.rr.getActualTCPPose()
         task_frame = list(tcp_current) # repère de poussée
@@ -590,6 +599,15 @@ class TestUnityP1(Node):
                 ############################                
                 self.get_logger().error("Abort reçu pendant force mode — arrêt immédiat.")
                 return
+            
+            speed = self.rr.getActualTCPSpeed()
+            speed_mag = (speed[0]**2 + speed[1]**2 + speed[2]**2)**0.5
+            speed_log.append({
+                'essai': self._essai_count,
+                'temps': round(time.time() - t_start_move, 4),
+                'vitesse_mm_s': round(speed_mag * 1000, 2),
+                'wrench_N': int(self.force_wrench),
+            })
 
             force = self.rr.getActualTCPForce()
             force_mag = (force[0]**2 + force[1]**2 + force[2]**2)**0.5
@@ -658,6 +676,17 @@ class TestUnityP1(Node):
         # # Commenté le 16/04 à 15h15
         # self.rc.moveL(pre_P1, 0.2, 0.5)
         # print(f"Rétracté en pre_P1 !")
+
+
+        # Sauvegarde CSV vitesse
+        csv_path = os.path.expanduser('~/ira2_ws/vitesse_data.csv')
+        file_exists = os.path.exists(csv_path)
+        with open(csv_path, 'w', newline='') as f:
+            w = csv.DictWriter(f, fieldnames=['essai', 'temps', 'vitesse_mm_s', 'wrench_N'])
+            if not file_exists:
+                w.writeheader()
+            w.writerows(speed_log)
+
 
         # Ajouté le 16/04 à 15h15 ###############
         # self.rc.moveL(pre_P1, 0.2, 0.5, asynchronous=True) # Commenté le 17/04
