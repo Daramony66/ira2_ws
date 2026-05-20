@@ -409,6 +409,14 @@ class TestUnityP1(Node):
         # self.rc.moveL(pre_P1, 0.05, 0.05)
         # print(f"En pre_P1 !")
 
+        # Ajouté le 20/05 — rejet des points hors plage de hauteur
+        if pre_P1[2] < 0.325 or pre_P1[2] > 0.625:
+            self.get_logger().warn(f"pre_P1 hors plage de hauteur (z={pre_P1[2]*1000:.1f}mm) — point rejeté.")
+            msg = String()
+            msg.data = "aborted_norm"
+            self.status_pub.publish(msg)
+            return
+
         # Ajouté le 20/05 — rejet des points derrière l'outil
         tcp_init = self.rr.getActualTCPPose()
         vec_to_pre_p1 = [
