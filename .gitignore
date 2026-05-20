@@ -3,6 +3,6 @@ install/
 log/
 __pycache__/
 *.pyc
-.vscode/vitesse_data.csv
+vitesse_data.csv
 courbes_vitesse.png
 .vscode/
