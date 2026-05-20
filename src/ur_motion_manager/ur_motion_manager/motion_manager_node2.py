@@ -409,6 +409,14 @@ class TestUnityP1(Node):
         # self.rc.moveL(pre_P1, 0.05, 0.05)
         # print(f"En pre_P1 !")
 
+        # Ajouté le 20/05 — vérification atteignabilité pre_P1
+        if not self.rc.isPoseWithinSafetyLimits(pre_P1):
+            self.get_logger().warn("pre_P1 hors limites de sécurité — point rejeté.")
+            msg = String()
+            msg.data = "aborted_norm"
+            self.status_pub.publish(msg)
+            return
+
         #Ajouté le 16/04 à 15h15#######################
         self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
         while self.rc.getAsyncOperationProgress() >= 0:
