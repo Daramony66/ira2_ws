@@ -524,6 +524,11 @@ class TestUnityP1(Node):
             msg.data = "aborted"
             self.status_pub.publish(msg)
             return
+        
+        # Ajouté le 20/05 — enregistrement CSV vitesse
+        t_start_move = time.time()
+        self._essai_count += 1
+        speed_log = []
 
         # ETAPE force mode : pousser en Z TCP vers P1
         
@@ -545,12 +550,6 @@ class TestUnityP1(Node):
         bias_std = (sum((x - bias_mean)**2 for x in bias_buf) / len(bias_buf))**0.5
         self.get_logger().info(f"Bias appris : {bias_mean:.3f}N (std={bias_std:.3f}N)")
         ###############################################################################
-
-        # Ajouté le 20/05 — enregistrement CSV vitesse
-        t_start_move = time.time()
-        self._essai_count += 1
-        speed_log = []
-
 
         tcp_current = self.rr.getActualTCPPose()
         task_frame = list(tcp_current) # repère de poussée
@@ -648,7 +647,17 @@ class TestUnityP1(Node):
                     retract_speed, retract_accel = 1.0, 2.0
                 elif self.scenario_mode == 3:  # Push
                     self.get_logger().info("Mode Push — maintien...")
-                    time.sleep(self.hold_time)
+                    t_hold_start = time.time()
+                    while time.time() - t_hold_start < self.hold_time:
+                        speed = self.rr.getActualTCPSpeed()
+                        speed_mag = (speed[0]**2 + speed[1]**2 + speed[2]**2)**0.5
+                        speed_log.append({
+                            'essai': self._essai_count,
+                            'temps': round(time.time() - t_start_move, 4),
+                            'vitesse_mm_s': round(speed_mag * 1000, 2),
+                            'wrench_N': int(self.force_wrench),
+                        })
+                        time.sleep(0.02)
                     self.rc.forceModeStop()
                     retract_speed, retract_accel = 0.2, 0.5
                 elif self.scenario_mode == 4:  # Touch
