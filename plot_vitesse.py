@@ -27,9 +27,3 @@ ax2.grid(True)
 plt.tight_layout()
 plt.savefig('/home/stlab24-04/ira2_ws/courbes_vitesse_accel.png')
 plt.show()
-
-temps_max = df.groupby('wrench_N')['temps'].max().reset_index()
-temps_max.columns = ['wrench_N', 'temps_total_s']
-temps_max['temps_poussee_s'] = temps_max['temps_total_s'] - 0.73
-temps_max.to_csv('/home/stlab24-04/ira2_ws/temps_contact.csv', index=False)
-print("Fichier temps_contact.csv sauvegardé.")
