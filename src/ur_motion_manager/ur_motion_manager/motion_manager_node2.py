@@ -492,6 +492,9 @@ class TestUnityP1(Node):
         else:
             self.get_logger().warn("[DEXTERITY] Valeur non disponible — on continue.")
 
+        # Ajouté le 22/05
+        t_play_unity = time.time()
+
         # Ajouté le 19/05 — app_control play uniquement si dextérité ok
         if self.app_control_client.service_is_ready():
             req = AppControlService.Request()
@@ -603,6 +606,11 @@ class TestUnityP1(Node):
                 self.get_logger().error("Abort reçu pendant force mode — arrêt immédiat.")
                 return
             
+            force = self.rr.getActualTCPForce()
+            force_mag = (force[0]**2 + force[1]**2 + force[2]**2)**0.5
+
+            force_dev = force_mag - bias_mean # Ajouté le 16/04 à 12h35    
+                    
             speed = self.rr.getActualTCPSpeed()
             speed_mag = (speed[0]**2 + speed[1]**2 + speed[2]**2)**0.5
             speed_log.append({
@@ -610,12 +618,10 @@ class TestUnityP1(Node):
                 'temps': round(time.time() - t_start_move, 4),
                 'vitesse_mm_s': round(speed_mag * 1000, 2),
                 'wrench_N': int(self.force_wrench),
+                'force_detectee_N': round(force_dev, 3),
             })
 
-            force = self.rr.getActualTCPForce()
-            force_mag = (force[0]**2 + force[1]**2 + force[2]**2)**0.5
 
-            force_dev = force_mag - bias_mean # Ajouté le 16/04 à 12h35
 
             # Ajouté le 16/04 à 16h45
             if force_dev > self.force_max:
@@ -644,6 +650,13 @@ class TestUnityP1(Node):
             # Ajouté le 17/04 à 11h00
             if force_dev >= FORCE_TARGET:
                 # self.rc.forceModeStop()
+
+                # Ajouté le 22/05
+                t_contact = round(time.time() - t_start_move, 4)
+                t_play_to_contact = round(time.time() - t_play_unity, 4)
+                force_max = round(max((r['force_detectee_N'] for r in speed_log), default=0), 3)
+                vitesse_max = round(max((r['vitesse_mm_s'] for r in speed_log), default=0), 2)
+
                 print(f"Force cible atteinte : {force_dev:.2f}N !")
                 if self.scenario_mode == 2:    # Punch
                     self.rc.forceModeStop()
@@ -660,8 +673,13 @@ class TestUnityP1(Node):
                             'temps': round(time.time() - t_start_move, 4),
                             'vitesse_mm_s': round(speed_mag * 1000, 2),
                             'wrench_N': int(self.force_wrench),
+                            'force_detectee_N': round(force_dev, 3), # Ajouté le 22/05
                         })
                         time.sleep(0.02)
+                    
+                    # Ajouté le 22/05
+                    t_end_push = round(time.time() - t_start_move, 4)
+
                     self.rc.forceModeStop()
                     retract_speed, retract_accel = 0.2, 0.5
                 elif self.scenario_mode == 4:  # Touch
@@ -690,19 +708,42 @@ class TestUnityP1(Node):
         # self.rc.moveL(pre_P1, 0.2, 0.5)
         # print(f"Rétracté en pre_P1 !")
 
+        # Ajouté le 22/05
+        t_retract = round(time.time() - t_start_move, 4)
 
         # Sauvegarde CSV vitesse
         csv_path = os.path.expanduser('~/ira2_ws/vitesse_data.csv')
         file_exists = os.path.exists(csv_path)
         with open(csv_path, 'a', newline='') as f:
-            w = csv.DictWriter(f, fieldnames=['essai', 'temps', 'vitesse_mm_s', 'wrench_N'])
+            w = csv.DictWriter(f, fieldnames=['essai', 'temps', 'vitesse_mm_s', 'wrench_N', 'force_detectee_N']) # Modifié le 22/05
             if not file_exists:
                 w.writeheader()
             w.writerows(speed_log)
 
+        # Sauvegarde CSV timing — Ajouté le 22/05
+        timing_path = os.path.expanduser('~/ira2_ws/timing_data.csv')
+        timing_exists = os.path.exists(timing_path)
+        with open(timing_path, 'a', newline='') as f:
+            w = csv.writer(f)
+            if not timing_exists:
+                w.writerow(['essai', 'wrench_N', 'force_target_N', 'offset_m', 'time_to_contact_s', 'time_to_end_push_s', 'time_to_retract_s', 'time_play_to_contact_s', 'force_max_N', 'vitesse_max_mm_s'])
+            w.writerow([
+                self._essai_count,
+                int(self.force_wrench),
+                self.force_target,
+                self.offset,
+                t_contact,
+                t_end_push,
+                t_retract,
+                t_play_to_contact,
+                force_max,
+                vitesse_max,
+            ])
+
 
         # Ajouté le 16/04 à 15h15 ###############
         # self.rc.moveL(pre_P1, 0.2, 0.5, asynchronous=True) # Commenté le 17/04
+
         self.rc.moveL(pre_P1, retract_speed, retract_accel, asynchronous=True)
 
 
