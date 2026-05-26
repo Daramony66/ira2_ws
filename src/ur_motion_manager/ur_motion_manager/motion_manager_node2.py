@@ -114,7 +114,17 @@ class TestUnityP1(Node):
         #Ajouté le 16/04 à 12h35
         self.abort_active = False
 
-        self._essai_count = 0
+        # Ajouté le 26/05 — reprise du dernier numéro d'essai depuis timing_data.csv
+        timing_path = os.path.expanduser('~/ira2_ws/timing_data.csv')
+        if os.path.exists(timing_path):
+            with open(timing_path, 'r') as f:
+                rows = list(csv.reader(f))
+                if len(rows) > 1:
+                    self._essai_count = int(rows[-1][0])
+                else:
+                    self._essai_count = 0
+        else:
+            self._essai_count = 0
 
         csv_path = os.path.expanduser('~/ira2_ws/vitesse_data.csv')
         if os.path.exists(csv_path):
