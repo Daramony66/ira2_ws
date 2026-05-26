@@ -503,6 +503,10 @@ class TestUnityP1(Node):
         # Ajouté le 22/05
         t_play_unity = time.time()
 
+        # Ajouté le 26/05
+        t_contact = None
+        t_end_push = None
+
         # Ajouté le 19/05 — app_control play uniquement si dextérité ok
         if self.app_control_client.service_is_ready():
             req = AppControlService.Request()
