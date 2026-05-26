@@ -63,12 +63,12 @@ class TestUnityP1(Node):
 
             # POSITION INIT TEST 12/05 (pose épaule droite)
 
-            math.radians(-135),
-            math.radians(-135),
-            math.radians(105),
-            math.radians(-150),
-            math.radians(-90),
-            math.radians(180),
+            # math.radians(-135),
+            # math.radians(-135),
+            # math.radians(105),
+            # math.radians(-150),
+            # math.radians(-90),
+            # math.radians(180),
 
             # POSITION TEST 20/05 POUR VITESSE
             # math.radians(-315),
@@ -85,6 +85,14 @@ class TestUnityP1(Node):
             # math.radians(-30),
             # math.radians(90),
             # math.radians(180),
+
+            # POSITION INIT FINALE 26/05 (pose épaule gauche)
+            math.radians(0),
+            math.radians(-135),
+            math.radians(-135),
+            math.radians(90),
+            math.radians(90),
+            math.radians(0),
         ]
 
         self.get_logger().info("Déplacement vers position initiale...") #Ajouté le 15/04
