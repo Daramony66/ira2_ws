@@ -748,12 +748,13 @@ class TestUnityP1(Node):
         with open(timing_path, 'a', newline='') as f:
             w = csv.writer(f)
             if not timing_exists:
-                w.writerow(['essai', 'wrench_N', 'force_target_N', 'offset_m', 'time_to_contact_s', 'time_to_end_push_s', 'time_to_retract_s', 'time_play_to_contact_s', 'force_max_N', 'vitesse_max_mm_s'])
+                w.writerow(['essai', 'wrench_N', 'force_target_N', 'offset_m', 'hold_time_s', 'time_to_contact_s', 'time_to_end_push_s', 'time_to_retract_s', 'time_play_to_contact_s', 'force_max_N', 'vitesse_max_mm_s'])
             w.writerow([
                 self._essai_count,
                 int(self.force_wrench),
                 self.force_target,
                 self.offset,
+                self.hold_time,
                 t_contact,
                 t_end_push,
                 t_retract,
