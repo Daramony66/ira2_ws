@@ -87,11 +87,19 @@ class TestUnityP1(Node):
             # math.radians(180),
 
             # POSITION INIT FINALE 26/05 (pose épaule gauche)
+            # math.radians(0),
+            # math.radians(-135),
+            # math.radians(-135),
+            # math.radians(90),
+            # math.radians(90),
+            # math.radians(0),
+
+            # POSITION INIT FINALE 2 du 28/05 (pose épaule gauche)
             math.radians(0),
+            math.radians(-115),
             math.radians(-135),
-            math.radians(-135),
-            math.radians(90),
-            math.radians(90),
+            math.radians(-110),
+            math.radians(270),
             math.radians(0),
         ]
 
