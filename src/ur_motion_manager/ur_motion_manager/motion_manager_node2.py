@@ -243,10 +243,10 @@ class TestUnityP1(Node):
         self.abort_active = False  # reset abort
         self.error_event.clear()   # reset error
         # Ajouté le 22/04 à 10h00 — mode de scénario dynamique selon paramètre ############
-        if self.scenario_mode == 2:
-            self.change_state(2)  # Punch
-        elif self.scenario_mode == 3:
-            self.change_state(3)  # Push
+        # if self.scenario_mode == 2:
+        #     self.change_state(2)  # Punch
+        # elif self.scenario_mode == 3:
+        #     self.change_state(3)  # Push
         ###################################################################################
         if not self.contact_point_client.service_is_ready():
             self.get_logger().warn("Service cp_position pas disponible — Unity connecté ?")
