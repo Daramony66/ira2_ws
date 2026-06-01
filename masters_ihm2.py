@@ -74,11 +74,11 @@ class MastersIHM(tk.Tk):
         # ── État ──
         self.scenario_var  = tk.StringVar(value="Push")
         self.force_target  = tk.DoubleVar(value=10.0)
-        self.force_wrench  = tk.DoubleVar(value=50.0)
+        self.force_wrench  = tk.DoubleVar(value=125.0)
         self.force_max     = tk.DoubleVar(value=100.0)
-        self.offset_var    = tk.DoubleVar(value=0.001)
+        self.offset_var    = tk.DoubleVar(value=0.075)
         self.timeout_var   = tk.DoubleVar(value=30.0)
-        self.hold_time_var = tk.DoubleVar(value=0.0)
+        self.hold_time_var = tk.DoubleVar(value=0.2)
 
         self.processes      = {}
         self.ros_running    = False
@@ -87,11 +87,11 @@ class MastersIHM(tk.Tk):
         # Ajouté le 20/04 — valeurs de référence pour envoi différentiel
         self._confirmed_params = {
             'force_target': 10.0,
-            'force_wrench': 50.0,
+            'force_wrench': 125.0,
             'force_max':    100.0,
-            'offset':        0.001,
+            'offset':        0.075,
             'timeout':      30.0,
-            'hold_time':     0.0,
+            'hold_time':     0.2,
         }
 
         # ── Status listener ──
@@ -485,11 +485,11 @@ class MastersIHM(tk.Tk):
     def _do_confirm_forced(self):
         defaults = {
             'force_target': 10.0,
-            'force_wrench': 50.0,
+            'force_wrench': 125.0,
             'force_max':    100.0,
-            'offset':        0.001,
+            'offset':        0.075,
             'timeout':      30.0,
-            'hold_time':     0.0,
+            'hold_time':     0.2,
         }
         cmds = []
         for key, val in self._confirmed_params.items():
@@ -642,11 +642,11 @@ class MastersIHM(tk.Tk):
     def _do_reset_params(self):
         defaults = {
             'Force cible (N)':          10.0,
-            'Force de poussée (N)':     50.0,
+            'Force de poussée (N)':     125.0,
             'Force max détectée (N)':         100.0,
-            'Distance avant contact (m)': 0.001,
+            'Distance avant contact (m)': 0.075,
             'Timeout (s)':              30.0,
-            'Maintien (s)':             0.0,
+            'Maintien (s)':             0.2,
         }
         touch_mode = self.scenario_var.get() == "Touch"
         for lbl, val in defaults.items():

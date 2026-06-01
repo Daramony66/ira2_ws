@@ -140,16 +140,16 @@ class TestUnityP1(Node):
 
         #Ajouté je 16/04 à 16h45
         self.declare_parameter('force_target', 10.0)
-        self.declare_parameter('force_wrench', 50.0)
+        self.declare_parameter('force_wrench', 125.0)
         self.declare_parameter('force_max', 100.0)
         self.declare_parameter('scenario_mode', 3)  # Push par défaut
         self.declare_parameter('timeout', 30.0)
-        self.declare_parameter('offset', 0.001)
+        self.declare_parameter('offset', 0.075)
         self.declare_parameter('xy_norm_min', 0.230)
         self.declare_parameter('settle_time', 0.2)
         self.declare_parameter('bias_samples', 50)
         self.declare_parameter('bias_std_threshold', 0.5)
-        self.declare_parameter('hold_time', 0.0) # Ajouté le 17/04 à 11h40
+        self.declare_parameter('hold_time', 0.2) # Ajouté le 17/04 à 11h40
 
         self.force_target = self.get_parameter('force_target').value
         self.force_wrench = self.get_parameter('force_wrench').value
