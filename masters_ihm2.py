@@ -75,7 +75,7 @@ class MastersIHM(tk.Tk):
         self.scenario_var  = tk.StringVar(value="Push")
         self.force_target  = tk.DoubleVar(value=10.0)
         self.force_wrench  = tk.DoubleVar(value=50.0)
-        self.force_max     = tk.DoubleVar(value=200.0)
+        self.force_max     = tk.DoubleVar(value=100.0)
         self.offset_var    = tk.DoubleVar(value=0.001)
         self.timeout_var   = tk.DoubleVar(value=30.0)
         self.hold_time_var = tk.DoubleVar(value=0.0)
@@ -88,7 +88,7 @@ class MastersIHM(tk.Tk):
         self._confirmed_params = {
             'force_target': 10.0,
             'force_wrench': 50.0,
-            'force_max':    200.0,
+            'force_max':    100.0,
             'offset':        0.001,
             'timeout':      30.0,
             'hold_time':     0.0,
@@ -239,8 +239,8 @@ class MastersIHM(tk.Tk):
 
         params = [
             ("Force cible (N)",   self.force_target,  1.0, 79.0, 1.0),
-            ("Force de poussée (N)",  self.force_wrench,  1.0, 150.0, 1.0),
-            ("Force limite (N)",     self.force_max,     1.0, 200.0, 1.0),
+            ("Force de poussée (N)",  self.force_wrench,  1.0, 125.0, 1.0),
+            ("Force max détectée (N)",     self.force_max,     1.0, 100.0, 1.0),
             ("Distance avant contact (m)", self.offset_var,   0.001,  0.3, 0.001),
             ("Timeout (s)",       self.timeout_var,   5.0,  60.0, 1.0),
             ("Maintien (s)",      self.hold_time_var, 0.0,   5.0, 0.1),
@@ -486,7 +486,7 @@ class MastersIHM(tk.Tk):
         defaults = {
             'force_target': 10.0,
             'force_wrench': 50.0,
-            'force_max':    200.0,
+            'force_max':    100.0,
             'offset':        0.001,
             'timeout':      30.0,
             'hold_time':     0.0,
@@ -643,7 +643,7 @@ class MastersIHM(tk.Tk):
         defaults = {
             'Force cible (N)':          10.0,
             'Force de poussée (N)':     50.0,
-            'Force limite (N)':         200.0,
+            'Force max détectée (N)':         100.0,
             'Distance avant contact (m)': 0.001,
             'Timeout (s)':              30.0,
             'Maintien (s)':             0.0,

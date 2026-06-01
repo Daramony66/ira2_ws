@@ -13,6 +13,10 @@ for essai in sorted(df['essai'].unique()):
     accel = np.gradient(data['vitesse_mm_s'].values, data['temps'].values)
     ax2.plot(data['temps'], accel, label=f'essai {essai} ({wrench}N)')
 
+#AFFICHAGE DE LA VMAX GLOBALE
+vmax_global = df['vitesse_mm_s'].max()
+ax1.axhline(y=vmax_global, linestyle='--', color='red', label=f'vmax globale : {vmax_global:.1f} mm/s')
+
 ax1.set_xlabel('Temps (s)')
 ax1.set_ylabel('Vitesse TCP (mm/s)')
 ax1.set_title('Vitesse TCP en fonction du temps selon le wrench')

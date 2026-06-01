@@ -141,7 +141,7 @@ class TestUnityP1(Node):
         #Ajouté je 16/04 à 16h45
         self.declare_parameter('force_target', 10.0)
         self.declare_parameter('force_wrench', 50.0)
-        self.declare_parameter('force_max', 200.0)
+        self.declare_parameter('force_max', 100.0)
         self.declare_parameter('scenario_mode', 3)  # Push par défaut
         self.declare_parameter('timeout', 30.0)
         self.declare_parameter('offset', 0.001)

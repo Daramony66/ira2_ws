@@ -15,7 +15,7 @@ class SafetyMonitor(Node):
         # =========================
         # We set a hard limit (e.g. 100N) that is higher than the operational limit (e.g. 50N)
         # This acts as a "circuit breaker"
-        self.declare_parameter('max_force_allowed', 200.0)    # Newton (Absolute Max)
+        self.declare_parameter('max_force_allowed', 110.0)    # Newton (Absolute Max)
         self.declare_parameter('watchdog_timeout', 0.5)      # seconds (Max silence from sensor)
 
         self.max_force = float(self.get_parameter('max_force_allowed').value)
