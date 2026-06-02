@@ -73,7 +73,7 @@ class MastersIHM(tk.Tk):
 
         # ── État ──
         self.scenario_var  = tk.StringVar(value="Push")
-        self.force_target  = tk.DoubleVar(value=10.0)
+        self.force_target  = tk.DoubleVar(value=5.0)
         self.force_wrench  = tk.DoubleVar(value=120.0)
         self.force_max     = tk.DoubleVar(value=100.0)
         self.offset_var    = tk.DoubleVar(value=0.075)
@@ -86,7 +86,7 @@ class MastersIHM(tk.Tk):
 
         # Ajouté le 20/04 — valeurs de référence pour envoi différentiel
         self._confirmed_params = {
-            'force_target': 10.0,
+            'force_target': 5.0,
             'force_wrench': 120.0,
             'force_max':    100.0,
             'offset':        0.075,
@@ -484,7 +484,7 @@ class MastersIHM(tk.Tk):
 
     def _do_confirm_forced(self):
         defaults = {
-            'force_target': 10.0,
+            'force_target': 5.0,
             'force_wrench': 120.0,
             'force_max':    100.0,
             'offset':        0.075,
@@ -641,7 +641,7 @@ class MastersIHM(tk.Tk):
 
     def _do_reset_params(self):
         defaults = {
-            'Force cible (N)':          10.0,
+            'Force cible (N)':          5.0,
             'Force de poussée (N)':     120.0,
             'Force max détectée (N)':         100.0,
             'Distance avant contact (m)': 0.075,

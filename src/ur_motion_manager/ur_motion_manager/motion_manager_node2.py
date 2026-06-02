@@ -95,7 +95,7 @@ class TestUnityP1(Node):
             # math.radians(0),
 
             # POSITION INIT FINALE 2 du 28/05 (pose épaule gauche)
-            math.radians(180),
+            math.radians(0),
             math.radians(-115),
             math.radians(-135),
             math.radians(-110),
@@ -139,7 +139,7 @@ class TestUnityP1(Node):
             os.remove(csv_path)
 
         #Ajouté je 16/04 à 16h45
-        self.declare_parameter('force_target', 10.0)
+        self.declare_parameter('force_target', 5.0)
         self.declare_parameter('force_wrench', 120.0)
         self.declare_parameter('force_max', 100.0)
         self.declare_parameter('scenario_mode', 3)  # Push par défaut
