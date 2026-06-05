@@ -102,11 +102,26 @@ class TestUnityP1(Node):
             # math.radians(270),
             # math.radians(0),
 
-            math.radians(0),
-            math.radians(-110),
-            math.radians(-148),
-            math.radians(-102),
-            math.radians(270),
+            # math.radians(0),
+            # math.radians(-110),
+            # math.radians(-148),
+            # math.radians(-102),
+            # math.radians(270),
+            # math.radians(0),
+
+            #POS + safe
+            # math.radians(0),
+            # math.radians(-115),
+            # math.radians(-143),
+            # math.radians(78),
+            # math.radians(90),
+            # math.radians(0),
+
+            math.radians(180),
+            math.radians(-70),
+            math.radians(150),
+            math.radians(-80),
+            math.radians(90),
             math.radians(0),
         ]
 
