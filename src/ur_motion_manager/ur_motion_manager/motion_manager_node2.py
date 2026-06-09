@@ -86,7 +86,7 @@ class TestUnityP1(Node):
             # math.radians(90),
             # math.radians(180),
 
-            # POSITION INIT FINALE 26/05 (pose épaule gauche)
+            # POSE 26/05 - symétrie gauche mais J4 vers le haut
             # math.radians(0),
             # math.radians(-135),
             # math.radians(-135),
@@ -94,7 +94,7 @@ class TestUnityP1(Node):
             # math.radians(90),
             # math.radians(0),
 
-            # POSITION INIT FINALE 2 du 28/05 (pose épaule gauche)
+            # POSE 28/05 - symétrie gauche mais J4 vers le bas et NON resserré
             # math.radians(0),
             # math.radians(-115),
             # math.radians(-135),
@@ -102,6 +102,7 @@ class TestUnityP1(Node):
             # math.radians(270),
             # math.radians(0),
 
+            # POSE 05/06 - symétrie gauche mais J4 vers le bas et resserré
             # math.radians(0),
             # math.radians(-110),
             # math.radians(-148),
@@ -109,7 +110,7 @@ class TestUnityP1(Node):
             # math.radians(270),
             # math.radians(0),
 
-            #POS + safe
+            # POSE 05/06 - symétrie gauche mais J4 vers le haut pour éviter de cogner mais pb de plan de sécurité
             # math.radians(0),
             # math.radians(-115),
             # math.radians(-143),
@@ -117,6 +118,7 @@ class TestUnityP1(Node):
             # math.radians(90),
             # math.radians(0),
 
+            # POSE 05/06 - robot symétrie à droite pour éviter de cogner
             math.radians(180),
             math.radians(-70),
             math.radians(150),
