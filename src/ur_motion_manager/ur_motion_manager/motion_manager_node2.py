@@ -235,10 +235,13 @@ class TestUnityP1(Node):
         # Ajouté le 21/04 — test : appuyer Entrée pour démarrer la session
         # threading.Thread(target=self._wait_input, daemon=True).start()
 
-        msg = String()
-        msg.data = "restarted"
-        self.status_pub.publish(msg)
         self.get_logger().info("Nœud prêt — statut ready publié.")
+        time.sleep(2.0)
+        for _ in range(5):
+            msg = String()
+            msg.data = "restarted"
+            self.status_pub.publish(msg)
+            time.sleep(0.3)
 
     # def cb_p1(self, msg):
     #     P1 = [msg.x, msg.y, msg.z]

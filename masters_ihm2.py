@@ -532,11 +532,6 @@ class MastersIHM(tk.Tk):
     def _on_ros_started(self):
         self._set_indicator("ros",   "on")
         self._set_indicator("robot", "on")
-        self._btn_play.config(state="normal", bg=BTN_BLUE)
-
-        # Ajouté le 18/05
-        self._btn_reset_anim.config(state="normal", bg=BTN_BLUE)
-
         self._btn_cal.config(state="normal")
         for btn in self._scen_btns.values():
             btn.config(state="normal")
@@ -551,12 +546,13 @@ class MastersIHM(tk.Tk):
         self._btn_start.config(state="disabled")
         self._btn_stop.config(state="normal")
         self._btn_reset.config(state="normal")
+        self._btn_reset_anim.config(state="normal", bg=BTN_BLUE)
 
-        # self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
         self._set_status("⏳ Robot en cours d'initialisation...", YELLOW)
         self._btn_play.config(state="disabled", bg=GREY)
-        
+
         self._status_stop.clear()
+        # print(f"[DEBUG] _status_stop cleared : {self._status_stop.is_set()}")
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
         self._abort_thread = threading.Thread(target=self._listen_abort, daemon=True)
         self._abort_thread.start()
@@ -664,6 +660,7 @@ class MastersIHM(tk.Tk):
     #  ÉCOUTE /masters/status
     # ══════════════════════════════════════════
     def _listen_status(self):
+        # print(f"[DEBUG] _listen_status démarré à {time.strftime('%H:%M:%S')}")
         proc = subprocess.Popen(
             "ros2 topic echo /masters/status std_msgs/msg/String",
             shell=True, stdout=subprocess.PIPE,
@@ -672,6 +669,7 @@ class MastersIHM(tk.Tk):
         )
         self.processes["status_listener"] = proc
         for line in proc.stdout:
+            # print(f"[DEBUG LISTENER] ligne reçue : {line.strip()}")
             if self._status_stop.is_set():
                 break
             line = line.strip()
@@ -748,6 +746,7 @@ class MastersIHM(tk.Tk):
         self._set_status("⚠️ Point hors de portée du robot — Déplacer le point de contact.", YELLOW)
 
     def _on_status_restarted(self):
+        # print(f"[DEBUG] restarted reçu à {time.strftime('%H:%M:%S')}")
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("robot", "on")
         self._set_indicator("session", "off")
