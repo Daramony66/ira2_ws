@@ -523,36 +523,18 @@ class MastersIHM(tk.Tk):
                 threading.Thread(
                     target=self._stream_logs,
                     args=(proc, label), daemon=True).start()
-                time.sleep(1.5)
+                time.sleep(1.0)
             self.ros_running = True
             self.after(0, self._on_ros_started)
 
         threading.Thread(target=run, daemon=True).start()
 
     def _on_ros_started(self):
-        self._set_indicator("ros",   "on")
-        self._set_indicator("robot", "on")
-        self._btn_cal.config(state="normal")
-        for btn in self._scen_btns.values():
-            btn.config(state="normal")
-        self._btn_confirm.config(state="normal")
-
-        for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
-            if self.scenario_var.get() == "Touch" and lbl in TOUCH_LOCKED:
-                continue
-            scale.config(state="normal")
-            entry.config(state="normal")
-
-        self._btn_start.config(state="disabled")
-        self._btn_stop.config(state="normal")
-        self._btn_reset.config(state="normal")
-        self._btn_reset_anim.config(state="normal", bg=BTN_BLUE)
-
+        self._set_indicator("ros", "on")
         self._set_status("⏳ Robot en cours d'initialisation...", YELLOW)
         self._btn_play.config(state="disabled", bg=GREY)
 
         self._status_stop.clear()
-        # print(f"[DEBUG] _status_stop cleared : {self._status_stop.is_set()}")
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
         self._abort_thread = threading.Thread(target=self._listen_abort, daemon=True)
         self._abort_thread.start()
@@ -746,14 +728,24 @@ class MastersIHM(tk.Tk):
         self._set_status("⚠️ Point hors de portée du robot — Déplacer le point de contact.", YELLOW)
 
     def _on_status_restarted(self):
-        # print(f"[DEBUG] restarted reçu à {time.strftime('%H:%M:%S')}")
         self._btn_play.config(state="normal", bg=BTN_BLUE)
+        self._btn_reset_anim.config(state="normal", bg=BTN_BLUE)
+        self._btn_cal.config(state="normal")
+        self._btn_stop.config(state="normal")
+        self._btn_reset.config(state="normal")
+        self._btn_start.config(state="disabled")
+        self._set_indicator("ros", "on")
         self._set_indicator("robot", "on")
         self._set_indicator("session", "off")
-        ## self._set_status("✅ Robot reconnecté — Prêt pour le prochain PLAY.", GREEN)
-
+        for btn in self._scen_btns.values():
+            btn.config(state="normal")
+        self._btn_confirm.config(state="normal")
+        for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
+            if self.scenario_var.get() == "Touch" and lbl in TOUCH_LOCKED:
+                continue
+            scale.config(state="normal")
+            entry.config(state="normal")
         self._set_status("✅ Robot prêt — Mettre le casque puis appuyer PLAY.", GREEN)
-
         self._do_confirm_forced()
         self._select_scenario(self.scenario_var.get())
 
