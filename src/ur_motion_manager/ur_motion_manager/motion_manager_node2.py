@@ -94,7 +94,7 @@ class TestUnityP1(Node):
             # math.radians(90),
             # math.radians(0),
 
-            # POSE 28/05 - symétrie gauche mais J4 vers le bas et NON resserré
+            # POSE 28/05 - symétrie gauche mais J4 vers le bas et NON resserré (ex FINALE)
             # math.radians(0),
             # math.radians(-115),
             # math.radians(-135),
@@ -102,7 +102,7 @@ class TestUnityP1(Node):
             # math.radians(270),
             # math.radians(0),
 
-            # POSE 05/06 - symétrie gauche mais J4 vers le bas et resserré
+            # POSE 05/06 - symétrie gauche mais J4 vers le bas et resserré (ex FINALE)
             # math.radians(0),
             # math.radians(-110),
             # math.radians(-148),
@@ -148,6 +148,20 @@ class TestUnityP1(Node):
             math.radians(-41.10),
             math.radians(12.36),
             math.radians(0),
+
+            # math.radians(103.7),
+            # math.radians(-77.85),
+            # math.radians(118.75),
+            # math.radians(-40.85),
+            # math.radians(13.68),
+            # math.radians(0),
+
+            # math.radians(66.1),
+            # math.radians(-77.85),
+            # math.radians(118.75),
+            # math.radians(-40.85),
+            # math.radians(-23.9),
+            # math.radians(0),
         ]
 
         self.get_logger().info("Déplacement vers position initiale...") #Ajouté le 15/04
