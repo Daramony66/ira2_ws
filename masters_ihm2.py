@@ -119,8 +119,6 @@ class MastersIHM(tk.Tk):
         self._btn_confirm.config(state="disabled")
         self._btn_stop.config(state="disabled") # Ajouté le 22/04 à 15h00
         self._btn_reset.config(state="disabled") # Ajouté le 22/04 à 15h55
-        # Ajouté le 18/05
-        self._btn_reset_anim.config(state="disabled")
 
         for lbl, (scale, entry, entry_var, var) in self._slider_widgets.items():
             scale.config(state="disabled")
@@ -292,14 +290,6 @@ class MastersIHM(tk.Tk):
                                    command=self._do_play, state="disabled")
         self._btn_play.pack(side="left", fill="x", expand=True, ipady=self.sv(14), padx=(0, self.s(4)))
 
-        # Ajouté le 18/05
-        self._btn_reset_anim = tk.Button(play_row, text="↺",
-                                         font=("Helvetica", self.sf(16), "bold"),
-                                         bg=GREY, fg=WHITE, relief="flat",
-                                         activebackground=BTN_BLUE, cursor="hand2",
-                                         command=self._do_reset_animation, state="disabled")
-        self._btn_reset_anim.pack(side="left", ipady=self.sv(14), ipadx=self.s(16))
-
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(8))
 
         self._btn_stop = self._card_button(col, "⛔  STOP",
@@ -391,9 +381,6 @@ class MastersIHM(tk.Tk):
             except subprocess.TimeoutExpired:
                 pass
         threading.Thread(target=run, daemon=True).start()
-
-        # Ajouté le 18/05
-        self._do_reset_animation()
 
         if name == "Touch":
             print(f"[DEBUG] Passage en Touch — _pre_touch_values AVANT sauvegarde : {self._pre_touch_values}")
@@ -558,16 +545,6 @@ class MastersIHM(tk.Tk):
         self._set_indicator("session", "on")
         self._set_status(f"🎮 Poussée en cours — Scénario : {self.scenario_var.get()}", BTN_BLUE)
 
-    # Ajouté le 18/05
-    def _do_reset_animation(self):
-        cmd = 'ros2 service call /reset_animation std_srvs/srv/Trigger'
-        def run():
-            try:
-                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
-            except subprocess.TimeoutExpired:
-                pass
-        threading.Thread(target=run, daemon=True).start()
-
     def _do_stop(self):
         self._status_stop.set()
         self._ros2_publish(TOPIC_ABORT, "ABORT depuis IHM")
@@ -605,7 +582,6 @@ class MastersIHM(tk.Tk):
         self._set_indicator("unity", "off")
         self._btn_play.config(state="disabled", bg=GREY)
         # Ajouté le 18/05
-        self._btn_reset_anim.config(state="disabled", bg=GREY)
         self._btn_cal.config(state="disabled")
         for btn in self._scen_btns.values():
             btn.config(state="disabled")
@@ -729,7 +705,6 @@ class MastersIHM(tk.Tk):
 
     def _on_status_restarted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
-        self._btn_reset_anim.config(state="normal", bg=BTN_BLUE)
         self._btn_cal.config(state="normal")
         self._btn_stop.config(state="normal")
         self._btn_reset.config(state="normal")
