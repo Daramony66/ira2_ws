@@ -552,7 +552,10 @@ class MastersIHM(tk.Tk):
         self._btn_stop.config(state="normal")
         self._btn_reset.config(state="normal")
 
-        self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
+        # self._set_status("✅ ROS2 prêt — Mettre le casque puis appuyer PLAY.", GREEN)
+        self._set_status("⏳ Robot en cours d'initialisation...", YELLOW)
+        self._btn_play.config(state="disabled", bg=GREY)
+        
         self._status_stop.clear()
         self._status_thread = threading.Thread(target=self._listen_status, daemon=True)
         self._abort_thread = threading.Thread(target=self._listen_abort, daemon=True)
@@ -748,7 +751,10 @@ class MastersIHM(tk.Tk):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("robot", "on")
         self._set_indicator("session", "off")
-        self._set_status("✅ Robot reconnecté — Prêt pour le prochain PLAY.", GREEN)
+        ## self._set_status("✅ Robot reconnecté — Prêt pour le prochain PLAY.", GREEN)
+
+        self._set_status("✅ Robot prêt — Mettre le casque puis appuyer PLAY.", GREEN)
+
         self._do_confirm_forced()
         self._select_scenario(self.scenario_var.get())
 

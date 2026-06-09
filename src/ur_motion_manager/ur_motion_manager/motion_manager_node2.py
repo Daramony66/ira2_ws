@@ -119,11 +119,27 @@ class TestUnityP1(Node):
             # math.radians(0),
 
             # POSE 05/06 - robot symétrie à droite pour éviter de cogner
-            math.radians(180),
-            math.radians(-70),
-            math.radians(150),
-            math.radians(-80),
-            math.radians(90),
+            # math.radians(180),
+            # math.radians(-70),
+            # math.radians(150),
+            # math.radians(-80),
+            # math.radians(90),
+            # math.radians(0),
+
+            # POSE 09/06 - POSE TEST en partant de symétrie droite mais décaler tout à gauche
+            # math.radians(90),
+            # math.radians(-70),
+            # math.radians(140),
+            # math.radians(-70),
+            # math.radians(0),
+            # math.radians(0),
+
+            # POSE 09/06 - POSE TEST en partant de symétrie droite mais décaler tout à gauche
+            math.radians(120),
+            math.radians(-65),
+            math.radians(100),
+            math.radians(-35),
+            math.radians(30),
             math.radians(0),
         ]
 
@@ -484,23 +500,6 @@ class TestUnityP1(Node):
             return
 
         # Ajouté le 20/05 — rejet des points derrière l'outil
-        # tcp_init = self.rr.getActualTCPPose()
-        # vec_to_pre_p1 = [
-        #     pre_P1[0] - tcp_init[0],
-        #     pre_P1[1] - tcp_init[1],
-        #     pre_P1[2] - tcp_init[2],
-        # ]
-        # dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
-        #     vec_to_pre_p1[1] * self.z_axis_in_base[1] +
-        #     vec_to_pre_p1[2] * self.z_axis_in_base[2])
-        # if dot < 0:
-        #     self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
-        #     msg = String()
-        #     msg.data = "aborted_norm"
-        #     self.status_pub.publish(msg)
-        #     return
-
-        # Ajouté le 20/05 — rejet des points derrière l'outil
         tcp_init = self.rr.getActualTCPPose()
         vec_to_pre_p1 = [
             pre_P1[0] - tcp_init[0],
@@ -510,23 +509,12 @@ class TestUnityP1(Node):
         dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
             vec_to_pre_p1[1] * self.z_axis_in_base[1] +
             vec_to_pre_p1[2] * self.z_axis_in_base[2])
-        dist_x = pre_P1[0] - tcp_init[0]
-        if dist_x < -0.10:
-            self.get_logger().warn("pre_P1 trop loin derrière en X — point rejeté.")
+        if dot < 0:
+            self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
             msg = String()
             msg.data = "aborted_norm"
             self.status_pub.publish(msg)
             return
-        
-        dist_y = pre_P1[1] - tcp_init[1]
-        self.get_logger().info(f"dist_y = {dist_y*1000:.1f}mm")
-        if dist_y > -0.075:
-            if dot < 0:
-                self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
-                msg = String()
-                msg.data = "aborted_norm"
-                self.status_pub.publish(msg)
-                return
 
         # Ajouté le 20/05 — vérification atteignabilité pre_P1
         if not self.rc.isPoseWithinSafetyLimits(pre_P1):
