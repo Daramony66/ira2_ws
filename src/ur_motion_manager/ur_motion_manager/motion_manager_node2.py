@@ -186,7 +186,7 @@ class TestUnityP1(Node):
             os.remove(csv_path)
 
         #Ajouté je 16/04 à 16h45
-        self.declare_parameter('force_target', 5.0)
+        self.declare_parameter('force_target', 7.5)
         self.declare_parameter('force_wrench', 120.0)
         self.declare_parameter('force_max', 100.0)
         self.declare_parameter('scenario_mode', 3)  # Push par défaut
