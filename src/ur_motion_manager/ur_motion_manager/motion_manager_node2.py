@@ -135,11 +135,18 @@ class TestUnityP1(Node):
             # math.radians(0),
 
             # POSE 09/06 - POSE TEST en partant de symétrie droite mais décaler tout à gauche
-            math.radians(120),
-            math.radians(-65),
-            math.radians(100),
-            math.radians(-35),
-            math.radians(30),
+            # math.radians(120),
+            # math.radians(-65),
+            # math.radians(100),
+            # math.radians(-35),
+            # math.radians(30),
+            # math.radians(0),
+
+            math.radians(102.37),
+            math.radians(-78.69),
+            math.radians(119.85),
+            math.radians(-41.10),
+            math.radians(12.36),
             math.radians(0),
         ]
 
@@ -186,7 +193,7 @@ class TestUnityP1(Node):
         self.declare_parameter('timeout', 30.0)
         self.declare_parameter('offset', 0.075)
         self.declare_parameter('xy_norm_min', 0.230)
-        self.declare_parameter('settle_time', 0.2)
+        self.declare_parameter('settle_time', 1.0)
         self.declare_parameter('bias_samples', 50)
         self.declare_parameter('bias_std_threshold', 0.5)
         self.declare_parameter('hold_time', 0.2) # Ajouté le 17/04 à 11h40
@@ -545,6 +552,28 @@ class TestUnityP1(Node):
                 return
             time.sleep(0.02)
         print(f"En pre_P1 !")
+
+        #### Ajouté le 09/06 ###########################################
+        # Attente de stabilisation avant de lire les forces pour le bias learning, sinon on peut avoir des pics à cause du mouvement
+
+        time.sleep(0.02)
+
+        # Ajouté le 16/04 à 12h35
+        self.rc.zeroFtSensor()
+        time.sleep(self.settle_time)
+
+        # Bias learning
+        bias_buf = []
+        while len(bias_buf) < self.bias_samples:
+            force = self.rr.getActualTCPForce()
+            mag = (force[0]**2 + force[1]**2 + force[2]**2)**0.5
+            bias_buf.append(mag)
+            time.sleep(0.01)
+
+        bias_mean = sum(bias_buf) / len(bias_buf)
+        bias_std = (sum((x - bias_mean)**2 for x in bias_buf) / len(bias_buf))**0.5
+        self.get_logger().info(f"Bias appris : {bias_mean:.3f}N (std={bias_std:.3f}N)")
+
         ###############################################
 
         # Ajouté le 19/05 — vérification dextérité en pre_P1
@@ -611,25 +640,6 @@ class TestUnityP1(Node):
         speed_log = []
 
         # ETAPE force mode : pousser en Z TCP vers P1
-        
-        time.sleep(0.02)
-
-        # Ajouté le 16/04 à 12h35
-        self.rc.zeroFtSensor()
-        time.sleep(self.settle_time)
-
-        # Bias learning
-        bias_buf = []
-        while len(bias_buf) < self.bias_samples:
-            force = self.rr.getActualTCPForce()
-            mag = (force[0]**2 + force[1]**2 + force[2]**2)**0.5
-            bias_buf.append(mag)
-            time.sleep(0.01)
-
-        bias_mean = sum(bias_buf) / len(bias_buf)
-        bias_std = (sum((x - bias_mean)**2 for x in bias_buf) / len(bias_buf))**0.5
-        self.get_logger().info(f"Bias appris : {bias_mean:.3f}N (std={bias_std:.3f}N)")
-        ###############################################################################
 
         tcp_current = self.rr.getActualTCPPose()
         task_frame = list(tcp_current) # repère de poussée
@@ -730,7 +740,7 @@ class TestUnityP1(Node):
                 force_max = round(max((r['force_detectee_N'] for r in speed_log), default=0), 3)
                 vitesse_max = round(max((r['vitesse_mm_s'] for r in speed_log), default=0), 2)
 
-                print(f"Force cible atteinte : {force_dev:.2f}N !")
+                self.get_logger().info(f"Force cible atteinte : force_dev={force_dev:.3f}N  bias_mean={bias_mean:.3f}N  force_mag={force_mag:.3f}N")
                 if self.scenario_mode == 2:    # Punch
                     self.rc.forceModeStop()
                     self.get_logger().info("Mode Punch — rétraction rapide !")
