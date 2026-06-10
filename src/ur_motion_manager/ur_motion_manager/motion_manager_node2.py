@@ -564,7 +564,30 @@ class TestUnityP1(Node):
             return
 
         #Ajouté le 16/04 à 15h15#######################
+        # self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
+
+        # Ajouté le 10/06 — point intermédiaire pour forcer J1 à tourner
+        tcp_init_pose = self.rr.getActualTCPPose()
+        mid_P1 = [
+            tcp_init_pose[0],
+            tcp_init_pose[1] + 0.20,
+            tcp_init_pose[2],
+            self.orientation[0], self.orientation[1], self.orientation[2],
+        ]
+        self.rc.moveL(mid_P1, 0.05, 0.05, asynchronous=True)
+        while self.rc.getAsyncOperationProgress() >= 0:
+            if self.abort_active:
+                self.rc.stopL(0.5)
+                msg = String(); msg.data = "aborted"; self.status_pub.publish(msg)
+                return
+            if self.rr.getRuntimeState() != 2:
+                msg = String(); msg.data = "error"; self.status_pub.publish(msg)
+                self.error_event.set(); return
+            time.sleep(0.02)
+
+        #Ajouté le 16/04 à 15h15#######################
         self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
+
         while self.rc.getAsyncOperationProgress() >= 0:
             if self.abort_active:
                 self.rc.stopL(0.5)
