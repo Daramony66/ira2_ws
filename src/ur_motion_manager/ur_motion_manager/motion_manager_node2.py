@@ -508,24 +508,6 @@ class TestUnityP1(Node):
             return
 
         # Ajouté le 20/05 — rejet des points derrière l'outil
-        tcp_init = self.rr.getActualTCPPose()
-        vec_to_pre_p1 = [
-            pre_P1[0] - tcp_init[0],
-            pre_P1[1] - tcp_init[1],
-            pre_P1[2] - tcp_init[2],
-        ]
-        dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
-            vec_to_pre_p1[1] * self.z_axis_in_base[1] +
-            vec_to_pre_p1[2] * self.z_axis_in_base[2])
-        if dot < 0:
-            self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
-            msg = String()
-            msg.data = "aborted_norm"
-            self.status_pub.publish(msg)
-            return
-
-        # Ajouté le 10/06 - rejet des points en arrière de l'outil
-
         # tcp_init = self.rr.getActualTCPPose()
         # vec_to_pre_p1 = [
         #     pre_P1[0] - tcp_init[0],
@@ -535,23 +517,41 @@ class TestUnityP1(Node):
         # dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
         #     vec_to_pre_p1[1] * self.z_axis_in_base[1] +
         #     vec_to_pre_p1[2] * self.z_axis_in_base[2])
-        # dist_x = pre_P1[0] - tcp_init[0]
-        # if dist_x < -0.10:
-        #     self.get_logger().warn("pre_P1 trop loin derrière en X — point rejeté.")
+        # if dot < 0:
+        #     self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
         #     msg = String()
         #     msg.data = "aborted_norm"
         #     self.status_pub.publish(msg)
         #     return
+
+        # Ajouté le 10/06 - rejet des points en arrière de l'outil
+
+        tcp_init = self.rr.getActualTCPPose()
+        vec_to_pre_p1 = [
+            pre_P1[0] - tcp_init[0],
+            pre_P1[1] - tcp_init[1],
+            pre_P1[2] - tcp_init[2],
+        ]
+        dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
+            vec_to_pre_p1[1] * self.z_axis_in_base[1] +
+            vec_to_pre_p1[2] * self.z_axis_in_base[2])
+        dist_x = pre_P1[0] - tcp_init[0]
+        if dist_x < -0.10:
+            self.get_logger().warn("pre_P1 trop loin derrière en X — point rejeté.")
+            msg = String()
+            msg.data = "aborted_norm"
+            self.status_pub.publish(msg)
+            return
         
-        # dist_y = pre_P1[1] - tcp_init[1]
-        # self.get_logger().info(f"dist_y = {dist_y*1000:.1f}mm")
-        # if dist_y < 0.15:
-        #     if dot < 0:
-        #         self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
-        #         msg = String()
-        #         msg.data = "aborted_norm"
-        #         self.status_pub.publish(msg)
-        #         return
+        dist_y = pre_P1[1] - tcp_init[1]
+        self.get_logger().info(f"dist_y = {dist_y*1000:.1f}mm")
+        if dist_y < 0.15:
+            if dot < 0:
+                self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
+                msg = String()
+                msg.data = "aborted_norm"
+                self.status_pub.publish(msg)
+                return
 
         ##########################################################
 
@@ -564,30 +564,7 @@ class TestUnityP1(Node):
             return
 
         #Ajouté le 16/04 à 15h15#######################
-        # self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
-
-        # Ajouté le 10/06 — point intermédiaire pour forcer J1 à tourner
-        tcp_init_pose = self.rr.getActualTCPPose()
-        mid_P1 = [
-            tcp_init_pose[0],
-            tcp_init_pose[1] + 0.20,
-            tcp_init_pose[2],
-            self.orientation[0], self.orientation[1], self.orientation[2],
-        ]
-        self.rc.moveL(mid_P1, 0.05, 0.05, asynchronous=True)
-        while self.rc.getAsyncOperationProgress() >= 0:
-            if self.abort_active:
-                self.rc.stopL(0.5)
-                msg = String(); msg.data = "aborted"; self.status_pub.publish(msg)
-                return
-            if self.rr.getRuntimeState() != 2:
-                msg = String(); msg.data = "error"; self.status_pub.publish(msg)
-                self.error_event.set(); return
-            time.sleep(0.02)
-
-        #Ajouté le 16/04 à 15h15#######################
         self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
-
         while self.rc.getAsyncOperationProgress() >= 0:
             if self.abort_active:
                 self.rc.stopL(0.5)
