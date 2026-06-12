@@ -188,7 +188,7 @@ class TestUnityP1(Node):
         self.declare_parameter('force_max', 100.0)
         self.declare_parameter('scenario_mode', 3)  # Push par défaut
         self.declare_parameter('timeout', 30.0)
-        self.declare_parameter('offset', 0.075)
+        self.declare_parameter('offset', 0.05)
         self.declare_parameter('xy_norm_min', 0.230)
         self.declare_parameter('settle_time', 1.0)
         self.declare_parameter('bias_samples', 50)

@@ -76,7 +76,7 @@ class MastersIHM(tk.Tk):
         self.force_target  = tk.DoubleVar(value=7.5)
         self.force_wrench  = tk.DoubleVar(value=120.0)
         self.force_max     = tk.DoubleVar(value=100.0)
-        self.offset_var    = tk.DoubleVar(value=0.075)
+        self.offset_var    = tk.DoubleVar(value=0.05)
         self.timeout_var   = tk.DoubleVar(value=30.0)
         self.hold_time_var = tk.DoubleVar(value=0.2)
 
@@ -89,7 +89,7 @@ class MastersIHM(tk.Tk):
             'force_target': 7.5,
             'force_wrench': 120.0,
             'force_max':    100.0,
-            'offset':        0.075,
+            'offset':        0.05,
             'timeout':      30.0,
             'hold_time':     0.2,
         }
@@ -474,7 +474,7 @@ class MastersIHM(tk.Tk):
             'force_target': 7.5,
             'force_wrench': 120.0,
             'force_max':    100.0,
-            'offset':        0.075,
+            'offset':        0.05,
             'timeout':      30.0,
             'hold_time':     0.2,
         }
@@ -601,7 +601,7 @@ class MastersIHM(tk.Tk):
             'Force cible (N)':          7.5,
             'Force de poussée (N)':     120.0,
             'Force max détectée (N)':         100.0,
-            'Distance avant contact (m)': 0.075,
+            'Distance avant contact (m)': 0.05,
             'Timeout (s)':              30.0,
             'Maintien (s)':             0.2,
         }
