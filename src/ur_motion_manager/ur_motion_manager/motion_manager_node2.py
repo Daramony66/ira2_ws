@@ -89,12 +89,12 @@ class TestUnityP1(Node):
 
 
             # POSE 26/05 - symétrie gauche mais J4 vers le haut --- POSE SAUVEGARDEE
-            # math.radians(0),
-            # math.radians(-135),
-            # math.radians(-135),
-            # math.radians(90),
-            # math.radians(90),
-            # math.radians(0),
+            math.radians(0),
+            math.radians(-135),
+            math.radians(-135),
+            math.radians(90),
+            math.radians(90),
+            math.radians(0),
 
             # POSE 28/05 - symétrie gauche mais J4 vers le bas et NON resserré (ex FINALE)
             # math.radians(0),
@@ -137,12 +137,12 @@ class TestUnityP1(Node):
             # math.radians(0),
 
             # POSE 10/06 - POSE TEST en partant de symétrie droite mais décaler tout à gauche (mieux)
-            math.radians(102.37),
-            math.radians(-78.69),
-            math.radians(119.85),
-            math.radians(-41.10),
-            math.radians(12.36),
-            math.radians(0),
+            # math.radians(102.37),
+            # math.radians(-78.69),
+            # math.radians(119.85),
+            # math.radians(-41.10),
+            # math.radians(12.36),
+            # math.radians(0),
 
         ]
 
@@ -568,6 +568,14 @@ class TestUnityP1(Node):
         #         return
 
         #########################################################
+
+        # Ajouté le 12/06 — rejet des points à gauche de la pose initiale
+        if pre_P1[1] > tcp_init[1]:
+            self.get_logger().warn(f"Epaule trop à droite (y={pre_P1[1]*1000:.1f}mm > y_init={tcp_init[1]*1000:.1f}mm) — point rejeté.")
+            msg = String()
+            msg.data = "aborted_shoulder"
+            self.status_pub.publish(msg)
+            return
 
         # Ajouté le 20/05 — vérification atteignabilité pre_P1
         if not self.rc.isPoseWithinSafetyLimits(pre_P1):

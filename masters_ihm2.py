@@ -654,6 +654,9 @@ class MastersIHM(tk.Tk):
             elif data == "aborted_singularity":
                 self.session_active = False
                 self.after(0, self._on_status_aborted_singularity)
+            elif data == "aborted_shoulder":
+                self.session_active = False
+                self.after(0, self._on_status_aborted_shoulder)
 
     def _listen_abort(self):
         proc = subprocess.Popen(
@@ -728,6 +731,11 @@ class MastersIHM(tk.Tk):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
         self._set_status("⚠️ Position en singularité — Déplacer le point de contact.", YELLOW)
+
+    def _on_status_aborted_shoulder(self):
+        self._btn_play.config(state="normal", bg=BTN_BLUE)
+        self._set_indicator("session", "off")
+        self._set_status("⚠️ Epaule trop à droite — Déplacer le point de contact.", YELLOW)
 
     # ══════════════════════════════════════════
     #  HELPERS
