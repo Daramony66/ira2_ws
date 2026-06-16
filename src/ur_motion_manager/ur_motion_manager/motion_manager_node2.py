@@ -878,8 +878,8 @@ class TestUnityP1(Node):
         print(f"Rétracté en pre_P1 !")
         #########################################
 
-        self.rc.moveJ(self.init_pose, 0.5, 0.5)
-        # self.rc.moveL(self.tcp_init_pose, 0.2, 0.5)
+        # self.rc.moveJ(self.init_pose, 0.5, 0.5)
+        self.rc.moveL(self.tcp_init_pose, 0.2, 0.5)
         self.get_logger().info("Retour position initiale.")
 
         # Ajouté 17/04 à 13h10
