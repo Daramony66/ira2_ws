@@ -89,12 +89,12 @@ class TestUnityP1(Node):
 
 
             # POSE 26/05 - symétrie gauche mais J4 vers le haut --- POSE SAUVEGARDEE
-            math.radians(0),
-            math.radians(-135),
-            math.radians(-135),
-            math.radians(90),
-            math.radians(90),
-            math.radians(0),
+            # math.radians(0),
+            # math.radians(-135),
+            # math.radians(-135),
+            # math.radians(90),
+            # math.radians(90),
+            # math.radians(0),
 
             # POSE 28/05 - symétrie gauche mais J4 vers le bas et NON resserré (ex FINALE)
             # math.radians(0),
@@ -137,12 +137,12 @@ class TestUnityP1(Node):
             # math.radians(0),
 
             # POSE 10/06 - POSE TEST en partant de symétrie droite mais décaler tout à gauche (mieux)
-            # math.radians(102.37),
-            # math.radians(-78.69),
-            # math.radians(119.85),
-            # math.radians(-41.10),
-            # math.radians(12.36),
-            # math.radians(0),
+            math.radians(102.37),
+            math.radians(-78.69),
+            math.radians(119.85),
+            math.radians(-41.10),
+            math.radians(12.36),
+            math.radians(0),
 
         ]
 
@@ -160,6 +160,7 @@ class TestUnityP1(Node):
         self.orientation = [tcp[3], tcp[4], tcp[5]]
         rot = R.from_rotvec(tcp[3:6])
         self.z_axis_in_base = rot.as_matrix()[:, 2]
+        self.tcp_init_pose = list(tcp)  # ← ICI
 
         self.error_event = threading.Event()
 
@@ -500,80 +501,32 @@ class TestUnityP1(Node):
         dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
             vec_to_pre_p1[1] * self.z_axis_in_base[1] +
             vec_to_pre_p1[2] * self.z_axis_in_base[2])
-        if dot < 0:
-            self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
+        # if dot < 0:
+        #     self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
+        #     msg = String()
+        #     msg.data = "aborted_norm"
+        #     self.status_pub.publish(msg)
+        #     return
+
+        # Ajouté le 16/06 à 12h30
+        if (pre_P1[1] - tcp_init[1]) < 0.290 and pre_P1[0] < tcp_init[0] + 0.050:
+            self.get_logger().warn("pre_P1 rejeté — zone interdite.")
             msg = String()
             msg.data = "aborted_norm"
             self.status_pub.publish(msg)
             return
-
-        # Ajouté le 10/06 - rejet des points en arrière de l'outil 2 ####ARRRRRGHHHHHHH
-
-        # tcp_init = self.rr.getActualTCPPose()
-        # vec_to_pre_p1 = [
-        #     pre_P1[0] - tcp_init[0],
-        #     pre_P1[1] - tcp_init[1],
-        #     pre_P1[2] - tcp_init[2],
-        # ]
-        # dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
-        #     vec_to_pre_p1[1] * self.z_axis_in_base[1] +
-        #     vec_to_pre_p1[2] * self.z_axis_in_base[2])
         
-        # dist_x = pre_P1[0] - tcp_init[0]
-        # if dist_x < -0.10:
-        #     self.get_logger().warn("pre_P1 trop loin derrière en X — point rejeté.")
-        #     msg = String()
-        #     msg.data = "aborted_norm"
-        #     self.status_pub.publish(msg)
-        #     return
-        
-        # dist_y = pre_P1[1] - tcp_init[1]
-        # self.get_logger().info(f"dist_y = {dist_y*1000:.1f}mm")
-        # if dist_y < 0.15:
-        #     if dot < 0:
-        #         self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
-        #         msg = String()
-        #         msg.data = "aborted_norm"
-        #         self.status_pub.publish(msg)
-        #         return
-
-        ##########################################################
-
-        # Ajouté le 11/06 — rejet des points derrière l'outil 3
-        # tcp_init = self.rr.getActualTCPPose()
-        # vec_to_pre_p1 = [
-        #     pre_P1[0] - tcp_init[0],
-        #     pre_P1[1] - tcp_init[1],
-        #     pre_P1[2] - tcp_init[2],
-        # ]
-        # dot = (vec_to_pre_p1[0] * self.z_axis_in_base[0] +
-        #     vec_to_pre_p1[1] * self.z_axis_in_base[1] +
-        #     vec_to_pre_p1[2] * self.z_axis_in_base[2])
-        # dist_x = pre_P1[0] - tcp_init[0]
-        # if dist_x < -0.10:
-        #     self.get_logger().warn("pre_P1 trop loin derrière en X — point rejeté.")
-        #     msg = String()
-        #     msg.data = "aborted_norm"
-        #     self.status_pub.publish(msg)
-        #     return
-        
-        # dist_y = pre_P1[1] - tcp_init[1]
-        # self.get_logger().info(f"dist_y = {dist_y*1000:.1f}mm")
-        # if dist_y > -0.075:
-        #     if dot < 0:
-        #         self.get_logger().warn("pre_P1 derrière l'outil — point rejeté.")
-        #         msg = String()
-        #         msg.data = "aborted_norm"
-        #         self.status_pub.publish(msg)
-        #         return
-
-        #########################################################
-
-        # Ajouté le 12/06 — rejet des points à gauche de la pose initiale
-        if pre_P1[1] > tcp_init[1]:
-            self.get_logger().warn(f"Epaule trop à droite (y={pre_P1[1]*1000:.1f}mm > y_init={tcp_init[1]*1000:.1f}mm) — point rejeté.")
+        if 0.290 <= (pre_P1[1] - tcp_init[1]) < 0.380 and pre_P1[0] < tcp_init[0] - 0.020:
+            self.get_logger().warn("pre_P1 trop loin derrière en X — point rejeté.")
             msg = String()
-            msg.data = "aborted_shoulder"
+            msg.data = "aborted_norm"
+            self.status_pub.publish(msg)
+            return
+        
+        if (pre_P1[1] - tcp_init[1]) >= 0.380 and pre_P1[0] < tcp_init[0] - 0.150:
+            self.get_logger().warn("pre_P1 rejeté — trop loin derrière en X zone 3.")
+            msg = String()
+            msg.data = "aborted_norm"
             self.status_pub.publish(msg)
             return
 
@@ -584,6 +537,12 @@ class TestUnityP1(Node):
             msg.data = "aborted_norm"
             self.status_pub.publish(msg)
             return
+
+        # Point intermédiaire zones 2 et 3 — Ajouté le 16/06
+        if (pre_P1[1] - tcp_init[1]) >= 0.290:
+            intermediate = [tcp_init[0], 0.1654, pre_P1[2],
+                            self.orientation[0], self.orientation[1], self.orientation[2]]
+            self.rc.moveL(intermediate, 0.05, 0.05)
 
         #Ajouté le 16/04 à 15h15#######################
         self.rc.moveL(pre_P1, 0.05, 0.05, asynchronous=True)
@@ -920,6 +879,7 @@ class TestUnityP1(Node):
         #########################################
 
         self.rc.moveJ(self.init_pose, 0.5, 0.5)
+        # self.rc.moveL(self.tcp_init_pose, 0.2, 0.5)
         self.get_logger().info("Retour position initiale.")
 
         # Ajouté 17/04 à 13h10
