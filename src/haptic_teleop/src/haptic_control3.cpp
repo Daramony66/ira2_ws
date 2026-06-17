@@ -631,7 +631,7 @@ public:
 
     //Ajouté logs debug le 04/03 à 12h34
     RCLCPP_INFO(this->get_logger(), "Debut moveJ...");
-    rtde_control.moveJ(init_pose, velocity, acceleration);
+    rtde_control.moveJ(init_pose, 0.5, 0.5);
     RCLCPP_INFO(this->get_logger(), "moveJ termine.");
 
     //Commenté le 20/03 à 12h32
