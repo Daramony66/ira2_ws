@@ -47,6 +47,9 @@ add_executable(haptic_control3 src/haptic_control3.cpp)
 #Ajouté le 19/03 à 17h42
 add_executable(haptic_control4 src/haptic_control4.cpp)
 
+#Ajouté le 24/06 - node dual expert/apprenant
+add_executable(haptic_control_dual src/haptic_control_dual.cpp)
+
 add_executable(get_force src/get_force.cpp)
 add_executable(color_publisher src/color_publisher.cpp)
 add_executable(position_service src/position_service.cpp)
@@ -131,6 +134,18 @@ ament_target_dependencies(haptic_control4
 )
 add_dependencies(haptic_control4 ${PROJECT_NAME}__rosidl_generator_cpp)
 
+#Ajouté le 24/06
+ament_target_dependencies(haptic_control_dual
+  rclcpp
+  geometry_msgs
+  std_msgs
+  tf2
+  Boost
+  ur_rtde
+  std_srvs
+)
+add_dependencies(haptic_control_dual ${PROJECT_NAME}__rosidl_generator_cpp)
+
 
 
 ament_target_dependencies(get_force 
@@ -161,6 +176,7 @@ install(TARGETS
   haptic_control2 #ajouté  le 03/03 à 10h30
   haptic_control3 #Ajouté le 18/03 à 10h35
   haptic_control4 #Ajouté le 19/03 à 17h43
+  haptic_control_dual #Ajouté le 24/06
   get_force
   color_publisher
   position_service
@@ -204,6 +220,9 @@ target_link_libraries(haptic_control3 ur_rtde::rtde)
 
 #Ajouté le 19/03 à 17h44
 target_link_libraries(haptic_control4 ur_rtde::rtde)
+
+#Ajouté le 24/06
+target_link_libraries(haptic_control_dual ur_rtde::rtde)
 
 target_link_libraries(joints_sub ur_rtde::rtde)
 target_link_libraries(robot_control ur_rtde::rtde)

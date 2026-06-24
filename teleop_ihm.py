@@ -50,6 +50,25 @@ COMMANDS = {
         "color_on": "#f59e0b",
         "color_off": "#78350f",
     },
+    "haptic_dual": {
+        "label": "③' Haptic Dual (test mono-bras)",
+        "cmd": [
+            "bash", "-c",
+            "source /opt/ros/jazzy/setup.bash && "
+            "source ~/ira2_ws/install/setup.bash && "
+            "ros2 run haptic_teleop haptic_control_dual "
+            "--ros-args "
+            # "-r /haptic_position:=/expert/haptic_position "
+            # "-r /button_pressed:=/expert/button_pressed "
+            # "-r /expert/haptic_force:=/haptic_force"
+
+            "-r /expert/haptic_position:=/haptic_position "
+            "-r /expert/button_pressed:=/button_pressed "
+            "-r /expert/haptic_force:=/haptic_force"
+        ],
+        "color_on": "#f59e0b",
+        "color_off": "#78350f",
+    },
 }
 
 # ─── App ─────────────────────────────────────────────────────────────────────
@@ -222,7 +241,11 @@ class SphereLauncher(tk.Tk):
 
     def _start_all(self):
         for key in COMMANDS:
+            if key in ("haptic", "haptic_dual"):
+                continue  # on lance le bon node haptique à la main
             self._start(key)
+        # for key in COMMANDS:
+        #     self._start(key)
 
     def _stop_all(self):
         for key in COMMANDS:
