@@ -128,6 +128,14 @@ public:
           response->message = "Tare effectuee";
       });
 
+    // ----- Boucle de controle a 125 Hz -----
+    // On separe le calcul de la cible + servoL de l'arrivee des messages :
+    // les callbacks ne font que stocker la derniere position/bouton,
+    // ce timer calcule la cible blendee et envoie UN seul servoL.
+    control_timer_ = this->create_wall_timer(
+      std::chrono::milliseconds(8),  // ~125 Hz
+      std::bind(&HapticControlDual::control_loop, this));
+
     RCLCPP_INFO(this->get_logger(), "Initialisation dual complete. alpha_nominal=%.2f", alpha_nominal_.load());
   }
 
@@ -146,37 +154,23 @@ private:
   void expert_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg)
   {
     apply_filter(msg, expert_filtered_pos_, expert_filter_init_);
-    // L'expert cadence le robot des qu'il tient (priorite a l'expert).
-    if (expert_button_ == 1) {
-      update_robot();
-    }
   }
 
   void learner_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg)
   {
     apply_filter(msg, learner_filtered_pos_, learner_filter_init_);
-    // L'apprenant cadence le robot seulement s'il tient ET que l'expert ne tient pas.
-    if (learner_button_ == 1 && expert_button_ != 1) {
-      update_robot();
-    }
   }
 
   void expert_btn_cb(const std_msgs::msg::Int32::SharedPtr msg)
   {
     expert_button_ = msg->data;
-    if (expert_button_ == 0) {
-      expert_filter_init_ = false;
-      stop_if_idle();
-    }
+    if (expert_button_ == 0) expert_filter_init_ = false; // reinit filtre au relachement
   }
 
   void learner_btn_cb(const std_msgs::msg::Int32::SharedPtr msg)
   {
     learner_button_ = msg->data;
-    if (learner_button_ == 0) {
-      learner_filter_init_ = false;
-      stop_if_idle();
-    }
+    if (learner_button_ == 0) learner_filter_init_ = false;
   }
 
   void alpha_cb(const std_msgs::msg::Float64::SharedPtr msg)
@@ -210,7 +204,7 @@ private:
   // ============================================================
   //  BOUCLE DE CONTROLE 125 Hz : gating + blend + servoL
   // ============================================================
-  void update_robot()
+  void control_loop()
   {
     bool held_expert  = (expert_button_  == 1);
     bool held_learner = (learner_button_ == 1);
@@ -224,7 +218,6 @@ private:
       }
       expert_held_prev_  = false;
       learner_held_prev_ = false;
-      smoothed_init_ = false;
       return;
     }
 
@@ -244,7 +237,6 @@ private:
       }
       expert_held_prev_  = held_expert;
       learner_held_prev_ = held_learner;
-      smoothed_init_ = false;  // on relance le lissage proprement apres re-ancrage
     }
 
     // ----- Alpha effectif selon qui tient -----
@@ -270,28 +262,14 @@ private:
              (learner_filtered_pos_[2] - learner_ref_main_[2]) * scaling_factor };
     }
 
-    // ----- Cible blendee brute (translation seule, orientation figee) -----
-    std::array<double,3> raw_target = {
+    // ----- Cible blendee (translation seule, orientation figee) -----
+    std::array<double,6> target = {
       ref_pos_robot_[0] + a * dE[0] + (1.0 - a) * dL[0],
       ref_pos_robot_[1] + a * dE[1] + (1.0 - a) * dL[1],
-      ref_pos_robot_[2] + a * dE[2] + (1.0 - a) * dL[2]
-    };
-
-    // ----- Lissage de la cible a 125 Hz (supprime l'effet d'escalier -> plus d'oscillation) -----
-    // beta proche de 1 = tres lisse mais plus de retard ; proche de 0 = reactif mais moins lisse.
-    const double beta = 0.9;
-    if (!smoothed_init_) {
-      smoothed_target_ = raw_target;
-      smoothed_init_ = true;
-    } else {
-      smoothed_target_[0] = beta * smoothed_target_[0] + (1.0 - beta) * raw_target[0];
-      smoothed_target_[1] = beta * smoothed_target_[1] + (1.0 - beta) * raw_target[1];
-      smoothed_target_[2] = beta * smoothed_target_[2] + (1.0 - beta) * raw_target[2];
-    }
-
-    std::array<double,6> target = {
-      smoothed_target_[0], smoothed_target_[1], smoothed_target_[2],
-      ref_ori_robot_[0], ref_ori_robot_[1], ref_ori_robot_[2]
+      ref_pos_robot_[2] + a * dE[2] + (1.0 - a) * dL[2],
+      ref_ori_robot_[0],
+      ref_ori_robot_[1],
+      ref_ori_robot_[2]
     };
 
     // ----- Securites : workspace + cinematique inverse -----
@@ -317,19 +295,6 @@ private:
                         velocity, acceleration, dt, lookahead_time, gain);
     rtde_control.waitPeriod(t_start);
     was_moving_ = true;
-  }
-
-  void stop_if_idle()
-  {
-    if (expert_button_ != 1 && learner_button_ != 1) {
-      if (was_moving_) {
-        rtde_control.servoStop();
-        was_moving_ = false;
-      }
-      expert_held_prev_  = false;
-      learner_held_prev_ = false;
-      smoothed_init_ = false;
-    }
   }
 
   // ============================================================
@@ -404,10 +369,6 @@ private:
   std::vector<double> ref_pos_robot_;
   std::vector<double> ref_ori_robot_;
   std::atomic<double> alpha_nominal_;
-
-  std::array<double,3> smoothed_target_{0.0, 0.0, 0.0};
-  bool smoothed_init_ = false;
-
   bool expert_held_prev_;
   bool learner_held_prev_;
   bool was_moving_;
@@ -422,6 +383,7 @@ private:
   rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr expert_force_pub_;
   rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr learner_force_pub_;
   rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr tare_service_;
+  rclcpp::TimerBase::SharedPtr control_timer_;
 };
 
 // ===================== main (signal handling + retry, comme l'original) =====================
