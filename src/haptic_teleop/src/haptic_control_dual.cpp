@@ -128,14 +128,6 @@ public:
           response->message = "Tare effectuee";
       });
 
-    // ----- Boucle de controle a 125 Hz -----
-    // On separe le calcul de la cible + servoL de l'arrivee des messages :
-    // les callbacks ne font que stocker la derniere position/bouton,
-    // ce timer calcule la cible blendee et envoie UN seul servoL.
-    control_timer_ = this->create_wall_timer(
-      std::chrono::milliseconds(17),  // ~125 Hz ; 17 ms = 58.8 Hz, 8 ms = 125 Hz, 10 ms = 100 Hz
-      std::bind(&HapticControlDual::control_loop, this));
-
     RCLCPP_INFO(this->get_logger(), "Initialisation dual complete. alpha_nominal=%.2f", alpha_nominal_.load());
   }
 
@@ -154,23 +146,37 @@ private:
   void expert_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg)
   {
     apply_filter(msg, expert_filtered_pos_, expert_filter_init_);
+    // L'expert cadence le robot des qu'il tient (priorite a l'expert).
+    if (expert_button_ == 1) {
+      update_robot();
+    }
   }
 
   void learner_pos_cb(const geometry_msgs::msg::PoseStamped::SharedPtr msg)
   {
     apply_filter(msg, learner_filtered_pos_, learner_filter_init_);
+    // L'apprenant cadence le robot seulement s'il tient ET que l'expert ne tient pas.
+    if (learner_button_ == 1 && expert_button_ != 1) {
+      update_robot();
+    }
   }
 
   void expert_btn_cb(const std_msgs::msg::Int32::SharedPtr msg)
   {
     expert_button_ = msg->data;
-    if (expert_button_ == 0) expert_filter_init_ = false; // reinit filtre au relachement
+    if (expert_button_ == 0) {
+      expert_filter_init_ = false;
+      stop_if_idle();
+    }
   }
 
   void learner_btn_cb(const std_msgs::msg::Int32::SharedPtr msg)
   {
     learner_button_ = msg->data;
-    if (learner_button_ == 0) learner_filter_init_ = false;
+    if (learner_button_ == 0) {
+      learner_filter_init_ = false;
+      stop_if_idle();
+    }
   }
 
   void alpha_cb(const std_msgs::msg::Float64::SharedPtr msg)
@@ -204,7 +210,7 @@ private:
   // ============================================================
   //  BOUCLE DE CONTROLE 125 Hz : gating + blend + servoL
   // ============================================================
-  void control_loop()
+  void update_robot()
   {
     bool held_expert  = (expert_button_  == 1);
     bool held_learner = (learner_button_ == 1);
@@ -313,6 +319,19 @@ private:
     was_moving_ = true;
   }
 
+  void stop_if_idle()
+  {
+    if (expert_button_ != 1 && learner_button_ != 1) {
+      if (was_moving_) {
+        rtde_control.servoStop();
+        was_moving_ = false;
+      }
+      expert_held_prev_  = false;
+      learner_held_prev_ = false;
+      smoothed_init_ = false;
+    }
+  }
+
   // ============================================================
   //  FORCE : transform tool0 -> base, publie sur les DEUX bras
   // ============================================================
@@ -403,7 +422,6 @@ private:
   rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr expert_force_pub_;
   rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr learner_force_pub_;
   rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr tare_service_;
-  rclcpp::TimerBase::SharedPtr control_timer_;
 };
 
 // ===================== main (signal handling + retry, comme l'original) =====================
