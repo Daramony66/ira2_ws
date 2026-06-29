@@ -133,7 +133,7 @@ public:
     // les callbacks ne font que stocker la derniere position/bouton,
     // ce timer calcule la cible blendee et envoie UN seul servoL.
     control_timer_ = this->create_wall_timer(
-      std::chrono::milliseconds(8),  // ~125 Hz
+      std::chrono::milliseconds(17),  // ~125 Hz ; 17 ms = 58.8 Hz, 8 ms = 125 Hz, 10 ms = 100 Hz
       std::bind(&HapticControlDual::control_loop, this));
 
     RCLCPP_INFO(this->get_logger(), "Initialisation dual complete. alpha_nominal=%.2f", alpha_nominal_.load());
@@ -218,6 +218,7 @@ private:
       }
       expert_held_prev_  = false;
       learner_held_prev_ = false;
+      smoothed_init_ = false;
       return;
     }
 
@@ -237,6 +238,7 @@ private:
       }
       expert_held_prev_  = held_expert;
       learner_held_prev_ = held_learner;
+      smoothed_init_ = false;  // on relance le lissage proprement apres re-ancrage
     }
 
     // ----- Alpha effectif selon qui tient -----
@@ -262,14 +264,28 @@ private:
              (learner_filtered_pos_[2] - learner_ref_main_[2]) * scaling_factor };
     }
 
-    // ----- Cible blendee (translation seule, orientation figee) -----
-    std::array<double,6> target = {
+    // ----- Cible blendee brute (translation seule, orientation figee) -----
+    std::array<double,3> raw_target = {
       ref_pos_robot_[0] + a * dE[0] + (1.0 - a) * dL[0],
       ref_pos_robot_[1] + a * dE[1] + (1.0 - a) * dL[1],
-      ref_pos_robot_[2] + a * dE[2] + (1.0 - a) * dL[2],
-      ref_ori_robot_[0],
-      ref_ori_robot_[1],
-      ref_ori_robot_[2]
+      ref_pos_robot_[2] + a * dE[2] + (1.0 - a) * dL[2]
+    };
+
+    // ----- Lissage de la cible a 125 Hz (supprime l'effet d'escalier -> plus d'oscillation) -----
+    // beta proche de 1 = tres lisse mais plus de retard ; proche de 0 = reactif mais moins lisse.
+    const double beta = 0.9;
+    if (!smoothed_init_) {
+      smoothed_target_ = raw_target;
+      smoothed_init_ = true;
+    } else {
+      smoothed_target_[0] = beta * smoothed_target_[0] + (1.0 - beta) * raw_target[0];
+      smoothed_target_[1] = beta * smoothed_target_[1] + (1.0 - beta) * raw_target[1];
+      smoothed_target_[2] = beta * smoothed_target_[2] + (1.0 - beta) * raw_target[2];
+    }
+
+    std::array<double,6> target = {
+      smoothed_target_[0], smoothed_target_[1], smoothed_target_[2],
+      ref_ori_robot_[0], ref_ori_robot_[1], ref_ori_robot_[2]
     };
 
     // ----- Securites : workspace + cinematique inverse -----
@@ -369,6 +385,10 @@ private:
   std::vector<double> ref_pos_robot_;
   std::vector<double> ref_ori_robot_;
   std::atomic<double> alpha_nominal_;
+
+  std::array<double,3> smoothed_target_{0.0, 0.0, 0.0};
+  bool smoothed_init_ = false;
+
   bool expert_held_prev_;
   bool learner_held_prev_;
   bool was_moving_;
