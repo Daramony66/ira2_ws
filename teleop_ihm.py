@@ -11,6 +11,10 @@ import threading
 import os
 import signal
 
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import Float64
+
 # ─── Commandes ───────────────────────────────────────────────────────────────
 
 COMMANDS = {
@@ -82,6 +86,17 @@ COMMANDS = {
     },
 }
 
+
+class AlphaNode(Node):
+    def __init__(self):
+        super().__init__('teleop_ihm_alpha_node')
+        self.alpha_pub = self.create_publisher(Float64, '/alpha', 10)
+
+    def publish_alpha(self, value: float):
+        msg = Float64()
+        msg.data = value
+        self.alpha_pub.publish(msg)
+
 # ─── App ─────────────────────────────────────────────────────────────────────
 
 class SphereLauncher(tk.Tk):
@@ -96,6 +111,12 @@ class SphereLauncher(tk.Tk):
         self.log_areas = {}   # key -> scrolledtext.ScrolledText
 
         self._build_ui()
+
+        rclpy.init()
+        self.alpha_node = AlphaNode()
+        self.ros_thread = threading.Thread(target=rclpy.spin, args=(self.alpha_node,), daemon=True)
+        self.ros_thread.start()
+
         self.protocol("WM_DELETE_WINDOW", self._on_close)
 
     # ── UI ───────────────────────────────────────────────────────────────────
@@ -164,6 +185,42 @@ class SphereLauncher(tk.Tk):
             sep = tk.Frame(self, bg="#1e293b", height=1)
             sep.pack(fill="x")
 
+
+        
+        # Slider Autorité de l'expert
+        alpha_frame = tk.Frame(self, bg="#0f172a", pady=10, padx=12)
+        alpha_frame.pack(fill="x")
+
+        tk.Label(
+            alpha_frame, text="Autorité de l'expert",
+            bg="#0f172a", fg="#94a3b8",
+            font=("Courier New", 9, "bold")
+        ).pack(side="left", padx=(0, 10))
+
+        self.alpha_var = tk.DoubleVar(value=0.0)
+
+        self.alpha_slider = tk.Scale(
+            alpha_frame,
+            from_=0.0, to_=1.0, resolution=0.01,
+            orient="horizontal", length=250,
+            bg="#0f172a", fg="#e2e8f0",
+            highlightthickness=0, troughcolor="#1e293b",
+            variable=self.alpha_var,
+            command=self._on_alpha_change,
+            showvalue=False
+        )
+        self.alpha_slider.pack(side="left")
+
+        self.alpha_value_label = tk.Label(
+            alpha_frame, text="Expert: 0%  |  Apprenant: 100%",
+            bg="#0f172a", fg="#22c55e",
+            font=("Courier New", 9),
+            width=34, anchor="w"
+        )
+        self.alpha_value_label.pack(side="left", padx=10)
+
+
+
         # Bouton "Tout lancer" + "Tout stopper"
         footer = tk.Frame(self, bg="#0f172a", pady=10, padx=12)
         footer.pack(fill="x")
@@ -212,6 +269,18 @@ class SphereLauncher(tk.Tk):
             self._stop(key)
         else:
             self._start(key)
+
+
+
+    def _on_alpha_change(self, value):
+        val = float(value)
+        expert_pct = val * 100
+        learner_pct = (1.0 - val) * 100
+        self.alpha_value_label.config(
+            text=f"Expert: {expert_pct:.0f}%  |  Apprenant: {learner_pct:.0f}%"
+        )
+        self.alpha_node.publish_alpha(val)
+
 
     def _start(self, key):
         if key in self.processes and self.processes[key].poll() is None:
@@ -316,6 +385,8 @@ class SphereLauncher(tk.Tk):
 
     def _on_close(self):
         self._stop_all()
+        self.alpha_node.destroy_node()
+        rclpy.shutdown()
         self.destroy()
 
 
