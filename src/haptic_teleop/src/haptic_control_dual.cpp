@@ -63,6 +63,7 @@ public:
     // --- partage (robot + blend) ---
     ref_pos_robot_({0.0, 0.0, 0.0}), ref_ori_robot_({0.0, 0.0, 0.0}),
     alpha_nominal_(0.8),
+    alpha_smoothed_(0.8), //Ajouté le 15/07
     expert_held_prev_(false), learner_held_prev_(false),
     was_moving_(false)
   {
@@ -206,6 +207,13 @@ private:
   // ============================================================
   void control_loop()
   {
+    //Ajouté le 15/07
+    const double alpha_rate = 0.02;
+    double target_alpha = alpha_nominal_.load();
+    double current_alpha = alpha_smoothed_.load();
+    alpha_smoothed_ = current_alpha + alpha_rate * (target_alpha - current_alpha);
+    ///////////////////////////
+
     bool held_expert  = (expert_button_  == 1);
     bool held_learner = (learner_button_ == 1);
     int  n_held = (held_expert ? 1 : 0) + (held_learner ? 1 : 0);
@@ -241,7 +249,8 @@ private:
 
     // ----- Alpha effectif selon qui tient -----
     double a;
-    if (held_expert && held_learner) a = alpha_nominal_;  // les deux : blend
+    //if (held_expert && held_learner) a = alpha_nominal_;  // les deux : blend
+    if (held_expert && held_learner) a = alpha_smoothed_.load(); // Ajouté le 15/07
     else if (held_expert)            a = 1.0;             // expert seul
     else                             a = 0.0;             // apprenant seul
 
@@ -379,7 +388,9 @@ private:
   // --- partage (robot + blend) ---
   std::vector<double> ref_pos_robot_;
   std::vector<double> ref_ori_robot_;
+  std::atomic<double> alpha_smoothed_; //Ajouté le 15/07
   std::atomic<double> alpha_nominal_;
+  
   bool expert_held_prev_;
   bool learner_held_prev_;
   bool was_moving_;
