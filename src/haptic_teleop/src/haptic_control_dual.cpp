@@ -246,7 +246,18 @@ private:
     else                             a = 0.0;             // apprenant seul
 
     // ----- Deltas (depuis la ref main de chaque bras), scaling identique a l'original -----
-    const double scaling_factor = 1.0;
+    // const double scaling_factor = 0.1;
+
+    const double z_haut = 0.0394;
+    const double z_bas  = 0.0199;
+
+    std::vector<double> tcp_now = rtde_receive.getActualTCPPose();
+    double z_cur = (tcp_now.size() == 6) ? tcp_now[2] : ref_pos_robot_[2];
+
+    double t = (z_cur - z_bas) / (z_haut - z_bas);
+    if (t < 0.0) t = 0.0;
+    if (t > 1.0) t = 1.0;
+    const double scaling_factor = 0.1 + t * (1.0 - 0.1);
 
     std::array<double,3> dE = {0.0, 0.0, 0.0};
     std::array<double,3> dL = {0.0, 0.0, 0.0};
