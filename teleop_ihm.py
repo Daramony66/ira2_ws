@@ -117,6 +117,9 @@ class SphereLauncher(tk.Tk):
         self.ros_thread = threading.Thread(target=rclpy.spin, args=(self.alpha_node,), daemon=True)
         self.ros_thread.start()
 
+        # Publier la valeur initiale du slider pour synchroniser le C++ dès le lancement
+        self.alpha_node.publish_alpha(self.alpha_var.get())
+
         self.protocol("WM_DELETE_WINDOW", self._on_close)
 
     # ── UI ───────────────────────────────────────────────────────────────────
@@ -197,7 +200,7 @@ class SphereLauncher(tk.Tk):
             font=("Courier New", 9, "bold")
         ).pack(side="left", padx=(0, 10))
 
-        self.alpha_var = tk.DoubleVar(value=0.0)
+        self.alpha_var = tk.DoubleVar(value=0.8)
 
         self.alpha_slider = tk.Scale(
             alpha_frame,
@@ -212,7 +215,7 @@ class SphereLauncher(tk.Tk):
         self.alpha_slider.pack(side="left")
 
         self.alpha_value_label = tk.Label(
-            alpha_frame, text="Expert: 0%  |  Apprenant: 100%",
+            alpha_frame, text="Expert: 80%  |  Apprenant: 20%",
             bg="#0f172a", fg="#22c55e",
             font=("Courier New", 9),
             width=34, anchor="w"
