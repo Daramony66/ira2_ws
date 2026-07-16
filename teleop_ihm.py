@@ -13,7 +13,7 @@ import signal
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Float64
+from std_msgs.msg import Float64, Bool # Ajouté le 16/07
 
 # ─── Commandes ───────────────────────────────────────────────────────────────
 
@@ -86,16 +86,41 @@ COMMANDS = {
     },
 }
 
-
+# Ajouté le 16/07 ###################################################
 class AlphaNode(Node):
-    def __init__(self):
+    def __init__(self, on_scaling_debug=None):
         super().__init__('teleop_ihm_alpha_node')
         self.alpha_pub = self.create_publisher(Float64, '/alpha', 10)
+
+        # Ajouté le 16/07 : scaling manuel (enable + valeur)
+        self.scaling_enable_pub = self.create_publisher(Bool, '/scaling_manual_enable', 10)
+        self.scaling_manual_pub = self.create_publisher(Float64, '/scaling_manual', 10)
+
+        # Ajouté le 16/07 : écoute du scaling reellement applique par le C++
+        self._on_scaling_debug = on_scaling_debug
+        self.scaling_debug_sub = self.create_subscription(
+            Float64, '/scaling_debug', self._scaling_debug_cb, 10)
 
     def publish_alpha(self, value: float):
         msg = Float64()
         msg.data = value
         self.alpha_pub.publish(msg)
+
+    # Ajouté le 16/07
+    def publish_scaling_enable(self, enabled: bool):
+        msg = Bool()
+        msg.data = enabled
+        self.scaling_enable_pub.publish(msg)
+
+    def publish_scaling_manual(self, value: float):
+        msg = Float64()
+        msg.data = value
+        self.scaling_manual_pub.publish(msg)
+
+    def _scaling_debug_cb(self, msg):
+        if self._on_scaling_debug is not None:
+            self._on_scaling_debug(msg.data)
+######################################################################
 
 # ─── App ─────────────────────────────────────────────────────────────────────
 
@@ -113,7 +138,7 @@ class SphereLauncher(tk.Tk):
         self._build_ui()
 
         rclpy.init()
-        self.alpha_node = AlphaNode()
+        self.alpha_node = AlphaNode(on_scaling_debug=self._on_scaling_debug) # Ajouté le 16/07
         self.ros_thread = threading.Thread(target=rclpy.spin, args=(self.alpha_node,), daemon=True)
         self.ros_thread.start()
 
@@ -222,7 +247,51 @@ class SphereLauncher(tk.Tk):
         )
         self.alpha_value_label.pack(side="left", padx=10)
 
+        #### Scaling manuel (Ajouté le 16/07) ################################
+        scaling_frame = tk.Frame(self, bg="#0f172a", pady=10, padx=12)
+        scaling_frame.pack(fill="x")
 
+        self.manual_scaling_var = tk.BooleanVar(value=False)
+        tk.Checkbutton(
+            scaling_frame, text="Scaling manuel",
+            variable=self.manual_scaling_var,
+            command=self._on_scaling_enable_change,
+            bg="#0f172a", fg="#94a3b8",
+            selectcolor="#1e293b",
+            activebackground="#0f172a", activeforeground="#e2e8f0",
+            font=("Courier New", 9, "bold"),
+        ).pack(side="left", padx=(0, 10))
+
+        self.scaling_var = tk.DoubleVar(value=0.1)
+        self.scaling_slider = tk.Scale(
+            scaling_frame,
+            from_=0.1, to_=1.0, resolution=0.01,
+            orient="horizontal", length=200,
+            bg="#0f172a", fg="#e2e8f0",
+            highlightthickness=0, troughcolor="#1e293b",
+            variable=self.scaling_var,
+            command=self._on_scaling_manual_change,
+            showvalue=False,
+            state="disabled",   # actif seulement quand la case est cochée
+        )
+        self.scaling_slider.pack(side="left")
+
+        self.scaling_manual_label = tk.Label(
+            scaling_frame, text="Manuel: 0.10",
+            bg="#0f172a", fg="#64748b",
+            font=("Courier New", 9),
+            width=14, anchor="w"
+        )
+        self.scaling_manual_label.pack(side="left", padx=10)
+
+        self.scaling_live_label = tk.Label(
+            scaling_frame, text="Réel: --",
+            bg="#0f172a", fg="#38bdf8",
+            font=("Courier New", 9, "bold"),
+            width=54, anchor="w"
+        )
+        self.scaling_live_label.pack(side="left", padx=10)
+        ###########################################################
 
         # Bouton "Tout lancer" + "Tout stopper"
         footer = tk.Frame(self, bg="#0f172a", pady=10, padx=12)
@@ -273,8 +342,6 @@ class SphereLauncher(tk.Tk):
         else:
             self._start(key)
 
-
-
     def _on_alpha_change(self, value):
         val = float(value)
         expert_pct = val * 100
@@ -284,6 +351,27 @@ class SphereLauncher(tk.Tk):
         )
         self.alpha_node.publish_alpha(val)
 
+    ### Scaling manuel (Ajouté le 16/07) ################################################
+    def _on_scaling_enable_change(self):
+        enabled = self.manual_scaling_var.get()
+        self.scaling_slider.config(state="normal" if enabled else "disabled")
+        self.alpha_node.publish_scaling_enable(enabled)
+        # quand on active, on pousse tout de suite la valeur courante du slider
+        if enabled:
+            self.alpha_node.publish_scaling_manual(self.scaling_var.get())
+
+    def _on_scaling_manual_change(self, value):
+        val = float(value)
+        self.scaling_manual_label.config(text=f"Manuel: {val:.2f}")
+        if self.manual_scaling_var.get():
+            self.alpha_node.publish_scaling_manual(val)
+
+    def _on_scaling_debug(self, value):
+        # appelé depuis le thread ROS -> repasser dans le thread Tk
+        mm = value * 10.0  # 1 cm main = (scaling*10) mm robot
+        self.after(0, lambda: self.scaling_live_label.config(
+            text=f"Réel: {value:.2f}  |  1cm (main) = {mm:.1f}mm (robot)"))
+    #####################################################################################
 
     def _start(self, key):
         if key in self.processes and self.processes[key].poll() is None:

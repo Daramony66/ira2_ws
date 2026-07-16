@@ -29,6 +29,7 @@
 #include <geometry_msgs/msg/wrench_stamped.hpp>
 #include <std_msgs/msg/int32.hpp>
 #include <std_msgs/msg/float64.hpp>
+#include <std_msgs/msg/bool.hpp> // Ajouté le 16/07 à 15h45
 #include <std_srvs/srv/trigger.hpp>
 #include <ur_rtde/rtde_control_interface.h>
 #include <ur_rtde/rtde_receive_interface.h>
@@ -65,6 +66,7 @@ public:
     alpha_nominal_(0.8),
     expert_accum_({0.0, 0.0, 0.0}), learner_accum_({0.0, 0.0, 0.0}), //Ajouté le 16/07
     last_target_z_(0.0394), //Ajouté le 16/07
+    manual_scaling_enabled_(false), manual_scaling_(0.1), //Ajouté le 16/07
     expert_held_prev_(false), learner_held_prev_(false),
     was_moving_(false)
   {
@@ -97,6 +99,23 @@ public:
     alpha_sub_ = this->create_subscription<std_msgs::msg::Float64>(
       "/alpha", 10,
       std::bind(&HapticControlDual::alpha_cb, this, std::placeholders::_1));
+
+    //Ajouté le 16/07 : scaling manuel (enable + valeur) et publication du scaling reel /////////////
+    scaling_enable_sub_ = this->create_subscription<std_msgs::msg::Bool>(
+      "/scaling_manual_enable", 10,
+      [this](const std_msgs::msg::Bool::SharedPtr msg){ manual_scaling_enabled_ = msg->data; });
+
+    scaling_manual_sub_ = this->create_subscription<std_msgs::msg::Float64>(
+      "/scaling_manual", 10,
+      [this](const std_msgs::msg::Float64::SharedPtr msg){
+        double s = msg->data;
+        if (s < 0.0) s = 0.0;
+        if (s > 1.0) s = 1.0;
+        manual_scaling_ = s;
+      });
+
+    scaling_debug_pub_ = this->create_publisher<std_msgs::msg::Float64>("/scaling_debug", 10);
+    //////////////////////////////////////////////////////////////////////////////////////////////////
 
     // ----- Publishers de force : un par bras -----
     expert_force_pub_  = this->create_publisher<geometry_msgs::msg::WrenchStamped>("/expert/haptic_force", 10);
@@ -261,7 +280,23 @@ private:
     double t = (z_cur - z_bas) / (z_haut - z_bas);
     if (t < 0.0) t = 0.0;
     if (t > 1.0) t = 1.0;
-    const double scaling_factor = 0.1 + t * (1.0 - 0.1);
+    //const double scaling_factor = 0.1 + t * (1.0 - 0.1);
+
+    //Ajouté le 16/07 : soit la rampe automatique, soit la valeur manuelle de l'IHM
+    double scaling_factor;
+    if (manual_scaling_enabled_.load()) {
+      scaling_factor = manual_scaling_.load();
+    } else {
+      scaling_factor = 0.1 + t * (1.0 - 0.1);
+    }
+
+    //Publie le scaling reellement applique (pour affichage IHM)
+    {
+      std_msgs::msg::Float64 sc_msg;
+      sc_msg.data = scaling_factor;
+      scaling_debug_pub_->publish(sc_msg);
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Ajouté le 16/07
     if (held_expert) {
@@ -398,6 +433,9 @@ private:
   std::vector<double> learner_accum_;
 
   double last_target_z_;
+
+  std::atomic<bool> manual_scaling_enabled_;
+  std::atomic<double> manual_scaling_;
   //////////////////
   
   bool expert_held_prev_;
@@ -411,6 +449,14 @@ private:
   rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr learner_btn_sub_;
   rclcpp::Subscription<geometry_msgs::msg::WrenchStamped>::SharedPtr force_sub_;
   rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr alpha_sub_;
+
+  //Ajouté le 16/07/////////////////////////////////////////////////////////////
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr scaling_enable_sub_;
+  rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr scaling_manual_sub_;
+  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr scaling_debug_pub_;
+
+  /////////////////////////////////////////////////////////////////////////////
+
   rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr expert_force_pub_;
   rclcpp::Publisher<geometry_msgs::msg::WrenchStamped>::SharedPtr learner_force_pub_;
   rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr tare_service_;
