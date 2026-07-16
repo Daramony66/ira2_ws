@@ -63,6 +63,8 @@ public:
     // --- partage (robot + blend) ---
     ref_pos_robot_({0.0, 0.0, 0.0}), ref_ori_robot_({0.0, 0.0, 0.0}),
     alpha_nominal_(0.8),
+    expert_accum_({0.0, 0.0, 0.0}), learner_accum_({0.0, 0.0, 0.0}), //Ajouté le 16/07
+    last_target_z_(0.0394), //Ajouté le 16/07
     expert_held_prev_(false), learner_held_prev_(false),
     was_moving_(false)
   {
@@ -232,8 +234,8 @@ private:
       if (tcp.size() == 6) {
         ref_pos_robot_ = {tcp[0], tcp[1], tcp[2]};
         ref_ori_robot_ = {tcp[3], tcp[4], tcp[5]};
-        if (held_expert)  expert_ref_main_  = expert_filtered_pos_;
-        if (held_learner) learner_ref_main_ = learner_filtered_pos_;
+        if (held_expert)  { expert_ref_main_  = expert_filtered_pos_;  expert_accum_  = {0.0, 0.0, 0.0}; } //Ajouté le 16/07
+        if (held_learner) { learner_ref_main_ = learner_filtered_pos_; learner_accum_ = {0.0, 0.0, 0.0}; } //Ajouté le 16/07
       }
       expert_held_prev_  = held_expert;
       learner_held_prev_ = held_learner;
@@ -251,27 +253,35 @@ private:
     const double z_haut = 0.0394;
     const double z_bas  = 0.0199;
 
-    std::vector<double> tcp_now = rtde_receive.getActualTCPPose();
-    double z_cur = (tcp_now.size() == 6) ? tcp_now[2] : ref_pos_robot_[2];
+    //std::vector<double> tcp_now = rtde_receive.getActualTCPPose();
+    //double z_cur = (tcp_now.size() == 6) ? tcp_now[2] : ref_pos_robot_[2];
+
+    double z_cur = last_target_z_; //Ajouté le 16/07
 
     double t = (z_cur - z_bas) / (z_haut - z_bas);
     if (t < 0.0) t = 0.0;
     if (t > 1.0) t = 1.0;
     const double scaling_factor = 0.1 + t * (1.0 - 0.1);
 
-    std::array<double,3> dE = {0.0, 0.0, 0.0};
-    std::array<double,3> dL = {0.0, 0.0, 0.0};
-
+    // Ajouté le 16/07
     if (held_expert) {
-      dE = { (expert_filtered_pos_[0] - expert_ref_main_[0]) * scaling_factor,
-             (expert_filtered_pos_[1] - expert_ref_main_[1]) * scaling_factor,
-             (expert_filtered_pos_[2] - expert_ref_main_[2]) * scaling_factor };
+      for (int i = 0; i < 3; ++i) {
+        double increment = expert_filtered_pos_[i] - expert_ref_main_[i];
+        expert_accum_[i] += increment * scaling_factor;
+        expert_ref_main_[i] = expert_filtered_pos_[i];
+      }
     }
     if (held_learner) {
-      dL = { (learner_filtered_pos_[0] - learner_ref_main_[0]) * scaling_factor,
-             (learner_filtered_pos_[1] - learner_ref_main_[1]) * scaling_factor,
-             (learner_filtered_pos_[2] - learner_ref_main_[2]) * scaling_factor };
+      for (int i = 0; i < 3; ++i) {
+        double increment = learner_filtered_pos_[i] - learner_ref_main_[i];
+        learner_accum_[i] += increment * scaling_factor;
+        learner_ref_main_[i] = learner_filtered_pos_[i];
+      }
     }
+
+    std::array<double,3> dE = { expert_accum_[0], expert_accum_[1], expert_accum_[2] };
+    std::array<double,3> dL = { learner_accum_[0], learner_accum_[1], learner_accum_[2] };
+    //////////////////
 
     // ----- Cible blendee (translation seule, orientation figee) -----
     std::array<double,6> target = {
@@ -282,6 +292,8 @@ private:
       ref_ori_robot_[1],
       ref_ori_robot_[2]
     };
+
+    last_target_z_ = target[2]; //Ajouté le 16/07
 
     // ----- Securites : workspace + cinematique inverse -----
     if (!in_workspace(target)) {
@@ -380,6 +392,13 @@ private:
   std::vector<double> ref_pos_robot_;
   std::vector<double> ref_ori_robot_;
   std::atomic<double> alpha_nominal_;
+
+  // Ajouté le 16/07
+  std::vector<double> expert_accum_;
+  std::vector<double> learner_accum_;
+
+  double last_target_z_;
+  //////////////////
   
   bool expert_held_prev_;
   bool learner_held_prev_;

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-SPHERE Launcher — IHM de lancement rapide des noeuds ROS2
-Lancer avec : python3 sphere_launcher.py
+IHM de lancement rapide des noeuds ROS2
+Lancer avec : python3 teleop_ihm.py
 """
 
 import tkinter as tk
@@ -102,7 +102,7 @@ class AlphaNode(Node):
 class SphereLauncher(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("SPHERE Launcher")
+        self.title("IHM Téléopération")
         self.configure(bg="#0f172a")
         self.resizable(True, True)
 
@@ -127,7 +127,7 @@ class SphereLauncher(tk.Tk):
     def _build_ui(self):
         # Titre
         header = tk.Label(
-            self, text="SPHERE  LAUNCHER",
+            self, text="IHM  Téléopération",
             bg="#0f172a", fg="#94a3b8",
             font=("Courier New", 11, "bold"),
             padx=16, pady=10
