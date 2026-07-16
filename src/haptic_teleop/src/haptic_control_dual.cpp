@@ -19,7 +19,7 @@
 //
 //  - Le retour de force du robot est transforme tool0 -> base et publie sur
 //    /expert/haptic_force ET /learner/haptic_force (les deux bras sentent le robot).
-//    Le couplage expert->apprenant se fera cote Unity (etape suivante).
+//    Le couplage expert->apprenant est gere cote Unity.
 //
 //  - alpha_nominal est reglable a chaud via le topic /alpha (std_msgs/Float64),
 //    pour tester sans recompiler.
@@ -386,7 +386,7 @@ private:
     out_msg.wrench.force.z = force_base.z();
 
     // Les deux bras recoivent la force du robot.
-    // (Le couplage expert->apprenant sera ajoute cote Unity.)
+    // (Le couplage expert->apprenant est gere cote Unity.)
     expert_force_pub_->publish(out_msg);
     learner_force_pub_->publish(out_msg);
   }
