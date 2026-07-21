@@ -360,6 +360,10 @@ private:
   // ============================================================
   void force_cb(const geometry_msgs::msg::WrenchStamped::SharedPtr msg)
   {
+    //Ajouté le 20/07 : on ne publie qu'un message sur 5 (~500 Hz -> ~100 Hz)
+    if (++force_pub_counter_ < 5) return;
+    force_pub_counter_ = 0;
+
     std::vector<double> tcp_pose = rtde_receive.getActualTCPPose();
     if (tcp_pose.size() != 6) return;
 
@@ -436,6 +440,7 @@ private:
 
   std::atomic<bool> manual_scaling_enabled_;
   std::atomic<double> manual_scaling_;
+  int force_pub_counter_ = 0; //Ajouté le 20/07
   //////////////////
   
   bool expert_held_prev_;
