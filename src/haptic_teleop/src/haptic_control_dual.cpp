@@ -287,7 +287,7 @@ private:
     if (manual_scaling_enabled_.load()) {
       scaling_factor = manual_scaling_.load();
     } else {
-      scaling_factor = 0.1 + t * (1.0 - 0.1);
+      scaling_factor = 0.15 + t * (1.0 - 0.15); //Modifié le 23/07 de 0.1 à 0.15
     }
 
     //Publie le scaling reellement applique (pour affichage IHM)
