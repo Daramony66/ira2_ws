@@ -370,7 +370,7 @@ class SphereLauncher(tk.Tk):
         # appelé depuis le thread ROS -> repasser dans le thread Tk
         mm = value * 10.0  # 1 cm main = (scaling*10) mm robot
         self.after(0, lambda: self.scaling_live_label.config(
-            text=f"Réel: {value:.2f}  |  1cm (main) = {mm:.1f}mm (robot)"))
+            text=f"Réel: {value:.2f}  |  10mm (main) = {mm:.1f}mm (robot)"))
     #####################################################################################
 
     def _start(self, key):
