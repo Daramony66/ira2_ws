@@ -220,6 +220,10 @@ class TestUnityP1(Node):
 
         self.create_subscription(StartMove, 'start_move', self.cb_start_move, 10) # Modifé le 21/04 à 16h00 — changement de type de message
 
+        # AJOUT 20/08, 15h : thread de surveillance indépendant du thread de mouvement
+        self._watchdog_thread = threading.Thread(target=self._watchdog_loop, daemon=True)
+        self._watchdog_thread.start()
+
         self.get_logger().info(f"Position initiale TCP : x:{tcp[0]*1000:.2f}mm  y:{tcp[1]*1000:.2f}mm  z:{tcp[2]*1000:.2f}mm")  # Afficher pose TCP dans repère base
 
         self.get_logger().info(f"Z axis in base : x:{self.z_axis_in_base[0]:.4f}  y:{self.z_axis_in_base[1]:.4f}  z:{self.z_axis_in_base[2]:.4f}") # Afficher coords vecteur Z_TCP dans repère base
@@ -346,6 +350,20 @@ class TestUnityP1(Node):
         if msg.start:
             self.get_logger().info("Signal /start_move reçu — lancement poussée.")
             self.start_move_event.set()
+
+    # AJOUT 20/08, 15h: surveille runtime_state en continu, indépendamment du thread de mouvement
+    def _watchdog_loop(self):
+        while rclpy.ok():
+            try:
+                if self.rr.getRuntimeState() != 2 and not self.error_event.is_set():
+                    self.get_logger().error("[WATCHDOG] runtime_state != 2 détecté — déclenchement error_event.")
+                    msg = String()
+                    msg.data = "error"
+                    self.status_pub.publish(msg)
+                    self.error_event.set()
+            except Exception as e:
+                self.get_logger().warn(f"[WATCHDOG] Erreur de lecture runtime_state : {e}")
+            time.sleep(0.1)
 
     #Ajouté le 15/04
     def destroy_node(self):
