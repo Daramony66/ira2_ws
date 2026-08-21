@@ -528,21 +528,21 @@ class TestUnityP1(Node):
 
         # Ajouté le 16/06 à 12h30
         if (pre_P1[1] - tcp_init[1]) < 0.290 and pre_P1[0] < tcp_init[0] + 0.050:
-            self.get_logger().warn("pre_P1 rejeté — zone interdite.")
+            self.get_logger().warn("Zone 1 interdite.")
             msg = String()
             msg.data = "aborted_norm"
             self.status_pub.publish(msg)
             return
         
         if 0.290 <= (pre_P1[1] - tcp_init[1]) < 0.380 and pre_P1[0] < tcp_init[0] - 0.020:
-            self.get_logger().warn("pre_P1 trop loin derrière en X — point rejeté.")
+            self.get_logger().warn("pre_P1 trop loin derrière en X (ZONE 2)")
             msg = String()
             msg.data = "aborted_norm"
             self.status_pub.publish(msg)
             return
         
         if (pre_P1[1] - tcp_init[1]) >= 0.380 and pre_P1[0] < tcp_init[0] - 0.150:
-            self.get_logger().warn("pre_P1 rejeté — trop loin derrière en X zone 3.")
+            self.get_logger().warn("pre_P1 trop loin derrière en X (ZONE 3)")
             msg = String()
             msg.data = "aborted_norm"
             self.status_pub.publish(msg)
