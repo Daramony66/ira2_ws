@@ -28,8 +28,8 @@ COMMANDS = {
             "ur_type:=ur3e robot_ip:=192.168.1.101 "
             "use_fake_hardware:=false launch_rviz:=false"
         ],
-        "color_on": "#22c55e",
-        "color_off": "#bbf7d0",
+        "color_on": "#3b82f6",
+        "color_off": "#e2e8f0",
     },
     "ros_tcp": {
         "label": "② ROS TCP Endpoint",
@@ -41,7 +41,7 @@ COMMANDS = {
             "--ros-args -p ROS_IP:=0.0.0.0"
         ],
         "color_on": "#3b82f6",
-        "color_off": "#bfdbfe",
+        "color_off": "#e2e8f0",
     },
     "haptic_dual_full": {
         "label": "③ Haptic Teleoperation Dual-user",
@@ -51,8 +51,8 @@ COMMANDS = {
             "source ~/ira2_ws/install/setup.bash && "
             "ros2 run haptic_teleop haptic_control_dual"
         ],
-        "color_on": "#f59e0b",
-        "color_off": "#fde68a",
+        "color_on": "#3b82f6",
+        "color_off": "#e2e8f0",
     },
 }
 
@@ -138,11 +138,6 @@ class SphereLauncher(tk.Tk):
             btn = tk.Button(
                 top,
                 text=f"  {cfg['label']}  ▶",
-                bg=cfg["color_off"], fg="#1e293b",
-                activebackground=cfg["color_on"],
-                activeforeground="white",
-                relief="flat", bd=0,
-                cursor="hand2",
                 padx=14, pady=8,
                 command=lambda k=key: self._toggle(k)
             )
@@ -150,7 +145,7 @@ class SphereLauncher(tk.Tk):
             self.buttons[key] = btn
 
             status = tk.Label(
-                top, text="STOPPED",
+                top, text="ARRÊTÉ",
                 bg="#f1f5f9", fg="#94a3b8",
             )
             status.pack(side="left", padx=10)
@@ -191,19 +186,31 @@ class SphereLauncher(tk.Tk):
             from_=0.0, to_=1.0, resolution=0.01,
             orient="horizontal", length=250,
             bg="#f1f5f9", fg="#334155",
-            highlightthickness=0, troughcolor="#cbd5e1",
+            highlightthickness=0, troughcolor="grey85",
             variable=self.alpha_var,
             command=self._on_alpha_change,
             showvalue=False
         )
         self.alpha_slider.pack(side="left")
 
-        self.alpha_value_label = tk.Label(
-            alpha_frame, text="Expert: 80%  |  Apprenant: 20%",
+        self.alpha_expert_label = tk.Label(
+            alpha_frame, text="Expert: 80%",
             bg="#f1f5f9",
-            width=34, anchor="w"
+            width=11, anchor="w"
         )
-        self.alpha_value_label.pack(side="left", padx=10)
+        self.alpha_expert_label.pack(side="left", padx=(10, 0))
+
+        tk.Label(
+            alpha_frame, text="|",
+            bg="#f1f5f9",
+        ).pack(side="left", padx=(5, 8))
+
+        self.alpha_learner_label = tk.Label(
+            alpha_frame, text="Apprenant: 20%",
+            bg="#f1f5f9",
+            anchor="w"
+        )
+        self.alpha_learner_label.pack(side="left")
 
         #### Scaling manuel (Ajouté le 16/07) ################################
         scaling_frame = tk.Frame(self, bg="#f1f5f9", padx=12, height=50)
@@ -220,14 +227,14 @@ class SphereLauncher(tk.Tk):
         tk.Radiobutton(
             scaling_frame, text="Automatique", variable=self.manual_scaling_var,
             value=False, command=self._on_scaling_enable_change,
-            bg="#f1f5f9", selectcolor="#cbd5e1",
+            bg="#f1f5f9", selectcolor="grey85",
             activebackground="#f1f5f9", highlightthickness=0,
         ).pack(side="left", padx=(0, 5))
 
         tk.Radiobutton(
             scaling_frame, text="Manuel", variable=self.manual_scaling_var,
             value=True, command=self._on_scaling_enable_change,
-            bg="#f1f5f9", selectcolor="#cbd5e1",
+            bg="#f1f5f9", selectcolor="grey85",
             activebackground="#f1f5f9", highlightthickness=0,
         ).pack(side="left", padx=(0, 10))
         #####################################
@@ -238,7 +245,7 @@ class SphereLauncher(tk.Tk):
             from_=0.1, to_=1.0, resolution=0.01,
             orient="horizontal", length=200,
             bg="#f1f5f9", fg="#334155",
-            highlightthickness=0, troughcolor="#cbd5e1",
+            highlightthickness=0, troughcolor="grey85",
             variable=self.scaling_var,
             command=self._on_scaling_manual_change,
             showvalue=False,
@@ -248,49 +255,53 @@ class SphereLauncher(tk.Tk):
         self.scaling_manual_var = tk.StringVar(value="0.10")
         self.scaling_manual_label = tk.Entry(
             scaling_frame, textvariable=self.scaling_manual_var,
-            bg="#ffffff",
             width=6, justify="center",
-            state="readonly", readonlybackground="#ffffff"
+            state="readonly", cursor="arrow"
         )
 
         scaling_live_frame = tk.Frame(self, bg="#f1f5f9", padx=12)
         scaling_live_frame.pack(fill="x", pady=(10, 10))
 
-        self.scaling_live_label = tk.Label(
-            scaling_live_frame, text="Ratio actuellement appliqué au robot : --",
+        tk.Label(
+            scaling_live_frame, text="Ratio actuellement appliqué au robot :",
             bg="#f1f5f9",
-            anchor="w"
+        ).pack(side="left", padx=(0, 8))
+
+        self.scaling_live_var = tk.StringVar(value="--")
+        self.scaling_live_label = tk.Entry(
+            scaling_live_frame, textvariable=self.scaling_live_var,
+            width=6, justify="center",
+            state="readonly", cursor="arrow"
         )
-        self.scaling_live_label.pack(side="left", padx=0)
+        self.scaling_live_label.pack(side="left", padx=(0, 8))
+
+        self.scaling_live_detail = tk.Label(
+            scaling_live_frame, text="(1cm de main = . . . cm de robot)",
+            bg="#f1f5f9",
+        )
+        self.scaling_live_detail.pack(side="left")
         ###########################################################
 
-        # Bouton "Tout lancer" + "Tout stopper"
+        # Bouton "Tout lancer" + "STOP"
         footer = tk.Frame(self, bg="#f1f5f9", pady=10, padx=12)
         footer.pack(fill="x")
 
         tk.Button(
-            footer, text="⊙  Tare capteur",
-            bg="#0f4c75", fg="white",
-            activebackground="#1b6ca8",
-            relief="flat", cursor="hand2",
+            footer, text="Tare capteur",
             padx=14, pady=8,
             command=self._tare
         ).pack(side="left", padx=(0, 8))
 
         tk.Button(
             footer, text="▶▶  Tout lancer",
-            bg="#4f46e5", fg="white",
-            activebackground="#6366f1",
-            relief="flat", cursor="hand2",
             padx=14, pady=8,
             command=self._start_all
         ).pack(side="left", padx=(0, 8))
 
         tk.Button(
-            footer, text="■  Tout stopper",
-            bg="#7f1d1d", fg="white",
-            activebackground="#dc2626",
-            relief="flat", cursor="hand2",
+            footer, text="■  STOP",
+            bg="#dc2626", fg="white",
+            font=("TkDefaultFont", 9, "bold"),
             padx=14, pady=8,
             command=self._stop_all
         ).pack(side="left")
@@ -313,9 +324,8 @@ class SphereLauncher(tk.Tk):
         val = float(value)
         expert_pct = val * 100
         learner_pct = (1.0 - val) * 100
-        self.alpha_value_label.config(
-            text=f"Expert: {expert_pct:.0f}%  |  Apprenant: {learner_pct:.0f}%"
-        )
+        self.alpha_expert_label.config(text=f"Expert: {expert_pct:.0f}%")
+        self.alpha_learner_label.config(text=f"Apprenant: {learner_pct:.0f}%")
         self.alpha_node.publish_alpha(val)
 
     ### Scaling manuel (Ajouté le 16/07) ################################################
@@ -330,6 +340,8 @@ class SphereLauncher(tk.Tk):
             self.scaling_slider.config(state="disabled")
             self.scaling_slider.pack_forget()
             self.scaling_manual_label.pack_forget()
+            self.scaling_live_var.set("--")
+            self.scaling_live_detail.config(text="(1cm de main = . . . cm de robot)")
         self.alpha_node.publish_scaling_enable(enabled)
         if enabled:
             self.alpha_node.publish_scaling_manual(self.scaling_var.get())
@@ -339,12 +351,18 @@ class SphereLauncher(tk.Tk):
         self.scaling_manual_var.set(f"{val:.2f}")
         if self.manual_scaling_var.get():
             self.alpha_node.publish_scaling_manual(val)
+            mm = val * 10.0
+            self.scaling_live_var.set(f"{val:.2f}")
+            self.scaling_live_detail.config(
+                text=f"(1cm de main = {mm/10:.2f}cm de robot)"
+            )
 
     def _on_scaling_debug(self, value):
         # appelé depuis le thread ROS -> repasser dans le thread Tk
         mm = value * 10.0  # 1 cm main = (scaling*10) mm robot
-        self.after(0, lambda: self.scaling_live_label.config(
-        text=f"Ratio actuellement appliqué au robot : {value:.2f}  (1cm de main = {mm/10:.2f}cm de robot)"))
+        self.after(0, lambda: self.scaling_live_var.set(f"{value:.2f}"))
+        self.after(0, lambda: self.scaling_live_detail.config(
+            text=f"(1cm de main = {mm/10:.2f}cm de robot)"))
     #####################################################################################
 
     def _start(self, key):
@@ -407,19 +425,11 @@ class SphereLauncher(tk.Tk):
         btn = self.buttons[key]
         status = self.buttons[key + "_status"]
         if running:
-            btn.config(
-                text=f"  {cfg['label']}  ■",
-                bg=cfg["color_on"],
-                fg="white"
-            )
-            status.config(text="RUNNING...", fg="black")
+            btn.config(text=f"  {cfg['label']}  ■")
+            status.config(text="ACTIF", fg="#22c55e", font=("TkDefaultFont", 9, "bold"))
         else:
-            btn.config(
-                text=f"  {cfg['label']}  ▶",
-                bg=cfg["color_off"],
-                fg="#1e293b"
-            )
-            status.config(text="STOPPED", fg="#94a3b8")
+            btn.config(text=f"  {cfg['label']}  ▶")
+            status.config(text="ARRÊTÉ", fg="#94a3b8")
 
     def _log(self, key, text: str):
         def _write():
