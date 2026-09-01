@@ -404,11 +404,7 @@ class SphereLauncher(tk.Tk):
 
     def _start_all(self):
         for key in COMMANDS:
-            if key == "haptic_dual_full":
-                continue  # on lance le bon node haptique à la main
             self._start(key)
-        # for key in COMMANDS:
-        #     self._start(key)
 
     def _stop_all(self):
         for key in COMMANDS:
