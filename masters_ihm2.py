@@ -55,7 +55,7 @@ TOPIC_ABORT   = "/safety_abort"
 class MastersIHM(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("MASTERS — Interface de contrôle")
+        self.title("MASTERS : Interface de contrôle")
         self.configure(bg=BG)
 
         # ── Fenêtré ──
@@ -138,7 +138,7 @@ class MastersIHM(tk.Tk):
         frm.pack(fill="x")
         frm.pack_propagate(False)
 
-        tk.Label(frm, text="⚙  MASTERS",
+        tk.Label(frm, text="MASTERS",
                  font=("Helvetica", self.sf(28), "bold"),
                  bg=BG3, fg=WHITE).pack(side="left", padx=self.s(30), pady=self.sv(15))
 
@@ -343,7 +343,7 @@ class MastersIHM(tk.Tk):
         self._status_bar.pack_propagate(False)
         self._status_label = tk.Label(
             self._status_bar,
-            text="▶  Appuyez sur DÉMARRER pour lancer les nœuds ROS2.",
+            text="Appuyer sur « DÉMARRER » pour lancer les nœuds ROS2.",
             font=("Helvetica", self.sf(14), "bold"),
             bg=GREY, fg=WHITE
         )
@@ -543,7 +543,7 @@ class MastersIHM(tk.Tk):
         self._btn_play.config(state="disabled", bg=GREY)
         self._set_indicator("unity", "on")
         self._set_indicator("session", "on")
-        self._set_status(f"🎮 Poussée en cours — Scénario : {self.scenario_var.get()}", BTN_BLUE)
+        self._set_status(f"Poussée en cours (scénario : {self.scenario_var.get()}).", BTN_BLUE)
 
     def _do_stop(self):
         self._status_stop.set()
@@ -594,7 +594,7 @@ class MastersIHM(tk.Tk):
             entry.config(state="disabled")
 
         self._btn_start.config(state="normal")
-        self._set_status("🔴 Nœuds arrêtés — Appuyez sur DÉMARRER pour relancer.", GREY)
+        self._set_status("🔴 Nœuds arrêtés. Appuyer sur « DÉMARRER » pour relancer.", GREY)
 
     def _do_reset_params(self):
         defaults = {
@@ -674,28 +674,28 @@ class MastersIHM(tk.Tk):
                 continue
             if "FORCE LIMIT" in line:
                 self.after(0, lambda: self._set_status(
-                    "⚠️ Force limite dépassée — Vérifier le robot puis relancer PLAY.", YELLOW))
+                    "⚠️ Force limite dépassée. Vérifier le robot puis appuyer sur « Déplacer le robot ».", YELLOW))
 
     def _on_status_ready(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "pending")
-        self._set_status("✅ Poussée terminée — Prêt pour le prochain PLAY.", GREEN)
+        self._set_status("✅ Poussée terminée. Prêt pour le prochain déplacement du robot.", GREEN)
         if self.scenario_var.get() != "Touch":
             self._select_scenario(self.scenario_var.get())
 
     def _on_status_aborted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Séquence interrompue — Corriger puis relancer PLAY.", YELLOW)
+        self._set_status("⚠️ Séquence interrompue. Corriger puis relancer « Déplacer le robot ».", YELLOW)
 
     def _on_status_waiting(self):
         self._set_indicator("session", "pending")
-        self._set_status("⏳ Robot en pre_P1 — En attente du signal start_move...", YELLOW)
+        self._set_status("⏳ Robot en pre_P1. En attente du signal start_move...", YELLOW)
 
     def _on_status_error(self):
         self._set_indicator("session", "off")
         self._set_indicator("robot", "off")
-        self._set_status("🔴 Protective Stop détecté ! Reconnecter le robot...", BTN_RED)
+        self._set_status("🔴 Protective Stop détecté. Reconnecter le robot.", BTN_RED)
 
     def _on_status_restarting(self):
         self._set_indicator("robot", "pending")
@@ -704,7 +704,7 @@ class MastersIHM(tk.Tk):
     def _on_status_aborted_norm(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Point hors de portée du robot — Déplacer le point de contact.", YELLOW)
+        self._set_status("⚠️ Point hors de portée du robot. Déplacer le point de contact.", YELLOW)
 
     def _on_status_restarted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
@@ -723,19 +723,19 @@ class MastersIHM(tk.Tk):
                 continue
             scale.config(state="normal")
             entry.config(state="normal")
-        self._set_status("✅ Robot prêt — Mettre le casque puis appuyer PLAY.", GREEN)
+        self._set_status("✅ Robot prêt. Mettre le casque puis appuyer sur « Déplacer le robot ».", GREEN)
         self._do_confirm_forced()
         self._select_scenario(self.scenario_var.get())
 
     def _on_status_aborted_singularity(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Position en singularité — Déplacer le point de contact.", YELLOW)
+        self._set_status("⚠️ Position en singularité. Déplacer le point de contact.", YELLOW)
 
     def _on_status_aborted_shoulder(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Epaule trop à droite — Déplacer le point de contact.", YELLOW)
+        self._set_status("⚠️ Épaule trop à droite. Déplacer le point de contact.", YELLOW)
 
     # ══════════════════════════════════════════
     #  HELPERS
