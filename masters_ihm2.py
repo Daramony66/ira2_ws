@@ -532,18 +532,36 @@ class MastersIHM(tk.Tk):
             self._select_scenario("Touch")
 
     def _do_play(self):
+        self._btn_play.config(state="disabled", bg=GREY)
+        self._set_status("⏳ Envoi de la commande...", YELLOW)
+        self._play_ack_received = False
         cmd = 'ros2 service call /start_session std_srvs/srv/Trigger'
         def run():
             try:
-                subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+                result = subprocess.run(cmd, shell=True, capture_output=True, timeout=5)
+                success = (result.returncode == 0)
             except subprocess.TimeoutExpired:
-                pass
+                success = False
+            self.after(0, lambda: self._on_play_result(success))
         threading.Thread(target=run, daemon=True).start()
-        self.session_active = True
-        self._btn_play.config(state="disabled", bg=GREY)
-        self._set_indicator("unity", "on")
-        self._set_indicator("session", "on")
-        self._set_status(f"Poussée en cours (scénario : {self.scenario_var.get()}).", BTN_BLUE)
+
+    def _on_play_result(self, success):
+        if success:
+            self.session_active = True
+            self._set_indicator("unity", "pending")
+            self._set_indicator("session", "on")
+            self._set_status("⏳ En attente de confirmation Unity...", YELLOW)
+            self.after(3000, self._check_unity_ack)
+        else:
+            self._btn_play.config(state="normal", bg=BTN_BLUE)
+            self._set_status("⚠️ Échec de la commande. Vérifier la connexion Unity.", YELLOW)
+
+    def _check_unity_ack(self):
+        if not self._play_ack_received:
+            self._btn_play.config(state="normal", bg=BTN_BLUE)
+            self._set_indicator("unity", "off")
+            self._set_indicator("session", "off")
+            self._set_status("⚠️ Aucune réponse d'Unity. Vérifier la connexion.", YELLOW)
 
     def _do_stop(self):
         self._status_stop.set()
@@ -634,6 +652,7 @@ class MastersIHM(tk.Tk):
             if "data:" not in line:
                 continue
             data = line.split("data:")[-1].strip().strip("'\"")
+            self._play_ack_received = True
             if data == "ready":
                 self.session_active = False
                 self.after(0, self._on_status_ready)
