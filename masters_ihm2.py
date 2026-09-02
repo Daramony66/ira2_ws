@@ -17,12 +17,13 @@ BG          = "#eef2f7"   # fond bleu-gris très clair
 BG2         = "#ffffff"   # colonnes blanc
 BG3         = "#2e4057"   # header/footer bleu ardoise foncé
 ACCENT      = "#ffffff"   # titre des colonnes
-GREEN       = "#06d6a0"   # vert menthe pour statuts positifs
+GREEN       = "#2ecc71"   # vert menthe pour statuts positifs
 YELLOW      = "#ffd166"   # jaune doux pour avertissements
+STATUS_YELLOW = "#fd9e02"   # même orange que BTN_ORANGE, moins agressif que YELLOW
 WHITE       = "#ffffff"   # blanc pour texte sur fonds foncés
 GREY        = "#546e7a"   # gris bleuté plus foncé, lisible mais neutre
 BTN_RED     = "#ef476f"   # rose-rouge pour danger
-BTN_GREEN   = "#06d6a0"   # vert menthe pour démarrer
+BTN_GREEN   = "#2ecc71"   # vert vif mais moins "menthe", cohérent avec BTN_RED/BTN_BLUE
 BTN_BLUE    = "#118ab2"   # bleu pour PLAY
 BTN_ORANGE  = "#fd9e02"   # orange pour confirmer
 BTN_GREY    = "#6b7280"   # gris pour boutons neutres
@@ -249,7 +250,7 @@ class MastersIHM(tk.Tk):
         tk.Frame(col, bg=GREY, height=1).pack(fill="x", padx=self.s(20), pady=self.sv(14))
 
         self._btn_confirm = self._card_button(col, "✔  Confirmer les paramètres",
-                                              BTN_ORANGE, self.sf(13), self._do_confirm)
+                                              BTN_GREEN, self.sf(13), self._do_confirm)
         self._confirm_status = tk.Label(col, text="",
                                         font=("Helvetica", self.sf(10)),
                                         bg=BG2, fg="#2e4057", wraplength=self.s(500))
@@ -492,15 +493,15 @@ class MastersIHM(tk.Tk):
 
     def _do_start(self):
         if self.ros_running:
-            self._set_status("⚠️  Nœuds déjà lancés.", YELLOW)
+            self._set_status("⚠️  Nœuds déjà lancés.", STATUS_YELLOW)
             return
         self._status_stop.clear()
-        self._set_status("⏳ Lancement des nœuds ROS2...", YELLOW)
+        self._set_status("⏳ Lancement des nœuds ROS2...", STATUS_YELLOW)
         self._set_indicator("ros", "pending")
 
         def run():
             for label, cmd in zip(CMD_LABELS, CMDS):
-                self.after(0, lambda l=label: self._set_status(f"⏳ Lancement : {l}...", YELLOW))
+                self.after(0, lambda l=label: self._set_status(f"⏳ Lancement : {l}...", STATUS_YELLOW))
                 proc = subprocess.Popen(cmd, shell=True,
                                         stdout=subprocess.PIPE,
                                         stderr=subprocess.STDOUT,
@@ -518,7 +519,7 @@ class MastersIHM(tk.Tk):
 
     def _on_ros_started(self):
         self._set_indicator("ros", "on")
-        self._set_status("⏳ Robot en cours d'initialisation...", YELLOW)
+        self._set_status("⏳ Robot en cours d'initialisation...", STATUS_YELLOW)
         self._btn_play.config(state="disabled", bg=GREY)
 
         self._status_stop.clear()
@@ -533,7 +534,7 @@ class MastersIHM(tk.Tk):
 
     def _do_play(self):
         self._btn_play.config(state="disabled", bg=GREY)
-        self._set_status("⏳ Envoi de la commande...", YELLOW)
+        self._set_status("⏳ Envoi de la commande...", STATUS_YELLOW)
         self._play_ack_received = False
         cmd = 'ros2 service call /start_session std_srvs/srv/Trigger'
         def run():
@@ -550,18 +551,18 @@ class MastersIHM(tk.Tk):
             self.session_active = True
             self._set_indicator("unity", "pending")
             self._set_indicator("session", "on")
-            self._set_status("⏳ En attente de confirmation Unity...", YELLOW)
+            self._set_status("⏳ En attente de confirmation Unity...", STATUS_YELLOW)
             self.after(3000, self._check_unity_ack)
         else:
             self._btn_play.config(state="normal", bg=BTN_BLUE)
-            self._set_status("⚠️ Échec de la commande. Vérifier la connexion Unity.", YELLOW)
+            self._set_status("⚠️ Échec de la commande. Vérifier la connexion Unity.", STATUS_YELLOW)
 
     def _check_unity_ack(self):
         if not self._play_ack_received:
             self._btn_play.config(state="normal", bg=BTN_BLUE)
             self._set_indicator("unity", "off")
             self._set_indicator("session", "off")
-            self._set_status("⚠️ Aucune réponse d'Unity. Vérifier la connexion.", YELLOW)
+            self._set_status("⚠️ Aucune réponse d'Unity. Vérifier la connexion.", STATUS_YELLOW)
 
     def _do_stop(self):
         self._status_stop.set()
@@ -693,7 +694,7 @@ class MastersIHM(tk.Tk):
                 continue
             if "FORCE LIMIT" in line:
                 self.after(0, lambda: self._set_status(
-                    "⚠️ Force limite dépassée. Vérifier le robot puis appuyer sur « Déplacer le robot ».", YELLOW))
+                    "⚠️ Force limite dépassée. Vérifier le robot puis appuyer sur « Déplacer le robot ».", STATUS_YELLOW))
 
     def _on_status_ready(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
@@ -705,11 +706,11 @@ class MastersIHM(tk.Tk):
     def _on_status_aborted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Séquence interrompue. Corriger puis relancer « Déplacer le robot ».", YELLOW)
+        self._set_status("⚠️ Séquence interrompue. Corriger puis relancer « Déplacer le robot ».", STATUS_YELLOW)
 
     def _on_status_waiting(self):
         self._set_indicator("session", "pending")
-        self._set_status("⏳ Robot en pre_P1. En attente du signal start_move...", YELLOW)
+        self._set_status("⏳ Robot en pre_P1. En attente du signal start_move...", STATUS_YELLOW)
 
     def _on_status_error(self):
         self._set_indicator("session", "off")
@@ -718,12 +719,12 @@ class MastersIHM(tk.Tk):
 
     def _on_status_restarting(self):
         self._set_indicator("robot", "pending")
-        self._set_status("⏳ Robot en cours de reconnexion...", YELLOW)
+        self._set_status("⏳ Robot en cours de reconnexion...", STATUS_YELLOW)
 
     def _on_status_aborted_norm(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Point hors de portée du robot. Déplacer le point de contact.", YELLOW)
+        self._set_status("⚠️ Point hors de portée du robot. Déplacer le point de contact.", STATUS_YELLOW)
 
     def _on_status_restarted(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
@@ -749,12 +750,12 @@ class MastersIHM(tk.Tk):
     def _on_status_aborted_singularity(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Position en singularité. Déplacer le point de contact.", YELLOW)
+        self._set_status("⚠️ Position en singularité. Déplacer le point de contact.", STATUS_YELLOW)
 
     def _on_status_aborted_shoulder(self):
         self._btn_play.config(state="normal", bg=BTN_BLUE)
         self._set_indicator("session", "off")
-        self._set_status("⚠️ Épaule trop à droite. Déplacer le point de contact.", YELLOW)
+        self._set_status("⚠️ Épaule trop à droite. Déplacer le point de contact.", STATUS_YELLOW)
 
     # ══════════════════════════════════════════
     #  HELPERS
