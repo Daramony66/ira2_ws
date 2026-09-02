@@ -283,7 +283,7 @@ class MastersIHM(tk.Tk):
         play_row.pack(fill="x", padx=self.s(20), pady=self.sv(4))
 
         # Ajouté le 18/05
-        self._btn_play = tk.Button(play_row, text="🎮  PLAY",
+        self._btn_play = tk.Button(play_row, text="Déplacer le robot",
                                    font=("Helvetica", self.sf(16), "bold"),
                                    bg=GREY, fg=WHITE, relief="flat",
                                    activebackground=BTN_BLUE, cursor="hand2",
