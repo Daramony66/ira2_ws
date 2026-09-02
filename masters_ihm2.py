@@ -552,7 +552,7 @@ class MastersIHM(tk.Tk):
             self._set_indicator("unity", "pending")
             self._set_indicator("session", "on")
             self._set_status("⏳ En attente de confirmation Unity...", STATUS_YELLOW)
-            self.after(15000, self._check_unity_ack)
+            self.after(10000, self._check_unity_ack)
         else:
             self._btn_play.config(state="normal", bg=BTN_BLUE)
             self._set_status("⚠️ Échec de la commande. Vérifier la connexion Unity.", STATUS_YELLOW)
