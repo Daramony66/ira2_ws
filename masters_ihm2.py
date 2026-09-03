@@ -264,9 +264,9 @@ class MastersIHM(tk.Tk):
         self._col_title(col, "Contrôle")
 
         for i, txt in enumerate([
-            "① Lancer les nœuds ROS2.",
-            "② Mettre le casque VR.",
-            "③ Lancer la simulation.",
+            "① Démarrer les nœuds ROS2.",
+            "② Attendre que le participant soit prêt et en bonne position.",
+            "③ Appuyer sur « Déplacer le robot ».",
         ]):
             tk.Label(col, text=txt, font=("Helvetica", self.sf(11)),
                      bg=BG2, fg=GREY).pack(anchor="w", padx=self.s(20),
@@ -743,7 +743,7 @@ class MastersIHM(tk.Tk):
                 continue
             scale.config(state="normal")
             entry.config(state="normal")
-        self._set_status("✅ Robot prêt. Mettre le casque puis appuyer sur « Déplacer le robot ».", GREEN)
+        self._set_status("✅ Robot prêt. Appuyer sur « Déplacer le robot » quand le participant est prêt.", GREEN)
         self._do_confirm_forced()
         self._select_scenario(self.scenario_var.get())
 
